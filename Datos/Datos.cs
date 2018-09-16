@@ -6,18 +6,22 @@ using System.Data;
 using Contrato;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using NLog;
 
 namespace Datos
 {
     public partial class Datos
     {
+        private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");
+
         public string StringConnection = System.Configuration.ConfigurationManager.ConnectionStrings["CdelesteDBConnectionString"].ConnectionString;
-        //public string StringConnection = "Server=localhost;Database=cdeleste_DB;User ID=cdeleste_rpt ;Password=costa10";
+
+        #region Usuarios
         public Usuarios GetUsuario(string Usuario, string Password)
         {
+            Usuarios oUsuario = new Usuarios();
             try
             {
-                Usuarios oUsuario = new Usuarios();
                 MySqlConnection oConeccion = new MySqlConnection(StringConnection);
                 string query = "SELECT Apellido,Nombre, Usuario,Rol ,PASSWORD FROM Usuarios "
                 + " WHERE Usuario = '" + Usuario + "' AND PASSWORD = '" + Password + "'";
@@ -43,11 +47,12 @@ namespace Datos
             }
             catch (Exception ex)
             {
-              
+                _logger1.Error(ex, "Datos - Get Usuario");
             }
             //buscar en base
             return oUsuario;
         }
+        #endregion
     }
 
 }
