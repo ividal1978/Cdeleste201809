@@ -7,10 +7,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
        <script src="Scripts/jquery-3.0.0.min.js"></script>
         <script src="Scripts/bootstrap.min.js"></script>
+    
     <div class="container-fluid" style="background-color:cadetblue;">
-        <h1 class="align-content-lg-center">Default Context</h1>
+        <h1 class="align-content-lg-center"> </h1>
+        <hr style="color:darkolivegreen;" />
     </div>  
     <div >
+        <hr style="background-color:darkolivegreen; height:30px;" />
         HOLA BENJA
     </div>
 </asp:Content>
