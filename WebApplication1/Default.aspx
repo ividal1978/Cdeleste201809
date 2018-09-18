@@ -33,7 +33,7 @@
                    
                 </div>
                 <div class="col-sm-5">
-                    Carrousel
+                    Carrousell
                 </div>
                 <div class="col-sm-2">
                     FacebookCol
