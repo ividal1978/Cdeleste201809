@@ -73,6 +73,9 @@
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\Bosque.ico" />
     <Content Include="Imagenes\pino-animado-png-1.ico" />
+    <Content Include="Imagenes\Slider_Main\1.JPG" />
+    <Content Include="Imagenes\Slider_Main\2.JPG" />
+    <Content Include="Imagenes\Slider_Main\3.JPG" />
     <Content Include="NLog.config" />
     <Content Include="Cdeleste.Master" />
     <Content Include="Content\bootstrap.min.css.map" />
