@@ -100,8 +100,14 @@
                 </div>
             </div>
             <div class="row>">
-                    <div class="col-sm-4">
-                   
+                    <div class="col-sm-12">
+            <asp:DataList ID="dlNoticias" runat="server" RepeatDirection="Horizontal" >
+                <ItemTemplate>
+                   <asp:Image runat="server" ID="ImgNoticias" />
+                    <asp:Label ID="lbnoticia" runat="server"
+></asp:Label>                </ItemTemplate>
+
+            </asp:DataList>
                    
                 </div>
             </div>
