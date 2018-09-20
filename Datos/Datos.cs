@@ -53,6 +53,50 @@ namespace Datos
             return oUsuario;
         }
         #endregion
+
+        #region Noticias
+        public List<Noticias> GetNoticias(string Tipo, int Cantidad)
+        {
+            List<Noticias> oLista = new List<Noticias>( );
+            try
+            {
+                //Este proceso carga las noticias existentes
+                string connectionString = "Server=localhost;Database=cdeleste_DB;User ID=cdeleste_rpt ;Password=costa10";//Pooling=false";
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string query = "SELECT Fecha, Noticia, IDNoticia, Tipo, RutaImagen " +
+                "FROM Noticias  WHERE Tipo = '"+Tipo+"' ORDER BY Fecha DESC  LIMIT 0 , "+Cantidad.ToString()+"";
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Noticias");
+
+                foreach (DataRow oFila in myDS.Tables["Usuario"].Rows)
+                {
+                    Noticias oNoticia = new Noticias();
+                    oNoticia.IdNoticia = Convert.ToInt32(oFila[3].ToString());
+                    oNoticia.Fecha = Convert.ToDateTime(oFila[0].ToString());
+                    oNoticia.Noticia = oFila[1].ToString();
+                    oNoticia.Tipo = oFila[4].ToString();
+                    oNoticia.RutaImagen = oFila[5].ToString();
+
+                    oLista.Add(oNoticia);
+                }
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch(Exception ex)
+            {
+                _logger1.Error(ex, "Datos - GetNoticias");
+            }
+            return oLista;
+        }
+        #endregion
     }
 
 }

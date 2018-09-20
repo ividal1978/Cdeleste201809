@@ -43,6 +43,8 @@ namespace Contrato
             public int IdNoticia { get; set; }
             public DateTime Fecha { get; set; }
             public string Noticia { get; set; }
+            public string Tipo { get; set; }
+            public string  RutaImagen { get; set; }
         }
 
 

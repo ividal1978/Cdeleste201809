@@ -19,6 +19,13 @@ namespace Negocio
                 return oData.GetUsuario(Usuario, Password);
             }
 
+
+            #region Noticias
+            public List<Noticias> GetNoticias(string Tipo, int Cantidad)
+            {
+                return oData.GetNoticias(Tipo, Cantidad);
+            }
+            #endregion
         }
     }
 }
