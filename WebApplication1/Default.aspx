@@ -103,9 +103,8 @@
                     <div class="col-sm-12">
             <asp:DataList ID="dlNoticias" runat="server" RepeatDirection="Horizontal" >
                 <ItemTemplate>
-                   <asp:Image runat="server" ID="ImgNoticias" />
-                    <asp:Label ID="lbnoticia" runat="server"
-></asp:Label>                </ItemTemplate>
+                   <asp:Image runat="server" ID="ImgNoticias" Width="100px" Height="70px" /><br />
+                    <asp:Label ID="lbnoticia" runat="server" Text="Ejemplo"></asp:Label>                </ItemTemplate>
 
             </asp:DataList>
                    
