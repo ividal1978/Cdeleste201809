@@ -1,0 +1,5 @@
+2018/09/21 09:44:22.637|ERROR|Datos - GetNoticias Input string was not in a correct format.|Logger1|
+2018/09/21 09:47:10.666|ERROR|Datos - GetNoticias Keyword not supported.
+Parameter name: provider|Logger1|
+2018/09/21 09:50:12.434|ERROR|Datos - GetNoticias Keyword not supported.
+Parameter name: provider|Logger1|

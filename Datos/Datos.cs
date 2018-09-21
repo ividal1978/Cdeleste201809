@@ -14,8 +14,8 @@ namespace Datos
     {
         private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");
 
-        public string StringConnection = System.Configuration.ConfigurationManager.ConnectionStrings["CdelesteDBConnectionString"].ConnectionString;
-
+        // public string StringConnection = System.Configuration.ConfigurationManager.ConnectionStrings["CdelesteDBConnectionString"].ConnectionString;
+        public string StringConnection = "Server=localhost;Database=cdeleste_DB;User ID = cdeleste_rpt; Password=costa10; provider= MySql.Data.MySqlClient";
         #region Usuarios
         public Usuarios GetUsuario(string Usuario, string Password)
         {
@@ -61,7 +61,7 @@ namespace Datos
             try
             {
                 //Este proceso carga las noticias existentes
-                string connectionString = "Server=localhost;Database=cdeleste_DB;User ID=cdeleste_rpt ;Password=costa10";//Pooling=false";
+                string connectionString = StringConnection;//"Server=localhost;Database=cdeleste_DB;User ID=cdeleste_rpt ;Password=costa10;";//Pooling=false";
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "SELECT Fecha, Noticia, IDNoticia, Tipo, RutaImagen " +
@@ -76,7 +76,7 @@ namespace Datos
                 DataSet myDS = new DataSet();
                 myDA.Fill(myDS, "Noticias");
 
-                foreach (DataRow oFila in myDS.Tables["Usuario"].Rows)
+                foreach (DataRow oFila in myDS.Tables["Noticias"].Rows)
                 {
                     Noticias oNoticia = new Noticias();
                     oNoticia.IdNoticia = Convert.ToInt32(oFila[3].ToString());

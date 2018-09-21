@@ -7,8 +7,7 @@ using Datos;
 
 namespace Negocio
 {
-    public partial class Negocios
-    {
+   
         public partial class Negocio
         {
             // Instancia de la capa de datos
@@ -27,5 +26,5 @@ namespace Negocio
             }
             #endregion
         }
-    }
+  
 }

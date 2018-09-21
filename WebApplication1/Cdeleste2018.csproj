@@ -164,6 +164,16 @@
   <ItemGroup>
     <Folder Include="Imagenes\Fondos\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Contrato\Contrato.csproj">
+      <Project>{808976d3-9157-4b80-b2af-9e0ccc8b4c11}</Project>
+      <Name>Contrato</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{a8b0c30b-50b3-46ec-a1ce-10a496442f95}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

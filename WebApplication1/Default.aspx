@@ -103,6 +103,16 @@
                     <div class="col-sm-12">
             <asp:DataList ID="dlNoticias" runat="server" RepeatDirection="Horizontal" >
                 <ItemTemplate>
+                      <div class="row productList">  
+                        <div class="col-4">  
+                            <img alt="" width="100" src='<%#Eval("RutaImagen")%>' />  
+                        </div>  
+                        <div class="col-8">  
+                            <h5><%#Eval("Fecha")%></h5>  
+                            <h6><%#Eval("Noticia")%></h6>  
+                         
+                        </div>  
+                    </div>  
                    <asp:Image runat="server" ID="ImgNoticias" Width="100px" Height="70px" /><br />
                     <asp:Label ID="lbnoticia" runat="server" Text="Ejemplo"></asp:Label>                </ItemTemplate>
 
