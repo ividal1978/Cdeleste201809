@@ -28,7 +28,7 @@
         <hr style="background-color:darkgoldenrod; height:4px;" />
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-lg-4">
                     <h2 style="color:tan; font-family:'Trebuchet MS';   text-shadow: 2px 2px 5px black;">Bienvenido</h2> 
                     <div class="rcorners2" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:medium; background-color:burlywood;" >
                         <p >Seguimos renovado nuestro sitio web para poder seguir brindando mejores servicios a la las familias que que nos eligen año tras año. </p>
@@ -42,7 +42,7 @@
                    
                 </div>
                
-                <div class="col-sm-4">
+                <div class="col-lg-4">
                    <br />
                     <br /> 
                    <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col-lg-2">
                   <br />
                     <br />
                     <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FEleg%25C3%25AD-Costa-del-Este%2F146505772050939&amp;width=300&amp;height=200&amp;colorscheme=dark&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false" scrolling="no" frameborder="0" style="border-style: none; border-color: White; border-width:thin;" allowtransparency="true" class="rcorners1"></iframe><br>
@@ -99,10 +99,10 @@
                   <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" VerticalAlign="Top" />
                 <ItemTemplate>
                       <div class="row productList rcorners" style="background-image:url(Imagenes/Fondos/27.jpg); height:250px; " >  
-                        <div class="col-sm-4">  
+                        <div class="col-lg-4">  
                             <img alt="" width="50" src='<%#Eval("RutaImagen")%>' />  
                         </div>  
-                        <div class="col-sm-8">  
+                        <div class="col-lg-8">  
                             <h5 style="color:antiquewhite;  text-shadow: 2px 2px 5px black;"><%#Eval("Fecha","{0:dd/MM/yyyy}")%></h5>  
                             <h6  class="rcorners2" style=" color:saddlebrown; background-color:burlywood; text-align:center; text-size-adjust:auto; padding:10px; height:auto;"><%#Eval("Noticia")%></h6>  
                          

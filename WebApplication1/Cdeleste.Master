@@ -13,6 +13,11 @@
 </head>
 <body style="background-color:wheat; background-image:url(Imagenes/Fondos/22.jpg) ">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script type="text/javascript" language="javascript">
+        function callClick() {
+        $("#Button1").click();
+        }
+    </script>
           <div>
           <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color:burlywood;">
             <a class="navbar-brand" href="#"><i class="fas fa-tree" style="color:forestgreen;"></i> &nbsp;www.Cdeleste.com.ar</a>
@@ -75,7 +80,7 @@
                                     <input id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                                    <button type="submit" class="btn btn-success btn-block" onclick="callClick">Login</button>
                                 </div>
                               <%--  <div class="form-group text-center">
                                     <small><a href="#" data-toggle="modal" data-target="#modalPassword">Forgot password?</a></small>
