@@ -18,7 +18,7 @@ namespace WebApplication1
         protected void CargarNoticias()
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
-            dlNoticias.DataSource = oNegocio.GetNoticias("NOTI", 5);
+            dlNoticias.DataSource = oNegocio.GetNoticias("NOTI", 4);
             dlNoticias.DataBind();
         }
     }

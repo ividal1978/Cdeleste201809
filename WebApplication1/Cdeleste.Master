@@ -28,7 +28,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Hospedaje
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color:bisque;">
                             <a class="dropdown-item" href="#">La Casona - Planta Alta </a>
                             <a class="dropdown-item" href="#">La Casona - Planta Baja</a>
                             <a class="dropdown-item" href="#">La Casinta del Bosque</a>
@@ -48,7 +48,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Datos Utiles
                         </a>
-                        <div  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                        <div  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="background-color:bisque;">
                         <a class=" dropdown-item" href="#">Emergencias</a>
                         <a class="dropdown-item" href="#">Preguntas Frecuentes</a>
                         <a class="dropdown-item" href="#">Como Llegar</a>

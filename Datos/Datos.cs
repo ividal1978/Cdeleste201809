@@ -15,7 +15,7 @@ namespace Datos
         private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");
 
         // public string StringConnection = System.Configuration.ConfigurationManager.ConnectionStrings["CdelesteDBConnectionString"].ConnectionString;
-        public string StringConnection = "Server=localhost;Database=cdeleste_DB;User ID = cdeleste_rpt; Password=costa10; provider= MySql.Data.MySqlClient";
+        public string StringConnection = "Server=localhost;Database=cdeleste_DB;User ID = cdeleste_rpt; Password=costa10;";
         #region Usuarios
         public Usuarios GetUsuario(string Usuario, string Password)
         {
@@ -79,11 +79,11 @@ namespace Datos
                 foreach (DataRow oFila in myDS.Tables["Noticias"].Rows)
                 {
                     Noticias oNoticia = new Noticias();
-                    oNoticia.IdNoticia = Convert.ToInt32(oFila[3].ToString());
+                    oNoticia.IdNoticia = Convert.ToInt32(oFila[2].ToString());
                     oNoticia.Fecha = Convert.ToDateTime(oFila[0].ToString());
                     oNoticia.Noticia = oFila[1].ToString();
-                    oNoticia.Tipo = oFila[4].ToString();
-                    oNoticia.RutaImagen = oFila[5].ToString();
+                    oNoticia.Tipo = oFila[3].ToString();
+                    oNoticia.RutaImagen = oFila[4].ToString();
 
                     oLista.Add(oNoticia);
                 }

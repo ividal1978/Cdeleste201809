@@ -3,3 +3,5 @@
 Parameter name: provider|Logger1|
 2018/09/21 09:50:12.434|ERROR|Datos - GetNoticias Keyword not supported.
 Parameter name: provider|Logger1|
+2018/09/21 12:36:26.161|ERROR|Datos - GetNoticias Keyword not supported.
+Parameter name: provider|Logger1|
