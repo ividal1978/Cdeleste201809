@@ -76,6 +76,7 @@
     <Content Include="Imagenes\Slider_Main\1.JPG" />
     <Content Include="Imagenes\Slider_Main\2.JPG" />
     <Content Include="Imagenes\Slider_Main\3.JPG" />
+    <Content Include="Menu.aspx" />
     <Content Include="NLog.config" />
     <Content Include="Cdeleste.Master" />
     <Content Include="Content\bootstrap.min.css.map" />
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
