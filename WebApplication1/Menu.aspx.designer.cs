@@ -76,6 +76,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
+        /// LbError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbError;
+        
+        /// <summary>
         /// panelMenu control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,60 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Panel panelMenu;
         
         /// <summary>
+        /// lbTituloUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbTituloUsuario;
+        
+        /// <summary>
+        /// lbTitulo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbTitulo;
+        
+        /// <summary>
+        /// lbFecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbFecha;
+        
+        /// <summary>
+        /// btnPropiedades control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPropiedades;
+        
+        /// <summary>
+        /// btnConsultas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConsultas;
+        
+        /// <summary>
+        /// btnNoticias control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNoticias;
+        
+        /// <summary>
         /// btnInquilinos control.
         /// </summary>
         /// <remarks>
@@ -92,5 +155,23 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnInquilinos;
+        
+        /// <summary>
+        /// btnGaleria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGaleria;
+        
+        /// <summary>
+        /// btnReservas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReservas;
     }
 }

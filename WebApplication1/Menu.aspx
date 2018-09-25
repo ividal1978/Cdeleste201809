@@ -7,56 +7,87 @@
   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div class="container-fluid"> 
-       <div class="row">
-            <br />
 
-       Beinvenidos al la intranet
-      <div style="height: 382px; margin-top: 75px;">
-    <form id="menu" runat="server">
+       <br />
+       <div style="height: 382px; margin-top: 75px;">
+        <form id="menu" runat="server">
         <asp:Panel ID="panelLogin" runat ="server">
-            <table>
-                <tr>
-                    <td></td>
-                    <td><asp:Label ID="lbUsuario" runat="server" Text="Usuario: "></asp:Label></td>
-                    <td><asp:TextBox ID="tbUsuario" runat="server" ></asp:TextBox></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><asp:Label ID="lbPassword" runat="server"  Text="Password: "></asp:Label></td>
-                    <td><asp:TextBox ID="tbPassword" runat="server" TextMode="Password"></asp:TextBox></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                         <asp:Button ID="btnLogin" runat="server" Text="Login" />
-                    </td>
-                </tr>
-            </table>
-
+            <div class="container-fluid">
+                <div class="row" style="padding:5px;">
+                    <div class="col-2"> </div>
+                    <div class="col-6"  >
+                        <table style="padding:5px;">
+                            <tr >
+                                <td style="width:20%;"></td>
+                                <td><asp:Label ID="lbUsuario" CssClass="form-control-plaintext" runat="server"  ForeColor="Tan" Text="Usuario: "></asp:Label></td>
+                                <td><asp:TextBox  CssClass="form-control" ID="tbUsuario" runat="server"  Width="200px"></asp:TextBox></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%;"></td>
+                                <td><asp:Label ID="lbPassword" runat="server" CssClass="form-control-plaintext" ForeColor="Tan"  Text="Password: "></asp:Label></td>
+                                <td><asp:TextBox ID="tbPassword" runat="server"  CssClass="form-control" TextMode="Password" Width="200px"></asp:TextBox></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%;"></td>
+                                <td colspan="3">
+                                     <asp:Button ID="btnLogin" runat="server"  CssClass="btn btn-outline-warning" Text="Login" OnClick="btnLogin_Click" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%;"></td>
+                                <td colspan="3">
+                                   <asp:Label ID="LbError" runat="server" CssClass="text-danger" ></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-2"></div>
+               </div>
+            </div>
         </asp:Panel>
         <asp:Panel ID="panelMenu" runat="server">
-                <table>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+         <div class="container-fluid">
+           <div class="row" style="padding:5px;">
+                <div class="col-4">
+                    <asp:Label ID="lbTituloUsuario" runat="server" ForeColor="Tan" Font-Size="Large" Text="Usuario :"></asp:Label>
+                </div>
+                <div class="col-4">
+                     <asp:Label ID="lbTitulo" runat="server" ForeColor="Tan" Font-Size="Large" Text="Bienvenido al modulo de Administrador"></asp:Label>
+                </div>
+                  <div class="col-4">
+                 <asp:Label ID="lbFecha" runat="server" ForeColor="Tan" Font-Size="Large" Text="Fecha :"></asp:Label>
+                </div>
+            </div>
+            <div class="row" style="padding:5px;">
+                <div class="col-4">
+                    <asp:Button ID="btnPropiedades" runat="server" CssClass="btn btn-outline-warning" Text="Propiedades" />
+                </div>
+                <div class="col-4">
+                    <asp:Button ID="btnConsultas" runat="server" CssClass="btn btn-outline-warning" Text="Consultas" />
+                </div>
+                  <div class="col-4">
+                    <asp:Button ID="btnNoticias" runat="server" CssClass="btn btn-outline-warning" Text="Noticias" />
+                </div>
+            </div>
+             <div class="row" style="padding:5px;">
+                <div class="col-4">
+                    <asp:Button ID="btnInquilinos" runat="server" CssClass="btn btn-outline-warning" Text="Inquilinos" />
+                </div>
+                <div class="col-4">
+                    <asp:Button ID="btnGaleria" runat="server" CssClass="btn btn-outline-warning" Text="Galeria de Fotos" />
+                </div>
+                  <div class="col-4">
+                    <asp:Button ID="btnReservas" runat="server" CssClass="btn btn-outline-warning" Text="Reservas" />
+                </div>
+            </div>
+         </div>
         </asp:Panel>
-    <asp:Button ID="btnInquilinos" runat="server" Text="Inquilinos"  BackColor="White"/>
+   
         </form>
-    </div>
-  </div>
-   </div>
+       </div>
+
     
  
 </asp:Content>
