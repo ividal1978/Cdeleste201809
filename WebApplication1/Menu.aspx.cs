@@ -9,10 +9,8 @@ namespace WebApplication1
 {
     public partial class Menu : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            visualizar();
-        }
+        protected void Page_Load(object sender, EventArgs e) => Visualizar();
+       
 
         protected void Login()
         {
@@ -28,10 +26,10 @@ namespace WebApplication1
                     Session["usuario"] = Acceso.Usuario;
                     Session["fInicioUsuario"] = DateTime.Now;
 
-                    lbTituloUsuario.Text ="Usuario: "+ Acceso.Usuario;
-                    lbFecha.Text = "Fecha: " + DateTime.Now;
+                   // lbTituloUsuario.Text ="Usuario: "+ Acceso.Usuario;
+                   // lbFecha.Text = "Fecha: " + DateTime.Now;
                     LbError.Text = "";
-                    visualizar();
+                    Visualizar();
 
                 }
                 else
@@ -44,13 +42,16 @@ namespace WebApplication1
                 LbError.Text = "Debe completar los campos de usuario y password";
             }
         }
-        protected void visualizar()
+        protected void Visualizar()
         {
             
             if (Session["usuario"]!=null)
             {
                 panelMenu.Visible = true;
                 panelLogin.Visible = false;
+                lbTituloUsuario.Text = "Usuario: " + (Session["usuario"] != null? Session["usuario"].ToString():"");
+                lbFecha.Text += " " + DateTime.Now;
+
             }
             else
             {
@@ -62,6 +63,15 @@ namespace WebApplication1
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Login();
+        }
+
+        protected void btnNoticias_Click(object sender, EventArgs e) => Response.Redirect("Noticias_ABM.aspx");
+
+        protected void btnCerrarSession_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+            Session["fInicioUsuario"] = null;
+            Response.Redirect("Default.aspx");
         }
     }
 }

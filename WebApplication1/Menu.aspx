@@ -68,7 +68,7 @@
                     <asp:Button ID="btnConsultas" runat="server" CssClass="btn btn-outline-warning" Text="Consultas" />
                 </div>
                   <div class="col-4">
-                    <asp:Button ID="btnNoticias" runat="server" CssClass="btn btn-outline-warning" Text="Noticias" />
+                    <asp:Button ID="btnNoticias" runat="server" CssClass="btn btn-outline-warning" Text="Noticias" OnClick="btnNoticias_Click" />
                 </div>
             </div>
              <div class="row" style="padding:5px;">
@@ -83,6 +83,11 @@
                 </div>
             </div>
          </div>
+            <div class="row" style="padding:5px;">
+                <div class="col-12">
+                    <asp:Button ID="btnCerrarSession" runat="server" CssClass="btn btn-outline-danger" Text="Cerrar Session" OnClick="btnCerrarSession_Click" Width="100%" />
+/>                </div>
+            </div>
         </asp:Panel>
    
         </form>

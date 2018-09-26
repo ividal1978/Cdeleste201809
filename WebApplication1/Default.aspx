@@ -18,12 +18,11 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="container-fluid" ">
+    <div class="container-fluid" >
         <h1 class="align-content-lg-center"> </h1>
         <hr style="color:darkolivegreen;" />
     </div>  
     <br />
-    <div >
         <hr style="background-color:darkolivegreen; height:15px;" />
         <hr style="background-color:darkgoldenrod; height:4px;" />
         <div class="container-fluid">
@@ -94,8 +93,10 @@
                     <script type="text/javascript" src="https://www.tutiempo.net/s-widget/l_FhfALhtBYl4Nn8GK3fuFblp6j6lKT442rd1t1cC5q1j"></script>
                  </div>
                 </div>
-         
-              <asp:DataList ID="dlNoticias" runat="server" RepeatDirection="Horizontal"  SeparatorStyle-Width="50"  CellSpacing="50" CellPadding="10" >
+         </div>
+        </div>
+        <div class="container-fluid" style="padding-top:20px;">
+              <asp:DataList ID="dlNoticias" runat="server" RepeatDirection="Horizontal"   RepeatLayout="Table" >
                   <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" VerticalAlign="Top" />
                 <ItemTemplate>
                       <div class="row productList rcorners" style="background-image:url(Imagenes/Fondos/27.jpg); height:250px; " >  
@@ -115,5 +116,4 @@
                    
                 </div>
        
-    </div>
 </asp:Content>
