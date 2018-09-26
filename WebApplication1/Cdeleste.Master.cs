@@ -13,5 +13,18 @@ namespace WebApplication1
         {
  
         }
+        protected void Autenticar()
+        {
+
+            if (Session["usuario"] != null)
+            {
+                //lbUsuario.Text = "Usuario: " + (Session["usuario"] != null ? Session["usuario"].ToString() : "");
+                //lbFechaPagina.Text += " " + DateTime.Now;
+            }
+            else
+            {
+                //Response.Redirect("Menu.aspx");
+            }
+        }
     }
 }
