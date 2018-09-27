@@ -6,8 +6,11 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-<div class="container-fluid" style="margin-top:100px;">
+     <br />
+    <br />
+       <hr style="background-color:darkolivegreen; height:15px;" />
+        <hr style="background-color:darkgoldenrod; height:4px;" />
+<div class="container-fluid" style="margin-top:10px;">
     <div class="row">
         <div class="col-2">
             <asp:Label ID="lbFechaPagina" runat="server" Forecolor="Tan" Font-Size="Large" Text="Fecha:"></asp:Label>
@@ -19,13 +22,36 @@
             <asp:Label ID="lbUsuario" runat="server" ForeColor="Tan" Font-Size="Large" Text="Usuario:"></asp:Label>
         </div>
     </div>
+    <form id="Noticias" runat="server">
     <div class="row">
         <div class="col-lg-6">
-            Tabla de novedades
+          <asp:Label ID="lbTituloDescripcion" runat="server"  ForeColor="Tan" Text="Tipo de Noticias:" Font-Size="Large"></asp:Label>
+         <asp:DropDownList ID="ddlTipoNoticia" runat="server" CssClass="btn btn-warning dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="ddlTipoNoticia_SelectedIndexChanged">
+             <asp:ListItem Text="Noticia" Value="NOTI" Selected="True"></asp:ListItem>
+             <asp:ListItem Text="Portada" Value="PORT"></asp:ListItem>
+         </asp:DropDownList>
+        <br />
+        <br />
+        <div class="rcorners1">
+        <asp:DataGrid ID="dgNoticias" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None">
+            <Columns>
+                <asp:BoundColumn DataField="IdNoticia" HeaderText="Id"></asp:BoundColumn>
+                <asp:BoundColumn DataField="Fecha" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Fecha"></asp:BoundColumn>
+                <asp:BoundColumn DataField="Noticia" HeaderText="Noticia"></asp:BoundColumn>
+                <asp:BoundColumn DataField="RutaImagen" HeaderText="Imagen"></asp:BoundColumn>
+                <asp:EditCommandColumn CancelText="Cancelar" EditText="Editar" UpdateText="Guardar"></asp:EditCommandColumn>
+                
+                <asp:ButtonColumn CommandName="Delete" Text="Borrar"></asp:ButtonColumn>
+                
+            </Columns>
+
+        </asp:DataGrid>
+        </div>
         </div>
         <div class="col-lg-6">
             Propiedades de novedades
         </div>
     </div>
+    </form>
 </div>
 </asp:Content>

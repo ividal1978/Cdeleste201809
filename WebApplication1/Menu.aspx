@@ -7,9 +7,11 @@
   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+       <br /> 
        <br />
-       <div style="height: 382px; margin-top: 75px;">
+       <hr style="background-color:darkolivegreen; height:15px;" />
+        <hr style="background-color:darkgoldenrod; height:4px;" />
+       <div style=" margin-top: 10px;">
         <form id="menu" runat="server">
         <asp:Panel ID="panelLogin" runat ="server">
             <div class="container-fluid">
