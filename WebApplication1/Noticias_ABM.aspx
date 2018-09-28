@@ -49,7 +49,24 @@
         </div>
         </div>
         <div class="col-lg-6">
-            Propiedades de novedades
+            <br />
+            <br />
+            <br />
+            <table class="table">
+                <tr>
+                    <td><asp:Label ID="lbId" runat="server" ForeColor="Tan" Font-Size="Large"></asp:Label></td>
+                    <td><asp:Label ID="lbFecha" runat="server" ForeColor="Tan" Font-Size="Large"></asp:Label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lbNoticia" runat="server" ForeColor="Tan" Font-Size="Large" Text="Noticia:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="tbNoticia" runat="server" Height="200px" Width="400px" CssClass="rcorners0" TextMode="MultiLine"  ToolTip=" Las noticias no debe tener mas de 200 caracteres"></asp:TextBox>
+                            
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     </form>
