@@ -33,7 +33,7 @@
         <br />
         <br />
         <div class="rcorners1">
-        <asp:DataGrid ID="dgNoticias" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None">
+        <asp:DataGrid ID="dgNoticias" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None"  OnEditCommand="Carga1Noticia">
             <Columns>
                 <asp:BoundColumn DataField="IdNoticia" HeaderText="Id"></asp:BoundColumn>
                 <asp:BoundColumn DataField="Fecha" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Fecha"></asp:BoundColumn>
@@ -64,6 +64,24 @@
                     <td>
                         <asp:TextBox ID="tbNoticia" runat="server" Height="200px" Width="400px" CssClass="rcorners0" TextMode="MultiLine"  ToolTip=" Las noticias no debe tener mas de 200 caracteres"></asp:TextBox>
                             
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Image ID="img" runat="server" CssClass="rcorners0" Width="100px" Height="100px" />
+                    </td>
+                    <td>
+                            <p style="font-family:'Trebuchet MS'; color:tan; font-size:medium;"> Recomendiones: La imagen debe ser pequeña de 100 pixeles por 100 pixeles. y de extension .JPG  </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <asp:FileUpload ID="fupdate" runat="server" CssClass="rounded" BackColor="Tan"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" />
                     </td>
                 </tr>
             </table>

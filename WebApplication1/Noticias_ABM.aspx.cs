@@ -16,6 +16,7 @@ namespace WebApplication1
             if (!Page.IsPostBack)
             {
                 CargarNoticias();
+                img.ImageUrl = "\\Imagenes\\Noticias\\noimagen.png";
 
             }
 
@@ -52,6 +53,11 @@ namespace WebApplication1
         protected void ddlTipoNoticia_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarNoticias();
+        }
+
+        protected void Carga1Noticia(object sender, DataGridCommandEventArgs e)
+        {
+
         }
     }
 }
