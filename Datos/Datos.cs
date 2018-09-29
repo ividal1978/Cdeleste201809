@@ -139,6 +139,11 @@ namespace Datos
             return oLista;
         }
 
+        /// <summary>
+        /// Devuelve solo una noticia por id
+        /// </summary>
+        /// <param name="IdNoticia"></param>
+        /// <returns></returns>
         public Noticias GetNoticias_One(int IdNoticia)
         {
             List<Noticias> oLista = new List<Noticias>();
@@ -150,7 +155,7 @@ namespace Datos
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "SELECT Fecha, Noticia, IDNoticia, Tipo, RutaImagen " +
-                "FROM Noticias  WHERE IDNoticia = '" + IdNoticia.ToString() ;
+                "FROM Noticias  WHERE IDNoticia = " + IdNoticia.ToString() ;
 
                 conn.Open();
 

@@ -81,7 +81,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" />
+                        <asp:Button ID="btnNuevo" runat="server" CssClass="btn btn-outline-warning" Text="Nuevo" OnClick="btnNuevo_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="btnGuardar_Click" />
                     </td>
                 </tr>
             </table>
