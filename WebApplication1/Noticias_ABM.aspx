@@ -87,6 +87,10 @@
                         <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="btnGuardar_Click" />
                     </td>
                 </tr>
+
+               <tr>
+                   <td colspan="2"> <asp:Label ID="lbError" runat="server" CssClass="text-danger text-center"></asp:Label></td>
+               </tr>
             </table>
         </div>
     </div>

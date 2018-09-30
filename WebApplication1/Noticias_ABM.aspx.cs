@@ -5,11 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Contrato;
+using NLog;
 
 namespace WebApplication1
 {
+   
     public partial class Noticias_ABM : System.Web.UI.Page
     {
+        private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");
         protected void Page_Load(object sender, EventArgs e)
         {
             Autenticar();
@@ -88,17 +91,43 @@ namespace WebApplication1
             oNoticias.Tipo = ddlTipoNoticia.SelectedValue.ToString();
             if (fupdate.HasFile)
             {
-                //verifico la dimension de la imagen
-
-                //verifico el formato jpg o png
-
-                // guardo la imagen en imagenes/noticias
-
-                // subo el nombre del archivo al objeto
+                string Archivo = fupdate.FileName.ToString();
+                //verifico el formato jpg o png 
+                if (Archivo.Contains(".jpg") || Archivo.Contains(".png"))
+                {
+                    string extencion = (Archivo.Contains(".jpg") ? ".jpg" : ".png");
+                   //verifico la dimension de la imagen
+                   System.Drawing.Image viImagen = System.Drawing.Image.FromStream(fupdate.PostedFile.InputStream);
+                    if (viImagen.PhysicalDimension.Width < 200 && viImagen.PhysicalDimension.Height < 200)
+                    { // guardo la imagen en imagenes/noticias
+                        try
+                        {     // subo el nombre del archivo al objeto
+                            string nombrArchivo = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+                            fupdate.SaveAs("\\Imagenes\\Noticias\\" + nombrArchivo + extencion);
+                            oNoticias.RutaImagen = nombrArchivo + extencion;
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger1.Error(ex, " Carga Imangen Noticia");
+                        }
+                    }
+                    else
+                    {
+                        lbError.Text = "La imagen debe ser menor a 200px x 200px ";
+                    }
+                }
+                else
+                {
+                    lbError.Text = "Solo imagenes de extensio .jpg o .png";
+                }
+               
+               //Guardo la noticia
+           
             }
-            //envio a guardar
-
-           //limpio los contorles del formulario
+            //limpio los contorles del formulario
+            tbNoticia.Text = "";
+            //Cargo la grilla nuevamente
+            CargarNoticias();
         }
     }
 }
