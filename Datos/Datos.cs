@@ -194,7 +194,7 @@ namespace Datos
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "INSERT INTO Noticias (Fecha, Noticia, Tipo, RutaImagen) VALUES " +
-                "(now(),"+oNoticia.Noticia+","+oNoticia.Tipo+","+oNoticia.RutaImagen+")";
+                "(now(),"+oNoticia.Noticia.Trim()+","+oNoticia.Tipo+","+oNoticia.RutaImagen+")";
 
                 conn.Open();
 
@@ -217,7 +217,7 @@ namespace Datos
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "UPDATE Noticias SET "+
-                "Noticia =" +oNoticia.Noticia +","+
+                "Noticia =" +oNoticia.Noticia.Trim() +","+
                 "RutaImagen =" +oNoticia.RutaImagen +
                 "WHERE IDNoticia= " + oNoticia.IdNoticia.ToString() ;
 
