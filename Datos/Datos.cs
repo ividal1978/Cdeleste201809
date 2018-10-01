@@ -194,7 +194,7 @@ namespace Datos
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "INSERT INTO Noticias (Fecha, Noticia, Tipo, RutaImagen) VALUES " +
-                "(now(),"+oNoticia.Noticia.Trim()+","+oNoticia.Tipo+","+oNoticia.RutaImagen+")";
+                "(now(),'"+oNoticia.Noticia.Trim()+"','"+oNoticia.Tipo+"','"+oNoticia.RutaImagen+"')";
 
                 conn.Open();
 
@@ -217,8 +217,8 @@ namespace Datos
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "UPDATE Noticias SET "+
-                "Noticia =" +oNoticia.Noticia.Trim() +","+
-                "RutaImagen =" +oNoticia.RutaImagen +
+                "Noticia ='" +oNoticia.Noticia.Trim() +"',"+
+                "RutaImagen ='" +oNoticia.RutaImagen +"'"+
                 "WHERE IDNoticia= " + oNoticia.IdNoticia.ToString() ;
 
                 conn.Open();
@@ -234,6 +234,24 @@ namespace Datos
             }
         }
 
+        public void DeleteNoticia (int IdNoticia)
+        {
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection();
+                string query = "DELETE Noticias WHERE IdNoticia = " + IdNoticia.ToString();
+                conn.Open();
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Clone();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - DeleteNoticia");
+            }
+        }
         #endregion
     }
 

@@ -43,6 +43,9 @@ namespace Negocio
                 oData.InsertNoticia(oNoticia);
             }
         }
+
+        public void DeleteNoticia(int IdNoticia) => oData.DeleteNoticia(IdNoticia);
+        
         #endregion
 
     }

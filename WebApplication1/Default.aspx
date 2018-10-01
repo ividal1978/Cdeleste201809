@@ -99,9 +99,9 @@
               <asp:DataList ID="dlNoticias" runat="server" RepeatDirection="Horizontal"   RepeatLayout="Table" >
                   <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" VerticalAlign="Top" />
                 <ItemTemplate>
-                      <div class="row productList rcorners" style="background-image:url(Imagenes/Fondos/27.jpg); height:250px; " >  
-                        <div class="col-lg-4">  
-                            <img alt="" width="50" src='<%#Eval("RutaImagen")%>' />  
+                      <div class="row productList" style="background-image:url(Imagenes/Fondos/27.jpg); height:350px; " >  
+                        <div class="col-lg-4" style="padding-top:30px; padding-left:25px;">  
+                            <img class="rcorners0" width="175px" height="150px" alt="" src="/Imagenes/Noticias/<%#Eval("RutaImagen")%>"/>  
                         </div>  
                         <div class="col-lg-8">  
                             <h5 style="color:antiquewhite;  text-shadow: 2px 2px 5px black;"><%#Eval("Fecha","{0:dd/MM/yyyy}")%></h5>  

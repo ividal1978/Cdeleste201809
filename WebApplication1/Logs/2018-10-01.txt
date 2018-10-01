@@ -1,0 +1,4 @@
+2018/10/01 08:55:22.890|ERROR| Datos - Noticias - InsertNoticia You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'de Testeo, Vacia,RutaImagen =WHERE IDNoticia= 48' at line 1|Logger1|
+2018/10/01 09:08:38.469|ERROR| Carga Imangen Noticia Could not find a part of the path 'C:\Imagenes\Noticias\20181019823.JPG'.|Logger1|
+2018/10/01 09:42:54.810|ERROR| Datos - DeleteNoticia Access denied for user ''@'localhost' (using password: NO)|Logger1|
+2018/10/01 09:45:27.109|ERROR| Datos - DeleteNoticia Access denied for user ''@'localhost' (using password: NO)|Logger1|

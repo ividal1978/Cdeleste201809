@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -69,7 +70,17 @@ namespace WebApplication1
                 lbId.Text ="Id: "+ Query.IdNoticia.ToString();
                 lbFecha.Text ="Fecha :"+ Query.Fecha.ToString();
                 tbNoticia.Text = Query.Noticia;
-                img.ImageUrl = (Query.RutaImagen.Length > 0 ? "\\Imagenes\\Noticias\\" + Query.RutaImagen : "\\Imagenes\\Noticias\\noimagen.png");
+                if (Query.Tipo == "NOTI")
+                {
+                    img.Visible = true;
+                    fupdate.Visible = true;
+                    img.ImageUrl = (Query.RutaImagen.Length > 0 ? "\\Imagenes\\Noticias\\" + Query.RutaImagen : "\\Imagenes\\Noticias\\noimagen.png");
+                }
+                else
+                {
+                    fupdate.Visible = true;
+                    img.Visible = false;
+                }
             }
 
         }
@@ -93,17 +104,17 @@ namespace WebApplication1
             {
                 string Archivo = fupdate.FileName.ToString();
                 //verifico el formato jpg o png 
-                if (Archivo.Contains(".jpg") || Archivo.Contains(".png"))
+                if (Archivo.ToUpper().Contains(".JPG") || Archivo.ToUpper().Contains(".PNG"))
                 {
-                    string extencion = (Archivo.Contains(".jpg") ? ".jpg" : ".png");
+                    string extencion = (Archivo.ToUpper().Contains(".JPG") ? ".JPG" : ".PNG");
                    //verifico la dimension de la imagen
                    System.Drawing.Image viImagen = System.Drawing.Image.FromStream(fupdate.PostedFile.InputStream);
-                    if (viImagen.PhysicalDimension.Width < 200 && viImagen.PhysicalDimension.Height < 200)
+                    if (viImagen.PhysicalDimension.Width <= 200 && viImagen.PhysicalDimension.Height <= 200)
                     { // guardo la imagen en imagenes/noticias
                         try
                         {     // subo el nombre del archivo al objeto
                             string nombrArchivo = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                            fupdate.SaveAs("\\Imagenes\\Noticias\\" + nombrArchivo + extencion);
+                            fupdate.SaveAs(Server.MapPath("~\\Imagenes\\Noticias\\" + nombrArchivo + extencion));
                             oNoticias.RutaImagen = nombrArchivo + extencion;
                         }
                         catch (Exception ex)
@@ -119,14 +130,28 @@ namespace WebApplication1
                 else
                 {
                     lbError.Text = "Solo imagenes de extensio .jpg o .png";
-                }
-               
-               //Guardo la noticia
-           
+                }     
             }
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            oNegocio.SaveNoticia(oNoticias);
             //limpio los contorles del formulario
             tbNoticia.Text = "";
             //Cargo la grilla nuevamente
+            CargarNoticias();
+        }
+        
+        
+        protected void dgNoticias_PageIndexChanged(object source, DataGridPageChangedEventArgs e)
+        {
+            dgNoticias.CurrentPageIndex = e.NewPageIndex;
+            CargarNoticias();
+        }
+
+        protected void dgNoticias_DeleteCommand(object source, DataGridCommandEventArgs e)
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            int Id = Convert.ToInt32(dgNoticias.Items[e.Item.ItemIndex].Cells[0].Text);
+            oNegocio.DeleteNoticia(Id);
             CargarNoticias();
         }
     }
