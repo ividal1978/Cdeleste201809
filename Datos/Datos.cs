@@ -151,7 +151,7 @@ namespace Datos
             try
             {
                 //Este proceso carga las noticias existentes
-                string connectionString = StringConnection;//"Server=localhost;Database=cdeleste_DB;User ID=cdeleste_rpt ;Password=costa10;";//Pooling=false";
+                string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "SELECT Fecha, Noticia, IDNoticia, Tipo, RutaImagen " +
@@ -186,22 +186,54 @@ namespace Datos
             return oNoticia; ;
         }
 
-
-        /// <summary>
-        /// Guarda o modifica un registro de noticia
-        /// </summary>
-        /// <param name="oNoticia"></param>
-        public void SaveNoticia(Noticias oNoticia)
+        public void InsertNoticia(Noticias oNoticia)
         {
-            if (oNoticia.IdNoticia > 0)
+            try
             {
-                //Noticia Update
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string query = "INSERT INTO Noticias (Fecha, Noticia, Tipo, RutaImagen) VALUES " +
+                "(now(),"+oNoticia.Noticia+","+oNoticia.Tipo+","+oNoticia.RutaImagen+")";
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
             }
-            else
+            catch (Exception ex)
             {
-                //Noticias Save
+                _logger1.Error(ex, " Datos - Noticias - InsertNoticia");
             }
         }
+
+        public void UpdateNoticia(Noticias oNoticia)
+        {
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string query = "UPDATE Noticias SET "+
+                "Noticia =" +oNoticia.Noticia +","+
+                "RutaImagen =" +oNoticia.RutaImagen +
+                "WHERE IDNoticia= " + oNoticia.IdNoticia.ToString() ;
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Noticias - InsertNoticia");
+            }
+        }
+
         #endregion
     }
 

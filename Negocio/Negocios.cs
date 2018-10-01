@@ -26,6 +26,23 @@ namespace Negocio
             return oData.GetNoticias_One(IdNoticia);
 
         }
+        /// <summary>
+        /// Guarda o modifica un registro de noticia
+        /// </summary>
+        /// <param name="oNoticia"></param>
+        public void SaveNoticia(Noticias oNoticia)
+        {
+            if (oNoticia.IdNoticia > 0)
+            {
+                //Noticia Update
+                oData.UpdateNoticia(oNoticia);
+            }
+            else
+            {
+                //Noticias Save
+                oData.InsertNoticia(oNoticia);
+            }
+        }
         #endregion
 
     }
