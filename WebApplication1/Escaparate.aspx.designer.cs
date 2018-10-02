@@ -10,24 +10,15 @@
 namespace WebApplication1 {
     
     
-    public partial class Default {
+    public partial class Escaparate {
         
         /// <summary>
-        /// lbPortada control.
+        /// LbPropiedad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPortada;
-        
-        /// <summary>
-        /// dlNoticias control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlNoticias;
+        protected global::System.Web.UI.WebControls.Label LbPropiedad;
     }
 }

@@ -30,12 +30,7 @@
                 <div class="col-lg-4">
                     <h2 style="color:tan; font-family:'Trebuchet MS';   text-shadow: 2px 2px 5px black;">Bienvenido</h2> 
                     <div class="rcorners2" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:medium; background-color:burlywood;" >
-                        <p >Seguimos renovado nuestro sitio web para poder seguir brindando mejores servicios a la las familias que que nos eligen año tras año. </p>
-
-                        <p> Ya que contamos con mas de 20 años en Costa del Este, brindando excelentes vacaciones para Usted y su familia.
-                            En un lugar donde pueda descansar y disfrutar del bosque, la playa y el mar durante todo el año. </p>
-
-                        <p>Un lugar para disfrutar de la frescura del mar y la tranquilidad del bosque. La playa del millón de pinos lo invita a pasar una de las estadías mas placenteras que la naturaleza le puede brindar. </p>
+                       <asp:Label ID="lbPortada" runat="server" ></asp:Label>
 
                     </div>
                    
@@ -100,8 +95,8 @@
                   <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" VerticalAlign="Top" />
                 <ItemTemplate>
                       <div class="row productList" style="background-image:url(Imagenes/Fondos/27.jpg); height:350px; " >  
-                        <div class="col-lg-4" style="padding-top:30px; padding-left:25px;">  
-                            <img class="rcorners0" width="175px" height="150px" alt="" src="/Imagenes/Noticias/<%#Eval("RutaImagen")%>"/>  
+                        <div class="col-lg-4" style="padding-top:30px; padding-left:35px;">  
+                            <img class="rcorners0" width="150px" height="125px" alt="" src="/Imagenes/Noticias/<%#Eval("RutaImagen")%>"/>  
                         </div>  
                         <div class="col-lg-8">  
                             <h5 style="color:antiquewhite;  text-shadow: 2px 2px 5px black;"><%#Eval("Fecha","{0:dd/MM/yyyy}")%></h5>  

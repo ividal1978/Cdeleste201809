@@ -38,11 +38,13 @@
                         Hospedaje
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color:bisque;">
-                            <a class="dropdown-item" href="#">La Casona - Planta Alta </a>
-                            <a class="dropdown-item" href="#">La Casona - Planta Baja</a>
-                            <a class="dropdown-item" href="#">La Casinta del Bosque</a>
-                            <a class="dropdown-item" href="#">Duplex Violetas</a>
-                            <a class="dropdown-item" href="#">Duplex Girasoles</a>
+                            <a class="dropdown-item" href="../Escaparate.aspx?Id=5">La Casona - Planta Alta </a>
+                            <a class="dropdown-item" href="../Escaparate.aspx?Id=1">La Casona - Planta Baja - 1ro</a>
+                            <a class="dropdown-item" href="../Escaparate.aspx?Id=2">La Casona - Planta Baja - 2do</a>
+                            <a class="dropdown-item" href="../Escaparate.aspx&Id=3">La Casona - Planta Baja - 3ro</a>
+                            <a class="dropdown-item" href="../Escaparate.aspx&Id=6">La Casinta del Bosque</a>
+                            <a class="dropdown-item" href="../Escaparate.aspx&Id=8">Duplex Violetas</a>
+                            <a class="dropdown-item" href="../Escaparate.aspx&Id=7">Duplex Girasoles</a>
                             <a class="dropdown-item" href="#">Disponibilidad</a>
                             <a class="dropdown-item" href="#">Cosultas</a>
                         </div>
