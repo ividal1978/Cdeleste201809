@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="Scripts/gallery-grid.css">
 
     <form id="Propiedades" runat="server">
-        <div style="padding-top:35px;">
-         <br />
+        <div style="padding-top:05px;">
+         
         <hr style="background-color:darkolivegreen; height:15px; " />
         <hr style="background-color:darkgoldenrod; height:4px;" />
         <asp:Label ID="LbPropiedad" runat="server" CssClass="Titulo" Font-Size="X-Large" Text="Propiedad"></asp:Label>
