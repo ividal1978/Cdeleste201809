@@ -26,8 +26,18 @@
                      </div>
                 </div>
                 <div class="col-lg-5">
-                    <asp:GridView ID="gvCaracterisitcas" runat="server" class="table table-hover">
-                    
+                    <asp:GridView ID="gvCaracterisitcas" runat="server" class="table table-hover" AutoGenerateColumns="False" EnableModelValidation="True">
+                        <Columns>
+                            <asp:TemplateField>
+                                
+                                <ItemTemplate>
+                                    <i class="far fa-check-circle"></i>
+                                </ItemTemplate>
+                                
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="Descripcion" />
+                        </Columns>
+                     
                     </asp:GridView>
                 </div>
                 <div class="col-lg-3">

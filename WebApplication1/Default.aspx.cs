@@ -33,7 +33,7 @@ namespace WebApplication1
             else
             {
                 lbPortada.Text = " <p> Seguimos renovado nuestro sitio web para poder seguir brindando mejores servicios a la las familias que que nos eligen año tras año. </p>" +
-                                 " <p> Ya que contamos con mas de 20 años en Costa del Este, brindando excelentes vacaciones para Usted y su familia." +
+                                 " <p> Ya que contamos con mas de 35 años en Costa del Este, brindando excelentes vacaciones para Usted y su familia." +
                                  " En un lugar donde pueda descansar y disfrutar del bosque, la playa y el mar durante todo el año. </p>" +
                                  " <p> Un lugar para disfrutar de la frescura del mar y la tranquilidad del bosque.La playa del millón de pinos lo invita a pasar una de las estadías mas placenteras que la naturaleza le puede brindar. </p> ";
             }

@@ -189,6 +189,14 @@
   <ItemGroup>
     <Folder Include="Imagenes\Fondos\" />
     <Folder Include="Imagenes\Noticias\" />
+    <Folder Include="Imagenes\Propiedades\1\" />
+    <Folder Include="Imagenes\Propiedades\2\" />
+    <Folder Include="Imagenes\Propiedades\3\" />
+    <Folder Include="Imagenes\Propiedades\4\" />
+    <Folder Include="Imagenes\Propiedades\5\" />
+    <Folder Include="Imagenes\Propiedades\6\" />
+    <Folder Include="Imagenes\Propiedades\7\" />
+    <Folder Include="Imagenes\Propiedades\8\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Contrato\Contrato.csproj">
