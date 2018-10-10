@@ -253,6 +253,52 @@ namespace Datos
             }
         }
         #endregion
+
+        #region Propiedades
+
+        public Propiedades Get_Propiedad(int IdPropiedad)
+        {
+            List<Propiedades> oPropiedades = new List<Propiedades>();
+
+
+            try
+            {
+                //Este proceso carga las noticias existentes
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string query = "SELECT Fecha, Noticia, IDNoticia, Tipo, RutaImagen " +
+                "FROM Noticias  WHERE IDNoticia = " + IdPropiedad.ToString();
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Noticias");
+
+                foreach (DataRow oFila in myDS.Tables["Noticias"].Rows)
+                {
+
+                    oNoticia.IdNoticia = Convert.ToInt32(oFila[2].ToString());
+                    oNoticia.Fecha = Convert.ToDateTime(oFila[0].ToString());
+                    oNoticia.Noticia = oFila[1].ToString();
+                    oNoticia.Tipo = oFila[3].ToString();
+                    oNoticia.RutaImagen = oFila[4].ToString();
+
+                }
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, "Datos - GetNoticia_One");
+            }
+            return oPropiedades.FirstOrDefault();
+        }
+        #endregion
     }
 
 }
