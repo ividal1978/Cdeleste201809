@@ -12,8 +12,9 @@ namespace Negocio
     {
         // Instancia de la capa de datos
         public Datos.Datos oData = new Datos.Datos();
-
+        #region Usuarios
         public Usuarios GetUsuario(string Usuario, string Password) => oData.GetUsuario(Usuario, Password);
+        #endregion
 
         #region Noticias
         public List<Noticias> GetNoticias(string Tipo, int Cantidad) => oData.GetNoticias(Tipo, Cantidad);
@@ -45,6 +46,11 @@ namespace Negocio
         }
 
         public void DeleteNoticia(int IdNoticia) => oData.DeleteNoticia(IdNoticia);
+
+        #endregion
+
+        #region Propiedades
+        public Propiedades Get_Propiedad(int IdPropiedad) => oData.Get_Propiedad(IdPropiedad);
         
         #endregion
 
