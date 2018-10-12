@@ -31,6 +31,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label LbPropiedad;
         
         /// <summary>
+        /// LbDireccion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbDireccion;
+        
+        /// <summary>
         /// lbDescripcion control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label lbDescripcion;
         
         /// <summary>
-        /// gvCaracterisitcas control.
+        /// rptDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCaracterisitcas;
+        protected global::System.Web.UI.WebControls.Repeater rptDescripcion;
         
         /// <summary>
         /// btmDisponibilidad control.

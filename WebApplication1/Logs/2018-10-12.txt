@@ -1,0 +1,2 @@
+2018/10/12 11:21:06.129|ERROR|Datos - Get_Propiedades_Confort You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by IdConfort' at line 1|Logger1|
+2018/10/12 11:21:15.452|ERROR|Datos - Get_Propiedades_Confort You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by IdConfort' at line 1|Logger1|

@@ -294,11 +294,52 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, "Datos - GetNoticia_One");
+                _logger1.Error(ex, "Datos - Get_Propiedad");
             }
             return oPropiedades;
+        }
+
+        public List<Prop_Confort>Get_Propiedades_Confort(int IdPropiedad)
+        {
+            List<Prop_Confort> oLista = new List<Prop_Confort>();
+            try
+            {
+                //Este proceso carga las noticias existentes
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string query = " SELECT IDPropiedad,IDConfort,Descripcion FROM prop_confort Where IDPropiedad = " + IdPropiedad.ToString() +
+                " order by IDConfort";
+        
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Confort");
+
+                foreach (DataRow oFila in myDS.Tables["Confort"].Rows)
+                {
+                    Prop_Confort oConfort = new Prop_Confort();
+                    oConfort.IdPropiedad = Convert.ToInt32(oFila[0].ToString());
+                    oConfort.IdConfort = Convert.ToInt32(oFila[1].ToString());
+                    oConfort.Descripcion = oFila[2].ToString();
+                    oLista.Add(oConfort);
+
+                }
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, "Datos - Get_Propiedades_Confort");
+            }
+            return oLista;
         }
         #endregion
     }
 
 }
+

@@ -16,29 +16,34 @@
          
         <hr style="background-color:darkolivegreen; height:15px; " />
         <hr style="background-color:darkgoldenrod; height:4px;" />
-        <asp:Label ID="LbPropiedad" runat="server" CssClass="Titulo" Font-Size="X-Large" Text="Propiedad"></asp:Label>
+        <asp:Label ID="LbPropiedad" runat="server" CssClass="Titulo" Font-Size="XX-Large" Text="Propiedad"></asp:Label>
+            <br />
         </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
-                      <div class="rcorners2" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:medium; background-color:burlywood;" >
+                    <div class="rcorners1" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:large; background-color:burlywood;" >
+                        &nbsp;&nbsp;<asp:Label ID="LbDireccion" runat="server" ></asp:Label>
+                    </div>
+                    <div >
+                       <asp:Image runat="server" CssClass="rcorners2 rounded-4"  ImageUrl="~/Imagenes/Slider_Main/1.JPG"  Width="400px"/>
+                    </div>
+                      <<div class="rcorners2" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:large; background-color:burlywood;" >
                            <asp:Label ID="lbDescripcion" runat="server" ></asp:Label>
                      </div>
                 </div>
                 <div class="col-lg-5">
-                    <asp:GridView ID="gvCaracterisitcas" runat="server" class="table table-hover" AutoGenerateColumns="False" EnableModelValidation="True">
-                        <Columns>
-                            <asp:TemplateField>
-                                
-                                <ItemTemplate>
-                                    <i class="far fa-check-circle"></i>
-                                </ItemTemplate>
-                                
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="Descripcion" />
-                        </Columns>
-                     
-                    </asp:GridView>
+                    <div class="table table-hover rcorners2" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:large; background-color:burlywood;">
+                        <asp:Repeater ID="rptDescripcion" runat="server" >
+                            <ItemTemplate >
+                                <i class="far fa-check-circle"></i> 
+                                <asp:Label ID="lblSubject" style="padding:2px; " runat="server" Font-Size="Large" CssClass="table-hover" Text='<%#Eval("Descripcion") %>' />
+                                <br /> <br />
+                         
+                            </ItemTemplate>
+                        </asp:Repeater>
+
+                    </div>
                 </div>
                 <div class="col-lg-3">
                     <asp:Button ID="btmDisponibilidad" runat="server" CssClass="btn btn-outline-warning" Text="Disponibilidad" />
