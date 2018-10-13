@@ -22,11 +22,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="rcorners1" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:large; background-color:burlywood;" >
+                    <div class="rcorners1" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:large; background-color:burlywood;  text-align:center; align-items:center;" >
                         &nbsp;&nbsp;<asp:Label ID="LbDireccion" runat="server" ></asp:Label>
                     </div>
                     <div >
-                       <asp:Image runat="server" CssClass="rcorners2 rounded-4"  ImageUrl="~/Imagenes/Slider_Main/1.JPG"  Width="400px"/>
+                       <asp:Image  ID="ImgReferencia" runat="server" CssClass="rcorners2 rounded-4"  ImageUrl="~/Imagenes/Slider_Main/1.JPG"  Width="90%"/>
                     </div>
                       <<div class="rcorners2" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:large; background-color:burlywood;" >
                            <asp:Label ID="lbDescripcion" runat="server" ></asp:Label>
@@ -60,48 +60,57 @@
 
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../imagenes/Ejemplo/park.jpg">
-                        <img src="../imagenes/Ejemplo/park.jpg" alt="Park">
+                    <a class="lightbox"  ID="Link1" runat="server" href="../imagenes/Ejemplo/park.jpg">
+                      <%--  <img src="../imagenes/Ejemplo/park.jpg" alt="Park">--%>
+                        <asp:Image ID="Img1" runat="server" />
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../imagenes/Ejemplo/bridge.jpg">
-                        <img src="../imagenes/Ejemplo/bridge.jpg" alt="Bridge">
+                    <a class="lightbox"  ID="Link2" runat="server" href="../imagenes/Ejemplo/bridge.jpg">
+                       <%-- <img src="../imagenes/Ejemplo/bridge.jpg" alt="Bridge">--%>
+                        <asp:Image ID="Img2" runat="server" />
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-4">
-                    <a class="lightbox" href="../imagenes/Ejemplo/tunnel.jpg">
-                        <img src="../imagenes/Ejemplo/tunnel.jpg" alt="Tunnel">
+                    <a class="lightbox" Id="Link3" runat="server" href="../imagenes/Ejemplo/tunnel.jpg">
+                        <asp:Image ID="Img3" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/tunnel.jpg" alt="Tunnel">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../imagenes/Ejemplo/coast.jpg">
-                        <img src="../imagenes/Ejemplo/coast.jpg" alt="Coast">
+                    <a class="lightbox" Id="Link4" runat="server" href="../imagenes/Ejemplo/coast.jpg">
+                        <asp:Image ID="Img4" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/coast.jpg" alt="Coast">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../imagenes/Ejemplo/rails.jpg">
-                        <img src="../imagenes/Ejemplo/rails.jpg" alt="Rails">
+                    <a class="lightbox" Id="Link5" runat="server" href="../imagenes/Ejemplo/rails.jpg">
+                        <%--<img src="../imagenes/Ejemplo/rails.jpg" alt="Rails">--%>
+                        <asp:Image ID="Img5" runat="server" />
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../imagenes/Ejemplo/traffic.jpg">
-                        <img src="../imagenes/Ejemplo/traffic.jpg" alt="Traffic">
+                    <a class="lightbox" Id="Link6"  runat="server" href="../imagenes/Ejemplo/traffic.jpg">
+                        <asp:Image ID="Img6" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/traffic.jpg" alt="Traffic">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../imagenes/Ejemplo/rocks.jpg">
-                        <img src="../imagenes/Ejemplo/rocks.jpg" alt="Rocks">
+                    <a class="lightbox" id="Link7" runat="server" href="../imagenes/Ejemplo/rocks.jpg">
+                        <asp:Image ID="Img7" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/rocks.jpg" alt="Rocks">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../imagenes/Ejemplo/benches.jpg">
-                        <img src="../imagenes/Ejemplo/benches.jpg" alt="Benches">
+                    <a class="lightbox" Id="Link8" runat="server"  href ="../imagenes/Ejemplo/benches.jpg">
+                        <asp:Image ID="Img8" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/benches.jpg" alt="Benches">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../imagenes/Ejemplo/sky.jpg">
-                        <img src="../imagenes/Ejemplo/sky.jpg" alt="Sky">
+                    <a class="lightbox" id="Link9"  runat="server" href="../imagenes/Ejemplo/sky.jpg">
+                        <asp:Image ID="Img9" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/sky.jpg" alt="Sky">--%>
                     </a>
                 </div>
             </div>

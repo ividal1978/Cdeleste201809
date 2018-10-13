@@ -18,6 +18,7 @@ namespace WebApplication1
                 int Id = Convert.ToInt32(Request.QueryString["Id"].ToString());
                 CargaPropiedad(Id);
                 CargaCaracterisitecas(Id);
+                CargaImagenes(Id);
             }
             else
             {
@@ -40,6 +41,30 @@ namespace WebApplication1
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             rptDescripcion.DataSource= oNegocio.Get_Propiedades_Confort(IdPropiedad);
             rptDescripcion.DataBind();
+        }
+
+        private void CargaImagenes(int IdPropiedad)
+        {   //Cargo imagen de Referencia
+            ImgReferencia.ImageUrl = "~/Imagenes/Propiedades/"+IdPropiedad.ToString()+"/Intro.JPG";
+            //Cargo la galeria de imgenes
+            Img1.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/1.JPG";
+            Link1.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/1.JPG";
+            Img2.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/2.JPG";
+            Link2.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/2.JPG";
+            Img3.ImageUrl= "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/3.JPG";
+            Link3.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/3.JPG";
+            Img4.ImageUrl= "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/4.JPG";
+            Link4.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/4.JPG";
+            Img5.ImageUrl= "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/5.JPG";
+            Link5.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/5.JPG";
+            Img6.ImageUrl= "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/6.JPG";
+            Link6.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/6.JPG";
+            Img7.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/7.JPG";
+            Link7.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/7.JPG";
+            Img8.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/8.JPG";
+            Link8.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/8.JPG";
+            Img9.ImageUrl="~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/9.JPG";
+            Link9.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/9.JPG";
         }
     }
 }
