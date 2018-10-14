@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using Contrato;
 
 
@@ -19,6 +14,7 @@ namespace WebApplication1
                 CargaPropiedad(Id);
                 CargaCaracterisitecas(Id);
                 CargaImagenes(Id);
+                hdnPropiedadId.Value = Id.ToString();
             }
             else
             {
@@ -66,5 +62,11 @@ namespace WebApplication1
             Img9.ImageUrl="~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/9.JPG";
             Link9.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/9.JPG";
         }
+
+        protected void BtnFaqs_Click(object sender, EventArgs e) => Response.Redirect("PregutasFrecuentes.aspx?IdPropiedad=" + hdnPropiedadId.Value);
+        
+
+        protected void btmDisponibilidad_Click(object sender, EventArgs e) => Response.Redirect("Disponibilidad.aspx?IdPropiedad=" + hdnPropiedadId.Value);
+        
     }
 }

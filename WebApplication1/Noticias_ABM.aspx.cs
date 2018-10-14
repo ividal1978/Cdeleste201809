@@ -1,8 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Contrato;
@@ -10,7 +6,7 @@ using NLog;
 
 namespace WebApplication1
 {
-   
+
     public partial class Noticias_ABM : System.Web.UI.Page
     {
         private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");

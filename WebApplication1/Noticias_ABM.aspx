@@ -39,9 +39,9 @@
                 <asp:BoundColumn DataField="Fecha" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Fecha"></asp:BoundColumn>
                 <asp:BoundColumn DataField="Noticia" HeaderText="Noticia"></asp:BoundColumn>
                 <asp:BoundColumn DataField="RutaImagen" HeaderText="Imagen"></asp:BoundColumn>
-                <asp:EditCommandColumn CancelText="Cancelar" EditText="Editar" UpdateText="Guardar"></asp:EditCommandColumn>
+                <asp:EditCommandColumn CancelText="Cancelar" EditText="Editar" UpdateText="Guardar" ItemStyle-ForeColor="Brown"></asp:EditCommandColumn>
                 
-                <asp:ButtonColumn CommandName="Delete" Text="Borrar"></asp:ButtonColumn>
+                <asp:ButtonColumn CommandName="Delete" Text="Borrar" ItemStyle-ForeColor="Brown"></asp:ButtonColumn>
                 
             </Columns>
 
