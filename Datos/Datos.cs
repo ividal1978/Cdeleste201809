@@ -338,6 +338,50 @@ namespace Datos
             }
             return oLista;
         }
+
+        public List<Propiedades> Get_Propiedades_All()
+        {
+            List<Propiedades> oPropiedades = new List<Propiedades>();
+
+
+            try
+            {
+                //Este proceso carga las noticias existentes
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string query = "SELECT IDPropiedad,Nombre, Plazas, Direccion,Intro " +
+                "FROM propiedades ";
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Propiedad");
+
+                foreach (DataRow oFila in myDS.Tables["Propiedad"].Rows)
+                {
+                    Propiedades oPropiedad = new Propiedades();
+                    oPropiedad.IdPropiedades = Convert.ToInt32(oFila[0].ToString());
+                    oPropiedad.Nombre = oFila[1].ToString();
+                    oPropiedad.Plazas = Convert.ToInt32(oFila[2].ToString());
+                    oPropiedad.Direccion = oFila[3].ToString();
+                    oPropiedad.Intro = oFila[4].ToString();
+
+                    oPropiedades.Add(oPropiedad);
+                }
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, "Datos - Get_Propiedad_ALL");
+            }
+            return oPropiedades;
+        }
         #endregion
     }
 

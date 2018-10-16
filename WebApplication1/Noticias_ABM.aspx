@@ -33,15 +33,15 @@
         <br />
         <br />
         <div class="rcorners1">
-        <asp:DataGrid ID="dgNoticias" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None"  OnEditCommand="Carga1Noticia" OnPageIndexChanged="dgNoticias_PageIndexChanged" OnDeleteCommand="dgNoticias_DeleteCommand">
+        <asp:DataGrid ID="dgNoticias" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None"  OnEditCommand="Carga1Noticia" OnPageIndexChanged="dgNoticias_PageIndexChanged" OnDeleteCommand="dgNoticias_DeleteCommand" AlternatingItemStyle-BackColor="#996633" AlternatingItemStyle-ForeColor="White">
             <Columns>
                 <asp:BoundColumn DataField="IdNoticia" HeaderText="Id"></asp:BoundColumn>
                 <asp:BoundColumn DataField="Fecha" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Fecha"></asp:BoundColumn>
                 <asp:BoundColumn DataField="Noticia" HeaderText="Noticia"></asp:BoundColumn>
                 <asp:BoundColumn DataField="RutaImagen" HeaderText="Imagen"></asp:BoundColumn>
-                <asp:EditCommandColumn CancelText="Cancelar" EditText="Editar" UpdateText="Guardar" ItemStyle-ForeColor="Brown"></asp:EditCommandColumn>
+                <asp:EditCommandColumn CancelText="Cancelar" EditText="Editar" UpdateText="Guardar" ></asp:EditCommandColumn>
                 
-                <asp:ButtonColumn CommandName="Delete" Text="Borrar" ItemStyle-ForeColor="Brown"></asp:ButtonColumn>
+                <asp:ButtonColumn CommandName="Delete" Text="Borrar" ></asp:ButtonColumn>
                 
             </Columns>
 

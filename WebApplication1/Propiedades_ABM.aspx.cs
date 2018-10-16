@@ -11,7 +11,37 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Autenticar();
+            if (!Page.IsPostBack)
+            {
+                CargarPropiedades();
+              
 
+            }
+        }
+
+        /// <summary>
+        /// Verifica si tengo usuario logueado sino lo envia al menu para loguearse
+        /// </summary>
+        protected void Autenticar()
+        {
+
+            if (Session["usuario"] != null)
+            {
+                lbUsuario.Text = "Usuario: " + (Session["usuario"] != null ? Session["usuario"].ToString() : "");
+                lbFechaPagina.Text = "Fecha: " + DateTime.Now;
+            }
+            else
+            {
+                Response.Redirect("Menu.aspx");
+            }
+        }
+
+        protected void CargarPropiedades()
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            gvPropiedades.DataSource = oNegocio.Get_Propiedades_All();
+            gvPropiedades.DataBind();
         }
     }
 }

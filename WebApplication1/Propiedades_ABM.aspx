@@ -13,12 +13,63 @@
         <hr style="background-color:darkgoldenrod; height:4px;" />
         </div>
         <div class="container-fluid">
+            <div class="row">
+        <div class="col-2">
+            <asp:Label ID="lbFechaPagina" runat="server" Forecolor="Tan" Font-Size="Large" Text="Fecha:"></asp:Label>
+        </div>
+        <div class="col-8" style="text-align:center;">
+            <asp:Label ID="lbTituloPagina" runat="server" ForeColor="Tan" Font-Size="X-Large" Text="Modulo de Propiedades"></asp:Label>
+        </div>
+        <div class="col-2">
+            <asp:Label ID="lbUsuario" runat="server" ForeColor="Tan" Font-Size="Large" Text="Usuario:"></asp:Label>
+        </div>
+    </div>
             <form id="Propiedadesfrom" runat="server">
             <div class="row">
-                <div class="col-6-lg">
-                    <asp:GridView ID="gvPropiedades" runat="server" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None" ></asp:GridView>
+                <div class="col-lg-6">
+                    <asp:GridView ID="gvPropiedades" runat="server" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None" EnableModelValidation="True" >
+                        <AlternatingRowStyle BackColor="#996633" ForeColor="White" />
+                        <Columns>
+                            <asp:BoundField  DataField="IdPropiedades" HeaderText="Id"/>
+                            <asp:BoundField  DataField="Nombre" HeaderText="Propiedad"/>
+                            <asp:BoundField  DataField="Plazas" HeaderText="Pax"/>
+                            <asp:BoundField  DataField="Direccion" HeaderText="Direccion"/>
+                            <asp:CommandField ShowEditButton="True" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
-                <div class="col-6-lg"></div>
+                <div class="col-lg-6" >
+                    <table class="table" style="color:blanchedalmond;margin-top:0px; border-top:0px;">
+                        <tr>
+                            <td ><asp:Label ID="IdTitulo" runat="server" Text="IdPropiedad : " ></asp:Label></td>
+                            <td><asp:Label ID="Id" runat="server"></asp:Label></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><asp:Label ID="LbPropiedad" runat="server"  Text="Propiedad:"></asp:Label></td>
+                            <td><asp:TextBox ID="TbPropiedad" runat="server" CssClass="rcorners0" Width="98%"></asp:TextBox></td>
+                            <td><asp:Label ID="lbPax" runat="server" Text="Pax: "></asp:Label></td>
+                            <td><asp:TextBox Id="TbPax" runat="server" CssClass="rcorners0" Width="50px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td><asp:Label ID="LbDireccion" runat="server" Text="Direccion: "></asp:Label></td>
+                            <td colspan="3"><asp:TextBox ID="TbDireccion" runat="server"  CssClass="rcorners0" Width="98%"></asp:TextBox></td>
+                           
+                        </tr>
+                         <tr>
+                            <td><asp:Label ID="lbIntro" runat="server" Text="Introduccion: "></asp:Label></td>
+                            <td colspan="3"><asp:TextBox ID="TbIntro" runat="server"  Width="98%" TextMode="MultiLine" MaxLength="299"  CssClass="rcorners0" Height="200px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" /></td>
+                            <td><asp:Button ID="btnConfort" runat="server" CssClass="btn btn-outline-warning" Text="Confort" /></td>
+                            <td><asp:Button ID="btnImagenes" runat="server" CssClass="btn btn-outline-warning" Text="Imagenes" /></td>
+                        </tr>
+                    </table>
+
+                </div>
             </div>
             </form>
         </div>

@@ -54,6 +54,9 @@ namespace Negocio
 
         public List<Prop_Confort> Get_Propiedades_Confort(int IdPropiedad) => oData.Get_Propiedades_Confort(IdPropiedad);
 
-        }
-    #endregion
+        public List<Propiedades> Get_Propiedades_All() => oData.Get_Propiedades_All();
+
+        #endregion
+    }
+
 }
