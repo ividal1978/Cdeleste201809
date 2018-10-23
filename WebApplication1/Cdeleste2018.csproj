@@ -80,7 +80,7 @@
     <Content Include="Imagenes\Slider_Main\3.JPG" />
     <Content Include="Menu.aspx" />
     <Content Include="NLog.config" />
-    <Content Include="Cdeleste.Master" />
+    <Content Include="Imagenes\Cdeleste.Master" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
@@ -145,11 +145,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cdeleste.Master.cs">
+    <Compile Include="Imagenes\Cdeleste.Master.cs">
       <DependentUpon>Cdeleste.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cdeleste.Master.designer.cs">
+    <Compile Include="Imagenes\Cdeleste.Master.designer.cs">
       <DependentUpon>Cdeleste.Master</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">

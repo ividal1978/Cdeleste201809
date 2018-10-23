@@ -14,20 +14,20 @@
         </div>
         <div class="container-fluid">
             <div class="row">
-        <div class="col-2">
-            <asp:Label ID="lbFechaPagina" runat="server" Forecolor="Tan" Font-Size="Large" Text="Fecha:"></asp:Label>
-        </div>
-        <div class="col-8" style="text-align:center;">
-            <asp:Label ID="lbTituloPagina" runat="server" ForeColor="Tan" Font-Size="X-Large" Text="Modulo de Propiedades"></asp:Label>
-        </div>
-        <div class="col-2">
-            <asp:Label ID="lbUsuario" runat="server" ForeColor="Tan" Font-Size="Large" Text="Usuario:"></asp:Label>
-        </div>
-    </div>
+                <div class="col-2">
+                    <asp:Label ID="lbFechaPagina" runat="server" Forecolor="Tan" Font-Size="Large" Text="Fecha:"></asp:Label>
+                </div>
+                <div class="col-8" style="text-align:center;">
+                    <asp:Label ID="lbTituloPagina" runat="server" ForeColor="Tan" Font-Size="X-Large" Text="Modulo de Propiedades"></asp:Label>
+                </div>
+                <div class="col-2">
+                    <asp:Label ID="lbUsuario" runat="server" ForeColor="Tan" Font-Size="Large" Text="Usuario:"></asp:Label>
+                </div>
+           </div>
             <form id="Propiedadesfrom" runat="server">
             <div class="row">
                 <div class="col-lg-6">
-                    <asp:GridView ID="gvPropiedades" runat="server" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None" EnableModelValidation="True" >
+                    <asp:GridView ID="gvPropiedades" runat="server" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None" EnableModelValidation="True" OnRowEditing="gvPropiedades_RowEditing" >
                         <AlternatingRowStyle BackColor="#996633" ForeColor="White" />
                         <Columns>
                             <asp:BoundField  DataField="IdPropiedades" HeaderText="Id"/>
@@ -39,10 +39,10 @@
                     </asp:GridView>
                 </div>
                 <div class="col-lg-6" >
-                    <table class="table" style="color:blanchedalmond;margin-top:0px; border-top:0px;">
+                    <table class="table table-borderless" style="color:blanchedalmond;margin-top:0px; border-top:0px;">
                         <tr>
                             <td ><asp:Label ID="IdTitulo" runat="server" Text="IdPropiedad : " ></asp:Label></td>
-                            <td><asp:Label ID="Id" runat="server"></asp:Label></td>
+                            <td><asp:Label ID="lbId" runat="server"></asp:Label></td>
                             <td></td>
                             <td></td>
                         </tr>
@@ -64,12 +64,22 @@
                         <tr>
                             <td></td>
                             <td><asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" /></td>
-                            <td><asp:Button ID="btnConfort" runat="server" CssClass="btn btn-outline-warning" Text="Confort" /></td>
-                            <td><asp:Button ID="btnImagenes" runat="server" CssClass="btn btn-outline-warning" Text="Imagenes" /></td>
+                            <td><input type="button" value="Confort" onClick="document.getElementById('Confort').scrollIntoView();"  class="btn btn-outline-warning" title="Confort" ></td>
+                            <td><input type="button" value="Imagenes" onClick="document.getElementById('Imagenes').scrollIntoView();"  class="btn btn-outline-warning" title="Imagnes" ></td>
                         </tr>
                     </table>
 
                 </div>
+            </div>
+            <div Id="Confort" class="row">
+                <div class="col-lg-6">
+                    <asp:GridView runat="server" Id="GvConfort" CssClass="table table-hover table-borderless"></asp:GridView>
+                </div>
+                <div class="col-lg-6"></div>
+            </div>
+            <div id="Imagenes" class="row">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
             </div>
             </form>
         </div>

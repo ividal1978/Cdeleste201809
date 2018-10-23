@@ -67,13 +67,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label IdTitulo;
         
         /// <summary>
-        /// Id control.
+        /// lbId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Id;
+        protected global::System.Web.UI.WebControls.Label lbId;
         
         /// <summary>
         /// LbPropiedad control.
@@ -157,21 +157,12 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
-        /// btnConfort control.
+        /// GvConfort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConfort;
-        
-        /// <summary>
-        /// btnImagenes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnImagenes;
+        protected global::System.Web.UI.WebControls.GridView GvConfort;
     }
 }
