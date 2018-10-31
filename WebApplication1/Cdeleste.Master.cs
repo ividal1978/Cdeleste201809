@@ -23,7 +23,7 @@ namespace WebApplication1
             }
             else
             {
-                //Response.Redirect("Menu.aspx");
+                Response.Redirect("Menu.aspx");
             }
         }
     }

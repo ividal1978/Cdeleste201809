@@ -46,10 +46,10 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <asp:Button ID="btmDisponibilidad" runat="server" CssClass="btn btn-outline-warning" Text="Disponibilidad" OnClick="btmDisponibilidad_Click" />
+                    <asp:Button ID="btmDisponibilidad" runat="server" CssClass="btn btn-outline-warning" Text="Disponibilidad" />
                     <br />
                     <br />
-                    <asp:Button ID="BtnFaqs" runat="server" CssClass="btn btn-outline-warning" Text="Preguntas Frecuentes" OnClick="BtnFaqs_Click" />
+                    <asp:Button ID="BtnFaqs" runat="server" CssClass="btn btn-outline-warning" Text="Preguntas Frecuentes" />
                     <br />
                     <br />
                     <input type="button" value="Galeria de Fotos" onClick="document.getElementById('Galeria').scrollIntoView();"  class="btn btn-outline-warning" title="Galeria" >
@@ -61,47 +61,56 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4">
                     <a class="lightbox"  ID="Link1" runat="server" href="../imagenes/Ejemplo/park.jpg">
+                      <%--  <img src="../imagenes/Ejemplo/park.jpg" alt="Park">--%>
                         <asp:Image ID="Img1" runat="server" />
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <a class="lightbox"  ID="Link2" runat="server" href="../imagenes/Ejemplo/bridge.jpg">
+                       <%-- <img src="../imagenes/Ejemplo/bridge.jpg" alt="Bridge">--%>
                         <asp:Image ID="Img2" runat="server" />
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <a class="lightbox" Id="Link3" runat="server" href="../imagenes/Ejemplo/tunnel.jpg">
                         <asp:Image ID="Img3" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/tunnel.jpg" alt="Tunnel">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <a class="lightbox" Id="Link4" runat="server" href="../imagenes/Ejemplo/coast.jpg">
                         <asp:Image ID="Img4" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/coast.jpg" alt="Coast">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <a class="lightbox" Id="Link5" runat="server" href="../imagenes/Ejemplo/rails.jpg">
+                        <%--<img src="../imagenes/Ejemplo/rails.jpg" alt="Rails">--%>
                         <asp:Image ID="Img5" runat="server" />
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <a class="lightbox" Id="Link6"  runat="server" href="../imagenes/Ejemplo/traffic.jpg">
                         <asp:Image ID="Img6" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/traffic.jpg" alt="Traffic">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <a class="lightbox" id="Link7" runat="server" href="../imagenes/Ejemplo/rocks.jpg">
                         <asp:Image ID="Img7" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/rocks.jpg" alt="Rocks">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <a class="lightbox" Id="Link8" runat="server"  href ="../imagenes/Ejemplo/benches.jpg">
                         <asp:Image ID="Img8" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/benches.jpg" alt="Benches">--%>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <a class="lightbox" id="Link9"  runat="server" href="../imagenes/Ejemplo/sky.jpg">
                         <asp:Image ID="Img9" runat="server" />
+                        <%--<img src="../imagenes/Ejemplo/sky.jpg" alt="Sky">--%>
                     </a>
                 </div>
             </div>
@@ -109,7 +118,6 @@
         </div>
 
     </div>
-            <asp:HiddenField ID="hdnPropiedadId" runat="server" />
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 <script>

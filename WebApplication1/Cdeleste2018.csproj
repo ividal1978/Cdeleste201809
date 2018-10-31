@@ -80,15 +80,14 @@
     <Content Include="Imagenes\Slider_Main\3.JPG" />
     <Content Include="Menu.aspx" />
     <Content Include="NLog.config" />
-    <Content Include="Imagenes\Cdeleste.Master" />
+    <Content Include="Cdeleste.Master" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Cdeleste.Master" />
-    <None Include="packages.config" />
+        <None Include="packages.config" />
     <Content Include="Noticias_ABM.aspx" />
     <Content Include="Propiedades_ABM.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -153,14 +152,7 @@
     <Compile Include="Cdeleste.Master.designer.cs">
       <DependentUpon>Cdeleste.Master</DependentUpon>
     </Compile>
-    <Compile Include="Imagenes\Cdeleste.Master.cs">
-      <DependentUpon>Cdeleste.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Imagenes\Cdeleste.Master.designer.cs">
-      <DependentUpon>Cdeleste.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
+     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

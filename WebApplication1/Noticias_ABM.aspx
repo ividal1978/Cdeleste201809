@@ -42,6 +42,11 @@
                 <asp:EditCommandColumn CancelText="Cancelar" EditText="Editar" UpdateText="Guardar" ></asp:EditCommandColumn>
                 
                 <asp:ButtonColumn CommandName="Delete" Text="Borrar" ></asp:ButtonColumn>
+
+                <asp:EditCommandColumn CancelText="Cancelar" EditText="Editar" UpdateText="Guardar"></asp:EditCommandColumn>
+                
+                <asp:ButtonColumn CommandName="Delete" Text="Borrar"></asp:ButtonColumn>
+
                 
             </Columns>
 
