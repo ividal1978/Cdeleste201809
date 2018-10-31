@@ -73,7 +73,14 @@
             </div>
             <div Id="Confort" class="row">
                 <div class="col-lg-6">
-                    <asp:GridView runat="server" Id="GvConfort" CssClass="table table-hover table-borderless"></asp:GridView>
+                    <asp:GridView runat="server" Id="GvConfort"  CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" AutoGenerateColumns="False" EnableModelValidation="True">
+                        <Columns>
+                            <asp:BoundField DataField="IdConfort" HeaderText="Id" />
+                            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                            <asp:CommandField ShowEditButton="True" />
+                            <asp:CommandField ShowDeleteButton="True" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
                 <div class="col-lg-6"></div>
             </div>

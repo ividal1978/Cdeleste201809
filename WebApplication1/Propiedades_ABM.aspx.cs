@@ -56,6 +56,15 @@ namespace WebApplication1
             TbDireccion.Text = oProp.Direccion;
             TbIntro.Text = oProp.Intro;
 
+            CargaConfort(Id);
+        }
+
+
+        protected void CargaConfort(int IdPropiedad)
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            GvConfort.DataSource = oNegocio.Get_Propiedades_Confort(IdPropiedad);
+            GvConfort.DataBind();
         }
     }
 }
