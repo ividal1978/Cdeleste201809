@@ -382,8 +382,51 @@ namespace Datos
             }
             return oPropiedades;
         }
+
+        public Prop_Confort Get_Propiedades_ConfortxID(int IdConfort)
+        {
+            Prop_Confort oConfort = new Prop_Confort();
+
+            try
+            {
+                //Este proceso carga las noticias existentes
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string query = " SELECT IDPropiedad, IDConfort, Descripcion from prop_confort Where IDConfort =" + IdConfort.ToString();
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Confort");
+            
+                foreach (DataRow oFila in myDS.Tables["Confort"].Rows)
+                {
+                   
+                    oConfort.IdPropiedad = Convert.ToInt32(oFila[0].ToString());
+                    oConfort.IdConfort = Convert.ToInt32(oFila[1].ToString());
+                    oConfort.Descripcion = oFila[2].ToString();
+                }
+
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, "Datos - Get_Propiedades_ConfortxID");
+            }
+
+            return oConfort;
+        }
+
         #endregion
     }
 
+
+   
 }
 

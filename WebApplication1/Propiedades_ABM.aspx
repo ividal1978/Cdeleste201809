@@ -73,7 +73,7 @@
             </div>
             <div Id="Confort" class="row">
                 <div class="col-lg-6">
-                    <asp:GridView runat="server" Id="GvConfort"  CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" AutoGenerateColumns="False" EnableModelValidation="True">
+                    <asp:GridView runat="server" Id="GvConfort"  CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" AutoGenerateColumns="False" EnableModelValidation="True" OnRowEditing="GvConfort_RowEditing">
                         <Columns>
                             <asp:BoundField DataField="IdConfort" HeaderText="Id" />
                             <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
@@ -82,7 +82,22 @@
                         </Columns>
                     </asp:GridView>
                 </div>
-                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+                    <table>
+                        <tr>
+                            <td><asp:Label ID="LbIDConfortTexto" runat="server"  ForeColor="Tan" Text="ID:"></asp:Label></td>
+                            <td><asp:Label ID="LbIdConfort" runat="server" ForeColor="Tan"></asp:Label></td>
+                        </tr>
+                        <tr>
+                            <td><asp:Label ID="LbDescConfortText" runat="server" ForeColor="Tan" Text="Descripción:"></asp:Label></td>
+                            <td><asp:TextBox ID="TbDescripcionConfort" runat="server" CssClass="rcorners0" ></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td style="align-items:center; text-align:center;"><asp:Button ID="BntGuardarConfort" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" /></td>
+                            <td style="align-items:center; text-align:center;"><asp:Button ID="BtnNuevoConfort" runat="server" CssClass="btn btn-outline-warning" Text="Nuevo" OnClick="BtnNuevoConfort_Click" /></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div id="Imagenes" class="row">
                 <div class="col-lg-6"></div>

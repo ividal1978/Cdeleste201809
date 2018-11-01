@@ -66,5 +66,23 @@ namespace WebApplication1
             GvConfort.DataSource = oNegocio.Get_Propiedades_Confort(IdPropiedad);
             GvConfort.DataBind();
         }
+
+        protected void BtnNuevoConfort_Click(object sender, EventArgs e)
+        {
+            LbIDConfortTexto.Text = "-1";
+            TbDescripcionConfort.Text = "";
+        }
+
+        protected void GvConfort_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+
+            int Id = Convert.ToInt32(GvConfort.Rows[e.NewEditIndex].Cells[0].Text);
+            var oConf = oNegocio.Get_Propiedades_ConfortxID(Id);
+            LbIdConfort.Text = Id.ToString();
+            TbDescripcionConfort.Text = oConf.Descripcion;
+                    
+            
+        }
     }
 }
