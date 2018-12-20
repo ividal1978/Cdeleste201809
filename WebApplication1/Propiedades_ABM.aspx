@@ -96,7 +96,7 @@
                         </tr>
                         <tr>
                             <td><asp:Button ID="BntGuardarConfort" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="BntGuardarConfort_Click" /></td>
-                            <td style="text-align:right;"><asp:Button ID="BtnNuevoConfort" runat="server" CssClass="btn btn-outline-warning" Text="Nuevo" OnClick="BtnNuevoConfort_Click" /></td>
+                            <td style="text-align:right;"><asp:Button ID="BtnNuevoConfort" runat="server" CssClass="btn btn-outline-warning" Text="Nuevo" OnClick="BtnNuevoConfort_Click"  ToolTip="Para Grabar el nuevo item de Confort Presione GUARDAR"/></td>
                         </tr>
                     </table>
                 </div>
