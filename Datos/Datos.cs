@@ -423,6 +423,39 @@ namespace Datos
             return oConfort;
         }
 
+        public void Save_Propiedades_Confort(Prop_Confort oConfort)
+        {
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                if (oConfort.IdConfort > 0)
+                {//update
+
+                    Query = "UPDATE prop_confort SET " +
+                    " Descripcion = " + oConfort.Descripcion.Trim() +
+                    " WHERE IDPropiedad =" + oConfort.IdPropiedad + " AND " +
+                    " IdConfort = " + oConfort.IdConfort.ToString();
+                }
+                else
+                {//Insert
+                    Query = "Insert into prop_confort (IDPropiedad,Descripcion) Values " +
+                        "(" + oConfort.IdPropiedad + "," + oConfort.Descripcion + ")";
+                }
+                
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Propiedades - Save Confort");
+            }
+        }
         #endregion
     }
 

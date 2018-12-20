@@ -157,6 +157,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
+        /// DivConfort control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivConfort;
+        
+        /// <summary>
         /// GvConfort control.
         /// </summary>
         /// <remarks>
@@ -218,5 +227,14 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnNuevoConfort;
+        
+        /// <summary>
+        /// DivImagenes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivImagenes;
     }
 }

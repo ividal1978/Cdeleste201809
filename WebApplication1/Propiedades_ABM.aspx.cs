@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using Contrato;
 using System.Web.UI.WebControls;
 
 namespace WebApplication1
@@ -15,6 +16,8 @@ namespace WebApplication1
             if (!Page.IsPostBack)
             {
                 CargarPropiedades();
+                DivConfort.Visible = false;
+                DivImagenes.Visible = false;
 
 
             }
@@ -55,13 +58,14 @@ namespace WebApplication1
             TbPropiedad.Text = oProp.Nombre;
             TbDireccion.Text = oProp.Direccion;
             TbIntro.Text = oProp.Intro;
-
             CargaConfort(Id);
         }
 
 
         protected void CargaConfort(int IdPropiedad)
         {
+            DivConfort.Visible = true;
+            DivImagenes.Visible = true;
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             GvConfort.DataSource = oNegocio.Get_Propiedades_Confort(IdPropiedad);
             GvConfort.DataBind();
@@ -83,6 +87,17 @@ namespace WebApplication1
             TbDescripcionConfort.Text = oConf.Descripcion;
                     
             
+        }
+
+        protected void BntGuardarConfort_Click(object sender, EventArgs e)
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            Prop_Confort oConfort = new Prop_Confort();
+            oConfort.IdPropiedad = Convert.ToInt32(lbId.Text);
+            oConfort.IdConfort = Convert.ToInt32(LbIdConfort.Text);
+            oConfort.Descripcion = TbDescripcionConfort.Text;
+            oNegocio.Save_Propiedades_Confort(oConfort);
+            CargaConfort(Convert.ToInt32(lbId.Text));
         }
     }
 }

@@ -34,7 +34,9 @@
                             <asp:BoundField  DataField="Nombre" HeaderText="Propiedad"/>
                             <asp:BoundField  DataField="Plazas" HeaderText="Pax"/>
                             <asp:BoundField  DataField="Direccion" HeaderText="Direccion"/>
-                            <asp:CommandField ShowEditButton="True" />
+                            <asp:CommandField ShowEditButton="True"  ItemStyle-ForeColor="#660033" EditText="Editar">
+<ItemStyle ForeColor="#660033"></ItemStyle>
+                            </asp:CommandField>
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -71,35 +73,35 @@
 
                 </div>
             </div>
-            <div Id="Confort" class="row">
+            <div Id="DivConfort" class="row" runat="server">
                 <div class="col-lg-6">
                     <asp:GridView runat="server" Id="GvConfort"  CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" AutoGenerateColumns="False" EnableModelValidation="True" OnRowEditing="GvConfort_RowEditing">
                         <Columns>
                             <asp:BoundField DataField="IdConfort" HeaderText="Id" />
                             <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
-                            <asp:CommandField ShowEditButton="True" />
-                            <asp:CommandField ShowDeleteButton="True" />
+                            <asp:CommandField ShowEditButton="True" EditText="Editar" ItemStyle-ForeColor="#660033" />
+                            <asp:CommandField ShowDeleteButton="True" DeleteText="Borrar" ItemStyle-ForeColor="#660033"/>
                         </Columns>
                     </asp:GridView>
                 </div>
                 <div class="col-lg-6">
-                    <table>
+                    <table style="width:98%;">
                         <tr>
                             <td><asp:Label ID="LbIDConfortTexto" runat="server"  ForeColor="Tan" Text="ID:"></asp:Label></td>
                             <td><asp:Label ID="LbIdConfort" runat="server" ForeColor="Tan"></asp:Label></td>
                         </tr>
                         <tr>
                             <td><asp:Label ID="LbDescConfortText" runat="server" ForeColor="Tan" Text="Descripción:"></asp:Label></td>
-                            <td><asp:TextBox ID="TbDescripcionConfort" runat="server" CssClass="rcorners0" ></asp:TextBox></td>
+                            <td ><asp:TextBox ID="TbDescripcionConfort" runat="server" CssClass="rcorners0" Width="98%" ></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td style="align-items:center; text-align:center;"><asp:Button ID="BntGuardarConfort" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" /></td>
-                            <td style="align-items:center; text-align:center;"><asp:Button ID="BtnNuevoConfort" runat="server" CssClass="btn btn-outline-warning" Text="Nuevo" OnClick="BtnNuevoConfort_Click" /></td>
+                            <td><asp:Button ID="BntGuardarConfort" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="BntGuardarConfort_Click" /></td>
+                            <td style="text-align:right;"><asp:Button ID="BtnNuevoConfort" runat="server" CssClass="btn btn-outline-warning" Text="Nuevo" OnClick="BtnNuevoConfort_Click" /></td>
                         </tr>
                     </table>
                 </div>
             </div>
-            <div id="Imagenes" class="row">
+            <div id="DivImagenes" class="row" runat="server">
                 <div class="col-lg-6"></div>
                 <div class="col-lg-6"></div>
             </div>
