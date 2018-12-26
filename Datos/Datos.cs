@@ -434,14 +434,14 @@ namespace Datos
                 {//update
 
                     Query = "UPDATE prop_confort SET " +
-                    " Descripcion = " + oConfort.Descripcion.Trim() +
+                    " Descripcion = '" + oConfort.Descripcion.Trim()+ "'"+
                     " WHERE IDPropiedad =" + oConfort.IdPropiedad + " AND " +
                     " IdConfort = " + oConfort.IdConfort.ToString();
                 }
                 else
                 {//Insert
                     Query = "Insert into prop_confort (IDPropiedad,Descripcion) Values " +
-                        "(" + oConfort.IdPropiedad + "," + oConfort.Descripcion + ")";
+                        "(" + oConfort.IdPropiedad + ",'" + oConfort.Descripcion + "')";
                 }
                 
                 conn.Open();

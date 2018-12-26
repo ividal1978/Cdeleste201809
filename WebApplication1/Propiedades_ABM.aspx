@@ -75,7 +75,7 @@
             </div>
             <div Id="DivConfort" class="row" runat="server">
                 <div class="col-lg-6">
-                    <asp:GridView runat="server" Id="GvConfort"  CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" AutoGenerateColumns="False" EnableModelValidation="True" OnRowEditing="GvConfort_RowEditing">
+                    <asp:GridView runat="server" Id="GvConfort"  CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" AutoGenerateColumns="False" EnableModelValidation="True" OnRowEditing="GvConfort_RowEditing" OnRowDeleting="GvConfort_RowDeleting">
                         <Columns>
                             <asp:BoundField DataField="IdConfort" HeaderText="Id" />
                             <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />

@@ -73,7 +73,7 @@ namespace WebApplication1
 
         protected void BtnNuevoConfort_Click(object sender, EventArgs e)
         {
-            LbIDConfortTexto.Text = "-1";
+            LbIdConfort.Text = "-1";
             TbDescripcionConfort.Text = "";
         }
 
@@ -98,6 +98,16 @@ namespace WebApplication1
             oConfort.Descripcion = TbDescripcionConfort.Text;
             oNegocio.Save_Propiedades_Confort(oConfort);
             CargaConfort(Convert.ToInt32(lbId.Text));
+        }
+
+        protected void GvConfort_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            Prop_Confort oConfort = new Prop_Confort();
+            oConfort.IdPropiedad = Convert.ToInt32(lbId.Text);
+            oConfort.IdConfort = Convert.ToInt32( GvConfort.Rows[e.RowIndex].Cells[0].ToString());
+
+            //Enviar a Borrar
         }
     }
 }
