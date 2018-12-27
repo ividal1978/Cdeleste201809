@@ -102,7 +102,25 @@
                 </div>
             </div>
             <div id="DivImagenes" class="row" runat="server">
-                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+                    <table>
+                        <tr>
+                            <td><asp:ImageButton ID="BtnImg1" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg1_Click" Width="200px" Height="200px" /></td>
+                            <td><asp:ImageButton ID="BtnImg2" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg2_Click" Width="200px" Height="200px"/></td>
+                            <td><asp:ImageButton ID="BtnImg3" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg3_Click" Width="200px" Height="200px"/></td>
+                        </tr>                                                                                                          
+                        <tr>                                                                      
+                            <td><asp:ImageButton ID="BtnImg4" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg4_Click" Width="200px" Height="200px"/></td>
+                            <td><asp:ImageButton ID="BtnImg5" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg5_Click" Width="200px" Height="200px"/></td>
+                            <td><asp:ImageButton ID="BtnImg6" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg6_Click" Width="200px" Height="200px"/></td>
+                        </tr>                                                                                                             
+                        <tr>                                                                                                                
+                            <td><asp:ImageButton ID="BtnImg7" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg7_Click" Width="200px" Height="200px"/></td>
+                            <td><asp:ImageButton ID="BtnImg8" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg8_Click" Width="200px" Height="200px"/></td>
+                            <td><asp:ImageButton ID="BtnImg9" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg9_Click" Width="200px" Height="200px"/></td>
+                        </tr>                                                                                                                     
+                    </table>
+                </div>
                 <div class="col-lg-6"></div>
             </div>
             </form>

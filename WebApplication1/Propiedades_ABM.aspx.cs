@@ -60,6 +60,7 @@ namespace WebApplication1
             TbIntro.Text = oProp.Intro;
             CargaConfort(Id);
             LbIdConfort.Text = "-1";
+            CargaImagenes(oProp.IdPropiedades);
         }
 
 
@@ -110,6 +111,70 @@ namespace WebApplication1
             oNegocio.Del_Propiedades_Confort(oConfort);
             CargaConfort(Convert.ToInt32(lbId.Text));
             //Enviar a Borrar
+        }
+
+        protected void BtnGenerico(int IdImagen)
+        {
+          //Muestro el id de la imagen seleccionada y la imagen seleccionada
+          //tambien un upload control
+        }
+
+        protected void BtnImg1_Click(object sender, ImageClickEventArgs e)
+        {
+            BtnGenerico(1);
+        }
+
+        protected void BtnImg2_Click(object sender, ImageClickEventArgs e)
+        {
+            BtnGenerico(2);
+        }
+
+        protected void BtnImg3_Click(object sender, ImageClickEventArgs e)
+        {
+            BtnGenerico(3);
+        }
+
+        protected void BtnImg4_Click(object sender, ImageClickEventArgs e)
+        {
+            BtnGenerico(4);
+        }
+
+        protected void BtnImg5_Click(object sender, ImageClickEventArgs e)
+        {
+            BtnGenerico(5);
+        }
+
+        protected void BtnImg6_Click(object sender, ImageClickEventArgs e)
+        {
+            BtnGenerico(6);
+        }
+
+        protected void BtnImg7_Click(object sender, ImageClickEventArgs e)
+        {
+            BtnGenerico(7);
+        }
+
+        protected void BtnImg8_Click(object sender, ImageClickEventArgs e)
+        {
+            BtnGenerico(8);
+        }
+
+        protected void BtnImg9_Click(object sender, ImageClickEventArgs e)
+        {
+            BtnGenerico(9);
+        }
+        private void CargaImagenes(int IdPropiedad)
+        {   //Cargo la galeria de imgenes
+            BtnImg1.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/1.JPG";
+            BtnImg2.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/2.JPG";
+            BtnImg3.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/3.JPG";
+            BtnImg4.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/4.JPG";
+            BtnImg5.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/5.JPG";
+            BtnImg6.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/6.JPG";
+            BtnImg7.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/7.JPG";
+            BtnImg8.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/8.JPG";
+            BtnImg9.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/9.JPG";
+            
         }
     }
 }
