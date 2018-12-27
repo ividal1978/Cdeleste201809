@@ -240,7 +240,7 @@ namespace Datos
             {
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection();
-                string query = "DELETE Noticias WHERE IdNoticia = " + IdNoticia.ToString();
+                string query = "DELETE FROM Noticias WHERE IdNoticia = " + IdNoticia.ToString();
                 conn.Open();
                 MySqlCommand myCommand = new MySqlCommand(query, conn);
                 myCommand.ExecuteNonQuery();
@@ -454,6 +454,29 @@ namespace Datos
             catch (Exception ex)
             {
                 _logger1.Error(ex, " Datos - Propiedades - Save Confort");
+            }
+        }
+
+        public void Del_Propiedades_Confort(Prop_Confort oConfort)
+        {
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = "DELETE FROM prop_confort " +
+                    " WHERE IDPropiedad =" + oConfort.IdPropiedad + " AND " +
+                    " IdConfort = " + oConfort.IdConfort.ToString();
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Propiedades - Del Confort");
             }
         }
         #endregion

@@ -59,7 +59,8 @@ namespace Negocio
         public Prop_Confort Get_Propiedades_ConfortxID(int IdConfort) => oData.Get_Propiedades_ConfortxID(IdConfort);
 
         public void Save_Propiedades_Confort(Prop_Confort oConfort) => oData.Save_Propiedades_Confort(oConfort);
-        
+
+        public void Del_Propiedades_Confort(Prop_Confort oConfort) => oData.Del_Propiedades_Confort(oConfort);
 
         #endregion
     }

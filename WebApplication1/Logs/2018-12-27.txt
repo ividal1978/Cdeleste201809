@@ -1,0 +1,1 @@
+2018/12/27 08:51:12.148|ERROR| Datos - Propiedades - Del Confort You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE IDPropiedad =1 AND  IdConfort = 121' at line 1|Logger1|

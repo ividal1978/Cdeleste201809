@@ -59,6 +59,7 @@ namespace WebApplication1
             TbDireccion.Text = oProp.Direccion;
             TbIntro.Text = oProp.Intro;
             CargaConfort(Id);
+            LbIdConfort.Text = "-1";
         }
 
 
@@ -105,8 +106,9 @@ namespace WebApplication1
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             Prop_Confort oConfort = new Prop_Confort();
             oConfort.IdPropiedad = Convert.ToInt32(lbId.Text);
-            oConfort.IdConfort = Convert.ToInt32( GvConfort.Rows[e.RowIndex].Cells[0].ToString());
-
+            oConfort.IdConfort = Convert.ToInt32( GvConfort.Rows[e.RowIndex].Cells[0].Text);
+            oNegocio.Del_Propiedades_Confort(oConfort);
+            CargaConfort(Convert.ToInt32(lbId.Text));
             //Enviar a Borrar
         }
     }
