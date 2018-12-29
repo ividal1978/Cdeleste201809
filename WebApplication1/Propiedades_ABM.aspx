@@ -66,8 +66,8 @@
                         <tr>
                             <td></td>
                             <td><asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" /></td>
-                            <td><input type="button" value="Confort" onClick="document.getElementById('Confort').scrollIntoView();"  class="btn btn-outline-warning" title="Confort" ></td>
-                            <td><input type="button" value="Imagenes" onClick="document.getElementById('Imagenes').scrollIntoView();"  class="btn btn-outline-warning" title="Imagnes" ></td>
+                            <td><input type="button" value="Confort" onClick="document.getElementById('DivConfort').scrollIntoView();"  class="btn btn-outline-warning" title="Confort" ></td>
+                            <td><input type="button" value="Imagenes" onClick="document.getElementById('DivImagenes').scrollIntoView();"  class="btn btn-outline-warning" title="Imagnes" ></td>
                         </tr>
                     </table>
 
@@ -101,8 +101,14 @@
                     </table>
                 </div>
             </div>
+              </br>
             <div id="DivImagenes" class="row" runat="server">
                 <div class="col-lg-6">
+                    <div Class="alert-info rcorners1" style="text-align:center;">
+                        <asp:Label ID="LbImagenesDesc" runat="server"   Text=" Para cambiar una imagen, Hacer clicl sobre la imagen a cambiar,</br>luego seleccionar  la imagen a subir por el control Browse.  Luego Presionar Cargar." ></asp:Label>
+                    </div>
+                    </br>
+                    
                     <table>
                         <tr>
                             <td><asp:ImageButton ID="BtnImg1" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg1_Click" Width="200px" Height="200px" /></td>
@@ -114,14 +120,19 @@
                             <td><asp:ImageButton ID="BtnImg5" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg5_Click" Width="200px" Height="200px"/></td>
                             <td><asp:ImageButton ID="BtnImg6" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg6_Click" Width="200px" Height="200px"/></td>
                         </tr>                                                                                                             
-                        <tr>                                                                                                                
+                        <tr>           
+                            </br>
                             <td><asp:ImageButton ID="BtnImg7" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg7_Click" Width="200px" Height="200px"/></td>
                             <td><asp:ImageButton ID="BtnImg8" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg8_Click" Width="200px" Height="200px"/></td>
                             <td><asp:ImageButton ID="BtnImg9" runat="server" CssClass="BotonImagen rcorners1" OnClick="BtnImg9_Click" Width="200px" Height="200px"/></td>
                         </tr>                                                                                                                     
                     </table>
                 </div>
-                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                    <asp:Button ID="BtnCargarImagen" runat="server" CssClass="rcorners1" Text="Cargar Imagen" />
+                </div>
             </div>
             </form>
         </div>
