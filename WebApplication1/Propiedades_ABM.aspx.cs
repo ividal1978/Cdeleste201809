@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using Contrato;
+using NLog;
 using System.Web.UI.WebControls;
 
 namespace WebApplication1
 {
     public partial class Propiedades_ABM : System.Web.UI.Page
     {
+        private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");
         protected void Page_Load(object sender, EventArgs e)
         {
             Autenticar();
@@ -18,7 +20,6 @@ namespace WebApplication1
                 CargarPropiedades();
                 DivConfort.Visible = false;
                 DivImagenes.Visible = false;
-
 
             }
         }
@@ -87,8 +88,8 @@ namespace WebApplication1
             var oConf = oNegocio.Get_Propiedades_ConfortxID(Id);
             LbIdConfort.Text = Id.ToString();
             TbDescripcionConfort.Text = oConf.Descripcion;
-                    
-            
+
+
         }
 
         protected void BntGuardarConfort_Click(object sender, EventArgs e)
@@ -107,61 +108,55 @@ namespace WebApplication1
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             Prop_Confort oConfort = new Prop_Confort();
             oConfort.IdPropiedad = Convert.ToInt32(lbId.Text);
-            oConfort.IdConfort = Convert.ToInt32( GvConfort.Rows[e.RowIndex].Cells[0].Text);
+            oConfort.IdConfort = Convert.ToInt32(GvConfort.Rows[e.RowIndex].Cells[0].Text);
             oNegocio.Del_Propiedades_Confort(oConfort);
             CargaConfort(Convert.ToInt32(lbId.Text));
             //Enviar a Borrar
         }
 
-        protected void BtnGenerico(int IdImagen)
-        {
-          //Muestro el id de la imagen seleccionada y la imagen seleccionada
-          //tambien un upload control
-        }
-
         protected void BtnImg1_Click(object sender, ImageClickEventArgs e)
         {
-            BtnGenerico(1);
+            GuardarImagen(1);
         }
 
         protected void BtnImg2_Click(object sender, ImageClickEventArgs e)
         {
-            BtnGenerico(2);
+            GuardarImagen(2);
         }
 
         protected void BtnImg3_Click(object sender, ImageClickEventArgs e)
         {
-            BtnGenerico(3);
+            GuardarImagen(3);
         }
 
         protected void BtnImg4_Click(object sender, ImageClickEventArgs e)
         {
-            BtnGenerico(4);
+            GuardarImagen(4);
         }
 
         protected void BtnImg5_Click(object sender, ImageClickEventArgs e)
         {
-            BtnGenerico(5);
+            GuardarImagen(5);
         }
 
         protected void BtnImg6_Click(object sender, ImageClickEventArgs e)
         {
-            BtnGenerico(6);
+            GuardarImagen(6);
         }
 
         protected void BtnImg7_Click(object sender, ImageClickEventArgs e)
         {
-            BtnGenerico(7);
+            GuardarImagen(7);
         }
 
         protected void BtnImg8_Click(object sender, ImageClickEventArgs e)
         {
-            BtnGenerico(8);
+            GuardarImagen(8);
         }
 
         protected void BtnImg9_Click(object sender, ImageClickEventArgs e)
         {
-            BtnGenerico(9);
+            GuardarImagen(9);
         }
         private void CargaImagenes(int IdPropiedad)
         {   //Cargo la galeria de imgenes
@@ -174,7 +169,53 @@ namespace WebApplication1
             BtnImg7.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/7.JPG";
             BtnImg8.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/8.JPG";
             BtnImg9.ImageUrl = "~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/9.JPG";
-            
+
+        }
+
+        private void GuardarImagen(int IdImagen)
+        {
+            if (FUpload.HasFile)
+            {
+                string Archivo = FUpload.FileName.ToString();
+                //verifico el formato jpg o png 
+                if (Archivo.ToUpper().Contains(".JPG"))
+                {
+                    string extencion = ".JPG";
+                    //verifico la dimension de la imagen
+                    System.Drawing.Image viImagen = System.Drawing.Image.FromStream(FUpload.PostedFile.InputStream);
+                    if (viImagen.PhysicalDimension.Width <= 1280 && viImagen.PhysicalDimension.Height <= 960)
+                    { // guardo la imagen en imagenes/noticias
+                        try
+                        {     // subo el nombre del archivo al objeto
+                            string nombrArchivo = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+                            FUpload.SaveAs(Server.MapPath("~\\Imagenes\\Propiedades\\" +lbId.Text+"\\" +IdImagen.ToString() + extencion));
+                            LbError.Text = "";
+                            CargaImagenes(Convert.ToInt32(lbId.Text));
+                            Response.Cache.SetNoStore();
+                            FUpload.Focus();
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger1.Error(ex, " Carga Imangen Propiedad");
+                        }
+                    }
+                    else
+                    {
+                        LbError.Text = "La imagen debe ser menor a 1280px x 960px ";
+                        LbError.Focus();
+                    }
+                }
+                else
+                {
+                    LbError.Text = "Solo imagenes de extensio .jpg";
+                    LbError.Focus();
+                }
+            }
+            else
+            {
+                LbError.Text = " No se ha seleccionado una imágen.";
+                LbError.Focus();
+            }
         }
     }
 }

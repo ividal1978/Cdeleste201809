@@ -88,7 +88,7 @@
             <div class="row" style="padding:5px;">
                 <div class="col-12">
                     <asp:Button ID="btnCerrarSession" runat="server" CssClass="btn btn-outline-danger" Text="Cerrar Session" OnClick="btnCerrarSession_Click" Width="100%" />
-/>                </div>
+               </div>
             </div>
         </asp:Panel>
    
