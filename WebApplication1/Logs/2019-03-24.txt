@@ -1,0 +1,3 @@
+2019/03/24 20:47:12.334|ERROR| Datos - Noticias - InsertNoticia Data too long for column 'Noticia' at row 1|Logger1|
+2019/03/24 20:54:30.077|ERROR| Datos - Noticias - InsertNoticia Data too long for column 'Noticia' at row 1|Logger1|
+2019/03/24 20:54:42.740|ERROR| Datos - Noticias - InsertNoticia Data too long for column 'Noticia' at row 1|Logger1|

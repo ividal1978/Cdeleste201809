@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cdeleste.Master" AutoEventWireup="true" CodeBehind="Noticias_ABM.aspx.cs" Inherits="WebApplication1.Noticias_ABM" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cdeleste.Master" AutoEventWireup="true" CodeBehind="Noticias_ABM.aspx.cs" Inherits="WebApplication1.Noticias_ABM"  ValidateRequest="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
               <script src="Scripts/jquery-3.0.0.min.js"></script>
         <script src="Scripts/bootstrap.min.js"></script>
