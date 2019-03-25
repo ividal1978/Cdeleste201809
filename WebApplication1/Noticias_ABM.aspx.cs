@@ -96,7 +96,7 @@ namespace WebApplication1
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Noticias oNoticias = new Noticias();
-            lbId.Text = (string.IsNullOrEmpty(lbId.Text == true ? "-1" : lbId.Text));
+            lbId.Text = (string.IsNullOrEmpty(lbId.Text) == true ? "-1" : lbId.Text);
             oNoticias.IdNoticia = (lbId.Text == "NUEVO" ? -1 : Convert.ToInt32(lbId.Text.Substring(lbId.Text.IndexOf(":") + 1)));
             oNoticias.Fecha = (oNoticias.IdNoticia > 0 ? DateTime.Now : Convert.ToDateTime(lbFecha.Text.Substring(lbFecha.Text.IndexOf(":") + 1)));
             oNoticias.Noticia = tbNoticia.Text;

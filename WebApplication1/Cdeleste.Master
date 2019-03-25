@@ -46,7 +46,7 @@
                             <a class="dropdown-item" href="../Escaparate.aspx?Id=7">Duplex Girasoles</a>
                             <a class="dropdown-item" href="../Escaparate.aspx?Id=6">La Casinta del Bosque</a>
                             <a class="dropdown-item" href="#"><i class="fas fa-calendar-alt"></i> Disponibilidad</a>
-                            <a class="dropdown-item" href="#"><i class="far fa-comment-alt"></i> Cosultas</a>
+                            <a class="dropdown-item" href="../Consultas_Cliente.aspx"><i class="far fa-comment-alt"></i> Cosultas</a>
                         </div>
                     </li>
                     <li class="nav-item">
