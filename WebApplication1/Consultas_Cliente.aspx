@@ -35,6 +35,17 @@
                             <td><asp:TextBox ID="TbTeléfono" runat="server" CssClass="rcorners1" ToolTip="No olvide la su caracterisica" Width="350px"></asp:TextBox></td>
                             <td></td>
                         </tr>
+                        <tr>
+                            <td></td>
+                            <td><asp:Label ID="LbMotivo" runat="server" Text="Motivo:" ToolTip=""></asp:Label></td>
+                            <td><asp:DropDownList ID="DdlMotivo" runat="server" CssClass="rcorners1" Width="350">
+                                <asp:ListItem Text="Consulta por Propiedad" Value="CP"></asp:ListItem>
+                                <asp:ListItem Text="Consulta por Diponibilidad" Value="CD"></asp:ListItem>
+                                <asp:ListItem Text="Como Reservar" Value="CR"></asp:ListItem>
+                                <asp:ListItem Text ="Otras Consultas" Value ="CO"></asp:ListItem>
+                                </asp:DropDownList></td>
+                            <td></td>
+                        </tr>
                          <tr>
                             <td></td>
                             <td><asp:Label ID="LbConsulta" runat="server" Text="Consulta:" ></asp:Label></td>
