@@ -62,6 +62,11 @@ namespace Negocio
 
         public void Del_Propiedades_Confort(Prop_Confort oConfort) => oData.Del_Propiedades_Confort(oConfort);
 
+
+        public List<Combo> Get_Propiedades_CMB()
+        {
+            return oData.Get_Propiedades_CMB();
+        }
         #endregion
     }
 

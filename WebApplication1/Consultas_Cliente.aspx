@@ -38,12 +38,15 @@
                         <tr>
                             <td></td>
                             <td><asp:Label ID="LbMotivo" runat="server" Text="Motivo:" ToolTip=""></asp:Label></td>
-                            <td><asp:DropDownList ID="DdlMotivo" runat="server" CssClass="rcorners1" Width="350">
+                            <td><asp:DropDownList ID="DdlMotivo" runat="server" CssClass="rcorners1" Width="350" OnSelectedIndexChanged="DdlMotivo_SelectedIndexChanged">
                                 <asp:ListItem Text="Consulta por Propiedad" Value="CP"></asp:ListItem>
                                 <asp:ListItem Text="Consulta por Diponibilidad" Value="CD"></asp:ListItem>
                                 <asp:ListItem Text="Como Reservar" Value="CR"></asp:ListItem>
                                 <asp:ListItem Text ="Otras Consultas" Value ="CO"></asp:ListItem>
-                                </asp:DropDownList></td>
+                                </asp:DropDownList><br />
+                                <asp:DropDownList ID="DdlPropiedades" runat="server" CssClass="rcorners1" Width="350px"></asp:DropDownList>
+                            </td>
+
                             <td></td>
                         </tr>
                          <tr>

@@ -57,7 +57,7 @@ namespace Datos
         #region Noticias
         public List<Noticias> GetNoticias(string Tipo, int Cantidad)
         {
-            List<Noticias> oLista = new List<Noticias>( );
+            List<Noticias> oLista = new List<Noticias>();
             try
             {
                 //Este proceso carga las noticias existentes
@@ -65,7 +65,7 @@ namespace Datos
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "SELECT Fecha, Noticia, IDNoticia, Tipo, RutaImagen " +
-                "FROM Noticias  WHERE Tipo = '"+Tipo+"' ORDER BY Fecha DESC  LIMIT 0 , "+Cantidad.ToString()+"";
+                "FROM Noticias  WHERE Tipo = '" + Tipo + "' ORDER BY Fecha DESC  LIMIT 0 , " + Cantidad.ToString() + "";
 
                 conn.Open();
 
@@ -90,7 +90,7 @@ namespace Datos
                 myCommand.Dispose();
                 conn.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger1.Error(ex, "Datos - GetNoticias");
             }
@@ -155,7 +155,7 @@ namespace Datos
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "SELECT Fecha, Noticia, IDNoticia, Tipo, RutaImagen " +
-                "FROM Noticias  WHERE IDNoticia = " + IdNoticia.ToString() ;
+                "FROM Noticias  WHERE IDNoticia = " + IdNoticia.ToString();
 
                 conn.Open();
 
@@ -165,10 +165,10 @@ namespace Datos
 
                 DataSet myDS = new DataSet();
                 myDA.Fill(myDS, "Noticias");
-             
+
                 foreach (DataRow oFila in myDS.Tables["Noticias"].Rows)
                 {
-                  
+
                     oNoticia.IdNoticia = Convert.ToInt32(oFila[2].ToString());
                     oNoticia.Fecha = Convert.ToDateTime(oFila[0].ToString());
                     oNoticia.Noticia = oFila[1].ToString();
@@ -194,7 +194,7 @@ namespace Datos
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string query = "INSERT INTO Noticias (Fecha, Noticia, Tipo, RutaImagen) VALUES " +
-                "(now(),'"+oNoticia.Noticia.Trim()+"','"+oNoticia.Tipo+"','"+oNoticia.RutaImagen+"')";
+                "(now(),'" + oNoticia.Noticia.Trim() + "','" + oNoticia.Tipo + "','" + oNoticia.RutaImagen + "')";
 
                 conn.Open();
 
@@ -216,10 +216,10 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
-                string query = "UPDATE Noticias SET "+
-                "Noticia ='" +oNoticia.Noticia.Trim() +"',"+
-                "RutaImagen ='" +oNoticia.RutaImagen +"'"+
-                "WHERE IDNoticia= " + oNoticia.IdNoticia.ToString() ;
+                string query = "UPDATE Noticias SET " +
+                "Noticia ='" + oNoticia.Noticia.Trim() + "'," +
+                "RutaImagen ='" + oNoticia.RutaImagen + "'" +
+                "WHERE IDNoticia= " + oNoticia.IdNoticia.ToString();
 
                 conn.Open();
 
@@ -234,7 +234,7 @@ namespace Datos
             }
         }
 
-        public void DeleteNoticia (int IdNoticia)
+        public void DeleteNoticia(int IdNoticia)
         {
             try
             {
@@ -258,7 +258,7 @@ namespace Datos
 
         public Propiedades Get_Propiedad(int IdPropiedad)
         {
-           Propiedades oPropiedades = new Propiedades();
+            Propiedades oPropiedades = new Propiedades();
 
 
             try
@@ -287,7 +287,7 @@ namespace Datos
                     oPropiedades.Plazas = Convert.ToInt32(oFila[2].ToString());
                     oPropiedades.Direccion = oFila[3].ToString();
                     oPropiedades.Intro = oFila[4].ToString();
-                    
+
                 }
                 myCommand.Dispose();
                 conn.Close();
@@ -299,7 +299,7 @@ namespace Datos
             return oPropiedades;
         }
 
-        public List<Prop_Confort>Get_Propiedades_Confort(int IdPropiedad)
+        public List<Prop_Confort> Get_Propiedades_Confort(int IdPropiedad)
         {
             List<Prop_Confort> oLista = new List<Prop_Confort>();
             try
@@ -310,7 +310,7 @@ namespace Datos
                 //*  importe como referenias el conector 5.27
                 string query = " SELECT IDPropiedad,IDConfort,Descripcion FROM prop_confort Where IDPropiedad = " + IdPropiedad.ToString() +
                 " order by IDConfort";
-        
+
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(query, conn);
@@ -403,10 +403,10 @@ namespace Datos
 
                 DataSet myDS = new DataSet();
                 myDA.Fill(myDS, "Confort");
-            
+
                 foreach (DataRow oFila in myDS.Tables["Confort"].Rows)
                 {
-                   
+
                     oConfort.IdPropiedad = Convert.ToInt32(oFila[0].ToString());
                     oConfort.IdConfort = Convert.ToInt32(oFila[1].ToString());
                     oConfort.Descripcion = oFila[2].ToString();
@@ -434,7 +434,7 @@ namespace Datos
                 {//update
 
                     Query = "UPDATE prop_confort SET " +
-                    " Descripcion = '" + oConfort.Descripcion.Trim()+ "'"+
+                    " Descripcion = '" + oConfort.Descripcion.Trim() + "'" +
                     " WHERE IDPropiedad =" + oConfort.IdPropiedad + " AND " +
                     " IdConfort = " + oConfort.IdConfort.ToString();
                 }
@@ -443,7 +443,7 @@ namespace Datos
                     Query = "Insert into prop_confort (IDPropiedad,Descripcion) Values " +
                         "(" + oConfort.IdPropiedad + ",'" + oConfort.Descripcion + "')";
                 }
-                
+
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);
@@ -479,10 +479,47 @@ namespace Datos
                 _logger1.Error(ex, " Datos - Propiedades - Del Confort");
             }
         }
+
+        public List<Combo> Get_Propiedades_CMB()
+        {
+            List<Combo> oLista = new List<Combo>();
+            try
+            {
+                //Este proceso carga las noticias existentes
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string query = "SELECT IDPropiedad,Nombre FROM propiedades ";
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Propiedad");
+
+                foreach (DataRow oFila in myDS.Tables["Propiedad"].Rows)
+                {
+                    Combo oItem = new Combo();
+                    oItem.Id = Convert.ToInt32(oFila[0].ToString());
+                    oItem.Descripcion = oFila[1].ToString();
+                    oLista.Add(oItem);
+                }
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, "Datos - Get_Propiedad_ALL");
+            }
+            return oLista;
+
+        }
         #endregion
+
+
     }
-
-
-   
 }
 

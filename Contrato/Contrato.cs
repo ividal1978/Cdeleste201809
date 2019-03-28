@@ -103,6 +103,11 @@ namespace Contrato
             public string Usuario { get; set; }
         }
 
-  
+    public class Combo
+    {
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+    }
+
 
 }

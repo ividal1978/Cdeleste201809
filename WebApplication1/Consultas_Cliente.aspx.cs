@@ -11,7 +11,29 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                DdlPropiedades.Visible = false;    
+            }
+            
+        }
 
+        protected void DdlMotivo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DdlMotivo.SelectedValue == "CP")
+            {
+                DdlPropiedades.Visible = true;
+                CargarCMBPropiedades();
+            }
+        }
+
+        protected void CargarCMBPropiedades()
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            DdlPropiedades.DataTextField = "Descripcion";
+            DdlPropiedades.DataValueField = "Id";
+            DdlPropiedades.DataSource = oNegocio.Get_Propiedades_CMB();
+            DdlPropiedades.DataBind();
         }
     }
 }
