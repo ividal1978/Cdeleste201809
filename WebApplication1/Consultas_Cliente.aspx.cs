@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
 namespace WebApplication1
 {
@@ -25,6 +26,9 @@ namespace WebApplication1
                 DdlPropiedades.Visible = true;
                 CargarCMBPropiedades();
             }
+            else
+                DdlPropiedades.Visible = false;
+
         }
 
         protected void CargarCMBPropiedades()
@@ -35,5 +39,51 @@ namespace WebApplication1
             DdlPropiedades.DataSource = oNegocio.Get_Propiedades_CMB();
             DdlPropiedades.DataBind();
         }
+
+        protected void BtnEnviar_Click(object sender, EventArgs e)
+        {
+            // verifico los datos
+            
+            //Guardo la consulta 
+            //Envio mail sobre nueva consula
+            // comunico que la consulta se envio
+        }
+        protected int VerificarForm()
+        {
+            int Rta = 0;
+            string Msg = "";
+            if (string.IsNullOrEmpty(TbNombre.Text))
+            {
+                Rta++;
+                Msg += "* Debe competar en el campo nombre <br />";
+            }
+            if (string.IsNullOrEmpty(TbEcorreo.Text))
+            {
+                Rta++;
+                Msg += "* Debe competar en el campo e-mail <br />";
+            }
+            else
+            {
+                string expresion;
+                expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+                if (!Regex.IsMatch(TbEcorreo.Text, expresion))
+                {
+                    Rta++;
+                    Msg += "El e-mail no tiene un formato valido <br />";
+                }
+            }
+            //Verifico telefono ?
+            //Contolar motivo
+            // Controlar si tiene propiedad asociada
+            //Controlar consulta
+
+            if (Rta > 0)
+                LbError.Text = Msg;
+            else
+                LbError.Text = "";
+            return Rta;
+
+        }
+
     }
 }

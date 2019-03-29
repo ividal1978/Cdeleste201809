@@ -38,7 +38,7 @@
                         <tr>
                             <td></td>
                             <td><asp:Label ID="LbMotivo" runat="server" Text="Motivo:" ToolTip=""></asp:Label></td>
-                            <td><asp:DropDownList ID="DdlMotivo" runat="server" CssClass="rcorners1" Width="350" OnSelectedIndexChanged="DdlMotivo_SelectedIndexChanged">
+                            <td><asp:DropDownList ID="DdlMotivo" runat="server" CssClass="rcorners1" Width="350" OnSelectedIndexChanged="DdlMotivo_SelectedIndexChanged" AutoPostBack=" true">
                                 <asp:ListItem Text="Consulta por Propiedad" Value="CP"></asp:ListItem>
                                 <asp:ListItem Text="Consulta por Diponibilidad" Value="CD"></asp:ListItem>
                                 <asp:ListItem Text="Como Reservar" Value="CR"></asp:ListItem>
@@ -52,16 +52,18 @@
                          <tr>
                             <td></td>
                             <td><asp:Label ID="LbConsulta" runat="server" Text="Consulta:" ></asp:Label></td>
-                            <td><asp:TextBox ID="TbConsulta" runat="server" CssClass="rcorners1" Width="350px" TextMode="MultiLine" Height="200px" onkeyup="charcountupdate(this.value)" MaxLength="300"></asp:TextBox></td>
+                            <td><asp:TextBox ID="TbConsulta" runat="server" CssClass="rcorners0" Width="350px" TextMode="MultiLine" Height="200px" onkeyup="charcountupdate(this.value)" MaxLength="300"></asp:TextBox></td>
                             <td></td>
                         </tr>
                            <tr>
                             <td></td>
-                            <td colspan="2"><span id=charcount></span></td>
+                            <td colspan="2"><span id=charcount></span>
+                                <asp:Label ID="LbError" runat="server" CssClass="rcorners0 "  Width="100%"></asp:Label>
+                            </td>
                             <td></td>
                         </tr> <tr>
                             <td></td>
-                            <td colspan="2"><asp:Button ID="BtnEnviar" runat="server" Text="Enviar" CssClass="btn btn-outline-dark"  /></td>
+                            <td colspan="2"><asp:Button ID="BtnEnviar" runat="server" Text="Enviar" CssClass="btn btn-outline-dark" OnClick="BtnEnviar_Click"  /></td>
                             <td></td>
                         </tr>
                     </table>
