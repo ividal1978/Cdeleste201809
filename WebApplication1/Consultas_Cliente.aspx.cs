@@ -73,10 +73,22 @@ namespace WebApplication1
                 }
             }
             //Verifico telefono ?
-            //Contolar motivo
+           
             // Controlar si tiene propiedad asociada
             //Controlar consulta
-
+            if (string.IsNullOrEmpty(TbConsulta.Text))
+            {
+                Rta++;
+                Msg = "La consulta no tiene mensaje <br />";
+            }
+            else
+            {
+                if (TbConsulta.Text.Length > 300)
+                {
+                    Rta++;
+                    Msg += "La consulta debe tener menos de 300 caracteres <br />";
+                }
+            }
             if (Rta > 0)
                 LbError.Text = Msg;
             else
