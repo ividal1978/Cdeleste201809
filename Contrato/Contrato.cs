@@ -12,6 +12,7 @@ namespace Contrato
             public string Estado { get; set; }
             public string Comentario { get; set; }
             public string Tipo { get; set; }
+            public string IdPropiedad { get; set; }
 
         }
 
@@ -103,11 +104,18 @@ namespace Contrato
             public string Usuario { get; set; }
         }
 
-    public class Combo
+         public class Combo
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
     }
 
+    public class Email {
+        public string Para{ get; set; }
+        public string De { get; set; }
+        public string Asunto { get; set; }
+        public string Mensaje { get; set; }
+
+    }
 
 }

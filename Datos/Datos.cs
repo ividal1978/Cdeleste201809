@@ -519,6 +519,47 @@ namespace Datos
         }
         #endregion
 
+        #region Consultas
+
+        public void Save_Comentario(Comentarios oCometrario)
+        {
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                if (oCometrario.IdComentario >0)
+                {//update
+
+                    Query = "UPDATE Comentarios SET " +
+                    " Estado = '" + oCometrario.Estado.Trim() + "'," +
+                    " Tipo = '" + oCometrario.Tipo.Trim() + "'"+
+                    " WHERE IdComentario =" + oCometrario.IdComentario;
+                    
+                }
+                else
+                {//Insert
+                    Query = "INSERT INTOComentarios (FechaComentario,Nombre_Persona, Tel_Persona, Estado, Comentario, Tipo, IdPropiedad) Values " +
+                        "(" + oCometrario.FechaComentario + ",'" + oCometrario.Nombre_Persona + "','"+oCometrario.Tel_Persona+"','"+
+                        oCometrario.Estado+"',"+oCometrario.Comentario+"',"+oCometrario.Tipo+"',"+Convert.ToInt32(oCometrario.IdPropiedad)+")";
+                }
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Comentario - Save Comentario");
+            }
+        }
+
+        #endregion
+
 
     }
 }

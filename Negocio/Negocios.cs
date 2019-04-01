@@ -68,6 +68,22 @@ namespace Negocio
             return oData.Get_Propiedades_CMB();
         }
         #endregion
+
+        #region  Comentarios
+
+        public void Save_Comentario(Comentarios oCometrario)
+        {
+            oData.Save_Comentario(oCometrario);
+        }
+        #endregion
+
+        #region Utiles
+
+        public void Envio_Email(Email eMail)
+        {
+            //Debo procesar y mandar el mail 
+        }
+        #endregion
     }
 
 }

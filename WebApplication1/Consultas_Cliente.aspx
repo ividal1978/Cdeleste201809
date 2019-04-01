@@ -60,7 +60,7 @@
                            <tr>
                             <td></td>
                             <td colspan="2"><span id=charcount></span>
-                                <asp:Label ID="LbError" runat="server" CssClass="rcorners0 "  Width="100%"></asp:Label>
+                                <asp:Label ID="LbError" runat="server" CssClass="rcorners0  alert-danger"  Width="100%"></asp:Label>
                             </td>
                             <td></td>
                         </tr> <tr>
