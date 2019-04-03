@@ -4,12 +4,18 @@ using System.Linq;
 using System.Text;
 using Contrato;
 using Datos;
+using System.Net.Mail;
+using System.Configuration;
+using NLog;
 
 namespace Negocio
 {
+    
 
     public partial class Negocio
     {
+        private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");
+
         // Instancia de la capa de datos
         public Datos.Datos oData = new Datos.Datos();
         #region Usuarios
@@ -81,7 +87,28 @@ namespace Negocio
 
         public void Envio_Email(Email eMail)
         {
-            //Debo procesar y mandar el mail 
+            try
+            {
+                //Debo procesar y mandar el mail 
+                var fromEmailAddress = ConfigurationManager.AppSettings["UsuarioMail"].ToString();
+                var fromEmailPassword = ConfigurationManager.AppSettings["PasswordMail"].ToString();
+                var smtpHost = ConfigurationManager.AppSettings["SMTPHost"].ToString();
+                var smtpPort = ConfigurationManager.AppSettings["SMTPPort"].ToString();
+                MailMessage message = new MailMessage(eMail.De, eMail.Para, eMail.Asunto, eMail.Mensaje);
+                message.IsBodyHtml = true;
+
+
+                var client = new SmtpClient();
+                client.Credentials = new System.Net.NetworkCredential(fromEmailAddress, fromEmailPassword);
+                client.Host = smtpHost;
+                client.EnableSsl = true;
+                client.Port = !string.IsNullOrEmpty(smtpPort) ? Convert.ToInt32(smtpPort) : 0;
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Negocios - Utiles - Envio_Email");
+            }
         }
         #endregion
     }
