@@ -115,6 +115,7 @@ namespace Contrato
         public string De { get; set; }
         public string Asunto { get; set; }
         public string Mensaje { get; set; }
+        public string CopiaOculta { get; set; }
 
     }
 

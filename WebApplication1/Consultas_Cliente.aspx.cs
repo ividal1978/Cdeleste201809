@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
+using System.Configuration;
 using Contrato;
 
 namespace WebApplication1
@@ -60,10 +61,24 @@ namespace WebApplication1
                 Negocio.Negocio oNegocio = new Negocio.Negocio();
                 oNegocio.Save_Comentario(oComentario);
                 //Envio mail sobre nueva consula
+                Email Correo = new Email();
+                Correo.Para = ConfigurationManager.AppSettings["ListaMail"].ToString();
+                //Correo.CopiaOculta= ConfigurationManager.AppSettings["ListaMail"].ToString();
+                Correo.Asunto = "Nueva Consulta - " + DdlMotivo.SelectedItem.ToString() + " Fecha "+ DateTime.Now;
+                Correo.Mensaje = "<H2> Se ha Recibido una nueva consulta<<H2><Hr> <br>";
+                Correo.Mensaje += "<h3> Datos de la consulta : <br /> Nombre: " + oComentario.Nombre_Persona + "<br /> Teléfono :"
+                    + (string.IsNullOrEmpty(oComentario.Tel_Persona) == true ? "Sin Teléfono" : oComentario.Tel_Persona) + "<br />"
+                    + " Email: " + (string.IsNullOrEmpty(oComentario.Mail_Persona) == true ? "Sin Correo" : oComentario.Tel_Persona) + "<br />"
+                    + " Motivo: " + DdlMotivo.SelectedItem.ToString() + "<br >" + (DdlPropiedades.Visible == true ? "Propiedad: " + DdlPropiedades.SelectedItem: "< br/>")
+                    + " Consulta: " + oComentario.Comentario + "< br/>";
 
+                //Envio el mail
+                oNegocio.Envio_Email(Correo);
                 // comunico que la consulta se envio
+
+                //Envio Asivo al cliente por mail?
                 LbError.CssClass = "alert-success";
-                LbError.Text = "El comentario se ha generado de forma exitosa <br /> Próximamente nos comunicaremos con Ud. <br/> Gracias."
+                LbError.Text = "El comentario se ha generado de forma exitosa <br /> Próximamente nos comunicaremos con Ud. <br/> Gracias.";
             }
 
         }
