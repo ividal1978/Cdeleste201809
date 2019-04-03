@@ -98,6 +98,7 @@ namespace Negocio
                 message.IsBodyHtml = true;
 
 
+                //Envio de mensaje
                 var client = new SmtpClient();
                 client.Credentials = new System.Net.NetworkCredential(fromEmailAddress, fromEmailPassword);
                 client.Host = smtpHost;
