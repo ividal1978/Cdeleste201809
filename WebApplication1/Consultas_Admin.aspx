@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
     <link rel="stylesheet" href="Scripts/gallery-grid.css">
     <link href="Content/bootstrap.css" rel="stylesheet" />
-    <br />
-    <br />
     <hr style="background-color:darkolivegreen; height:15px;" />
     <hr style="background-color:darkgoldenrod; height:4px;" />
     <form id="FormConsultas" runat="server">
