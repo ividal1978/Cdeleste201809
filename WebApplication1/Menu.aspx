@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cdeleste.Master" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="WebApplication1.Menu" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
           <script src="Scripts/jquery-3.0.0.min.js"></script>
-        <script src="Scripts/bootstrap.min.js"></script>
-            <link href="Scripts/Cdeleste.css" rel="stylesheet" />
+         <script src="Scripts/bootstrap.min.js"></script>
+    <link href="Scripts/Cdeleste.css" rel="stylesheet" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
   
 </asp:Content>
@@ -21,7 +21,7 @@
                         <table style="padding:5px;">
                             <tr >
                                 <td style="width:20%;"></td>
-                                <td><asp:Label ID="lbUsuario" CssClass="form-control-plaintext" runat="server"  ForeColor="Tan" Text="Usuario: "></asp:Label></td>
+                                <td><asp:Label ID="lbUsuario" CssClass="TextoEncabezado" ForeColor="Tan" runat="server"   Text="Usuario: "></asp:Label></td>
                                 <td><asp:TextBox  CssClass="form-control" ID="tbUsuario" runat="server"  Width="200px"></asp:TextBox></td>
                                 <td></td>
                             </tr>

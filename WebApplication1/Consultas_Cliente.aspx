@@ -45,7 +45,6 @@
                             <td><asp:DropDownList ID="DdlMotivo" runat="server" CssClass="rcorners0" Width="350" OnSelectedIndexChanged="DdlMotivo_SelectedIndexChanged" AutoPostBack=" true">
                                 <asp:ListItem Text="Consulta por Diponibilidad" Value="CD"></asp:ListItem>
                                 <asp:ListItem Text="Consulta por Propiedad" Value="CP"></asp:ListItem> 
-                               
                                 <asp:ListItem Text="Como Reservar" Value="CR"></asp:ListItem>
                                 <asp:ListItem Text ="Otras Consultas" Value ="CO"></asp:ListItem>
                                 </asp:DropDownList><br />
