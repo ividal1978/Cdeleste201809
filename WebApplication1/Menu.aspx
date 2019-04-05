@@ -67,7 +67,7 @@
                     <asp:Button ID="btnPropiedades" runat="server" CssClass="btn btn-outline-warning" Text="Propiedades" OnClick="btnPropiedades_Click" />
                 </div>
                 <div class="col-4">
-                    <asp:Button ID="btnConsultas" runat="server" CssClass="btn btn-outline-warning" Text="Consultas" />
+                    <asp:Button ID="btnConsultas" runat="server" CssClass="btn btn-outline-warning" Text="Consultas" OnClick="btnConsultas_Click" />
                 </div>
                   <div class="col-4">
                     <asp:Button ID="btnNoticias" runat="server" CssClass="btn btn-outline-warning" Text="Noticias" OnClick="btnNoticias_Click" />
