@@ -110,7 +110,14 @@ namespace Contrato
         public string Descripcion { get; set; }
     }
 
-    public class Email {
+         public class Consulta_Tipo
+    {
+        public int ID { get; set; }
+        public string Descrip { get; set; }
+        public string Codigo { get; set; }
+    }
+
+         public class Email {
         public string Para{ get; set; }
         public string De { get; set; }
         public string Asunto { get; set; }

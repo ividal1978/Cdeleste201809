@@ -22,10 +22,7 @@
                         <tr>
                             <td><asp:Label Id="LbTipoConsulta" runat="server"  CssClass="TextoEncabezado" ForeColor="Tan" Text="Tipo de Consulta:" Width="200px"></asp:Label></td>
                             <td><asp:DropDownList Id="DdlTipoConsulta"  CssClass="rcorners1" runat="server" >
-                                <asp:ListItem Text="Consulta por Diponibilidad" Value="CD"></asp:ListItem>
-                                <asp:ListItem Text="Consulta por Propiedad" Value="CP"></asp:ListItem> 
-                                <asp:ListItem Text="Como Reservar" Value="CR"></asp:ListItem>
-                                <asp:ListItem Text ="Otras Consultas" Value ="CO"></asp:ListItem>
+                            
                                 </asp:DropDownList></td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td><asp:Label Id="LbEstado" runat="server"  CssClass="TextoEncabezado"   Text=" Tipo de Consulta:" ForeColor="Tan" Width="200px"></asp:Label></td>

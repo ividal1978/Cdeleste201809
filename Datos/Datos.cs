@@ -558,6 +558,43 @@ namespace Datos
             }
         }
 
+
+        public List<Consulta_Tipo> Get_Consulta_Tipo()
+        {
+            try {
+                List<Consulta_Tipo> oLista = new List<Consulta_Tipo>();
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = "SELECT * FROM Consultas_Tipo";
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "ConsultasTipos");
+
+                foreach (DataRow oFila in myDS.Tables["ConsultasTipos"].Rows)
+                {
+                    Consulta_Tipo oItem = new Consulta_Tipo();
+                    oItem.ID = Convert.ToInt32(oFila[0].ToString());
+                    oItem.Descrip = oFila[1].ToString();
+                    oItem.Codigo = oFila[2].ToString();
+
+                    oLista.Add(oItem);
+                }
+                myCommand.Dispose();
+                conn.Close();
+                return oLista;
+            }
+            catch (Exception ex)
+            {
+                 _logger1.Error(ex, " Datos - Comentario - Save Comentario");
+                return null;
+            }
+        }
         #endregion
 
 

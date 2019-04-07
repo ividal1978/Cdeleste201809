@@ -10,7 +10,7 @@ using NLog;
 
 namespace Negocio
 {
-    
+
 
     public partial class Negocio
     {
@@ -111,7 +111,11 @@ namespace Negocio
                 _logger1.Error(ex, " Negocios - Utiles - Envio_Email");
             }
         }
+
+        public List<Consulta_Tipo> Get_Consulta_Tipo()
+        {
+            return oData.Get_Consulta_Tipo();
+        }
         #endregion
     }
-
 }
