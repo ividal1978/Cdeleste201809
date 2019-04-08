@@ -116,6 +116,11 @@ namespace Negocio
         {
             return oData.Get_Consulta_Tipo();
         }
+        public List<Comentarios> Get_ComentariosxTipo(string TipoComentario, string Estado)
+        {
+
+            return oData.Get_ComentariosxTipo(TipoComentario, Estado);
+        }
         #endregion
     }
 }

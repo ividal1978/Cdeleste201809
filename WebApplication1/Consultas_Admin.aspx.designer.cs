@@ -22,6 +22,24 @@ namespace WebApplication1 {
         protected global::System.Web.UI.HtmlControls.HtmlForm FormConsultas;
         
         /// <summary>
+        /// LbFecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbFecha;
+        
+        /// <summary>
+        /// LbUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbUsuario;
+        
+        /// <summary>
         /// LbTipoConsulta control.
         /// </summary>
         /// <remarks>

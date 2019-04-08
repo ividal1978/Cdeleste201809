@@ -14,7 +14,12 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             //Verificar Ingreso
-            CargaCombo();
+            Autenticar();
+            if (!Page.IsPostBack)
+            {
+                CargaCombo();
+                CargaGrilla();
+            }
         }
         protected void CargaCombo()
         {
@@ -23,6 +28,27 @@ namespace WebApplication1
             DdlTipoConsulta.DataValueField = "Codigo";
             DdlTipoConsulta.DataSource = oNegocio.Get_Consulta_Tipo();
             DdlTipoConsulta.DataBind();
+        }
+
+        protected void Autenticar()
+        {
+
+            if (Session["usuario"] != null)
+            {
+                LbUsuario.Text = "Usuario: " + (Session["usuario"] != null ? Session["usuario"].ToString() : "");
+                LbFecha.Text = "Fecha: " + DateTime.Now;
+            }
+            else
+            {
+                Response.Redirect("Menu.aspx");
+            }
+        }
+        protected void CargaGrilla()
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            GvConsultas.DataSource = oNegocio.Get_ComentariosxTipo(DdlTipoConsulta.SelectedValue.ToString(), DdlEstado.SelectedValue.ToString());
+            GvConsultas.DataBind();
+            //llamar al metodo de negocio con los paramentros de 
         }
     }
 }

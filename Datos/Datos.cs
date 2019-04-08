@@ -558,7 +558,6 @@ namespace Datos
             }
         }
 
-
         public List<Consulta_Tipo> Get_Consulta_Tipo()
         {
             try {
@@ -594,6 +593,52 @@ namespace Datos
                  _logger1.Error(ex, " Datos - Comentario - Save Comentario");
                 return null;
             }
+        }
+
+        public List<Comentarios> Get_ComentariosxTipo(string TipoComentario, string Estado)
+        {
+            try
+            {
+                List<Comentarios> oLista = new List<Comentarios>();
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = "SELECT * FROM Cometarios where Tipo='"+ TipoComentario +"' and Estado='"+Estado+"'";
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Comentarios");
+
+                foreach (DataRow oFila in myDS.Tables["Comentarios"].Rows)
+                {
+                    Comentarios oItem = new Comentarios();
+                    oItem.IdComentario= Convert.ToInt32(oFila[0].ToString());
+                    oItem.FechaComentario = Convert.ToDateTime(oFila[1].ToString());
+                    oItem.Nombre_Persona = oFila[2].ToString();
+                    oItem.Tel_Persona = oFila[3].ToString();
+                    oItem.Mail_Persona = oFila[4].ToString();
+                    oItem.Estado = oFila[5].ToString();
+                    oItem.Comentario = oFila[6].ToString();
+                    oItem.Tipo = oFila[7].ToString();
+                    oItem.IdPropiedad = oFila[8].ToString();
+
+
+                    oLista.Add(oItem);
+                }
+                myCommand.Dispose();
+                conn.Close();
+                return oLista;
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Tipo y Estado");
+                return null;
+            }
+
         }
         #endregion
 

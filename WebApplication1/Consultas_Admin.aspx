@@ -17,6 +17,14 @@
     <form id="FormConsultas" runat="server">
      <div class="container-fluid">
             <div class="row">
+                <div class="col-lg-4"> <asp:Label ID="LbFecha" runat="server" CssClass="TextoEncabezado" ForeColor="Tan"></asp:Label>
+                </div>
+                <div class="col-lg-4" style="color:tan;">
+                    Modulo de Cosultas
+                </div>
+                <div class="col-lg-4">
+                    <asp:Label ID="LbUsuario" runat="server" CssClass="TextoEncabezado" ForeColor="Tan" Text="Usuario:"></asp:Label>
+                </div>
                 <div class="col-lg-1">
                     <table style="width:100%;">
                         <tr>
@@ -37,7 +45,7 @@
                             </tr>
                         <tr>
                             <td colspan="5">
-                            <asp:GridView ID="GvConsultas" runat="server" CssClass="rcorners1"  AutoGenerateColumns="False" EnableModelValidation="True" Width="100%">
+                            <asp:GridView ID="GvConsultas" runat="server" CssClass="rcorners1"  AutoGenerateColumns="False" EnableModelValidation="True" Width="100%" AllowPaging="True">
                                 <Columns>
                                     <asp:BoundField HeaderText="Id" />
                                     <asp:BoundField HeaderText="Nombre" />
