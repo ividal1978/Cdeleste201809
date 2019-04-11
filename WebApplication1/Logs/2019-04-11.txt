@@ -1,0 +1,6 @@
+2019/04/11 11:53:13.619|ERROR| Datos - Comentario - Get Comentario x Tipo y Estado Table 'cdeleste_db.cometarios' doesn't exist|Logger1|
+2019/04/11 11:55:06.451|ERROR| Datos - Comentario - Get Comentario x Tipo y Estado Table 'cdeleste_db.cometarios' doesn't exist|Logger1|
+2019/04/11 11:55:18.323|ERROR| Datos - Comentario - Get Comentario x Tipo y Estado Table 'cdeleste_db.cometarios' doesn't exist|Logger1|
+2019/04/11 11:55:52.791|ERROR| Datos - Comentario - Get Comentario x Tipo y Estado Table 'cdeleste_db.cometarios' doesn't exist|Logger1|
+2019/04/11 11:57:14.490|ERROR| Datos - Comentario - Get Comentario x Tipo y Estado Table 'cdeleste_db.cometarios' doesn't exist|Logger1|
+2019/04/11 11:57:23.550|ERROR| Datos - Comentario - Get Comentario x Tipo y Estado Table 'cdeleste_db.cometarios' doesn't exist|Logger1|

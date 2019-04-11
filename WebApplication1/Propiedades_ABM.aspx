@@ -28,15 +28,15 @@
             <form id="Propiedadesfrom" runat="server">
             <div class="row">
                 <div class="col-lg-6">
-                    <asp:GridView ID="gvPropiedades" runat="server" CssClass="table table-light table-hover rcorners0 "  BackColor="Tan" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None" EnableModelValidation="True" OnRowEditing="gvPropiedades_RowEditing" >
-                        <AlternatingRowStyle BackColor="#996633" ForeColor="White" />
+                    <asp:GridView ID="gvPropiedades" runat="server" CssClass="table table-light table-hover rcorners0 "  BackColor="Black" style="opacity:.55;" BorderStyle="None"  runat="server" AutoGenerateColumns="False" AllowPaging="True" GridLines="None" EnableModelValidation="True" OnRowEditing="gvPropiedades_RowEditing"  ForeColor="Tan">
+                      
                         <Columns>
                             <asp:BoundField  DataField="IdPropiedades" HeaderText="Id"/>
                             <asp:BoundField  DataField="Nombre" HeaderText="Propiedad"/>
                             <asp:BoundField  DataField="Plazas" HeaderText="Pax"/>
                             <asp:BoundField  DataField="Direccion" HeaderText="Direccion"/>
                             <asp:CommandField ShowEditButton="True"  ItemStyle-ForeColor="#660033" EditText="Editar">
-<ItemStyle ForeColor="#660033"></ItemStyle>
+
                             </asp:CommandField>
                         </Columns>
                     </asp:GridView>

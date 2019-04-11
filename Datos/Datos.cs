@@ -603,7 +603,7 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
-                Query = "SELECT * FROM Cometarios where Tipo='"+ TipoComentario +"' and Estado='"+Estado+"'";
+                Query = "SELECT * FROM comentarios where Tipo='" + TipoComentario +"' and Estado='"+Estado+ "' order by FechaComentario desc";
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);

@@ -50,5 +50,22 @@ namespace WebApplication1
             GvConsultas.DataBind();
             //llamar al metodo de negocio con los paramentros de 
         }
+
+        protected void DdlTipoConsulta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargaGrilla();
+        }
+
+        protected void DdlEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargaGrilla();
+        }
+
+        protected void CambioPagina(object sender, GridViewPageEventArgs e)
+        {
+            
+            GvConsultas.PageIndex = e.NewPageIndex;
+            CargaGrilla();
+        }
     }
 }
