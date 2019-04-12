@@ -55,7 +55,7 @@
                             </tr>
                         <tr>
                             <td colspan="6">
-                            <asp:GridView ID="GvConsultas" runat="server" CssClass="rcorners0" style="opacity:.55;" AutoGenerateColumns="False" EnableModelValidation="True" Width="100%" AllowPaging="True" OnPageIndexChanging="CambioPagina" ForeColor="Tan" PageSize="5"   BackColor="Black"  >
+                            <asp:GridView ID="GvConsultas" runat="server" CssClass="GridNegra"  AutoGenerateColumns="False" EnableModelValidation="True" Width="100%" AllowPaging="True" OnPageIndexChanging="CambioPagina"  PageSize="5"   >
                                 <Columns>
                                     <asp:BoundField HeaderText="Id" DataField="IdComentario"  ControlStyle-Width="8%"/>
                                     <asp:BoundField HeaderText="Nombre"  DataField="Nombre_Persona" ControlStyle-Width="10%"/>

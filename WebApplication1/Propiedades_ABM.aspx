@@ -35,7 +35,7 @@
                             <asp:BoundField  DataField="Nombre" HeaderText="Propiedad"/>
                             <asp:BoundField  DataField="Plazas" HeaderText="Pax"/>
                             <asp:BoundField  DataField="Direccion" HeaderText="Direccion"/>
-                            <asp:CommandField ShowEditButton="True"  ItemStyle-ForeColor="#660033" EditText="Editar">
+                            <asp:CommandField ShowEditButton="True"  EditText="Editar">
 
                             </asp:CommandField>
                         </Columns>
