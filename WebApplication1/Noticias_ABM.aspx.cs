@@ -144,8 +144,9 @@ namespace WebApplication1
         
         protected void dgNoticias_PageIndexChanged(object source, DataGridPageChangedEventArgs e)
         {
-            dgNoticias.CurrentPageIndex = e.NewPageIndex;
             CargarNoticias();
+            dgNoticias.CurrentPageIndex = e.NewPageIndex;
+           
         }
 
         protected void dgNoticias_DeleteCommand(object source, DataGridCommandEventArgs e)

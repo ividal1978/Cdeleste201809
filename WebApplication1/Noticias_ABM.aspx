@@ -33,7 +33,7 @@
         <br />
         <br />
         <div class="rcorners1">
-        <asp:DataGrid ID="dgNoticias" CssClass="GridNegra"   runat="server" AutoGenerateColumns="False" AllowPaging="True" OnEditCommand="Carga1Noticia" OnPageIndexChanged="dgNoticias_PageIndexChanged" OnDeleteCommand="dgNoticias_DeleteCommand" AHeaderStyle-BackColor="#003300" HeaderStyle-ForeColor="#99CC00" HeaderStyle-CssClass="rounded-0">
+        <asp:DataGrid ID="dgNoticias" CssClass="GridNegra"    runat="server" AutoGenerateColumns="False" AllowPaging="True" OnEditCommand="Carga1Noticia"  OnPageIndexChanged="dgNoticias_PageIndexChanged" OnDeleteCommand="dgNoticias_DeleteCommand" AHeaderStyle-BackColor="#003300" HeaderStyle-ForeColor="#99CC00" HeaderStyle-CssClass="rounded-0">
             <Columns>
                 <asp:BoundColumn DataField="IdNoticia" HeaderText="Id"></asp:BoundColumn>
                 <asp:BoundColumn DataField="Fecha" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Fecha"></asp:BoundColumn>
