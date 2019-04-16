@@ -94,6 +94,51 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label TituloConsulta;
         
         /// <summary>
+        /// LbNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbNombre;
+        
+        /// <summary>
+        /// LbTelefono control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbTelefono;
+        
+        /// <summary>
+        /// LbMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbMail;
+        
+        /// <summary>
+        /// LbFechac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbFechac;
+        
+        /// <summary>
+        /// LbPropiedad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbPropiedad;
+        
+        /// <summary>
         /// TbConsulta control.
         /// </summary>
         /// <remarks>
