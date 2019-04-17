@@ -46,6 +46,9 @@ namespace WebApplication1
         protected void CargaGrilla()
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
+        
+          
+
             GvConsultas.DataSource = oNegocio.Get_ComentariosxTipo(DdlTipoConsulta.SelectedValue.ToString(), DdlEstado.SelectedValue.ToString());
             GvConsultas.DataBind();
             //llamar al metodo de negocio con los paramentros de 
@@ -66,6 +69,10 @@ namespace WebApplication1
             
             GvConsultas.PageIndex = e.NewPageIndex;
             CargaGrilla();
+        }
+        protected void VerConsulta(object sender, GridViewDeleteEventArgs e)
+        {
+
         }
     }
 }

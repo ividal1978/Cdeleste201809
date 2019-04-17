@@ -55,7 +55,7 @@
                             </tr>
                         <tr>
                             <td colspan="6">
-                            <asp:GridView ID="GvConsultas" runat="server" CssClass="GridNegra"  AutoGenerateColumns="False" EnableModelValidation="True" Width="100%" AllowPaging="True" OnPageIndexChanging="CambioPagina"  PageSize="5"   >
+                            <asp:GridView ID="GvConsultas" runat="server" CssClass="GridNegra"  AutoGenerateColumns="False" EnableModelValidation="True" Width="100%" AllowPaging="True" OnPageIndexChanging="CambioPagina"  PageSize="5"  OnRowDeleting="VerConsulta" >
                                 <Columns>
                                     <asp:BoundField HeaderText="Id" DataField="IdComentario"  ControlStyle-Width="8%"/>
                                     <asp:BoundField HeaderText="Nombre"  DataField="Nombre_Persona" ControlStyle-Width="10%"/>
@@ -63,8 +63,7 @@
                                     <asp:BoundField HeaderText="Mail" DataField="Mail_Persona"  ControlStyle-Width="15%"/>
                                     <asp:BoundField HeaderText="Consulta"  DataField="Comentario" ControlStyle-Width="22%"/>
                                     <asp:BoundField HeaderText="Estado" DataField="Estado"  ControlStyle-Width="10%"/>
-                                    <asp:CommandField EditText="Responder" ShowEditButton="True"  ControlStyle-Width="10%"/>
-                                    <asp:CommandField DeleteText="Anular" ShowDeleteButton="True"  ControlStyle-Width="10%"/>
+                                    <asp:CommandField DeleteText="Ver" ShowDeleteButton="True"  ControlStyle-Width="10%" ItemStyle-HorizontalAlign="Center"/>
                                 </Columns>
                                
                             </asp:GridView>

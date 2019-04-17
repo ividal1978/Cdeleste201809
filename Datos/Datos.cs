@@ -640,6 +640,87 @@ namespace Datos
             }
 
         }
+
+       public Comentarios Get_Cometario (int IdComentario)
+        {
+            try
+            {
+                List<Comentarios> oLista = new List<Comentarios>();
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = "SELECT * FROM comentarios where IdComentario="+ IdComentario.ToString()+" order by FechaComentario desc";
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Comentarios");
+
+                Comentarios oItem = new Comentarios();
+                foreach (DataRow oFila in myDS.Tables["Comentarios"].Rows)
+                {
+                    oItem.IdComentario = Convert.ToInt32(oFila[0].ToString());
+                    oItem.FechaComentario = Convert.ToDateTime(oFila[1].ToString());
+                    oItem.Nombre_Persona = oFila[2].ToString();
+                    oItem.Tel_Persona = oFila[3].ToString();
+                    oItem.Mail_Persona = oFila[4].ToString();
+                    oItem.Estado = oFila[5].ToString();
+                    oItem.Comentario = oFila[6].ToString();
+                    oItem.Tipo = oFila[7].ToString();
+                    oItem.IdPropiedad = oFila[8].ToString();
+                }
+                myCommand.Dispose();
+                conn.Close();
+                return oItem;
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Id");
+                return null;
+            }
+        }
+
+        public Respuetas Get_Respuesta(int IdRespuesta)
+        {
+            try
+            {
+                List<Comentarios> oLista = new List<Comentarios>();
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = "SELECT * FROM respuestas where IdRespuesta =" + IdRespuesta.ToString() + " order by FechaComentario desc";
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Comentarios");
+
+                Respuetas oItem = new Respuetas();
+                foreach (DataRow oFila in myDS.Tables["Comentarios"].Rows)
+                {
+                    oItem.IdRespuesta = Convert.ToInt32(oFila[0].ToString());
+                    oItem.Tipo =oFila[1].ToString();
+                    oItem.Fecha = Convert.ToDateTime (oFila[2].ToString());
+                    oItem.Respuesta = oFila[3].ToString();
+                    oItem.Estado = oFila[4].ToString();
+                }
+                myCommand.Dispose();
+                conn.Close();
+                return oItem;
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Respuesta - Get Respuesta x Id");
+                return null;
+            }
+        }
+          
         #endregion
 
 
