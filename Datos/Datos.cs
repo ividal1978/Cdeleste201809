@@ -691,7 +691,7 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
-                Query = "SELECT * FROM respuestas where IdRespuesta =" + IdRespuesta.ToString() + " order by FechaComentario desc";
+                Query = "SELECT * FROM respuestas where IdRespuesta = " + IdRespuesta.ToString() ;
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);
@@ -699,10 +699,10 @@ namespace Datos
                 MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
 
                 DataSet myDS = new DataSet();
-                myDA.Fill(myDS, "Comentarios");
+                myDA.Fill(myDS, "Respuestas");
 
                 Respuetas oItem = new Respuetas();
-                foreach (DataRow oFila in myDS.Tables["Comentarios"].Rows)
+                foreach (DataRow oFila in myDS.Tables["Respuestas"].Rows)
                 {
                     oItem.IdRespuesta = Convert.ToInt32(oFila[0].ToString());
                     oItem.Tipo =oFila[1].ToString();

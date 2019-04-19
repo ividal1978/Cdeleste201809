@@ -72,7 +72,28 @@ namespace WebApplication1
         }
         protected void VerConsulta(object sender, GridViewDeleteEventArgs e)
         {
-
+            int IdConsulta = Convert.ToInt32(GvConsultas.Rows[e.RowIndex].Cells[0].Text);
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            var QConsulta = oNegocio.Get_Cometario(IdConsulta);
+            LbNombreConsulta.Text = QConsulta.Nombre_Persona;
+            LbFechaConsulta.Text = QConsulta.FechaComentario.ToString();
+            LbTelefonoConsulta.Text = QConsulta.Tel_Persona;
+            LbMailConsulta.Text = QConsulta.Mail_Persona;
+            TbConsulta.Text = QConsulta.Comentario;
+            //obtengo el nombre de la propiedad si existe
+            if (Convert.ToInt32(QConsulta.IdPropiedad) < 1)
+                LbPropiedadConsulta.Text = "Consulta General";
+            else
+            {
+                var Propiedad = oNegocio.Get_Propiedad(Convert.ToInt32(QConsulta.IdPropiedad));
+                LbPropiedadConsulta.Text = Propiedad.Nombre;
+            }
+            var QRespuesta = oNegocio.Get_Respuesta(IdConsulta);
+            if (QRespuesta != null)
+            {
+                LbFechaRespuesta.Text = QRespuesta.Fecha.ToShortDateString();
+                TbRespuesta.Text = QRespuesta.Respuesta.ToString();
+            }
         }
     }
 }

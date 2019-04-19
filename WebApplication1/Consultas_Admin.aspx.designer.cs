@@ -94,49 +94,49 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label TituloConsulta;
         
         /// <summary>
-        /// LbNombre control.
+        /// LbNombreConsulta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbNombre;
+        protected global::System.Web.UI.WebControls.Label LbNombreConsulta;
         
         /// <summary>
-        /// LbTelefono control.
+        /// LbTelefonoConsulta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbTelefono;
+        protected global::System.Web.UI.WebControls.Label LbTelefonoConsulta;
         
         /// <summary>
-        /// LbMail control.
+        /// LbMailConsulta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbMail;
+        protected global::System.Web.UI.WebControls.Label LbMailConsulta;
         
         /// <summary>
-        /// LbFechac control.
+        /// LbFechaConsulta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbFechac;
+        protected global::System.Web.UI.WebControls.Label LbFechaConsulta;
         
         /// <summary>
-        /// LbPropiedad control.
+        /// LbPropiedadConsulta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbPropiedad;
+        protected global::System.Web.UI.WebControls.Label LbPropiedadConsulta;
         
         /// <summary>
         /// TbConsulta control.
@@ -157,6 +157,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label TituloRespuesta;
         
         /// <summary>
+        /// LbFechaRespuesta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbFechaRespuesta;
+        
+        /// <summary>
         /// TbRespuesta control.
         /// </summary>
         /// <remarks>
@@ -164,5 +173,32 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TbRespuesta;
+        
+        /// <summary>
+        /// BtnResponder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnResponder;
+        
+        /// <summary>
+        /// ChkEnviarmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChkEnviarmail;
+        
+        /// <summary>
+        /// BtnAnular control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAnular;
     }
 }

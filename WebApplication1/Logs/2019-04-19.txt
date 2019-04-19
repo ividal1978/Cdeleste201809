@@ -1,0 +1,3 @@
+2019/04/19 01:28:36.584|ERROR| Datos - Respuesta - Get Respuesta x Id Unknown column 'FechaComentario' in 'order clause'|Logger1|
+2019/04/19 01:29:12.184|ERROR| Datos - Respuesta - Get Respuesta x Id Unknown column 'FechaComentario' in 'order clause'|Logger1|
+2019/04/19 01:31:54.054|ERROR| Datos - Respuesta - Get Respuesta x Id Unknown column 'FechaComentario' in 'order clause'|Logger1|

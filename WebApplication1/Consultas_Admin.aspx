@@ -78,18 +78,23 @@
              <div class="col-lg-6" style="vertical-align:central;text-align:center;">
                  <asp:Label ID="TituloConsulta" runat="server" CssClass="TextoEncabezado" ForeColor="Tan" Text="Consulta"></asp:Label><br />
                  <div>
-                 <asp:Label ID="LbNombre" runat="server"  CssClass="text-center"  ForeColor="Tan" ToolTip="Nombre y Apellido" Text="Nombre y Apellido"></asp:Label> &nbsp;
-                 <asp:Label ID="LbTelefono" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="Teléfono" Text=" 12345+-55"></asp:Label>&nbsp;
-                 <asp:Label ID ="LbMail" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="E-Mail" Text="nada@tss.com"></asp:Label>&nbsp; 
-                 <asp:Label ID ="LbFechac" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="Fecha de Alta" text="2019-04-19"></asp:Label>&nbsp;
-                 <asp:Label ID="LbPropiedad" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="Propiedad"></asp:Label>
+                 <asp:Label ID="LbNombreConsulta" runat="server"  CssClass="text-center"  ForeColor="Tan" ToolTip="Nombre y Apellido" Text="Nombre y Apellido"></asp:Label> &nbsp;
+                 <asp:Label ID="LbTelefonoConsulta" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="Teléfono" Text=" 12345+-55"></asp:Label>&nbsp;
+                 <asp:Label ID ="LbMailConsulta" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="E-Mail" Text="nada@tss.com"></asp:Label>&nbsp; 
+                 <asp:Label ID ="LbFechaConsulta" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="Fecha de Alta" text="2019-04-19"></asp:Label>&nbsp;
+                 <asp:Label ID="LbPropiedadConsulta" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="Propiedad"></asp:Label>
               
                  </div>
                  <asp:TextBox ID="TbConsulta" CssClass="rcorners1" runat="server" TextMode="MultiLine" Width="80%"  Height="250px"></asp:TextBox>
              </div>
              <div class="col-lg-6"  style="vertical-align:central;text-align:center;">
-                 <asp:Label ID="TituloRespuesta"  runat="server" CssClass="TextoEncabezado" ForeColor="Tan" Text="Respuesta"></asp:Label><br /><br />
-                 <asp:TextBox ID="TbRespuesta" CssClass="rcorners2" runat="server" TextMode="MultiLine" Width="80%" Height="250px"></asp:TextBox>
+                 <asp:Label ID="TituloRespuesta"  runat="server" CssClass="TextoEncabezado" ForeColor="Tan" Text="Respuesta"></asp:Label><br />
+                 <asp:Label ID="LbFechaRespuesta" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="Fecha de Respuesta"></asp:Label><br />
+                 <asp:TextBox ID="TbRespuesta" CssClass="rcorners2" runat="server" TextMode="MultiLine" Width="80%" Height="250px"></asp:TextBox> <br />
+                 <asp:Button ID="BtnResponder" runat="server" CssClass="btn btn-outline-warning" Text="Responder" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <asp:CheckBox ID="ChkEnviarmail" runat="server" CssClass="input-group-addon btn-outline-warning btn" Text="  Enviar mail con respuesta" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <asp:Button ID="BtnAnular" runat="server" CssClass="btn btn-outline-warning" Text="Anular" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 
              </div>
          </div>
                     
