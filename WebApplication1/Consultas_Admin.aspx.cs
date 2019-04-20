@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Contrato;
+using System.Text;
+using System.Configuration;
 
 namespace WebApplication1
 {
@@ -145,9 +147,55 @@ namespace WebApplication1
             if (ChkEnviarmail.Checked == true)
             {
                 //Debo enviar el mail
+                Email Correo = new Email();
+                Correo.Para = LbMailConsulta.Text;
+                Correo.CopiaOculta = ConfigurationManager.AppSettings["ListaMail"].ToString();
+                string CodigoConsulta = GeneradorRandom(Convert.ToInt32(HdnIdComentario.Value.ToString()));
+                //Correo.CopiaOculta= ConfigurationManager.AppSettings["ListaMail"].ToString();
+                Correo.Asunto = "Respuesta Consulta- " + CodigoConsulta + " Fecha " + DateTime.Now;
+                Correo.Mensaje = "<H2> Estimado/a "+ oComentario.Nombre_Persona + ":<H2><Hr> <br>";
+                Correo.Mensaje += "<h4> Desde www.CdelEste.com.ar hemos recibido su consulta, la misma ya ha sido respondida.< br />" +
+                    "Puede consultar la misma en el siguiente link http:\\www.cdeleste.com.ar\\Respuestas.aspx? Rta =" + CodigoConsulta
+                    + "<br /> <br /> <h4> "
+                    + " Ante cualquier consulta comuniquese via web o telefónicamente <br /> <br />"
+                    + " Atentamente <br/>"
+                    + "<h3><font color='Green'> www.CdelEste.com.ar</font> </h3> < br/> "+
+                    "<h3><hr><B>NOTA: </B></h3> <h4> Este mail se ha generado de forma automática."+
+                    " No responda o envié mail a esta dirección de correo ya que no recibirá respuesta alguna."+
+                    " Desde ya muchas Gracias..<br />This email was generated automatically. Do not respond or send mail to this email address, you will not receive any response. Thank you in advance.</h4>";
+
+                //Envio el mail
+                oNegocio.Envio_Email(Correo);
+                // comunico que la consulta se envio
+
             }
             Limpiar();
             LbMensaje.Text = "Se Ha guardado correctamente " + (ChkEnviarmail.Checked == true ? " y se ha enviado en el mail." : ".");
+        }
+
+        protected string GeneradorRandom(int ID)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append(RandomString(2, true));
+            builder.Append(ID +"#");
+            builder.Append(RandomString(2, false));
+            return builder.ToString();
+        }
+
+        // Generate a random string with a given size  
+        public string RandomString(int size, bool lowerCase)
+        {
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            char ch;
+            for (int i = 0; i < size; i++)
+            {
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                builder.Append(ch);
+            }
+            if (lowerCase)
+                return builder.ToString().ToLower();
+            return builder.ToString();
         }
     }
 }
