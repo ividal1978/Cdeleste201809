@@ -91,13 +91,14 @@
                  <asp:Label ID="TituloRespuesta"  runat="server" CssClass="TextoEncabezado" ForeColor="Tan" Text="Respuesta"></asp:Label><br />
                  <asp:Label ID="LbFechaRespuesta" runat="server" CssClass="text-center" ForeColor="Tan" ToolTip="Fecha de Respuesta"></asp:Label><br />
                  <asp:TextBox ID="TbRespuesta" CssClass="rcorners2" runat="server" TextMode="MultiLine" Width="80%" Height="250px"></asp:TextBox> <br />
-                 <asp:Button ID="BtnResponder" runat="server" CssClass="btn btn-outline-warning" Text="Responder" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <asp:Button ID="BtnResponder" runat="server" CssClass="btn btn-outline-warning" Text="Responder" OnClick="BtnResponder_Click" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                  <asp:CheckBox ID="ChkEnviarmail" runat="server" CssClass="input-group-addon btn-outline-warning btn" Text="  Enviar mail con respuesta" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 <asp:Button ID="BtnAnular" runat="server" CssClass="btn btn-outline-warning" Text="Anular" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <asp:Button ID="BtnAnular" runat="server" CssClass="btn btn-outline-warning" Text="Anular" OnClick="BtnAnular_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                  
              </div>
          </div>
-                    
+         <asp:Label ID="LbMensaje" runat="server" CssClass="text-info text-center "  Font-Size="Large"></asp:Label>
+        <asp:HiddenField ID="HdnIdComentario" runat="server"  />           
                  
    </div>   
    </form>

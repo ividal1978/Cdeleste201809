@@ -82,7 +82,7 @@ namespace Contrato
             public string Estado { get; set; }
         }
 
-        public class Respuetas
+        public class Respuestas
         {
             public int IdRespuesta { get; set; }
             public string Tipo { get; set; }
@@ -126,13 +126,5 @@ namespace Contrato
 
     }
 
-         public class Respuestas
-    {
-        public int IdRespuesta { get; set; }
-        public string Tipo { get; set; }
-        public DateTime Fecha { get; set; }
-        public string Respuesta { get; set; }
-        public string Estado { get; set; }
-    }
-
+     
 }

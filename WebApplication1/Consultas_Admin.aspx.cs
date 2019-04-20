@@ -46,9 +46,17 @@ namespace WebApplication1
         protected void CargaGrilla()
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
-        
-          
 
+            if (DdlEstado.SelectedValue == "Anulado")
+            {
+                BtnAnular.Visible = false;
+                BtnResponder.Visible = true;
+            }
+            else
+            {
+                BtnAnular.Visible = true;
+                BtnResponder.Visible = true;
+            }
             GvConsultas.DataSource = oNegocio.Get_ComentariosxTipo(DdlTipoConsulta.SelectedValue.ToString(), DdlEstado.SelectedValue.ToString());
             GvConsultas.DataBind();
             //llamar al metodo de negocio con los paramentros de 
@@ -73,6 +81,7 @@ namespace WebApplication1
         protected void VerConsulta(object sender, GridViewDeleteEventArgs e)
         {
             int IdConsulta = Convert.ToInt32(GvConsultas.Rows[e.RowIndex].Cells[0].Text);
+            HdnIdComentario.Value = IdConsulta.ToString();
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             var QConsulta = oNegocio.Get_Cometario(IdConsulta);
             LbNombreConsulta.Text = QConsulta.Nombre_Persona;
@@ -94,6 +103,51 @@ namespace WebApplication1
                 LbFechaRespuesta.Text = QRespuesta.Fecha.ToShortDateString();
                 TbRespuesta.Text = QRespuesta.Respuesta.ToString();
             }
+        }
+
+        protected void BtnAnular_Click(object sender, EventArgs e)
+        {
+            Comentarios oComentario = new Comentarios();
+            oComentario.IdComentario = Convert.ToInt32(HdnIdComentario.Value.ToString());
+            oComentario.Tipo = DdlTipoConsulta.SelectedValue.ToString();
+            oComentario.Estado = "Anulado";
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            oNegocio.Save_Comentario(oComentario);
+            Limpiar();
+            LbMensaje.Text = "Se ha Guardado Correctamente.";
+
+        }
+
+        protected void Limpiar()
+        {
+            LbNombreConsulta.Text = LbTelefonoConsulta.Text = LbMailConsulta.Text = LbFechaConsulta.Text = "";
+            LbPropiedadConsulta.Text = LbFechaRespuesta.Text = TbConsulta.Text = TbRespuesta.Text = "";
+        }
+
+        protected void BtnResponder_Click(object sender, EventArgs e)
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            Comentarios oComentario = new Comentarios();
+            oComentario.IdComentario = Convert.ToInt32(HdnIdComentario.Value.ToString());
+            oComentario.Tipo = DdlTipoConsulta.SelectedValue.ToString();
+            oComentario.Estado = "Respondida";
+           
+            oNegocio.Save_Comentario(oComentario);
+
+            Respuestas oRespuesta = new Respuestas();
+            oRespuesta.IdRespuesta = Convert.ToInt32(HdnIdComentario.Value.ToString());
+            oRespuesta.Tipo = "R";
+            oRespuesta.Estado = "Respondida";
+            oRespuesta.Respuesta = TbRespuesta.Text;
+            oRespuesta.Fecha = DateTime.Now;
+
+            oNegocio.Save_Respuesta(oRespuesta);
+            if (ChkEnviarmail.Checked == true)
+            {
+                //Debo enviar el mail
+            }
+            Limpiar();
+            LbMensaje.Text = "Se Ha guardado correctamente " + (ChkEnviarmail.Checked == true ? " y se ha enviado en el mail." : ".");
         }
     }
 }

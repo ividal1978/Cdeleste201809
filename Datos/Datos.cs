@@ -683,7 +683,7 @@ namespace Datos
             }
         }
 
-        public Respuetas Get_Respuesta(int IdRespuesta)
+        public Respuestas Get_Respuesta(int IdRespuesta)
         {
             try
             {
@@ -701,7 +701,7 @@ namespace Datos
                 DataSet myDS = new DataSet();
                 myDA.Fill(myDS, "Respuestas");
 
-                Respuetas oItem = new Respuetas();
+                Respuestas oItem = new Respuestas();
                 foreach (DataRow oFila in myDS.Tables["Respuestas"].Rows)
                 {
                     oItem.IdRespuesta = Convert.ToInt32(oFila[0].ToString());
@@ -719,6 +719,47 @@ namespace Datos
                 _logger1.Error(ex, " Datos - Respuesta - Get Respuesta x Id");
                 return null;
             }
+        }
+
+        public void Save_Respuesta(Respuestas oRespuesta)
+        {
+           Respuestas Existe = Get_Respuesta(oRespuesta.IdRespuesta);
+
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                if (Existe != null)
+                {
+                    //Realizar un update
+                    Query = "UPDATE respuestas SET " +
+                    " Estado = '" + oRespuesta.Estado + "'," +
+                    " Tipo = '" + oRespuesta.Tipo  + "'" +
+                    " Fecha = " + oRespuesta.Fecha.ToString() + 
+                    " Respuesta = '"+ oRespuesta.Respuesta +"'"+
+                    " WHERE IdRespuesta =" +oRespuesta.IdRespuesta;
+                }
+                else
+                {
+                    //Realizar un insert
+                    Query = " INSERT INTO respuestas (IdRespuesta, Tipo, Fecha, Respuesta, Estado) VALUES " +
+                    "(" + oRespuesta.IdRespuesta + ",'" + oRespuesta.Tipo + "'," + oRespuesta.Fecha + ",'" + oRespuesta.Respuesta + "'" +
+                    "'" + oRespuesta.Estado + "')";
+
+                }
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Comentarios - Save Respuesta");
+            }
+
         }
           
         #endregion

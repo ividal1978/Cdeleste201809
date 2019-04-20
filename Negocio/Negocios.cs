@@ -84,7 +84,10 @@ namespace Negocio
 
         public Comentarios Get_Cometario(int IdComentario) => oData.Get_Cometario(IdComentario);
 
-        public Respuetas Get_Respuesta(int IdRespuesta) => oData.Get_Respuesta(IdRespuesta);
+        public Respuestas Get_Respuesta(int IdRespuesta) => oData.Get_Respuesta(IdRespuesta);
+
+        public void Save_Respuesta(Respuestas oRespuesta)
+        { oData.Save_Respuesta(oRespuesta); }
 
         #endregion
 
