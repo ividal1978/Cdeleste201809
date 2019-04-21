@@ -15,7 +15,7 @@
         <h1 class="Titulo" >Ha ocurrido un Error</h1>
         <div class="row">
             <div class="col-12  rounded">
-                <asp:Label ID="lbRazones" runat="server" CssClass="btn btn-danger" Font-Size="X-Large" Text="Hemos detectado un Error. A la brevedad sera informado y solucionado por nuestro equipo de desarrollo <br /> Disculpe las molestias ocasionadas. <br/> www.Cdeleste.com.ar"></asp:Label>
+                <asp:Label ID="lbRazones" runat="server" CssClass="btn btn-danger" Font-Size="X-Large" Text="Hemos detectado un Error. A la brevedad sera informado y solucionado por nuestro equipo de desarrollo <br /> Disculpe las molestias ocasionadas. <br/><font color='Green'><i class='fas fa-tree' style='color: forestgreen; '></i> www.CdelEste.com.ar</font>"></asp:Label>
             </div>
         </div>
     </div>

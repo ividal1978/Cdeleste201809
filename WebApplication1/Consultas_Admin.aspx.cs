@@ -136,7 +136,8 @@ namespace WebApplication1
            
             oNegocio.Save_Comentario(oComentario);
 
-            Respuestas oRespuesta = new Respuestas();
+            Contrato.Respuestas oRespuesta = new Contrato.Respuestas();
+            
             oRespuesta.IdRespuesta = Convert.ToInt32(HdnIdComentario.Value.ToString());
             oRespuesta.Tipo = "R";
             oRespuesta.Estado = "Respondida";
@@ -155,11 +156,11 @@ namespace WebApplication1
                 Correo.Asunto = "Respuesta Consulta- " + CodigoConsulta + " Fecha " + DateTime.Now;
                 Correo.Mensaje = "<H2> Estimado/a "+ oComentario.Nombre_Persona + ":<H2><Hr> <br>";
                 Correo.Mensaje += "<h4> Desde www.CdelEste.com.ar hemos recibido su consulta, la misma ya ha sido respondida.< br />" +
-                    "Puede consultar la misma en el siguiente link http:\\www.cdeleste.com.ar\\Respuestas.aspx? Rta =" + CodigoConsulta
+                    "Puede consultar la misma en el siguiente link http:\\www.cdeleste.com.ar\\RespuestasConsulta.aspx? Rta =" + CodigoConsulta
                     + "<br /> <br /> <h4> "
                     + " Ante cualquier consulta comuniquese via web o telefónicamente <br /> <br />"
                     + " Atentamente <br/>"
-                    + "<h3><font color='Green'> www.CdelEste.com.ar</font> </h3> < br/> "+
+                    + "<h3><font color='Green'><i class='fas fa-tree' style='color: forestgreen; '></i> www.CdelEste.com.ar</font> </h3> < br/> " +
                     "<h3><hr><B>NOTA: </B></h3> <h4> Este mail se ha generado de forma automática."+
                     " No responda o envié mail a esta dirección de correo ya que no recibirá respuesta alguna."+
                     " Desde ya muchas Gracias..<br />This email was generated automatically. Do not respond or send mail to this email address, you will not receive any response. Thank you in advance.</h4>";
@@ -177,7 +178,7 @@ namespace WebApplication1
         {
             StringBuilder builder = new StringBuilder();
             builder.Append(RandomString(2, true));
-            builder.Append(ID +"#");
+            builder.Append(ID +"-");
             builder.Append(RandomString(2, false));
             return builder.ToString();
         }

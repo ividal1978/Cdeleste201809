@@ -92,6 +92,7 @@
     <None Include="packages.config" />
     <Content Include="Noticias_ABM.aspx" />
     <Content Include="Propiedades_ABM.aspx" />
+    <Content Include="RespuestasConsulta.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -210,6 +211,13 @@
     </Compile>
     <Compile Include="Propiedades_ABM.aspx.designer.cs">
       <DependentUpon>Propiedades_ABM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RespuestasConsulta.aspx.cs">
+      <DependentUpon>RespuestasConsulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RespuestasConsulta.aspx.designer.cs">
+      <DependentUpon>RespuestasConsulta.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

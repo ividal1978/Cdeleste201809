@@ -89,9 +89,7 @@ namespace Contrato
             public DateTime Fecha { get; set; }
             public string Respuesta { get; set; }
             public string Estado { get; set; }
-
-
-    }
+        }
 
         public class Usuarios
         {
