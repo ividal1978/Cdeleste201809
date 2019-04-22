@@ -103,7 +103,7 @@ namespace WebApplication1
             if (QRespuesta != null)
             {
                 LbFechaRespuesta.Text = QRespuesta.Fecha.ToShortDateString();
-                TbRespuesta.Text = QRespuesta.Respuesta.ToString();
+                TbRespuesta.Text = (QRespuesta.Respuesta!= null? QRespuesta.Respuesta.ToString():"");
             }
         }
 
