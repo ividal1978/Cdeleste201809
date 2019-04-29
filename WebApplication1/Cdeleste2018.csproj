@@ -80,6 +80,7 @@
     <Content Include="Imagenes\Slider_Main\1.JPG" />
     <Content Include="Imagenes\Slider_Main\2.JPG" />
     <Content Include="Imagenes\Slider_Main\3.JPG" />
+    <Content Include="Inquilinos_ABM.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="NLog.config" />
     <Content Include="Cdeleste.Master" />
@@ -189,6 +190,13 @@
     </Compile>
     <Compile Include="Escaparate.aspx.designer.cs">
       <DependentUpon>Escaparate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inquilinos_ABM.aspx.cs">
+      <DependentUpon>Inquilinos_ABM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inquilinos_ABM.aspx.designer.cs">
+      <DependentUpon>Inquilinos_ABM.aspx</DependentUpon>
     </Compile>
     <Compile Include="Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>

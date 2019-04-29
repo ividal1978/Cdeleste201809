@@ -761,9 +761,52 @@ namespace Datos
             }
 
         }
-          
+
         #endregion
 
+        #region Inquilinos
+
+        public List<InquilinoCMB> GetInquilinoCMB(string Nombre)
+        {
+            List<InquilinoCMB> ListaInquilinos = new List<InquilinoCMB>();
+            try
+            {
+                
+                MySqlConnection oConeccion = new MySqlConnection(StringConnection);
+                string query = "SELECT IDInquilino, Concat(Nombre,' ', Apellido ) Inquilino from inquilino"+
+                                " Where Concat(Nombre,' ', Apellido) like '%"+ Nombre +"%'"+
+                                " Order by  Concat(Nombre, ' ', Apellido) desc";
+
+                oConeccion.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, oConeccion);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Inquilinos");
+
+                foreach (DataRow Q in myDS.Tables["Inquilino"].Rows)
+                {
+                    InquilinoCMB oInq = new InquilinoCMB();
+                    oInq.IdInquilino = Convert.ToInt32(Q[0].ToString());
+                    oInq.Nombre_inquilino = Q[1].ToString();
+                    ListaInquilinos.Add(oInq);
+
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, "Datos - Get InquilinoCMB");
+            }
+            //buscar en base
+            return ListaInquilinos;
+
+
+        #endregion
+
+        }
 
     }
 }
