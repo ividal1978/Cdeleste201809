@@ -91,6 +91,11 @@ namespace Negocio
 
         #endregion
 
+        #region Inquilonos
+
+        public List<InquilinoCMB> GetInquilinoCMB(string Nombre) => oData.GetInquilinoCMB(Nombre);
+        #endregion
+
         #region Utiles
 
         public void Envio_Email(Email eMail)

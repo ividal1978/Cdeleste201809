@@ -774,7 +774,7 @@ namespace Datos
                 
                 MySqlConnection oConeccion = new MySqlConnection(StringConnection);
                 string query = "SELECT IDInquilino, Concat(Nombre,' ', Apellido ) Inquilino from inquilino"+
-                                " Where Concat(Nombre,' ', Apellido) like '%"+ Nombre +"%'"+
+                                " Where UPPER(Concat(Nombre,' ', Apellido)) like '%"+ Nombre +"%'"+
                                 " Order by  Concat(Nombre, ' ', Apellido) desc";
 
                 oConeccion.Open();
@@ -786,7 +786,7 @@ namespace Datos
                 DataSet myDS = new DataSet();
                 myDA.Fill(myDS, "Inquilinos");
 
-                foreach (DataRow Q in myDS.Tables["Inquilino"].Rows)
+                foreach (DataRow Q in myDS.Tables["Inquilinos"].Rows)
                 {
                     InquilinoCMB oInq = new InquilinoCMB();
                     oInq.IdInquilino = Convert.ToInt32(Q[0].ToString());

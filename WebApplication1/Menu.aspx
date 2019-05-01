@@ -75,7 +75,7 @@
             </div>
              <div class="row" style="padding:5px;">
                 <div class="col-4">
-                    <asp:Button ID="btnInquilinos" runat="server" CssClass="btn btn-outline-warning" Text="Inquilinos" />
+                    <asp:Button ID="btnInquilinos" runat="server" CssClass="btn btn-outline-warning" Text="Inquilinos" OnClick="btnInquilinos_Click" />
                 </div>
                 <div class="col-4">
                     <asp:Button ID="btnGaleria" runat="server" CssClass="btn btn-outline-warning" Text="Galeria de Fotos" />
