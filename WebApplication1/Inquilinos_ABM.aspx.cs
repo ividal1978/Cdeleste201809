@@ -13,7 +13,21 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Autenticar();
+        }
 
+        protected void Autenticar()
+        {
+
+            if (Session["usuario"] != null)
+            {
+                LbUsuario.Text = "Usuario: " + (Session["usuario"] != null ? Session["usuario"].ToString() : "");
+                LbFechaPagina.Text = "Fecha: " + DateTime.Now;
+            }
+            else
+            {
+                Response.Redirect("Menu.aspx");
+            }
         }
 
         [WebMethod]

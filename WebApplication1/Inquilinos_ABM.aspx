@@ -20,17 +20,18 @@
     <div class="container-fluid" style="margin-top: 10px;">
         <div class="row">
             <div class="col-2">
-                <asp:Label ID="lbFechaPagina" runat="server" ForeColor="Tan" Font-Size="Large" Text="Fecha:"></asp:Label>
+                <asp:Label ID="LbFechaPagina" runat="server" ForeColor="Tan" Font-Size="Large" Text="Fecha:"></asp:Label>
             </div>
             <div class="col-8" style="text-align: center;">
-                <asp:Label ID="lbTituloPagina" runat="server" ForeColor="Tan" Font-Size="X-Large" Text="Modulo de Noticias"></asp:Label>
+                <asp:Label ID="LbTituloPagina" runat="server" ForeColor="Tan" Font-Size="X-Large" Text="Modulo Inquilinos"></asp:Label>
             </div>
             <div class="col-2">
-                <asp:Label ID="lbUsuario" runat="server" ForeColor="Tan" Font-Size="Large" Text="Usuario:"></asp:Label>
+                <asp:Label ID="LbUsuario" runat="server" ForeColor="Tan" Font-Size="Large" Text="Usuario:"></asp:Label>
             </div>
         </div>
         <form id="formInquilinoABM" runat="server">
-
+        <div class="row">
+<div class=" col-lg-3 text-center TextoEncabezado"
         <span>Inquilino:</span>   
                 <asp:TextBox ID="TbNombreCmb" runat="server" Width="250px" CssClass="rcorners0" />  
             <cc1:AutoCompleteExtender ID="TbNombreCmb_AutoCompleteExtender"
@@ -44,9 +45,11 @@
                 CompletionListItemCssClass= "list-group list-group-item" 
                 CompletionListHighlightedItemCssClass="list-group list-group-item-success"
                 UseContextKey="True">
-               
             </cc1:AutoCompleteExtender>  
             <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
+    </div>
+    <div class="col-lg-3"> <asp:Button ID="BtnNuevo" runat="server" CssClass="btn btn-dark" Text="Nuevo" /></div>
+            </div>
         </form>
      
 </div>

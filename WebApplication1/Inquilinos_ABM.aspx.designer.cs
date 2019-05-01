@@ -13,31 +13,31 @@ namespace WebApplication1 {
     public partial class Inquilinos_ABM {
         
         /// <summary>
-        /// lbFechaPagina control.
+        /// LbFechaPagina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbFechaPagina;
+        protected global::System.Web.UI.WebControls.Label LbFechaPagina;
         
         /// <summary>
-        /// lbTituloPagina control.
+        /// LbTituloPagina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTituloPagina;
+        protected global::System.Web.UI.WebControls.Label LbTituloPagina;
         
         /// <summary>
-        /// lbUsuario control.
+        /// LbUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbUsuario;
+        protected global::System.Web.UI.WebControls.Label LbUsuario;
         
         /// <summary>
         /// formInquilinoABM control.
@@ -74,5 +74,14 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+        
+        /// <summary>
+        /// BtnNuevo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnNuevo;
     }
 }
