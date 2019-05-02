@@ -35,7 +35,7 @@
                     <p class="text-right" style="color: tan; font-size: large;">Inquilino:</p>
                 </div>
                 <div class="col-lg-4" style="text-align: left;">
-                    <asp:TextBox ID="TbNombreCmb" runat="server" Width="250px" CssClass="rcorners0" />
+                    <asp:TextBox ID="TbNombreCmb" runat="server" Width="250px" CssClass="rcorners0"  AutoPostBack="true" />
                     <cc1:AutoCompleteExtender ID="TbNombreCmb_AutoCompleteExtender"
                         runat="server" DelimiterCharacters="" Enabled="True"
                         ServicePath=""
@@ -51,7 +51,7 @@
                     <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
                 </div>
                 <div class="col-lg-3" style="text-align: right;">
-                    <asp:Button ID="BtnNuevo" runat="server" CssClass="btn btn-dark" Text="Nuevo" />
+                    <asp:Button ID="BtnNuevo" runat="server" CssClass="btn btn-dark" Text="Nuevo" OnClick="BtnNuevo_Click" />
                 </div>
             </div>
             <br />

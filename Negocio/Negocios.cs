@@ -94,6 +94,7 @@ namespace Negocio
         #region Inquilonos
 
         public List<InquilinoCMB> GetInquilinoCMB(string Nombre) => oData.GetInquilinoCMB(Nombre);
+        public Inquilino GetInquilino(int ID) => oData.GetInquilino(ID);
         #endregion
 
         #region Utiles

@@ -802,12 +802,49 @@ namespace Datos
             }
             //buscar en base
             return ListaInquilinos;
-
-
-        #endregion
-
+   
         }
 
+        public Inquilino GetInquilino(int ID)
+        {
+          Inquilino oInquilino = new Inquilino();
+            try
+            {
+
+                MySqlConnection oConeccion = new MySqlConnection(StringConnection);
+                string query = "SELECT * FROM inquilino WHERE idInquilino = " + ID.ToString();
+
+                oConeccion.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, oConeccion);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Inquilino");
+
+                foreach (DataRow Q in myDS.Tables["Inquilino"].Rows)
+                {
+                    oInquilino.ID_Inquilino = Convert.ToInt32(Q[0].ToString());
+                    oInquilino.Nombre = Q[1].ToString();
+                    oInquilino.Apellido = Q[2].ToString();
+                    oInquilino.Telefono = Q[3].ToString();
+                    oInquilino.Email = Q[4].ToString();
+                    oInquilino.Obs = Q[5].ToString();
+                    oInquilino.Celular = Q[6].ToString();
+                    oInquilino.Reside = Q[7].ToString();
+                                    }
+
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, "Datos - Get Inquilino");
+            }
+            //buscar en base
+            return oInquilino;
+
+        }
+        #endregion
     }
 }
 

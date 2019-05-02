@@ -16,6 +16,7 @@ namespace WebApplication1
             if (!Page.IsPostBack)
             {
                 Autenticar();
+                PnlDatosInquilino.Visible = false;
             }
             else
             {
@@ -46,7 +47,30 @@ namespace WebApplication1
 
         protected void Carga_Datos(int Id)
         {
+            PnlDatosInquilino.Visible = true;
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            Inquilino oInquilino = oNegocio.GetInquilino(Id);
 
+            TbNombre.Text = oInquilino.Nombre;
+            TbApellido.Text = oInquilino.Apellido;
+            TbTelefono.Text = oInquilino.Telefono;
+            TbMail.Text = oInquilino.Email;
+            TbCelular.Text = oInquilino.Celular;
+            TbObs.Text = oInquilino.Obs;
+            TbReside.Text = oInquilino.Reside;
+
+        }
+
+        protected void Limpiar()
+        {
+            PnlDatosInquilino.Visible = true;
+            TbNombre.Text = "";
+            TbApellido.Text = "";
+            TbTelefono.Text = "";
+            TbMail.Text = "";
+            TbCelular.Text = "";
+            TbObs.Text = "";
+            TbReside.Text = "";
         }
 
         [WebMethod]
@@ -71,6 +95,11 @@ namespace WebApplication1
                     
              
             return PNombres.ToArray();
+        }
+
+        protected void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }
