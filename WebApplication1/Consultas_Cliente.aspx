@@ -24,13 +24,13 @@
                         <tr >
                             <td></td>
                             <td><asp:Label ID="LbNombre" runat="server" Text="Nombre"></asp:Label></td>
-                            <td><asp:TextBox ID="TbNombre" runat="server" CssClass="rcorners0" Width="350px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="TbNombre" runat="server" CssClass="rcorners0" Width="350px" placeholder="Nombre"></asp:TextBox></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td><asp:Label ID="lbEmail" runat="server" Text="E-Mail:" ToolTip="Correo electrónico"></asp:Label></td>
-                            <td><asp:TextBox ID="TbEcorreo" runat="server" CssClass="rcorners0" ToolTip="Correo electrónico" Width="350px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="TbEcorreo" runat="server" CssClass="rcorners0" ToolTip="Correo electrónico" Width="350px" placeholder="Correo@Electronico.com"></asp:TextBox></td>
                             <td></td>
                         </tr>
                          <tr>
@@ -56,7 +56,7 @@
                          <tr>
                             <td></td>
                             <td><asp:Label ID="LbConsulta" runat="server" Text="Consulta:" ></asp:Label></td>
-                            <td><asp:TextBox ID="TbConsulta" runat="server" CssClass="rcorners0" Width="350px" TextMode="MultiLine" Height="200px" onkeyup="charcountupdate(this.value)" MaxLength="300"></asp:TextBox></td>
+                            <td><asp:TextBox ID="TbConsulta" runat="server" CssClass="rcorners0" Width="350px" TextMode="MultiLine" Height="200px" onkeyup="charcountupdate(this.value)" MaxLength="300" placeholder="Su consulta ..."></asp:TextBox></td>
                             <td></td>
                         </tr>
                            <tr>
