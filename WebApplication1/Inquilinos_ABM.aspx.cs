@@ -13,7 +13,21 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Autenticar();
+            if (!Page.IsPostBack)
+            {
+                Autenticar();
+            }
+            else
+            {
+                if (TbNombreCmb.Text.Contains("#"))
+                {
+                    int inicio = TbNombreCmb.Text.IndexOf("#") +1;
+                    int Fin = TbNombreCmb.Text.Length;
+                    int ID = Convert.ToInt32(TbNombreCmb.Text.Substring(inicio, Fin - inicio));
+                    Carga_Datos(ID);
+                }
+            } 
+            
         }
 
         protected void Autenticar()
@@ -28,6 +42,11 @@ namespace WebApplication1
             {
                 Response.Redirect("Menu.aspx");
             }
+        }
+
+        protected void Carga_Datos(int Id)
+        {
+
         }
 
         [WebMethod]
