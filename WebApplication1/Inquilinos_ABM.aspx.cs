@@ -25,6 +25,7 @@ namespace WebApplication1
                     int inicio = TbNombreCmb.Text.IndexOf("#") +1;
                     int Fin = TbNombreCmb.Text.Length;
                     int ID = Convert.ToInt32(TbNombreCmb.Text.Substring(inicio, Fin - inicio));
+                    hdnIdInquilino.Value = ID.ToString();
                     Carga_Datos(ID);
                 }
             } 
@@ -49,7 +50,7 @@ namespace WebApplication1
         {
             PnlDatosInquilino.Visible = true;
             Negocio.Negocio oNegocio = new Negocio.Negocio();
-            Inquilino oInquilino = oNegocio.GetInquilino(Id);
+            Inquilino oInquilino = oNegocio.Get_Inquilino(Id);
 
             TbNombre.Text = oInquilino.Nombre;
             TbApellido.Text = oInquilino.Apellido;
@@ -71,6 +72,28 @@ namespace WebApplication1
             TbCelular.Text = "";
             TbObs.Text = "";
             TbReside.Text = "";
+        }
+
+        protected void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            hdnIdInquilino.Value = "-1";
+            Limpiar();
+        }
+
+        protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            Inquilino oInquilino = new Inquilino();
+            oInquilino.ID_Inquilino = Convert.ToInt32(hdnIdInquilino.Value);
+            oInquilino.Nombre = TbNombre.Text;
+            oInquilino.Apellido = TbApellido.Text;
+            oInquilino.Telefono = TbTelefono.Text;
+            oInquilino.Celular = TbCelular.Text;
+            oInquilino.Email = TbMail.Text;
+            oInquilino.Obs = TbObs.Text;
+            oInquilino.Reside = TbReside.Text;
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+
+            oNegocio.Save_Inquilino(oInquilino);
         }
 
         [WebMethod]
@@ -97,9 +120,5 @@ namespace WebApplication1
             return PNombres.ToArray();
         }
 
-        protected void BtnNuevo_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
     }
 }

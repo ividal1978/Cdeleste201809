@@ -55,7 +55,7 @@
                 </div>
             </div>
             <br />
-
+            <asp:HiddenField ID="hdnIdInquilino" runat="server" />
             <asp:Panel ID="PnlDatosInquilino" runat="server">
                 <div class="form-row" >
                     <div class="col-lg-6">
@@ -100,11 +100,15 @@
                 <div  class="form-row">
                      <div class="col-lg-4 offset-lg-8" style="vertical-align:baseline;">
                           
-                               <asp:Button ID="BtnGuardar" runat="server" CssClass="btn btn-dark" Text="Guardar" Width="90%" />
+                               <asp:Button ID="BtnGuardar" runat="server" CssClass="btn btn-dark" Text="Guardar" Width="90%" OnClick="BtnGuardar_Click" />
                         </div>
                 </div>
             </asp:Panel>
-
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <asp:Label ID="LbMsg" runat="server" CssClass="text-success" ></asp:Label>
+                </div>
+            </div>
         </form>
 
     </div>

@@ -805,7 +805,7 @@ namespace Datos
    
         }
 
-        public Inquilino GetInquilino(int ID)
+        public Inquilino Get_Inquilino(int ID)
         {
           Inquilino oInquilino = new Inquilino();
             try
@@ -842,6 +842,50 @@ namespace Datos
             }
             //buscar en base
             return oInquilino;
+
+        }
+
+        public void Save_Inquilino(Inquilino oInquilino)
+        {
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string Query = "";
+                if (oInquilino.ID_Inquilino > 1)
+                {
+                    //UPDATE
+                     Query = " UPDATE inquilino" +
+                                   " SET " +
+                                   " Nombre ='" + oInquilino.Nombre + "'," +
+                                   " Apellido = '" + oInquilino.Apellido + "'," +
+                                   " Telefono = '" + oInquilino.Telefono + "'," +
+                                   " Email = '" + oInquilino.Email + "'," +
+                                   " Obs = '" + oInquilino.Obs + "'," +
+                                   " Celular = '" + oInquilino.Celular + "'," +
+                                   " Reside = '" + oInquilino.Reside + "'" +
+                                   " WHERE IDInquilino =" + oInquilino.ID_Inquilino + " ;";
+
+                }
+                else
+                {//INSERT
+                    Query = "INSERT INTO inquilino (Nombre,Apellido,Telefono,Email,Obs,Celular,Reside) VALUES " +
+                           "('" + oInquilino.Nombre + "','" + oInquilino.Apellido + "','" + oInquilino.Telefono + "','" + oInquilino.Email + "','" +
+                            "'" + oInquilino.Obs + "','" + oInquilino.Celular + "','" + oInquilino.Reside + "');";
+                }
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Inquilino - Save");
+            }
 
         }
         #endregion
