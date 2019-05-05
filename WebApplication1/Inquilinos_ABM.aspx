@@ -35,7 +35,7 @@
                     <p class="text-right" style="color: tan; font-size: large;">Inquilino:</p>
                 </div>
                 <div class="col-lg-4" style="text-align: left;">
-                    <asp:TextBox ID="TbNombreCmb" runat="server" Width="250px" CssClass="rcorners0"  AutoPostBack="true" />
+                    <asp:TextBox ID="TbNombreCmb" runat="server" Width="250px" CssClass="rcorners0"  AutoPostBack="true"  OnTextChanged="TbNombreCmb_TextChanged"/>
                     <cc1:AutoCompleteExtender ID="TbNombreCmb_AutoCompleteExtender"
                         runat="server" DelimiterCharacters="" Enabled="True"
                         ServicePath=""
@@ -72,12 +72,12 @@
                 <div class="form-row">
                     <div class="col-lg-4">
                         <label for="TbTelefono" style="color:tan;"><i class="fas fa-phone"></i> Teléfono</label>
-                        <asp:TextBox ID="TbTelefono" runat="server" CssClass="form-control rcorners0" Width="90%" placeholder="Teléfono"></asp:TextBox>
+                        <asp:TextBox ID="TbTelefono" runat="server" CssClass="form-control rcorners0" Width="90%" placeholder="Teléfono" ToolTip=" Cod.Ciudad - Caract -Número"></asp:TextBox>
                     </div>
 
                     <div class="col-lg-4">
                         <label for="TbCelular" style="color:tan;"><i class="fas fa-mobile-alt"></i> Celular</label>
-                        <asp:TextBox ID="TbCelular" runat="server" CssClass="form-control rcorners0" Width="90%" placeholder="Celular"></asp:TextBox>
+                        <asp:TextBox ID="TbCelular" runat="server" CssClass="form-control rcorners0" Width="90%" placeholder="Celular" ToolTip=" Cod.Ciudad - Caract -Número"></asp:TextBox>
                     </div>
                     <div class="col-lg-4">
                          <label for="TbMail" style="color:tan;"><i class="far fa-envelope"></i> Email</label>
@@ -106,7 +106,7 @@
             </asp:Panel>
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <asp:Label ID="LbMsg" runat="server" CssClass="text-success" ></asp:Label>
+                    <asp:Label ID="LbMsg" runat="server" CssClass="text-success " ></asp:Label>
                 </div>
             </div>
         </form>

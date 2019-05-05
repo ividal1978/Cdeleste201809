@@ -539,9 +539,9 @@ namespace Datos
                 }
                 else
                 {//Insert
-                    Query = "INSERT INTOComentarios (FechaComentario,Nombre_Persona, Tel_Persona, Estado, Comentario, Tipo, IdPropiedad) Values " +
-                        "(" + oCometrario.FechaComentario + ",'" + oCometrario.Nombre_Persona + "','"+oCometrario.Tel_Persona+"','"+
-                        oCometrario.Estado+"',"+oCometrario.Comentario+"',"+oCometrario.Tipo+"',"+Convert.ToInt32(oCometrario.IdPropiedad)+")";
+                    Query = "INSERT INTO Comentarios (FechaComentario,Nombre_Persona, Tel_Persona, Estado, Comentario, Tipo, IdPropiedad, Mail_Persona) Values " +
+                        "(now(),'" + oCometrario.Nombre_Persona + "','"+oCometrario.Tel_Persona+"','"+
+                        oCometrario.Estado+"','"+oCometrario.Comentario+"','"+oCometrario.Tipo+"',"+Convert.ToInt32(oCometrario.IdPropiedad)+",'"+oCometrario.Mail_Persona+"')";
                 }
 
                 conn.Open();
@@ -554,7 +554,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Comentario - Save Comentario");
+                _logger1.Error(ex, " Datos - Comentario - Save Comentario " );
             }
         }
 
@@ -590,7 +590,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                 _logger1.Error(ex, " Datos - Comentario - Save Comentario");
+                 _logger1.Error(ex, " Datos - Comentario - Save Comentario :: " + ex.StackTrace.ToString() );
                 return null;
             }
         }
@@ -635,7 +635,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Tipo y Estado");
+                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Tipo y Estado :: " + ex.StackTrace.ToString()  );
                 return null;
             }
 
@@ -678,7 +678,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Id");
+                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Id :: " + ex.StackTrace.ToString()  );
                 return null;
             }
         }
@@ -716,7 +716,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Respuesta - Get Respuesta x Id");
+                _logger1.Error(ex, " Datos - Respuesta - Get Respuesta x Id :: " + ex.StackTrace.ToString()  );
                 return null;
             }
         }
@@ -730,13 +730,13 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
-                if (Existe != null)
+                if (Existe.Respuesta != null)
                 {
                     //Realizar un update
                     Query = "UPDATE respuestas SET " +
                     " Estado = '" + oRespuesta.Estado + "'," +
-                    " Tipo = '" + oRespuesta.Tipo  + "'" +
-                    " Fecha = " + oRespuesta.Fecha.ToString() + 
+                    " Tipo = '" + oRespuesta.Tipo  + "'," +
+                    " Fecha = now(), "  + 
                     " Respuesta = '"+ oRespuesta.Respuesta +"'"+
                     " WHERE IdRespuesta =" +oRespuesta.IdRespuesta;
                 }
@@ -744,8 +744,8 @@ namespace Datos
                 {
                     //Realizar un insert
                     Query = " INSERT INTO respuestas (IdRespuesta, Tipo, Fecha, Respuesta, Estado) VALUES " +
-                    "(" + oRespuesta.IdRespuesta + ",'" + oRespuesta.Tipo + "'," + oRespuesta.Fecha + ",'" + oRespuesta.Respuesta + "'" +
-                    "'" + oRespuesta.Estado + "')";
+                    "(" + oRespuesta.IdRespuesta + ",'" + oRespuesta.Tipo + "',now(),'" + oRespuesta.Respuesta + "'" +
+                    ",'" + oRespuesta.Estado + "')";
 
                 }
                 conn.Open();
@@ -757,7 +757,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Comentarios - Save Respuesta");
+                _logger1.Error(ex, " Datos - Comentarios - Save Respuesta :: " + ex.StackTrace.ToString()  );
             }
 
         }
@@ -798,7 +798,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, "Datos - Get InquilinoCMB");
+                _logger1.Error(ex, "Datos - Inquilino - Get InquilinoCMB  :: " + ex.StackTrace.ToString() );
             }
             //buscar en base
             return ListaInquilinos;
@@ -838,7 +838,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, "Datos - Get Inquilino");
+                _logger1.Error(ex, "Datos - Inquilino - Get Inquilino :: " + ex.StackTrace.ToString());
             }
             //buscar en base
             return oInquilino;
@@ -853,7 +853,7 @@ namespace Datos
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
                 string Query = "";
-                if (oInquilino.ID_Inquilino > 1)
+                if (oInquilino.ID_Inquilino > 0)
                 {
                     //UPDATE
                      Query = " UPDATE inquilino" +
@@ -872,7 +872,7 @@ namespace Datos
                 {//INSERT
                     Query = "INSERT INTO inquilino (Nombre,Apellido,Telefono,Email,Obs,Celular,Reside) VALUES " +
                            "('" + oInquilino.Nombre + "','" + oInquilino.Apellido + "','" + oInquilino.Telefono + "','" + oInquilino.Email + "','" +
-                            "'" + oInquilino.Obs + "','" + oInquilino.Celular + "','" + oInquilino.Reside + "');";
+                             oInquilino.Obs + "','" + oInquilino.Celular + "','" + oInquilino.Reside + "');";
                 }
 
                 conn.Open();
@@ -884,7 +884,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Inquilino - Save");
+                _logger1.Error(ex, " Datos - Inquilino - Save :: " + ex.StackTrace.ToString());
             }
 
         }

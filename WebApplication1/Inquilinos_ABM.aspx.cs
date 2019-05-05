@@ -18,17 +18,17 @@ namespace WebApplication1
                 Autenticar();
                 PnlDatosInquilino.Visible = false;
             }
-            else
-            {
-                if (TbNombreCmb.Text.Contains("#"))
-                {
-                    int inicio = TbNombreCmb.Text.IndexOf("#") +1;
-                    int Fin = TbNombreCmb.Text.Length;
-                    int ID = Convert.ToInt32(TbNombreCmb.Text.Substring(inicio, Fin - inicio));
-                    hdnIdInquilino.Value = ID.ToString();
-                    Carga_Datos(ID);
-                }
-            } 
+            //else
+            //{
+            //    if (TbNombreCmb.Text.Contains("#"))
+            //    {
+            //        int inicio = TbNombreCmb.Text.IndexOf("#") +1;
+            //        int Fin = TbNombreCmb.Text.Length;
+            //        int ID = Convert.ToInt32(TbNombreCmb.Text.Substring(inicio, Fin - inicio));
+            //        hdnIdInquilino.Value = ID.ToString();
+            //        Carga_Datos(ID);
+            //    }
+            //} 
             
         }
 
@@ -72,6 +72,8 @@ namespace WebApplication1
             TbCelular.Text = "";
             TbObs.Text = "";
             TbReside.Text = "";
+            TbNombreCmb.Text = "";
+            LbMsg.Text = "";
         }
 
         protected void BtnNuevo_Click(object sender, EventArgs e)
@@ -92,8 +94,9 @@ namespace WebApplication1
             oInquilino.Obs = TbObs.Text;
             oInquilino.Reside = TbReside.Text;
             Negocio.Negocio oNegocio = new Negocio.Negocio();
-
+            
             oNegocio.Save_Inquilino(oInquilino);
+            LbMsg.Text = "El Inquilono"+ TbNombre.Text+" ha Guardado correctamente.";
         }
 
         [WebMethod]
@@ -120,5 +123,16 @@ namespace WebApplication1
             return PNombres.ToArray();
         }
 
+        protected void TbNombreCmb_TextChanged(object sender, EventArgs e)
+        {
+            if (TbNombreCmb.Text.Contains("#"))
+            {
+                int inicio = TbNombreCmb.Text.IndexOf("#") + 1;
+                int Fin = TbNombreCmb.Text.Length;
+                int ID = Convert.ToInt32(TbNombreCmb.Text.Substring(inicio, Fin - inicio));
+                hdnIdInquilino.Value = ID.ToString();
+                Carga_Datos(ID);
+            }
+        }
     }
 }

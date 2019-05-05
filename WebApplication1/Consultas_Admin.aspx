@@ -45,7 +45,7 @@
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td><asp:Label Id="LbEstado" runat="server"  CssClass="TextoEncabezado"   Text=" Tipo de Consulta:" ForeColor="Tan" Width="200px"></asp:Label></td>
                             <td class="auto-style1"><asp:DropDownList Id="DdlEstado" CssClass="rcorners1"  runat="server" Width="200px" OnSelectedIndexChanged="DdlEstado_SelectedIndexChanged" AutoPostBack="True" >
-                                <asp:ListItem Text="Activa" Value="Activa"></asp:ListItem>
+                                <asp:ListItem Text="Activo" Value="Activo"></asp:ListItem>
                                 <asp:ListItem Text="Respondida" Value="Respondida"></asp:ListItem>
                                 <asp:ListItem Text="Anulada" Value ="Anulado"></asp:ListItem>
                                 </asp:DropDownList></td>

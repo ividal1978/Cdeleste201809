@@ -57,6 +57,7 @@ namespace WebApplication1
                 oComentario.Tipo = DdlMotivo.SelectedValue;
                 oComentario.IdPropiedad = (DdlPropiedades.Visible == true ? DdlPropiedades.SelectedValue.ToString() : "-1");
                 oComentario.IdComentario = -1;
+                oComentario.Comentario = TbConsulta.Text;
 
                 Negocio.Negocio oNegocio = new Negocio.Negocio();
                 oNegocio.Save_Comentario(oComentario);
@@ -79,6 +80,8 @@ namespace WebApplication1
                 //Envio Asivo al cliente por mail?
                 LbError.CssClass = "alert-success";
                 LbError.Text = "El comentario se ha generado de forma exitosa <br /> Próximamente nos comunicaremos con Ud. <br/> Gracias.";
+
+                Limpiar();
             }
 
         }
@@ -128,6 +131,14 @@ namespace WebApplication1
                 LbError.Text = "";
             return Rta;
 
+        }
+
+        protected void Limpiar()
+        {
+            TbNombre.Text = "";
+            TbTeléfono.Text = "";
+            TbEcorreo.Text = "";
+            TbConsulta.Text = "";
         }
 
     }

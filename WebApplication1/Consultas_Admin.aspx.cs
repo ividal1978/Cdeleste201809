@@ -129,13 +129,6 @@ namespace WebApplication1
         protected void BtnResponder_Click(object sender, EventArgs e)
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
-            Comentarios oComentario = new Comentarios();
-            oComentario.IdComentario = Convert.ToInt32(HdnIdComentario.Value.ToString());
-            oComentario.Tipo = DdlTipoConsulta.SelectedValue.ToString();
-            oComentario.Estado = "Respondida";
-           
-            oNegocio.Save_Comentario(oComentario);
-
             Contrato.Respuestas oRespuesta = new Contrato.Respuestas();
             
             oRespuesta.IdRespuesta = Convert.ToInt32(HdnIdComentario.Value.ToString());
@@ -145,6 +138,14 @@ namespace WebApplication1
             oRespuesta.Fecha = DateTime.Now;
 
             oNegocio.Save_Respuesta(oRespuesta);
+
+            Comentarios oComentario = new Comentarios();
+            oComentario.IdComentario = Convert.ToInt32(HdnIdComentario.Value.ToString());
+            oComentario.Tipo = DdlTipoConsulta.SelectedValue.ToString();
+            oComentario.Estado = "Respondida";
+
+            oNegocio.Save_Comentario(oComentario);
+
             if (ChkEnviarmail.Checked == true)
             {
                 //Debo enviar el mail

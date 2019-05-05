@@ -35,12 +35,6 @@
                         </tr>
                          <tr>
                             <td></td>
-                            <td><asp:Label ID="LbTelefono" runat="server" Text="Teléfono:" ToolTip="No olvide la su caracterisica"></asp:Label></td>
-                            <td><asp:TextBox ID="TbTeléfono" runat="server" CssClass="rcorners0 masked-phone"  data-phonemask="+54 (___)____-____" ToolTip="No olvide la su caracterisica" Width="350px"  ></asp:TextBox></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
                             <td><asp:Label ID="LbMotivo" runat="server" Text="Motivo:" ToolTip=""></asp:Label></td>
                             <td><asp:DropDownList ID="DdlMotivo" runat="server" CssClass="rcorners0" Width="350" OnSelectedIndexChanged="DdlMotivo_SelectedIndexChanged" AutoPostBack=" true">
                                 <asp:ListItem Text="Consulta por Diponibilidad" Value="CD"></asp:ListItem>
@@ -51,6 +45,12 @@
                                 <asp:DropDownList ID="DdlPropiedades" runat="server" CssClass="rcorners0" Width="350px"></asp:DropDownList>
                             </td>
 
+                            <td></td>
+                        </tr>
+                         <tr>
+                            <td></td>
+                            <td><asp:Label ID="LbTelefono" runat="server" Text="Teléfono:" ToolTip="No olvide la su caracterisica"></asp:Label></td>
+                            <td><asp:TextBox ID="TbTeléfono" runat="server" CssClass="rcorners0 masked-phone"  data-phonemask="+54 (___)____-____" ToolTip="No olvide la su caracterisica" Width="350px"  ></asp:TextBox></td>
                             <td></td>
                         </tr>
                          <tr>
