@@ -141,4 +141,6 @@ namespace Contrato
         public string Celular { get; set; }
         public string Reside { get; set; }
     }
+
+ 
 }

@@ -645,7 +645,6 @@ namespace Datos
         {
             try
             {
-                List<Comentarios> oLista = new List<Comentarios>();
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
@@ -888,6 +887,60 @@ namespace Datos
             }
 
         }
+        #endregion
+
+        #region Reservas
+
+        //una reserva por id
+        public Reservas Get_ReservaxId(int IdReserva)
+        {
+            try
+            {
+                Reservas oReserva = new Reservas();
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = "SELECT * FROM reservas where IDReserva = " + IdReserva.ToString();
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Reserva");
+
+                Respuestas oItem = new Respuestas();
+                foreach (DataRow oFila in myDS.Tables["Respuestas"].Rows)
+                {
+                    oReserva.FReserva = Convert.ToDateTime(oFila[0].ToString());
+                    oReserva.IdReserva = Convert.ToInt32(oFila[1].ToString());
+                    oReserva.IdPropiedad = Convert.ToInt32(oFila[2].ToString());
+                    oReserva.IdInquilino = Convert.ToInt32(oFila[3].ToString());
+                    oReserva.FDesde = Convert.ToDateTime(oFila[4].ToString());
+                    oReserva.FHasta = Convert.ToDateTime(oFila[5].ToString());
+                    oReserva.Monto_Reserva = Convert.ToDecimal(oFila[6].ToString());
+                    oReserva.Monto_Total = Convert.ToDecimal(oFila[7].ToString());
+                    oReserva.Pagado = oFila[8].ToString();
+                    oReserva.IdUsuario = Convert.ToInt32(oFila[9].ToString());
+                    oReserva.FDePago = Convert.ToDateTime(oFila[10].ToString());
+                    oReserva.Estado = oFila[11].ToString();
+                    
+                }
+                myCommand.Dispose();
+                conn.Close();
+                return oReserva;
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Reservas - Get Reservas x Id :: " + ex.StackTrace.ToString());
+                return null;
+            }
+
+        }
+
+        //lista de reservas entre fechas
+        //save
         #endregion
     }
 }
