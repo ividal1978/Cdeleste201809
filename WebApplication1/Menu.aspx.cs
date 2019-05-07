@@ -79,6 +79,8 @@ namespace WebApplication1
         protected void btnConsultas_Click(object sender, EventArgs e) => Response.Redirect("Consultas_Admin.aspx");
 
         protected void btnInquilinos_Click(object sender, EventArgs e) => Response.Redirect("Inquilinos_ABM.aspx");
+
+        protected void btnReservas_Click(object sender, EventArgs e) => Response.Redirect("Reservas_ABM.aspx");
         
     }
 }

@@ -145,14 +145,14 @@ namespace WebApplication1
             oComentario.Estado = "Respondida";
 
             oNegocio.Save_Comentario(oComentario);
-
+            string CodigoConsulta = GeneradorRandom(Convert.ToInt32(HdnIdComentario.Value.ToString()));
             if (ChkEnviarmail.Checked == true)
             {
                 //Debo enviar el mail
                 Email Correo = new Email();
                 Correo.Para = LbMailConsulta.Text;
                 Correo.CopiaOculta = ConfigurationManager.AppSettings["ListaMail"].ToString();
-                string CodigoConsulta = GeneradorRandom(Convert.ToInt32(HdnIdComentario.Value.ToString()));
+               
                 //Correo.CopiaOculta= ConfigurationManager.AppSettings["ListaMail"].ToString();
                 Correo.Asunto = "Respuesta Consulta- " + CodigoConsulta + " Fecha " + DateTime.Now;
                 Correo.Mensaje = "<H2> Estimado/a "+ oComentario.Nombre_Persona + ":<H2><Hr> <br>";
@@ -172,7 +172,7 @@ namespace WebApplication1
 
             }
             Limpiar();
-            LbMensaje.Text = "Se Ha guardado correctamente " + (ChkEnviarmail.Checked == true ? " y se ha enviado en el mail." : ".");
+            LbMensaje.Text = "Se Ha guardado correctamente, para su consulta ver: <br /> http:\\www.cdeleste.com.ar\\RespuestasConsulta.aspx? Rta =" + CodigoConsulta +" "+ (ChkEnviarmail.Checked == true ? " y se ha enviado en el mail." : ".");
         }
 
         protected string GeneradorRandom(int ID)

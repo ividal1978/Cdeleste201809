@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cdeleste.Master" AutoEventWireup="true" CodeBehind="Consultas_Admin.aspx.cs" Inherits="WebApplication1.Consultas_Admin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Consultas Admin</title>
     <style type="text/css">
         .auto-style1 {
             width: 449px;
@@ -8,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
- <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <link href="Scripts/Cdeleste.css" rel="stylesheet" />
     <script src="Scripts/phone-mask.min.js"></script>
