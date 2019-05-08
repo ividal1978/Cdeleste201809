@@ -38,51 +38,88 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <div class="form-row">
-                    <div class="col-2" style="color:tan;" >Fecha Desde:</div>
-                    <div class="col-4">
-                        <asp:TextBox ID="TbFechaDesde" runat="server" CssClass="rcorners0"></asp:TextBox>
-                        <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 GridNegra">
-                        </cc1:CalendarExtender>
-                    </div>
-                    <div class="col-2" style="color: tan;">Fecha Hasta:</div>
-                    <div class="col-4">
-                        <asp:TextBox ID="TbFechaHasta" runat="server" CssClass="rcorners0"></asp:TextBox>
-                        <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 GridNegra">
-                        </cc1:CalendarExtender>
-                    </div>
-                </div>
-                <br />
-                <div class="form-row">
-                    <div class="col-2" style="color:tan;">Propiedad:</div>
-                    <div class="col-4" >
-                        <asp:DropDownList ID="DdlPropiedad" runat="server" CssClass="rcorners0" ></asp:DropDownList>
-                    </div>
-                    <div class="col-2" style="color:tan;">Inquilino:</div>
-                    <div class= "input-group col-4">
-                        <input type="text" class="form-control rcorners0" placeholder="Inquilino" aria-label="Inquilino" aria-describedby="BtnNuevo">
-                        <div class="input-group-append">
-                        <asp:Button ID="BtnNuevo" runat="server" class="btn btn-outline-warning rcorners0" Text ="Nuevo" OnClick="BtnNuevo_Click" />
+          <%--  Panel de busqueda--%>
+        </div>
+        <br />
+        <asp:Panel ID="PnlDatos" runat="server">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <div class="form-row">
+                        <div class="col-2" style="color: tan;">Fecha Desde:</div>
+                        <div class="col-4">
+                            <asp:TextBox ID="TbFechaDesde" runat="server" CssClass="rcorners0"></asp:TextBox>
+                            <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 GridNegra">
+                            </cc1:CalendarExtender>
+                        </div>
+                        <div class="col-2" style="color: tan;">Fecha Hasta:</div>
+                        <div class="col-4">
+                            <asp:TextBox ID="TbFechaHasta" runat="server" CssClass="rcorners0"></asp:TextBox>
+                            <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 GridNegra">
+                            </cc1:CalendarExtender>
                         </div>
                     </div>
+                    <br />
+                    <div class="form-row">
+                        <div class="col-2" style="color: tan;">Propiedad:</div>
+                        <div class="col-4">
+                            <asp:DropDownList ID="DdlPropiedad" runat="server" CssClass="rcorners0"></asp:DropDownList>
+                        </div>
+                        <div class="col-2" style="color: tan;">Inquilino:</div>
+                        <div class="input-group col-4">
+                            <input type="text" class="form-control rcorners0" placeholder="Inquilino" aria-label="Inquilino" aria-describedby="BtnNuevo">
+                            <div class="input-group-append">
+                                <asp:Button ID="BtnNuevo" runat="server" class="btn btn-outline-warning rcorners0" Text="Nuevo" OnClick="BtnNuevo_Click" />
+                            </div>
+                        </div>
 
-                </div>
-                <br />
-                <div class="form-row">
-                    <div class="col-2" style="color:tan;" >Monto Total:</div>
-                    <div class="col-4">
-                        <asp:TextBox ID="TbMontoTotal" runat="server" CssClass="rcorners0"></asp:TextBox>
                     </div>
-                    <div  class="col-2" style="color:tan;"> Monto Reserva:</div>
-                    <div class="col-4" >
-                        <asp:TextBox ID="TbMontoReserva" runat="server" CssClass="rcorners0"></asp:TextBox>
+                    <br />
+                    <div class="form-row">
+                        <div class="col-2" style="color: tan;">Monto Total:</div>
+                        <div class="col-4">
+                            <asp:TextBox ID="TbMontoTotal" runat="server" CssClass="rcorners0"></asp:TextBox>
+                        </div>
+                        <div class="col-2" style="color: tan;">Monto Reserva:</div>
+                        <div class="col-4">
+                            <asp:TextBox ID="TbMontoReserva" runat="server" CssClass="rcorners0"></asp:TextBox>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-row">
+                        <div class="col-2" style="color: tan;">Pago:</div>
+                        <div class="col-4">
+                            <asp:RadioButtonList ID="RblPago" runat="server" CssClass="form-check-input" RepeatDirection="Horizontal" ForeColor="Tan">
+                                <asp:ListItem Text=" Si " Value="S">&nbsp;&nbsp;</asp:ListItem>
+                                <asp:ListItem Text=" No " Value="N">&nbsp;&nbsp;</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </div>
+                        <div class="col-2" style="color: tan;">Fecha Pago:</div>
+                        <div class="col-4">
+                            <asp:TextBox ID="TbFechapago" runat="server" CssClass="rcorners0"></asp:TextBox>
+                            <cc1:CalendarExtender ID="TbFechapago_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechapago" CssClass="GridNegra">
+                            </cc1:CalendarExtender>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-row">
+                        <div class="col-2" style="color: tan;">Estado: </div>
+                        <div class="col-4">
+                            <asp:DropDownList ID="DdlEstados" runat="server" CssClass="rcorners0">
+                                <asp:ListItem Text="Reservada" Value="Reserva"></asp:ListItem>
+                                <asp:ListItem Text="Anulada" Value="Anulada"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <div class="col-2" style="color: tan;"></div>
+                        <div class="col-4">
+                            <asp:Button ID="BtnSave" runat="server" CssClass="btn btn-dark" Text="Guardar" />
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2"></div>
-        </div>
+
+        </asp:Panel>
         <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
 
     </form>
