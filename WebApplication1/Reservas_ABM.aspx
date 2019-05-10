@@ -39,6 +39,23 @@
         </div>
         <div class="row">
           <%--  Panel de busqueda--%>
+            <div  class="col-2" style="color:tan;">Propiedad: </div>
+            <div class="col-2">
+                <asp:DropDownList  ID="DdlPropiedadAlquiler" runat="server" CssClass="rcorners0" ></asp:DropDownList>
+            </div>
+            <div class="col-2" style="color:tan;" >Fecha desde:</div>
+            <div class="col-2">
+                <asp:TextBox ID="TbFechaAlquiler" runat="server" CssClass="rcorners0"></asp:TextBox>
+                <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler">
+                </cc1:CalendarExtender>
+            </div>
+            <div class="col-4">
+                <asp:Button ID="BtnBuscar" runat="server" CssClass="btn btn-dark" Text="Buscar" />
+            </div>
+        </div>
+        <div class="row">
+            <%--  Tabla de resultados --%>
+            <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra"></asp:GridView>
         </div>
         <br />
         <asp:Panel ID="PnlDatos" runat="server">

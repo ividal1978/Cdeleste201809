@@ -40,6 +40,51 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label LbUsuario;
         
         /// <summary>
+        /// DdlPropiedadAlquiler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlPropiedadAlquiler;
+        
+        /// <summary>
+        /// TbFechaAlquiler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TbFechaAlquiler;
+        
+        /// <summary>
+        /// TbFechaAlquiler_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender TbFechaAlquiler_CalendarExtender;
+        
+        /// <summary>
+        /// BtnBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnBuscar;
+        
+        /// <summary>
+        /// GvReservas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GvReservas;
+        
+        /// <summary>
         /// PnlDatos control.
         /// </summary>
         /// <remarks>
