@@ -91,7 +91,7 @@ namespace Negocio
 
         #endregion
 
-        #region Inquilonos
+        #region Inquilinos
 
         public List<InquilinoCMB> GetInquilinoCMB(string Nombre) => oData.GetInquilinoCMB(Nombre);
         public Inquilino Get_Inquilino(int ID) => oData.Get_Inquilino(ID);
@@ -138,5 +138,23 @@ namespace Negocio
             return oData.Get_ComentariosxTipo(TipoComentario, Estado);
         }
         #endregion
-    }
+
+        #region Reservas
+
+        public List<Reservas> Get_ReservaxFecha(DateTime Fecha, int IdPropiedad)
+        {
+            if (IdPropiedad < 0)
+                return oData.Get_ReservaxFecha(Fecha);
+            else
+            {
+                var Qreservas = oData.Get_ReservaxFecha(Fecha);
+                Qreservas = Qreservas.Where(r => r.IdPropiedad == IdPropiedad).ToList();
+                return Qreservas;
+            }
+        } 
+
+        public Reservas Get_ReservasxId(int IdReserva) => oData.Get_ReservaxId(IdReserva);
+        
+        #endregion
+        }
 }

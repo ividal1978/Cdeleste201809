@@ -900,7 +900,15 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
-                Query = "SELECT * FROM reservas where IDReserva = " + IdReserva.ToString();
+                Query = "SELECT R.FReserva, R.IDReserva, R.IDPropiedad, P.Nombre,R.IDInquilino,I.Nombre,"+
+                        " I.Apellido, R.Fdesde,R.Fhasta, ifnull(R.Monto_Reserva,0),ifnull(R.Monto_Total,0),"+
+                        " R.Pagado,R.IDusuario, U.Usuario ,R.FdePago, R.Estado" +
+                        " From reservas R "+
+                        " Inner join inquilino I on R.IDInquilino = I.IDInquilino " +
+                        " Inner join propiedades P on R.IDPropiedad = P.IdPropiedad "+
+                        " Inner join usuarios U on R.IDusuario = U.idusuario"+
+                        " Where IDReserva = " + IdReserva.ToString() +
+                        " Limit 1";
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);
@@ -908,23 +916,27 @@ namespace Datos
                 MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
 
                 DataSet myDS = new DataSet();
-                myDA.Fill(myDS, "Reserva");
+                myDA.Fill(myDS, "Reservas");
 
                 Respuestas oItem = new Respuestas();
-                foreach (DataRow oFila in myDS.Tables["Respuestas"].Rows)
+                foreach (DataRow oFila in myDS.Tables["Reservas"].Rows)
                 {
                     oReserva.FReserva = Convert.ToDateTime(oFila[0].ToString());
                     oReserva.IdReserva = Convert.ToInt32(oFila[1].ToString());
                     oReserva.IdPropiedad = Convert.ToInt32(oFila[2].ToString());
-                    oReserva.IdInquilino = Convert.ToInt32(oFila[3].ToString());
-                    oReserva.FDesde = Convert.ToDateTime(oFila[4].ToString());
-                    oReserva.FHasta = Convert.ToDateTime(oFila[5].ToString());
-                    oReserva.Monto_Reserva = Convert.ToDecimal(oFila[6].ToString());
-                    oReserva.Monto_Total = Convert.ToDecimal(oFila[7].ToString());
-                    oReserva.Pagado = oFila[8].ToString();
-                    oReserva.IdUsuario = Convert.ToInt32(oFila[9].ToString());
-                    oReserva.FDePago = Convert.ToDateTime(oFila[10].ToString());
-                    oReserva.Estado = oFila[11].ToString();
+                    oReserva.Propiedad_Nombre = oFila[3].ToString();
+                    oReserva.IdInquilino = Convert.ToInt32(oFila[4].ToString());
+                    oReserva.Inquilino_Nombre = oFila[5].ToString();
+                    oReserva.Inquilino_Apellido = oFila[6].ToString();
+                    oReserva.FDesde = Convert.ToDateTime(oFila[7].ToString());
+                    oReserva.FHasta = Convert.ToDateTime(oFila[8].ToString());
+                    oReserva.Monto_Reserva = Convert.ToDecimal(oFila[9].ToString());
+                    oReserva.Monto_Total = Convert.ToDecimal(oFila[10].ToString());
+                    oReserva.Pagado = oFila[11].ToString();
+                    oReserva.IdUsuario = Convert.ToInt32(oFila[12].ToString());
+                    oReserva.Usuario_User = oFila[13].ToString();
+                    oReserva.FDePago = Convert.ToDateTime(oFila[14].ToString());
+                    oReserva.Estado = oFila[15].ToString();
                     
                 }
                 myCommand.Dispose();
@@ -939,6 +951,65 @@ namespace Datos
 
         }
 
+        public List<Reservas> Get_ReservaxFecha(DateTime Fecha)
+        {
+            try
+            {
+                List<Reservas> oLista = new List<Reservas>();
+
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = "SELECT R.FReserva, R.IDReserva, R.IDPropiedad, P.Nombre,R.IDInquilino,I.Nombre," +
+                        " I.Apellido, R.Fdesde,R.Fhasta, ifnull(R.Monto_Reserva,0),ifnull(R.Monto_Total,0)," +
+                        " R.Pagado,R.IDusuario, U.Usuario ,R.FdePago, R.Estado" +
+                        " From reservas R " +
+                        " Inner join inquilino I on R.IDInquilino = I.IDInquilino " +
+                        " Inner join propiedades P on R.IDPropiedad = P.IdPropiedad " +
+                        " Inner join usuarios U on R.IDusuario = U.idusuario" +
+                        " Where Fdesde >" + Fecha + " Order by Fdesde desc";
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Reservas");
+
+                Respuestas oItem = new Respuestas();
+                foreach (DataRow oFila in myDS.Tables["Reservas"].Rows)
+                {
+                    Reservas oReserva = new Reservas();
+                    oReserva.FReserva = Convert.ToDateTime(oFila[0].ToString());
+                    oReserva.IdReserva = Convert.ToInt32(oFila[1].ToString());
+                    oReserva.IdPropiedad = Convert.ToInt32(oFila[2].ToString());
+                    oReserva.Propiedad_Nombre = oFila[3].ToString();
+                    oReserva.IdInquilino = Convert.ToInt32(oFila[4].ToString());
+                    oReserva.Inquilino_Nombre = oFila[5].ToString();
+                    oReserva.Inquilino_Apellido = oFila[6].ToString();
+                    oReserva.FDesde = Convert.ToDateTime(oFila[7].ToString());
+                    oReserva.FHasta = Convert.ToDateTime(oFila[8].ToString());
+                    oReserva.Monto_Reserva = Convert.ToDecimal(oFila[9].ToString());
+                    oReserva.Monto_Total = Convert.ToDecimal(oFila[10].ToString());
+                    oReserva.Pagado = oFila[11].ToString();
+                    oReserva.IdUsuario = Convert.ToInt32(oFila[12].ToString());
+                    oReserva.Usuario_User = oFila[13].ToString();
+                    oReserva.FDePago = Convert.ToDateTime(oFila[14].ToString());
+                    oReserva.Estado = oFila[15].ToString();
+
+                    oLista.Add(oReserva);
+                }
+                myCommand.Dispose();
+                conn.Close();
+                return oLista.ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Reservas - Get Reservas x Fecha :: " + ex.StackTrace.ToString());
+                return null;
+            }
+        }
         //lista de reservas entre fechas
         //save
         #endregion

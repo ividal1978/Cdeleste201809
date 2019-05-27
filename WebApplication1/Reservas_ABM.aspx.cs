@@ -14,6 +14,7 @@ namespace WebApplication1
             if (!Page.IsPostBack)
             {
                 Autenticar();
+                CargaCombos();
             }
         }
 
@@ -31,9 +32,27 @@ namespace WebApplication1
             }
         }
 
+        protected void CargaCombos()
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            DdlPropiedadAlquiler.DataSource = oNegocio.Get_Propiedades_CMB();
+            DdlPropiedadAlquiler.DataValueField = "Id";
+            DdlPropiedadAlquiler.DataTextField = "Descripcion";
+            DdlPropiedadAlquiler.DataBind();
+            DdlPropiedadAlquiler.Items.Insert(0, new ListItem("Todas", "-1"));
+        }
+
         protected void BtnNuevo_Click(object sender, EventArgs e)
         {
             Response.Redirect("Inquilinos_ABM.aspx");
+        }
+
+        protected void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            //Debo chequear el combo propiedades
+            GvReservas.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
+            GvReservas.DataBind();
         }
     }
 }

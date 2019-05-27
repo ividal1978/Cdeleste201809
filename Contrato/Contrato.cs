@@ -71,13 +71,17 @@ namespace Contrato
         public DateTime FReserva { get; set; }
         public int IdReserva { get; set; }
         public int IdPropiedad { get; set; }
+        public string Propiedad_Nombre { get; set; }
         public int IdInquilino { get; set; }
+        public string Inquilino_Nombre { get; set; }
+        public string Inquilino_Apellido { get; set; }
         public DateTime FDesde { get; set; }
         public DateTime FHasta { get; set; }
         public decimal Monto_Reserva { get; set; }
         public decimal Monto_Total { get; set; }
         public string Pagado { get; set; }
         public int IdUsuario { get; set; }
+        public string Usuario_User { get; set; }
         public DateTime FDePago { get; set; }
         public string Estado { get; set; }
     }

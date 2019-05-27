@@ -46,16 +46,27 @@
             <div class="col-2" style="color:tan;" >Fecha desde:</div>
             <div class="col-2">
                 <asp:TextBox ID="TbFechaAlquiler" runat="server" CssClass="rcorners0"></asp:TextBox>
-                <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler">
+                <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler" CssClass="btn-dark">
                 </cc1:CalendarExtender>
             </div>
             <div class="col-4">
-                <asp:Button ID="BtnBuscar" runat="server" CssClass="btn btn-dark" Text="Buscar" />
+                <asp:Button ID="BtnBuscar" runat="server" CssClass="btn btn-dark" Text="Buscar" OnClick="BtnBuscar_Click" />
             </div>
         </div>
         <div class="row">
             <%--  Tabla de resultados --%>
-            <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra"></asp:GridView>
+            <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra" AutoGenerateColumns="False" EnableModelValidation="True">
+                <Columns>
+                    <asp:BoundField DataField="IdReserva" HeaderText="Id" />
+                    <asp:BoundField DataField="Propiedad_Nombre" HeaderText="Propiedad" />
+                    <asp:BoundField DataField="Inquilino_Nombre" HeaderText="Nombre" />
+                    <asp:BoundField DataField="Inquilino_Apellido" HeaderText="Apellido" />
+                    <asp:BoundField DataField="FDesde" HeaderText="Desde" />
+                    <asp:BoundField DataField ="FHasta" HeaderText ="Hasta" />
+                    <asp:BoundField DataField ="Estado" HeaderText=" Estado" />
+                    <asp:CommandField DeleteText="Ver" ShowDeleteButton="True" />
+                </Columns>
+            </asp:GridView>
         </div>
         <br />
         <asp:Panel ID="PnlDatos" runat="server">
