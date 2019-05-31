@@ -55,7 +55,7 @@
         </div>
         <div class="row">
             <%--  Tabla de resultados --%>
-            <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra" AutoGenerateColumns="False" EnableModelValidation="True">
+            <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra" AutoGenerateColumns="False" EnableModelValidation="True"  OnRowDeleting="VerReserva">
                 <Columns>
                     <asp:BoundField DataField="IdReserva" HeaderText="Id" />
                     <asp:BoundField DataField="Propiedad_Nombre" HeaderText="Propiedad" />

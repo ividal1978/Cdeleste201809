@@ -54,5 +54,7 @@ namespace WebApplication1
             GvReservas.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             GvReservas.DataBind();
         }
+        protected void VerReserva(object sender, GridViewDeleteEventArgs e)
+        { }
     }
 }
