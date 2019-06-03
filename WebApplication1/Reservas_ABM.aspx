@@ -53,7 +53,7 @@
                 <asp:Button ID="BtnBuscar" runat="server" CssClass="btn btn-dark" Text="Buscar" OnClick="BtnBuscar_Click" />
             </div>
         </div>
-        <hr style="background-color: darkolivegreen; height: 4px;" />
+   
         <div class="row text-center" >
             <%--  Tabla de resultados --%>
             <div class="col-2">&nbsp;</div>
@@ -72,6 +72,7 @@
             </asp:GridView>
         </div>
        </div>
+      <hr style="background-color:darkolivegreen; height: 4px; border-bottom-color:darkgoldenrod;border-bottom-width:2px;" />
         <br />
         <asp:Panel ID="PnlDatos" runat="server">
             <div class="row">
@@ -100,6 +101,18 @@
                         <div class="col-2" style="color: tan;">Inquilino:</div>
                         <div class="input-group col-4">
                             <asp:TextBox ID="TbInquilino" runat="server" class="form-control rcorners0" placeholder="Inquilino" aria-label="Inquilino" aria-describedby="BtnNuevo"></asp:TextBox>
+                            <cc1:AutoCompleteExtender ID="TbNombreCmb_AutoCompleteExtender"
+                        runat="server" DelimiterCharacters="" Enabled="True"
+                        ServicePath=""
+                        TargetControlID="TbInquilino"
+                        ServiceMethod="Sugerencias"
+                        CompletionInterval="1000"
+                        MinimumPrefixLength="3"
+                        CompletionListCssClass="list-group list-group-item-info "
+                        CompletionListItemCssClass="list-group list-group-item"
+                        CompletionListHighlightedItemCssClass="list-group list-group-item-success"
+                        UseContextKey="True">
+                    </cc1:AutoCompleteExtender>
                             <div class="input-group-append">
                                 <asp:Button ID="BtnNuevo" runat="server" class="btn btn-outline-warning rcorners0" Text="Nuevo" OnClick="BtnNuevo_Click" />
                             </div>
@@ -144,13 +157,20 @@
                         </div>
                         <div class="col-2" style="color: tan;"></div>
                         <div class="col-4">
-                            <asp:Button ID="BtnSave" runat="server" CssClass="btn btn-dark" Text="Guardar" />
+                            <asp:Button ID="BtnSave" runat="server" CssClass="btn btn-dark" Text="Guardar" OnClick="BtnSave_Click" />
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2"></div>
-
+            <div class="col-lg-2">
+          
+            </div>
+          <div class="row">
+              <div class="col-lg-12 text-center">  
+                  <asp:Label ID="LbError" CssClass="alert-danger rcorners0" runat="server"></asp:Label>
+                  <asp:HiddenField ID="HndId" runat="server" />
+              </div>
+          </div>  
         </asp:Panel>
         <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
 

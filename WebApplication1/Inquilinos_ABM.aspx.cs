@@ -18,17 +18,7 @@ namespace WebApplication1
                 Autenticar();
                 PnlDatosInquilino.Visible = false;
             }
-            //else
-            //{
-            //    if (TbNombreCmb.Text.Contains("#"))
-            //    {
-            //        int inicio = TbNombreCmb.Text.IndexOf("#") +1;
-            //        int Fin = TbNombreCmb.Text.Length;
-            //        int ID = Convert.ToInt32(TbNombreCmb.Text.Substring(inicio, Fin - inicio));
-            //        hdnIdInquilino.Value = ID.ToString();
-            //        Carga_Datos(ID);
-            //    }
-            //} 
+           
             
         }
 

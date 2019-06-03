@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Contrato;
+using System.Web.Services;
 
 namespace WebApplication1
 {
@@ -16,6 +17,7 @@ namespace WebApplication1
             {
                 Autenticar();
                 CargaCombos();
+                HndId.Value = "-1";
             }
         }
 
@@ -62,6 +64,7 @@ namespace WebApplication1
         {
             // buscar info por id
             int IdReserva = Convert.ToInt32(GvReservas.Rows[e.RowIndex].Cells[0].Text);
+            HndId.Value = IdReserva.ToString();
             //Obtener la info
             Reservas oRes = new Reservas();
             Negocio.Negocio oNegocio = new Negocio.Negocio();
@@ -70,13 +73,14 @@ namespace WebApplication1
             TbFechaDesde.Text = oRes.FDesde.ToString("dd/MM/yyyy");
             TbFechaHasta.Text = oRes.FHasta.ToString("dd/MM/yyyy");
             DdlPropiedad.SelectedValue = oRes.IdPropiedad.ToString();
-            TbInquilino.Text = oRes.Inquilino_Nombre + ", " + oRes.Inquilino_Apellido;
+            TbInquilino.Text = oRes.Inquilino_Nombre + ", " + oRes.Inquilino_Apellido + " #"+oRes.IdInquilino.ToString();
             TbMontoTotal.Text = oRes.Monto_Total.ToString();
             TbMontoReserva.Text = oRes.Monto_Reserva.ToString();
             RblPago.SelectedValue = oRes.Pagado.ToString();
             TbFechapago.Text = (oRes.FDePago > Convert.ToDateTime("1900-01-01") ? oRes.FDePago.ToString("dd/MM/yyyy") : "Impago");
             DdlEstados.SelectedValue = oRes.Estado;
             //desplazarme hacia abajo
+            BtnNuevo.Focus();
             //posicionarme en el primer control de abajo
             
         }
@@ -93,6 +97,43 @@ namespace WebApplication1
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             GvReservas.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             GvReservas.DataBind();
+        }
+
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(HndId.Value) > 0)
+            {
+                //Update de Reserva
+            }
+            else
+            {
+                //Nuenva reserva
+                //Chequear que la reserva no se superponga si en nueva
+            }
+        }
+
+        [WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public static string[] Sugerencias(string prefixText, int count)
+        {
+            List<InquilinoCMB> oPersonas = new List<InquilinoCMB>();
+            string[] PNombres = null; ;
+
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+
+            prefixText = prefixText.ToUpper();
+            oPersonas = oNegocio.GetInquilinoCMB(prefixText);
+
+
+
+            IEnumerable<string> ds = from P in oPersonas
+                                     orderby P.Nombre_inquilino
+                                     select (P.Nombre_inquilino + " #" + P.IdInquilino);
+
+            PNombres = ds.ToArray<string>();
+
+
+            return PNombres.ToArray();
         }
     }
 }

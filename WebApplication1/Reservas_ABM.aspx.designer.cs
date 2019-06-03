@@ -148,6 +148,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox TbInquilino;
         
         /// <summary>
+        /// TbNombreCmb_AutoCompleteExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender TbNombreCmb_AutoCompleteExtender;
+        
+        /// <summary>
         /// BtnNuevo control.
         /// </summary>
         /// <remarks>
@@ -218,6 +227,24 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnSave;
+        
+        /// <summary>
+        /// LbError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbError;
+        
+        /// <summary>
+        /// HndId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HndId;
         
         /// <summary>
         /// ToolkitScriptManager1 control.
