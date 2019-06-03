@@ -902,7 +902,7 @@ namespace Datos
                 string Query = "";
                 Query = "SELECT R.FReserva, R.IDReserva, R.IDPropiedad, P.Nombre,R.IDInquilino,I.Nombre,"+
                         " I.Apellido, R.Fdesde,R.Fhasta, ifnull(R.Monto_Reserva,0),ifnull(R.Monto_Total,0),"+
-                        " R.Pagado,R.IDusuario, U.Usuario ,R.FdePago, R.Estado" +
+                        " R.Pagado,R.IDusuario, U.Usuario ,ifnull(R.FdePago,'1900-01-01'), R.Estado" +
                         " From reservas R "+
                         " Inner join inquilino I on R.IDInquilino = I.IDInquilino " +
                         " Inner join propiedades P on R.IDPropiedad = P.IdPropiedad "+
@@ -962,12 +962,14 @@ namespace Datos
                 string Query = "";
                 Query = "SELECT R.FReserva, R.IDReserva, R.IDPropiedad, P.Nombre,R.IDInquilino,I.Nombre," +
                         " I.Apellido, R.Fdesde,R.Fhasta, ifnull(R.Monto_Reserva,0),ifnull(R.Monto_Total,0)," +
-                        " R.Pagado,R.IDusuario, U.Usuario ,R.FdePago, R.Estado" +
+                        " R.Pagado,R.IDusuario, U.Usuario ,ifnull(R.FdePago,'1900-01-01'), R.Estado" +
                         " From reservas R " +
                         " Inner join inquilino I on R.IDInquilino = I.IDInquilino " +
                         " Inner join propiedades P on R.IDPropiedad = P.IdPropiedad " +
                         " Inner join usuarios U on R.IDusuario = U.idusuario" +
-                        " Where Fdesde >" + Fecha + " Order by Fdesde desc";
+                        " Where Fdesde > '" + Fecha.Year.ToString()+"-"+
+                         (Fecha.Month <10?"0"+Fecha.Month.ToString(): Fecha.Month.ToString())+"-"+
+                         (Fecha.Day <10?"0"+Fecha.Day.ToString(): Fecha.Day.ToString()) + "' Order by Fdesde desc";
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);

@@ -53,9 +53,12 @@
                 <asp:Button ID="BtnBuscar" runat="server" CssClass="btn btn-dark" Text="Buscar" OnClick="BtnBuscar_Click" />
             </div>
         </div>
-        <div class="row">
+        <hr style="background-color: darkolivegreen; height: 4px;" />
+        <div class="row text-center" >
             <%--  Tabla de resultados --%>
-            <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra" AutoGenerateColumns="False" EnableModelValidation="True"  OnRowDeleting="VerReserva">
+            <div class="col-2">&nbsp;</div>
+            <div class="col-10">
+            <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">
                 <Columns>
                     <asp:BoundField DataField="IdReserva" HeaderText="Id" />
                     <asp:BoundField DataField="Propiedad_Nombre" HeaderText="Propiedad" />
@@ -68,6 +71,7 @@
                 </Columns>
             </asp:GridView>
         </div>
+       </div>
         <br />
         <asp:Panel ID="PnlDatos" runat="server">
             <div class="row">
@@ -95,7 +99,7 @@
                         </div>
                         <div class="col-2" style="color: tan;">Inquilino:</div>
                         <div class="input-group col-4">
-                            <input type="text" class="form-control rcorners0" placeholder="Inquilino" aria-label="Inquilino" aria-describedby="BtnNuevo">
+                            <asp:TextBox ID="TbInquilino" runat="server" class="form-control rcorners0" placeholder="Inquilino" aria-label="Inquilino" aria-describedby="BtnNuevo"></asp:TextBox>
                             <div class="input-group-append">
                                 <asp:Button ID="BtnNuevo" runat="server" class="btn btn-outline-warning rcorners0" Text="Nuevo" OnClick="BtnNuevo_Click" />
                             </div>
