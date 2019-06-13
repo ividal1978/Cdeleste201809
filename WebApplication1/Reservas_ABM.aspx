@@ -6,6 +6,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Reservas Admin</title>
+    <style type="text/css">
+        .GridNegra {}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="Scripts/jquery-3.0.0.min.js"></script>
@@ -60,7 +63,8 @@
             <%--  Tabla de resultados --%>
             <div class="col-2">&nbsp;</div>
             <div class="col-10">
-                <DayPilot:DayPilotScheduler ID="DayPilotScheduler1" runat="server" ></DayPilot:DayPilotScheduler>
+                <DayPilot:DayPilotScheduler ID="DayPilotScheduler1" runat="server"  CssClass="GridNegra" Height="112px" ></DayPilot:DayPilotScheduler>
+                <br />
             <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">
                 <Columns>
                     <asp:BoundField DataField="IdReserva" HeaderText="Id" />
