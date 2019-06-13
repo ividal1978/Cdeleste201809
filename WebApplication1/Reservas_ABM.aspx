@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cdeleste.Master" AutoEventWireup="true" CodeBehind="Reservas_ABM.aspx.cs" Inherits="WebApplication1.Reservas_ABM" %>
 
+<%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -58,6 +60,7 @@
             <%--  Tabla de resultados --%>
             <div class="col-2">&nbsp;</div>
             <div class="col-10">
+                <DayPilot:DayPilotScheduler ID="DayPilotScheduler1" runat="server" ></DayPilot:DayPilotScheduler>
             <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">
                 <Columns>
                     <asp:BoundField DataField="IdReserva" HeaderText="Id" />
