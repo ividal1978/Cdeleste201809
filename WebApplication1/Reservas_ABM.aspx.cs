@@ -17,6 +17,7 @@ namespace WebApplication1
             {
                 Autenticar();
                 CargaCombos();
+                TbFechaAlquiler.Text = DateTime.Now.ToString("dd/mm/yyyy");
                 HndId.Value = "-1";
             }
         }

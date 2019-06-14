@@ -8,6 +8,13 @@
     <title>Reservas Admin</title>
     <style type="text/css">
         .GridNegra {}
+        .GridNegra {}
+        .GridNegra {}
+        .GridNegra {}
+        .GridNegra {}
+        .GridNegra {
+            height: 162px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -46,7 +53,7 @@
           <%--  Panel de busqueda--%>
             <div  class="col-2" style="color:tan;">Propiedad: </div>
             <div class="col-2">
-                <asp:DropDownList  ID="DdlPropiedadAlquiler" runat="server" CssClass="rcorners0" ></asp:DropDownList>
+                <asp:DropDownList  ID="DdlPropiedadAlquiler" runat="server" CssClass="rcorners0" >        </asp:DropDownList>
             </div>
             <div class="col-2" style="color:tan;" >Fecha desde:</div>
             <div class="col-2">
@@ -63,7 +70,25 @@
             <%--  Tabla de resultados --%>
             <div class="col-2">&nbsp;</div>
             <div class="col-10">
-                <DayPilot:DayPilotScheduler ID="DayPilotScheduler1" runat="server"  CssClass="GridNegra" Height="112px" ></DayPilot:DayPilotScheduler>
+                <DayPilot:DayPilotScheduler ID="DayPilotScheduler1" runat="server"  CssClass="GridNegra" Height="179px"  DataStartField="FDesde" 
+                    DataEndField="FHasta"  DataTextField="Inquilino_Nombre" 
+                    DataIdField="id" 
+                    DataResourceField="resource_id" 
+                    CellGroupBy="Month"
+                    Scale="Day"
+                    EventMoveHandling="CallBack" 
+                    OnEventMove="DayPilotScheduler1_EventMove"  RowHeaderWidth="300" HeaderHeight="25"  EventHeight="30">
+                  <Resources >
+                      <DayPilot:Resource Name ="Planta Baja 1ro" Value="1" />           
+                      <DayPilot:Resource Name ="Planta Baja 2do" Value="2" />
+                      <DayPilot:Resource Name ="Planta Baja 3ro" Value="3" />
+                      <DayPilot:Resource Name ="Planta Alta 4to" Value="4" />
+                      <DayPilot:Resource Name ="Planta Baja 5to" Value="5" />
+                      <DayPilot:Resource Name ="La casita del Bosque" Value="6" />
+                       <DayPilot:Resource Name ="Duplex Geranios" Value="7" />
+                       <DayPilot:Resource Name ="Duplex Violetas" Value="8" />
+                  </Resources>
+                 </DayPilot:DayPilotScheduler>
                 <br />
             <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">
                 <Columns>
