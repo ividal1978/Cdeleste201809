@@ -76,8 +76,8 @@
                 <DayPilot:DayPilotScheduler ID="DayPilotCalendario" runat="server"  CssClass="GridNegra" Height="179px"  
                     DataStartField="FDesde" 
                     DataEndField="FHasta"
-                    DataTextField="Inquilino_Nombre" 
-                    DataIdField="IDReserva" 
+                    DataTextField="Propiedad_Nombre" 
+                    DataIdField="IDPropiedad" 
                     DataValueField="IDReserva" 
                     DataResourceField="IDPropiedad" 
                     CellGroupBy="Month"
@@ -86,7 +86,7 @@
                     Days="31"
                     EventMoveHandling="CallBack" 
                     OnEventMove="DayPilotScheduler1_EventMove"  RowHeaderWidth="300" HeaderHeight="25"  EventHeight="25">
-            <Resources >
+         <%--   <Resources >
                 <DayPilot:Resource Name="La Casona Planta Baja 1" Value="1" />
                 <DayPilot:Resource Name="La Casona Planta Baja 2" Value="2" />
                 <DayPilot:Resource Name="La Casona Planta Baja 3" Value="3"/>
@@ -95,7 +95,7 @@
                 <DayPilot:Resource Name="La Casita del Bosque" Value="6" />
                 <DayPilot:Resource Name="Dúplex Girasoles" Value ="7" />
                 <DayPilot:Resource Name="Dúplex Violetas" Value="8" /> 
-            </Resources>
+            </Resources>--%>
                  </DayPilot:DayPilotScheduler>
                 <br />
             <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">

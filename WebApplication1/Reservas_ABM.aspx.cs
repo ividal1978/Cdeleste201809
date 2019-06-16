@@ -21,6 +21,7 @@ namespace WebApplication1
                 CargaCombos();
                 TbFechaAlquiler.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 HndId.Value = "-1";
+                CargarRecusosCalendario();
                 CargarCalendario();
             }
         }
@@ -63,6 +64,7 @@ namespace WebApplication1
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
             CargaGrilla();
+            CargarCalendario();
         }
         protected void VerReserva(object sender, GridViewDeleteEventArgs e)
         {
@@ -107,9 +109,29 @@ namespace WebApplication1
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
 
-            DayPilotCalendario.DataSource = oNegocio.Get_ReservaxFechaDt(Convert.ToDateTime(TbFechaAlquiler.Text));
-                // oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
+            DayPilotCalendario.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
+            // oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             DayPilotCalendario.DataBind();
+        }
+
+        protected void CargarRecusosCalendario()
+        {
+            DayPilotCalendario.Resources.Clear();
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+
+            //SqlDataAdapter da = new SqlDataAdapter("SELECT [id], [name] FROM [resource]", ConfigurationManager.ConnectionStrings["DayPilot"].ConnectionString);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            var Recursos = oNegocio.Get_Propiedades_All();
+
+            foreach (var r in Recursos)
+            {
+                string Propiedad_Nombre = r.Nombre;
+                string IDPropiedad = r.IdPropiedades.ToString();
+
+               DayPilotCalendario.Resources.Add(Propiedad_Nombre, IDPropiedad);
+            }
+
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)
