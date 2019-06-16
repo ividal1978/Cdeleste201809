@@ -2,6 +2,7 @@
 
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
 
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -15,6 +16,7 @@
         .GridNegra {
             height: 162px;
         }
+        .GridNegra {}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -70,24 +72,30 @@
             <%--  Tabla de resultados --%>
             <div class="col-2">&nbsp;</div>
             <div class="col-10">
-                <DayPilot:DayPilotScheduler ID="DayPilotScheduler1" runat="server"  CssClass="GridNegra" Height="179px"  DataStartField="FDesde" 
-                    DataEndField="FHasta"  DataTextField="Inquilino_Nombre" 
-                    DataIdField="id" 
-                    DataResourceField="resource_id" 
+                <br />
+                <DayPilot:DayPilotScheduler ID="DayPilotCalendario" runat="server"  CssClass="GridNegra" Height="179px"  
+                    DataStartField="FDesde" 
+                    DataEndField="FHasta"
+                    DataTextField="Inquilino_Nombre" 
+                    DataIdField="IDReserva" 
+                    DataValueField="IDReserva" 
+                    DataResourceField="IDPropiedad" 
                     CellGroupBy="Month"
                     Scale="Day"
+                    CellDuration="1440"
+                    Days="31"
                     EventMoveHandling="CallBack" 
-                    OnEventMove="DayPilotScheduler1_EventMove"  RowHeaderWidth="300" HeaderHeight="25"  EventHeight="30">
-                  <Resources >
-                      <DayPilot:Resource Name ="Planta Baja 1ro" Value="1" />           
-                      <DayPilot:Resource Name ="Planta Baja 2do" Value="2" />
-                      <DayPilot:Resource Name ="Planta Baja 3ro" Value="3" />
-                      <DayPilot:Resource Name ="Planta Alta 4to" Value="4" />
-                      <DayPilot:Resource Name ="Planta Baja 5to" Value="5" />
-                      <DayPilot:Resource Name ="La casita del Bosque" Value="6" />
-                       <DayPilot:Resource Name ="Duplex Geranios" Value="7" />
-                       <DayPilot:Resource Name ="Duplex Violetas" Value="8" />
-                  </Resources>
+                    OnEventMove="DayPilotScheduler1_EventMove"  RowHeaderWidth="300" HeaderHeight="25"  EventHeight="25">
+            <Resources >
+                <DayPilot:Resource Name="La Casona Planta Baja 1" Value="1" />
+                <DayPilot:Resource Name="La Casona Planta Baja 2" Value="2" />
+                <DayPilot:Resource Name="La Casona Planta Baja 3" Value="3"/>
+                <DayPilot:Resource Name="La Casona Planta Alta 4" Value="4" />
+                <DayPilot:Resource Name="La Casona Planta Alta 5" Value ="5" />
+                <DayPilot:Resource Name="La Casita del Bosque" Value="6" />
+                <DayPilot:Resource Name="Dúplex Girasoles" Value ="7" />
+                <DayPilot:Resource Name="Dúplex Violetas" Value="8" /> 
+            </Resources>
                  </DayPilot:DayPilotScheduler>
                 <br />
             <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">

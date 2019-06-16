@@ -76,13 +76,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Button BtnBuscar;
         
         /// <summary>
-        /// DayPilotScheduler1 control.
+        /// DayPilotCalendario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DayPilot.Web.Ui.DayPilotScheduler DayPilotScheduler1;
+        protected global::DayPilot.Web.Ui.DayPilotScheduler DayPilotCalendario;
         
         /// <summary>
         /// GvReservas control.

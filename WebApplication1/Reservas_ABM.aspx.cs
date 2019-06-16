@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Contrato;
 using System.Web.Services;
+using DayPilot.Web;
+
 
 namespace WebApplication1
 {
@@ -17,8 +19,9 @@ namespace WebApplication1
             {
                 Autenticar();
                 CargaCombos();
-                TbFechaAlquiler.Text = DateTime.Now.ToString("dd/mm/yyyy");
+                TbFechaAlquiler.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 HndId.Value = "-1";
+                CargarCalendario();
             }
         }
 
@@ -98,6 +101,15 @@ namespace WebApplication1
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             GvReservas.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             GvReservas.DataBind();
+        }
+
+        protected void CargarCalendario()
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+
+            DayPilotCalendario.DataSource = oNegocio.Get_ReservaxFechaDt(Convert.ToDateTime(TbFechaAlquiler.Text));
+                // oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
+            DayPilotCalendario.DataBind();
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)

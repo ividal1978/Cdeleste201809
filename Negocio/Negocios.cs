@@ -7,6 +7,7 @@ using Datos;
 using System.Net.Mail;
 using System.Configuration;
 using NLog;
+using System.Data;
 
 namespace Negocio
 {
@@ -154,7 +155,10 @@ namespace Negocio
         } 
 
         public Reservas Get_ReservasxId(int IdReserva) => oData.Get_ReservaxId(IdReserva);
+
+        public DataTable Get_ReservaxFechaDt(DateTime Fecha) => oData.Get_ReservaxFechaDt(Fecha);
         
-        #endregion
+
+            #endregion
         }
 }
