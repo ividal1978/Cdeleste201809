@@ -78,24 +78,17 @@
                     DataEndField="FHasta"
                     DataTextField="Propiedad_Nombre" 
                     DataIdField="IDPropiedad" 
+                    
                     DataValueField="IDReserva" 
                     DataResourceField="IDPropiedad" 
+
                     CellGroupBy="Month"
                     Scale="Day"
                     CellDuration="1440"
                     Days="31"
                     EventMoveHandling="CallBack" 
                     OnEventMove="DayPilotScheduler1_EventMove"  RowHeaderWidth="300" HeaderHeight="25"  EventHeight="25">
-         <%--   <Resources >
-                <DayPilot:Resource Name="La Casona Planta Baja 1" Value="1" />
-                <DayPilot:Resource Name="La Casona Planta Baja 2" Value="2" />
-                <DayPilot:Resource Name="La Casona Planta Baja 3" Value="3"/>
-                <DayPilot:Resource Name="La Casona Planta Alta 4" Value="4" />
-                <DayPilot:Resource Name="La Casona Planta Alta 5" Value ="5" />
-                <DayPilot:Resource Name="La Casita del Bosque" Value="6" />
-                <DayPilot:Resource Name="Dúplex Girasoles" Value ="7" />
-                <DayPilot:Resource Name="Dúplex Violetas" Value="8" /> 
-            </Resources>--%>
+   
                  </DayPilot:DayPilotScheduler>
                 <br />
             <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">

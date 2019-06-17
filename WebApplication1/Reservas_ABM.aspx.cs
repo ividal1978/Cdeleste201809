@@ -111,7 +111,19 @@ namespace WebApplication1
 
             DayPilotCalendario.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             // oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
-            DayPilotCalendario.DataBind();
+            DayPilotCalendario.StartDate = Convert.ToDateTime(TbFechaAlquiler.Text);
+            DayPilotCalendario.DataStartField = "FDesde";
+            //DayPilotScheduler1.DataStartField = "start";
+            DayPilotCalendario.DataEndField = "Fhasta";
+            //DayPilotScheduler1.DataEndField = "end";
+            DayPilotCalendario.DataTextField = "Inquilino_Nombre";
+            //DayPilotScheduler1.DataTextField = "name";
+            DayPilotCalendario.DataResourceField = "IdPropiedad";
+            //DayPilotScheduler1.DataIdField = "id";
+           
+            //DayPilotScheduler1.DataResourceField = "resource";
+
+          DayPilotCalendario.DataBind();
         }
 
         protected void CargarRecusosCalendario()
