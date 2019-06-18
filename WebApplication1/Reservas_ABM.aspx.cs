@@ -13,6 +13,8 @@ namespace WebApplication1
 {
     public partial class Reservas_ABM : System.Web.UI.Page
     {
+        private readonly object LbMes;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -23,6 +25,8 @@ namespace WebApplication1
                 HndId.Value = "-1";
                 CargarRecusosCalendario();
                 CargarCalendario();
+                //DayPilot.Scheduler.floatingTimeHeaders(boolean)
+                  
             }
         }
 
@@ -112,6 +116,8 @@ namespace WebApplication1
             DayPilotCalendario.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             // oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             DayPilotCalendario.StartDate = Convert.ToDateTime(TbFechaAlquiler.Text);
+            MesGrilla();
+
             DayPilotCalendario.DataStartField = "FDesde";
             //DayPilotScheduler1.DataStartField = "start";
             DayPilotCalendario.DataEndField = "Fhasta";
@@ -120,11 +126,14 @@ namespace WebApplication1
             //DayPilotScheduler1.DataTextField = "name";
             DayPilotCalendario.DataResourceField = "IdPropiedad";
             //DayPilotScheduler1.DataIdField = "id";
-           
-            //DayPilotScheduler1.DataResourceField = "resource";
+                        //DayPilotScheduler1.DataResourceField = "resource";
+            DayPilotCalendario.DurationBarColor = System.Drawing.Color.SaddleBrown;
+            
 
           DayPilotCalendario.DataBind();
         }
+        
+        
 
         protected void CargarRecusosCalendario()
         {
@@ -156,6 +165,62 @@ namespace WebApplication1
             {
                 //Nuenva reserva
                 //Chequear que la reserva no se superponga si en nueva
+            }
+        }
+
+        protected void MesGrilla()
+        {
+            int mes = Convert.ToDateTime(TbFechaAlquiler.Text).Month;
+            switch (mes)
+            { 
+                case  1:
+                    TbMes.Text = "Enero";
+                    DayPilotCalendario.Days = 31;
+                    break;
+                case 2:
+                    TbMes.Text = "Febrero";
+                    DayPilotCalendario.Days = 29;
+                    break;
+                case 3:
+                    TbMes.Text = "Marzo";
+                    DayPilotCalendario.Days = 31;
+                    break;
+                case 4:
+                    TbMes.Text = "Abril";
+                    DayPilotCalendario.Days = 30;
+                    break;
+                case 5:
+                    TbMes.Text = "Mayo";
+                    DayPilotCalendario.Days = 31;
+                    break;
+                case 6:
+                    TbMes.Text = "Junio";
+                    DayPilotCalendario.Days = 30;
+                    break;
+                case 7:
+                    TbMes.Text = "Julio";
+                    DayPilotCalendario.Days = 31;
+                    break;
+                case 8:
+                    TbMes.Text = "Agosto";
+                    DayPilotCalendario.Days = 31;
+                    break;
+                case 9:
+                    TbMes.Text = "Septiembre";
+                    DayPilotCalendario.Days = 30;
+                    break;
+                case 10:
+                    TbMes.Text = "Octubre";
+                    DayPilotCalendario.Days = 31;
+                    break;
+                case 11:
+                    TbMes.Text = "Noviembre";
+                    DayPilotCalendario.Days = 30;
+                    break;
+                case 12:
+                    TbMes.Text = "Diciembre";
+                    DayPilotCalendario.Days = 31;
+                    break;
             }
         }
 

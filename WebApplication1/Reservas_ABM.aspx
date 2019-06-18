@@ -71,9 +71,11 @@
         <div class="row text-center" >
             <%--  Tabla de resultados --%>
             <div class="col-2">&nbsp;</div>
-            <div class="col-10">
-                <br />
-                <DayPilot:DayPilotScheduler ID="DayPilotCalendario" runat="server"  CssClass="GridNegra" Height="179px"  
+            <div class="col-10"> <br />
+                <div class="text-left">
+                <div class="col-4 text-center"><asp:TextBox ID="TbMes" runat="server" CssClass="rcorners0"  BackColor="#FFFFD5" Enabled="false" style="text-align:center;"  Width="250px"></asp:TextBox></div>
+
+                <DayPilot:DayPilotScheduler ID="DayPilotCalendario" runat="server"  CssClass="rcorners0 text-center" Height="179px"  
                     DataStartField="FDesde" 
                     DataEndField="FHasta"
                     DataTextField="Propiedad_Nombre" 
@@ -81,7 +83,7 @@
                     
                     DataValueField="IDReserva" 
                     DataResourceField="IDPropiedad" 
-
+                     
                     CellGroupBy="Month"
                     Scale="Day"
                     CellDuration="1440"
@@ -90,6 +92,7 @@
                     OnEventMove="DayPilotScheduler1_EventMove"  RowHeaderWidth="300" HeaderHeight="25"  EventHeight="25">
    
                  </DayPilot:DayPilotScheduler>
+                </div>
                 <br />
             <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">
                 <Columns>
@@ -208,4 +211,5 @@
         <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
 
     </form>
+
 </asp:Content>
