@@ -89,7 +89,11 @@
                     CellDuration="1440"
                     Days="31"
                     EventMoveHandling="CallBack" 
-                    OnEventMove="DayPilotScheduler1_EventMove"  RowHeaderWidth="300" HeaderHeight="25"  EventHeight="25">
+                    RowHeaderWidth="300" HeaderHeight="25"  EventHeight="25" 
+                    OnEventMove="DayPilotScheduler1_EventMove" 
+                    OnEventClick="DayPilotCalendar1_EventClick" 
+                     FreeTimeClickJavaScript="alert('{0}, {1}');"  EventClickHandling="PostBack"
+                    >
    
                  </DayPilot:DayPilotScheduler>
                 </div>
