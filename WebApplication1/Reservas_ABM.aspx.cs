@@ -67,28 +67,28 @@ namespace WebApplication1
 
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
-            CargaGrilla();
+           // CargaGrilla();
             CargarCalendario();
         }
-        protected void VerReserva(object sender, GridViewDeleteEventArgs e)
-        {
-            // buscar info por id
-            int IdReserva = Convert.ToInt32(GvReservas.Rows[e.RowIndex].Cells[0].Text);
-             Get_Reserva(IdReserva);
-         }
+        //protected void VerReserva(object sender, GridViewDeleteEventArgs e)
+        //{
+        //    // buscar info por id
+        //    int IdReserva = Convert.ToInt32(GvReservas.Rows[e.RowIndex].Cells[0].Text);
+        //     Get_Reserva(IdReserva);
+        // }
 
-        protected void CambioPagina(object sender, GridViewPageEventArgs e)
-        {
-            GvReservas.PageIndex = e.NewPageIndex;
-            CargaGrilla();
-        }
+        //protected void CambioPagina(object sender, GridViewPageEventArgs e)
+        //{
+        //    GvReservas.PageIndex = e.NewPageIndex;
+        //    CargaGrilla();
+        //}
 
-        protected void CargaGrilla()
-        {
-            Negocio.Negocio oNegocio = new Negocio.Negocio();
-            GvReservas.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
-            GvReservas.DataBind();
-        }
+        //protected void CargaGrilla()
+        //{
+        //    Negocio.Negocio oNegocio = new Negocio.Negocio();
+        //    GvReservas.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
+        //    GvReservas.DataBind();
+        //}
 
         protected void CargarCalendario()
         {
@@ -136,14 +136,33 @@ namespace WebApplication1
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
+            //Cargo los datos
+            Reservas oRes = new Reservas();
+
+            oRes.Estado = DdlEstados.SelectedValue;
+            oRes.FDePago = Convert.ToDateTime(TbFechapago.Text);
+            oRes.FDesde = Convert.ToDateTime(TbFechaDesde.ToString());
+            oRes.FHasta = Convert.ToDateTime(TbFechaHasta.ToString());
+            oRes.IdPropiedad = Convert.ToInt32(DdlPropiedad.SelectedValue.ToString());
+            oRes.IdInquilino = Convert.ToInt32(TbInquilino.Text.Substring(TbInquilino.Text.IndexOf("#") + 1));
+            oRes.Pagado = RblPago.SelectedValue.ToString();
+            oRes.Inquilino_Nombre = TbInquilino.Text.Substring(0, TbInquilino.Text.IndexOf(",") - 1);
+            oRes.Inquilino_Apellido = TbInquilino.Text.Substring(TbInquilino.Text.IndexOf(",") + 1, TbInquilino.Text.IndexOf("#") - 1);
+            oRes.Monto_Total = Convert.ToDecimal(TbMontoTotal.Text);
+            oRes.Monto_Reserva = Convert.ToDecimal(TbMontoReserva.Text);
+            oRes.IdUsuario =
+            
             if (Convert.ToInt32(HndId.Value) > 0)
             {
                 //Update de Reserva
+                oRes.IdReserva = Convert.ToInt32(HndId.Value);
+                //Limpiar la el valor del hdn value
             }
             else
             {
                 //Nuenva reserva
                 //Chequear que la reserva no se superponga si en nueva
+                
             }
         }
 
@@ -237,59 +256,7 @@ namespace WebApplication1
              Get_Reserva(Convert.ToInt32(e.Value));
         }
 
-        protected void DayPilotScheduler1_BeforeEventRender(object sender, DayPilot.Web.Ui.Event e)
-        {
-            e.InnerHTML = String.Format("{0} ({1:d} - {2:d})", e.Text, e.Start, e.End);
-            int status = Convert.ToInt32(e.Tag["ReservationStatus"]);
-
-            switch (status)
-            {
-                case 0: // new
-                    if (e.Start < DateTime.Today.AddDays(2)) // must be confirmed two day in advance
-                    {
-                        e.DurationBarColor = "red";
-                        e.ToolTip = "Expired (not confirmed in time)";
-                    }
-                    else
-                    {
-                        e.DurationBarColor = "orange";
-                        e.ToolTip = "New";
-                    }
-                    break;
-                case 1:  // confirmed
-                    if (e.Start < DateTime.Today || (e.Start == DateTime.Today && DateTime.Now.TimeOfDay.Hours > 18))  // must arrive before 6 pm
-                    {
-                        e.DurationBarColor = "#f41616";  // red
-                        e.ToolTip = "Late arrival";
-                    }
-                    else
-                    {
-                        e.DurationBarColor = "green";
-                        e.ToolTip = "Confirmed";
-                    }
-                    break;
-                case 2: // arrived
-                    if (e.End < DateTime.Today || (e.End == DateTime.Today && DateTime.Now.TimeOfDay.Hours > 11))  // must checkout before 10 am
-                    {
-                        e.DurationBarColor = "#f41616"; // red
-                        e.ToolTip = "Late checkout";
-                    }
-                    else
-                    {
-                        e.DurationBarColor = "#1691f4";  // blue
-                        e.ToolTip = "Arrived";
-                    }
-                    break;
-                case 3: // checked out
-                    e.DurationBarColor = "gray";
-                    e.ToolTip = "Checked out";
-                    break;
-                default:
-                    throw new ArgumentException("Unexpected status.");
-            }
-        }
-
-
+    
         [WebMethod]
         [System.Web.Script.Services.ScriptMethod]
         public static string[] Sugerencias(string prefixText, int count)

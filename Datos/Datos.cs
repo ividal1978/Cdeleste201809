@@ -1057,6 +1057,53 @@ namespace Datos
         //lista de reservas entre fechas
         //save
 
+        public void Save_Reserva(Reservas oReserva)
+        {
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string Query = "";
+                if (oReserva.IdReserva > 0)
+                {
+                    //UPDATE
+                    Query = " UPDATE reservas" +
+                            " SET IDPropiedad = " + oReserva.IdPropiedad.ToString() + " ," +
+                            " IDInquilino = " + oReserva.IdInquilino.ToString() + "," +
+                            " Fdesde  = " + oReserva.FDesde.ToString() + " ," +
+                            " Fhasta = " + oReserva.FHasta.ToString() + " ," +
+                            " Monto_Reserva = " + oReserva.Monto_Reserva.ToString() + " ," +
+                            " Monto_Total = " + oReserva.Monto_Total.ToString() + " ," +
+                            " Pagado  = " + oReserva.Pagado.ToString() + " ," +
+                            " IDusuario = " + oReserva.IdUsuario.ToString() + " ," +
+                            " FdePago = " + oReserva.FDePago.ToString() + " ," +
+                            " Estado = " + oReserva.Estado.ToString() + " ," +
+                            " WHERE IDReserva =" + oReserva.IdReserva.ToString(); 
+                                 
+                }
+                else
+                {//INSERT
+                    Query = "INSERT INTO reservas  (FReserva, IDPropiedad, IDInquilino, Fdesde, Fhasta, Monto_Reserva,"+
+                            " Monto_Total, Pagado, IDusuario, FdePago, Estado) VALUES("+
+                            ""+DateTime.Now.ToString()+","+ oReserva.IdPropiedad.ToString() +","+oReserva.IdInquilino.ToString()+" ,"+
+                            ""+oReserva.FDesde.ToString() +"," +oReserva.FHasta.ToString()+","+ oReserva.Monto_Reserva.ToString()+","+
+                            ""+oReserva.Monto_Total+","+oReserva.Pagado.ToString()+","+oReserva.IdUsuario.ToString()+","+oReserva.FDePago.ToString()+")";
+                }
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Reserva - Save :: " + ex.StackTrace.ToString());
+            }
+
+        }
         #endregion
     }
 }

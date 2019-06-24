@@ -98,7 +98,7 @@
                  </DayPilot:DayPilotScheduler>
                 </div>
                 <br />
-            <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">
+        <%--    <asp:GridView ID="GvReservas" runat="server" CssClass=" GridNegra rcorners0" AutoGenerateColumns="False" EnableModelValidation="True"  OnPageIndexChanging="CambioPagina"   OnRowDeleting="VerReserva" AllowPaging="true">
                 <Columns>
                     <asp:BoundField DataField="IdReserva" HeaderText="Id" />
                     <asp:BoundField DataField="Propiedad_Nombre" HeaderText="Propiedad" />
@@ -109,7 +109,7 @@
                     <asp:BoundField DataField ="Estado" HeaderText=" Estado" />
                     <asp:CommandField DeleteText="Ver" ShowDeleteButton="True" />
                 </Columns>
-            </asp:GridView>
+            </asp:GridView>--%>
         </div>
        </div>
       <hr style="background-color:darkolivegreen; height: 4px; border-bottom-color:darkgoldenrod;border-bottom-width:2px;" />
@@ -193,6 +193,7 @@
                             <asp:DropDownList ID="DdlEstados" runat="server" CssClass="rcorners0">
                                 <asp:ListItem Text="Reservada" Value="Reserva"></asp:ListItem>
                                 <asp:ListItem Text="Anulada" Value="Anulada"></asp:ListItem>
+                                <asp:ListItem Text="A Confirmar" Value="Confirmar"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
                         <div class="col-2" style="color: tan;"></div>
