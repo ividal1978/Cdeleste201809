@@ -150,20 +150,27 @@ namespace WebApplication1
             oRes.Inquilino_Apellido = TbInquilino.Text.Substring(TbInquilino.Text.IndexOf(",") + 1, TbInquilino.Text.IndexOf("#") - 1);
             oRes.Monto_Total = Convert.ToDecimal(TbMontoTotal.Text);
             oRes.Monto_Reserva = Convert.ToDecimal(TbMontoReserva.Text);
-            oRes.IdUsuario =
+           // Obtener el id De Usuario
+           // oRes.IdUsuario =
             
             if (Convert.ToInt32(HndId.Value) > 0)
             {
                 //Update de Reserva
                 oRes.IdReserva = Convert.ToInt32(HndId.Value);
                 //Limpiar la el valor del hdn value
+                HndId.Value = "";
             }
             else
             {
                 //Nuenva reserva
-                //Chequear que la reserva no se superponga si en nueva
+                oRes.IdReserva = -1;
                 
             }
+
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            oNegocio.Save_Reserva(oRes);
+
+            LbError.Text = "Se ha Guardado Correctamente";
         }
 
         protected void MesGrilla()

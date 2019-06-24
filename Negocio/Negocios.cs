@@ -152,13 +152,16 @@ namespace Negocio
                 Qreservas = Qreservas.Where(r => r.IdPropiedad == IdPropiedad).ToList();
                 return Qreservas;
             }
-        } 
+        }
 
         public Reservas Get_ReservasxId(int IdReserva) => oData.Get_ReservaxId(IdReserva);
 
         public DataTable Get_ReservaxFechaDt(DateTime Fecha) => oData.Get_ReservaxFechaDt(Fecha);
-        
 
-            #endregion
-        }
+        public void Save_Reserva(Reservas oReserva) => oData.Save_Reserva(oReserva);
+
+
+        #endregion
+
+    }
 }
