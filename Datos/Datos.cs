@@ -52,6 +52,41 @@ namespace Datos
             //buscar en base
             return oUsuario;
         }
+        public Usuarios GetUsuarioXNombre(string Usuario)
+        {
+            Usuarios oUsuario = new Usuarios();
+            try
+            {
+                MySqlConnection oConeccion = new MySqlConnection(StringConnection);
+                string query = "SELECT Apellido,Nombre, Usuario,Rol ,PASSWORD FROM Usuarios "
+                + " WHERE Usuario = '" + Usuario + "' Limit 1 '";
+
+                oConeccion.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(query, oConeccion);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Usuario");
+
+                if (myDS.Tables["Usuario"].Rows.Count > 0)
+                {
+                    oUsuario.Apellido = myDS.Tables["Usuario"].Rows[0].ItemArray[0].ToString();
+                    oUsuario.Nombre = myDS.Tables["Usuario"].Rows[0].ItemArray[1].ToString();
+                    oUsuario.Usuario = myDS.Tables["Usuario"].Rows[0].ItemArray[2].ToString();
+                    oUsuario.Rol = myDS.Tables["Usuario"].Rows[0].ItemArray[3].ToString();
+                    oUsuario.Password = myDS.Tables["Usuario"].Rows[0].ItemArray[4].ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, "Datos - Get UsuarioxNombre");
+            }
+            //buscar en base
+            return oUsuario;
+        }
         #endregion
 
         #region Noticias
@@ -988,7 +1023,9 @@ namespace Datos
                     oReserva.IdPropiedad = Convert.ToInt32(oFila[2].ToString());
                     oReserva.Propiedad_Nombre = oFila[3].ToString();
                     oReserva.IdInquilino = Convert.ToInt32(oFila[4].ToString());
-                    oReserva.Inquilino_Nombre = oFila[5].ToString();
+                    
+                  //  oReserva.Inquilino_Nombre = oFila[5].ToString();
+
                     oReserva.Inquilino_Apellido = oFila[6].ToString();
                     oReserva.FDesde = Convert.ToDateTime(oFila[7].ToString());
                     oReserva.FHasta = Convert.ToDateTime(oFila[8].ToString());
@@ -1000,6 +1037,19 @@ namespace Datos
                     oReserva.FDePago = Convert.ToDateTime(oFila[14].ToString());
                     oReserva.Estado = oFila[15].ToString();
 
+                    switch(oReserva.Estado)
+                    {
+                        case "Anulada":
+                            oReserva.Inquilino_Nombre = "<i class=\"far fa-window - close\"></i> " + oFila[5].ToString();
+                        break;
+                        case "Confirmar":
+                            oReserva.Inquilino_Nombre = "<i class=\"fas fa-user-clock\"></i> " + oFila[5].ToString();
+                            break;
+                        case "Reserva":
+                            oReserva.Inquilino_Nombre = "<i class=\"fas fa-calendar-check\"></i> " + oFila[5].ToString();
+                            break;
+
+                    }
                     oLista.Add(oReserva);
                 }
                 myCommand.Dispose();

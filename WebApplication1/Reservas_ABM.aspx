@@ -25,6 +25,7 @@
     <link href="Scripts/Cdeleste.css" rel="stylesheet" />
     <script src="Scripts/phone-mask.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
     <link rel="stylesheet" href="Scripts/gallery-grid.css">
     <link href="Content/bootstrap.css" rel="stylesheet" />
@@ -93,6 +94,7 @@
                     OnEventMove="DayPilotScheduler1_EventMove" 
                     OnEventClick="DayPilotCalendar1_EventClick" 
                      FreeTimeClickJavaScript="alert('{0}, {1}');"  EventClickHandling="PostBack"
+                     EventFontSize="10"
                     >
    
                  </DayPilot:DayPilotScheduler>

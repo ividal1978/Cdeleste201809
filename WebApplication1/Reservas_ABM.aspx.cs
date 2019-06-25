@@ -150,8 +150,11 @@ namespace WebApplication1
             oRes.Inquilino_Apellido = TbInquilino.Text.Substring(TbInquilino.Text.IndexOf(",") + 1, TbInquilino.Text.IndexOf("#") - 1);
             oRes.Monto_Total = Convert.ToDecimal(TbMontoTotal.Text);
             oRes.Monto_Reserva = Convert.ToDecimal(TbMontoReserva.Text);
-           // Obtener el id De Usuario
-           // oRes.IdUsuario =
+            // Obtener el id De Usuario 
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            Usuarios oUsuario = new Usuarios();
+            oUsuario = oNegocio.GetUsuraioXNombre(Session["usuario"].ToString());
+            oRes.IdUsuario = oUsuario.IdUsuario;
             
             if (Convert.ToInt32(HndId.Value) > 0)
             {
@@ -167,7 +170,7 @@ namespace WebApplication1
                 
             }
 
-            Negocio.Negocio oNegocio = new Negocio.Negocio();
+          
             oNegocio.Save_Reserva(oRes);
 
             LbError.Text = "Se ha Guardado Correctamente";

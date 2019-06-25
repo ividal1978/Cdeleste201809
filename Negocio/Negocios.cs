@@ -21,6 +21,8 @@ namespace Negocio
         public Datos.Datos oData = new Datos.Datos();
         #region Usuarios
         public Usuarios GetUsuario(string Usuario, string Password) => oData.GetUsuario(Usuario, Password);
+
+        public Usuarios GetUsuraioXNombre(string Usuario) => oData.GetUsuarioXNombre(Usuario);
         #endregion
 
         #region Noticias
