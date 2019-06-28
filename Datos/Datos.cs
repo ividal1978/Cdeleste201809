@@ -1154,6 +1154,9 @@ namespace Datos
             }
 
         }
+
+        //Verificar que la reserva no se Solapa con una previa existente
+
         #endregion
     }
 }

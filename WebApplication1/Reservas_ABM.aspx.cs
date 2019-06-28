@@ -136,6 +136,8 @@ namespace WebApplication1
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+            { 
             //Cargo los datos
             Reservas oRes = new Reservas();
 
@@ -174,6 +176,7 @@ namespace WebApplication1
             oNegocio.Save_Reserva(oRes);
 
             LbError.Text = "Se ha Guardado Correctamente";
+            }
         }
 
         protected void MesGrilla()
@@ -265,7 +268,30 @@ namespace WebApplication1
              //Cargar los datos de la reserva
              Get_Reserva(Convert.ToInt32(e.Value));
         }
+    
+        protected bool ValidacionesLogicas()
+        {
+            int Errores = 0;
+            //Validaciondes de Fechas
+            //1 La fecha hasta debe ser menor a la fecha hasta
+            if (Convert.ToDateTime(TbFechaDesde.Text) >= Convert.ToDateTime(TbFechaHasta.Text))
+            {
+                LbError.Text += "<br /> La fecha desde debe ser menor a la fecha Hasta";
+                Errores++;
+            }
 
+
+            //Debe selecionar una propiedad
+            if (DdlPropiedad.SelectedValue == "-1")
+            {
+                LbError.Text += "<br /> Debe seleccionar una propiedad disponible";
+                Errores++;
+            }
+
+            //Verificar que la reserva este disponible
+
+            return !(Errores > 0);
+        }
     
         [WebMethod]
         [System.Web.Script.Services.ScriptMethod]
