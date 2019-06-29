@@ -61,7 +61,7 @@
             <div class="col-2" style="color:tan;" >Fecha desde:</div>
             <div class="col-2">
                 <asp:TextBox ID="TbFechaAlquiler" runat="server" CssClass="rcorners0"></asp:TextBox>
-                <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler" CssClass="btn-dark">
+                <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler" CssClass=" btn-dark" >
                 </cc1:CalendarExtender>
             </div>
             <div class="col-4">
@@ -124,15 +124,13 @@
                         <div class="col-2" style="color: tan;">Fecha Desde:</div>
                         <div class="col-4">
                             <asp:TextBox ID="TbFechaDesde" runat="server" CssClass="rcorners0"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="valFedesde" runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
-                            <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 GridNegra">
+                            <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 btn-dark">
                             </cc1:CalendarExtender>
                         </div>
                         <div class="col-2" style="color: tan;">Fecha Hasta:</div>
                         <div class="col-4">
                             <asp:TextBox ID="TbFechaHasta" runat="server" CssClass="rcorners0"></asp:TextBox>
-                            <asp:RequiredFieldValidator Id="valFeccjaHasta" runat="server" ErrorMessage="*" ControlToValidate="TbFechaHasta"></asp:RequiredFieldValidator>
-                            <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 GridNegra">
+                            <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 btn-dark">
                             </cc1:CalendarExtender>
                         </div>
                     </div>
@@ -145,7 +143,6 @@
                         <div class="col-2" style="color: tan;">Inquilino:</div>
                         <div class="input-group col-4">
                             <asp:TextBox ID="TbInquilino" runat="server" class="form-control rcorners0" placeholder="Inquilino" aria-label="Inquilino" aria-describedby="BtnNuevo"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvInquilino" runat="server" ErrorMessage="*" ControlToValidate="TbInquilino"></asp:RequiredFieldValidator>
                             <cc1:AutoCompleteExtender ID="TbNombreCmb_AutoCompleteExtender"
                         runat="server" DelimiterCharacters="" Enabled="True"
                         ServicePath=""
@@ -186,8 +183,8 @@
                         </div>
                         <div class="col-2" style="color: tan;">Fecha Pago:</div>
                         <div class="col-4">
-                            <asp:TextBox ID="TbFechapago" runat="server" CssClass="rcorners0"></asp:TextBox>
-                            <cc1:CalendarExtender ID="TbFechapago_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechapago" CssClass="GridNegra">
+                            <asp:TextBox ID="TbFechapago" runat="server" CssClass="rcorners0" ReadOnly="true"></asp:TextBox>
+                            <cc1:CalendarExtender ID="TbFechapago_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechapago" CssClass=" btn-dark ">
                             </cc1:CalendarExtender>
                         </div>
                     </div>

@@ -48,8 +48,19 @@
     color:tan;
     
 }
+.CalendarioNegro {
+    border-radius: 20px;
+    border: 1px solid darkgoldenrod;
+    padding: 2px;
+    background-color: black;
+    opacity:0.85;
+    color: tan;
+}
+
 .TextoNormal {
     color:tan;
     font-size:medium;
 }
+
+
 

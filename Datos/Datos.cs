@@ -58,6 +58,10 @@ namespace Datos
             try
             {
                 MySqlConnection oConeccion = new MySqlConnection(StringConnection);
+
+
+      
+
                 string query = "SELECT Apellido,Nombre, Usuario,Rol ,PASSWORD FROM Usuarios "
                 + " WHERE Usuario = '" + Usuario + "' Limit 1 '";
 
@@ -807,7 +811,7 @@ namespace Datos
             {
                 
                 MySqlConnection oConeccion = new MySqlConnection(StringConnection);
-                string query = "SELECT IDInquilino, Concat(Nombre,' ', Apellido ) Inquilino from inquilino"+
+                string query = "SELECT IDInquilino, Concat(Nombre,', ', Apellido ) Inquilino from inquilino"+
                                 " Where UPPER(Concat(Nombre,' ', Apellido)) like '%"+ Nombre +"%'"+
                                 " Order by  Concat(Nombre, ' ', Apellido) desc";
 
@@ -1126,9 +1130,10 @@ namespace Datos
                             " Monto_Reserva = " + oReserva.Monto_Reserva.ToString() + " ," +
                             " Monto_Total = " + oReserva.Monto_Total.ToString() + " ," +
                             " Pagado  = " + oReserva.Pagado.ToString() + " ," +
-                            " IDusuario = " + oReserva.IdUsuario.ToString() + " ," +
-                            " FdePago = " + oReserva.FDePago.ToString() + " ," +
-                            " Estado = " + oReserva.Estado.ToString() + " ," +
+                            " IDusuario = " + oReserva.IdUsuario.ToString() + " ,";
+                    if (oReserva.FDePago != null)
+                        Query += " FdePago = " + oReserva.FDePago.ToString() + " ,";
+                    Query+=" Estado = " + oReserva.Estado.ToString() + " ," +
                             " WHERE IDReserva =" + oReserva.IdReserva.ToString(); 
                                  
                 }
@@ -1138,7 +1143,7 @@ namespace Datos
                             " Monto_Total, Pagado, IDusuario, FdePago, Estado) VALUES("+
                             ""+DateTime.Now.ToString()+","+ oReserva.IdPropiedad.ToString() +","+oReserva.IdInquilino.ToString()+" ,"+
                             ""+oReserva.FDesde.ToString() +"," +oReserva.FHasta.ToString()+","+ oReserva.Monto_Reserva.ToString()+","+
-                            ""+oReserva.Monto_Total+","+oReserva.Pagado.ToString()+","+oReserva.IdUsuario.ToString()+","+oReserva.FDePago.ToString()+")";
+                            ""+oReserva.Monto_Total+","+oReserva.Pagado.ToString()+","+oReserva.IdUsuario.ToString()+","+(oReserva.FDePago!=null? oReserva.FDePago.ToString() :"" ) +")";
                 }
 
                 conn.Open();

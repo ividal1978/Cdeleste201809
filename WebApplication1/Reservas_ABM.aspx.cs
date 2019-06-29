@@ -35,8 +35,9 @@ namespace WebApplication1
 
             if (Session["usuario"] != null)
             {
-                LbUsuario.Text = "Usuario: " + (Session["usuario"] != null ? Session["usuario"].ToString() : "");
-                LbFecha.Text = "Fecha: " + DateTime.Now;
+
+                LbFecha.Text = $"Fecha:{ DateTime.Now} ";
+                LbUsuario.Text = $"Usuario:{(Session["usuario"] != null ? Session["usuario"].ToString() : "")}";
             }
             else
             {
@@ -94,6 +95,8 @@ namespace WebApplication1
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
 
+            oNegocio.GetUsuraioXNombre(Session["usuario"].ToString());
+
             DayPilotCalendario.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             // oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             DayPilotCalendario.StartDate = Convert.ToDateTime(TbFechaAlquiler.Text);
@@ -142,14 +145,15 @@ namespace WebApplication1
             Reservas oRes = new Reservas();
 
             oRes.Estado = DdlEstados.SelectedValue;
-            oRes.FDePago = Convert.ToDateTime(TbFechapago.Text);
-            oRes.FDesde = Convert.ToDateTime(TbFechaDesde.ToString());
-            oRes.FHasta = Convert.ToDateTime(TbFechaHasta.ToString());
+            if (!string.IsNullOrEmpty(TbFechapago.Text))
+                oRes.FDePago = Convert.ToDateTime(TbFechapago.Text);
+            oRes.FDesde = Convert.ToDateTime(TbFechaDesde.Text);
+            oRes.FHasta = Convert.ToDateTime(TbFechaHasta.Text);
             oRes.IdPropiedad = Convert.ToInt32(DdlPropiedad.SelectedValue.ToString());
             oRes.IdInquilino = Convert.ToInt32(TbInquilino.Text.Substring(TbInquilino.Text.IndexOf("#") + 1));
             oRes.Pagado = RblPago.SelectedValue.ToString();
-            oRes.Inquilino_Nombre = TbInquilino.Text.Substring(0, TbInquilino.Text.IndexOf(",") - 1);
-            oRes.Inquilino_Apellido = TbInquilino.Text.Substring(TbInquilino.Text.IndexOf(",") + 1, TbInquilino.Text.IndexOf("#") - 1);
+            oRes.Inquilino_Nombre = TbInquilino.Text.Substring(0, TbInquilino.Text.IndexOf(","));
+            oRes.Inquilino_Apellido = TbInquilino.Text.Substring(TbInquilino.Text.IndexOf(",")+1, TbInquilino.Text.IndexOf("#")+1 - TbInquilino.Text.IndexOf(",")-1);
             oRes.Monto_Total = Convert.ToDecimal(TbMontoTotal.Text);
             oRes.Monto_Reserva = Convert.ToDecimal(TbMontoReserva.Text);
             // Obtener el id De Usuario 
@@ -286,10 +290,11 @@ namespace WebApplication1
             {
                 LbError.Text += "<br /> Debe seleccionar una propiedad disponible";
                 Errores++;
+               
             }
 
             //Verificar que la reserva este disponible
-
+             
             return !(Errores > 0);
         }
     
