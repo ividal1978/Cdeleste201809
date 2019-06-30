@@ -25,7 +25,8 @@ namespace WebApplication1
                 HndId.Value = "-1";
                 CargarRecusosCalendario();
                 CargarCalendario();
-                //DayPilot.Scheduler.floatingTimeHeaders(boolean)
+                TbFechaDesde.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                TbFechaHasta.Text = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
                   
             }
         }
@@ -140,46 +141,49 @@ namespace WebApplication1
         protected void BtnSave_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
-            { 
-            //Cargo los datos
-            Reservas oRes = new Reservas();
-
-            oRes.Estado = DdlEstados.SelectedValue;
-            if (!string.IsNullOrEmpty(TbFechapago.Text))
-                oRes.FDePago = Convert.ToDateTime(TbFechapago.Text);
-            oRes.FDesde = Convert.ToDateTime(TbFechaDesde.Text);
-            oRes.FHasta = Convert.ToDateTime(TbFechaHasta.Text);
-            oRes.IdPropiedad = Convert.ToInt32(DdlPropiedad.SelectedValue.ToString());
-            oRes.IdInquilino = Convert.ToInt32(TbInquilino.Text.Substring(TbInquilino.Text.IndexOf("#") + 1));
-            oRes.Pagado = RblPago.SelectedValue.ToString();
-            oRes.Inquilino_Nombre = TbInquilino.Text.Substring(0, TbInquilino.Text.IndexOf(","));
-            oRes.Inquilino_Apellido = TbInquilino.Text.Substring(TbInquilino.Text.IndexOf(",")+1, TbInquilino.Text.IndexOf("#")+1 - TbInquilino.Text.IndexOf(",")-1);
-            oRes.Monto_Total = Convert.ToDecimal(TbMontoTotal.Text);
-            oRes.Monto_Reserva = Convert.ToDecimal(TbMontoReserva.Text);
-            // Obtener el id De Usuario 
-            Negocio.Negocio oNegocio = new Negocio.Negocio();
-            Usuarios oUsuario = new Usuarios();
-            oUsuario = oNegocio.GetUsuraioXNombre(Session["usuario"].ToString());
-            oRes.IdUsuario = oUsuario.IdUsuario;
-            
-            if (Convert.ToInt32(HndId.Value) > 0)
             {
-                //Update de Reserva
-                oRes.IdReserva = Convert.ToInt32(HndId.Value);
-                //Limpiar la el valor del hdn value
-                HndId.Value = "";
-            }
-            else
-            {
-                //Nuenva reserva
-                oRes.IdReserva = -1;
-                
-            }
+                if (ValidacionesLogicas())
+                {
+                    //Cargo los datos
+                    Reservas oRes = new Reservas();
 
-          
-            oNegocio.Save_Reserva(oRes);
+                    oRes.Estado = DdlEstados.SelectedValue;
+                    if (!string.IsNullOrEmpty(TbFechapago.Text)|| TbFechapago.Text!= "Impago")
+                        oRes.FDePago = Convert.ToDateTime(TbFechapago.Text);
+                    oRes.FDesde = Convert.ToDateTime(TbFechaDesde.Text);
+                    oRes.FHasta = Convert.ToDateTime(TbFechaHasta.Text);
+                    oRes.IdPropiedad = Convert.ToInt32(DdlPropiedad.SelectedValue.ToString());
+                    oRes.IdInquilino = Convert.ToInt32(TbInquilino.Text.Substring(TbInquilino.Text.IndexOf("#") + 1));
+                    oRes.Pagado = RblPago.SelectedValue.ToString();
+                    oRes.Inquilino_Nombre = TbInquilino.Text.Substring(0, TbInquilino.Text.IndexOf(","));
+                    oRes.Inquilino_Apellido = TbInquilino.Text.Substring(TbInquilino.Text.IndexOf(",") + 1, TbInquilino.Text.IndexOf("#") + 1 - TbInquilino.Text.IndexOf(",") - 1);
+                    oRes.Monto_Total = Convert.ToDecimal(TbMontoTotal.Text);
+                    oRes.Monto_Reserva = Convert.ToDecimal(TbMontoReserva.Text);
+                    // Obtener el id De Usuario 
+                    Negocio.Negocio oNegocio = new Negocio.Negocio();
+                    Usuarios oUsuario = new Usuarios();
+                    oUsuario = oNegocio.GetUsuraioXNombre(Session["usuario"].ToString());
+                    oRes.IdUsuario = oUsuario.IdUsuario;
 
-            LbError.Text = "Se ha Guardado Correctamente";
+                    if (Convert.ToInt32(HndId.Value) > 0)
+                    {
+                        //Update de Reserva
+                        oRes.IdReserva = Convert.ToInt32(HndId.Value);
+                        //Limpiar la el valor del hdn value
+                        HndId.Value = "";
+                    }
+                    else
+                    {
+                        //Nuenva reserva
+                        oRes.IdReserva = -1;
+
+                    }
+
+
+                    oNegocio.Save_Reserva(oRes);
+
+                    LbError.Text = "Se ha Guardado Correctamente";
+                }
             }
         }
 
@@ -276,6 +280,20 @@ namespace WebApplication1
         protected bool ValidacionesLogicas()
         {
             int Errores = 0;
+
+            
+
+            if (!(Convert.ToInt32(HndId.Value) > 0))
+            {
+                //verificar si es nuevo o actualizacion
+                if (Convert.ToDateTime(TbFechaDesde.Text) < DateTime.Now && Convert.ToDateTime(TbFechaHasta.Text) > DateTime.Now)
+                {
+                    LbError.Text += "<br /> Las fecha de nuevas reserva deben ser a futuro";
+                   Errores++;
+                }
+            }
+
+                
             //Validaciondes de Fechas
             //1 La fecha hasta debe ser menor a la fecha hasta
             if (Convert.ToDateTime(TbFechaDesde.Text) >= Convert.ToDateTime(TbFechaHasta.Text))

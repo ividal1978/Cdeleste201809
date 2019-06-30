@@ -1,0 +1,6 @@
+2019/06/30 16:29:56.373|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 16:30:51.927|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 16:31:49.881|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 16:40:24.427|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 16:40:34.849|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 16:40:44.498|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|

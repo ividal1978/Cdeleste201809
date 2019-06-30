@@ -124,12 +124,14 @@
                         <div class="col-2" style="color: tan;">Fecha Desde:</div>
                         <div class="col-4">
                             <asp:TextBox ID="TbFechaDesde" runat="server" CssClass="rcorners0"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RfvFechaDesde"  runat="server" ControlToValidate="TbFechaDesde" EnableClientScript="true" ErrorMessage="*"></asp:RequiredFieldValidator>
                             <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 btn-dark">
                             </cc1:CalendarExtender>
                         </div>
                         <div class="col-2" style="color: tan;">Fecha Hasta:</div>
                         <div class="col-4">
                             <asp:TextBox ID="TbFechaHasta" runat="server" CssClass="rcorners0"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RfvFechaHasta" runat="server" ControlToValidate="TbFechaHasta" EnableClientScript="true" ErrorMessage="*"></asp:RequiredFieldValidator>
                             <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 btn-dark">
                             </cc1:CalendarExtender>
                         </div>
