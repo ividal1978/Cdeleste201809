@@ -4,3 +4,29 @@
 2019/06/30 16:40:24.427|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
 2019/06/30 16:40:34.849|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
 2019/06/30 16:40:44.498|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 23:14:36.881|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 23:14:47.600|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 23:15:09.021|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 23:17:08.186|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 23:17:20.061|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 23:17:35.846|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 23:18:09.683|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 23:25:19.084|ERROR|Datos - Get UsuarioxNombre You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1|Logger1|
+2019/06/30 23:29:55.523|ERROR| Datos - Reserva - Save ::    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   at Datos.Datos.Save_Reserva(Reservas oReserva) in C:\Fuentes\Cdeleste2018\Cdeleste2018\Datos\Datos.cs:line 1153 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 , Fhasta = 28-Feb-18 00:00:00 , Monto_Reserva = 10.00 , Monto_Total = 1' at line 1|Logger1|
+2019/06/30 23:45:56.862|ERROR| Datos - Reserva - Save ::    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int32& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int32& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   at Datos.Datos.Save_Reserva(Reservas oReserva) in C:\Fuentes\Cdeleste2018\Cdeleste2018\Datos\Datos.cs:line 1153 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 , Fhasta = 28-Feb-18 00:00:00 , Monto_Reserva = 10.00 , Monto_Total = 1' at line 1|Logger1|

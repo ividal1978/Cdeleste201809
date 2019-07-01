@@ -62,8 +62,8 @@ namespace Datos
 
       
 
-                string query = "SELECT Apellido,Nombre, Usuario,Rol ,PASSWORD FROM Usuarios "
-                + " WHERE Usuario = '" + Usuario + "' Limit 1 '";
+                string query = "SELECT Apellido,Nombre, Usuario,Rol ,PASSWORD,IdUsuario FROM Usuarios "
+                + " WHERE Usuario = '" + Usuario + "' Limit 1 ";
 
                 oConeccion.Open();
 
@@ -81,6 +81,7 @@ namespace Datos
                     oUsuario.Usuario = myDS.Tables["Usuario"].Rows[0].ItemArray[2].ToString();
                     oUsuario.Rol = myDS.Tables["Usuario"].Rows[0].ItemArray[3].ToString();
                     oUsuario.Password = myDS.Tables["Usuario"].Rows[0].ItemArray[4].ToString();
+                    oUsuario.IdUsuario = Convert.ToInt32(myDS.Tables["Usuario"].Rows[0].ItemArray[5].ToString());
 
                 }
             }
@@ -1044,7 +1045,7 @@ namespace Datos
                     switch(oReserva.Estado)
                     {
                         case "Anulada":
-                            oReserva.Inquilino_Nombre = "<i class=\"far fa-window - close\"></i> " + oFila[5].ToString();
+                            oReserva.Inquilino_Nombre = "<i class=\"far fa-window-close\"></i> " + oFila[5].ToString();
                         break;
                         case "Confirmar":
                             oReserva.Inquilino_Nombre = "<i class=\"fas fa-user-clock\"></i> " + oFila[5].ToString();
@@ -1125,25 +1126,26 @@ namespace Datos
                     Query = " UPDATE reservas" +
                             " SET IDPropiedad = " + oReserva.IdPropiedad.ToString() + " ," +
                             " IDInquilino = " + oReserva.IdInquilino.ToString() + "," +
-                            " Fdesde  = " + oReserva.FDesde.ToString() + " ," +
-                            " Fhasta = " + oReserva.FHasta.ToString() + " ," +
+                            " Fdesde  = '" + oReserva.FDesde.ToString("yyyy-MM-dd") + "' ," +
+                            " Fhasta = '" + oReserva.FHasta.ToString("yyyy-MM-dd") + "' ," +
                             " Monto_Reserva = " + oReserva.Monto_Reserva.ToString() + " ," +
                             " Monto_Total = " + oReserva.Monto_Total.ToString() + " ," +
-                            " Pagado  = " + oReserva.Pagado.ToString() + " ," +
+                            " Pagado  = '" + oReserva.Pagado.ToString() + "' ," +
                             " IDusuario = " + oReserva.IdUsuario.ToString() + " ,";
                     if (oReserva.FDePago != null)
-                        Query += " FdePago = " + oReserva.FDePago.ToString() + " ,";
-                    Query+=" Estado = " + oReserva.Estado.ToString() + " ," +
+                        Query += " FdePago = '" + oReserva.FDePago.ToString("yyyy-MM-dd") + "' ,";
+                    Query+=" Estado = '" + oReserva.Estado.ToString() + "' " +
                             " WHERE IDReserva =" + oReserva.IdReserva.ToString(); 
                                  
                 }
                 else
                 {//INSERT
-                    Query = "INSERT INTO reservas  (FReserva, IDPropiedad, IDInquilino, Fdesde, Fhasta, Monto_Reserva,"+
-                            " Monto_Total, Pagado, IDusuario, FdePago, Estado) VALUES("+
-                            ""+DateTime.Now.ToString()+","+ oReserva.IdPropiedad.ToString() +","+oReserva.IdInquilino.ToString()+" ,"+
-                            ""+oReserva.FDesde.ToString() +"," +oReserva.FHasta.ToString()+","+ oReserva.Monto_Reserva.ToString()+","+
-                            ""+oReserva.Monto_Total+","+oReserva.Pagado.ToString()+","+oReserva.IdUsuario.ToString()+","+(oReserva.FDePago!=null? oReserva.FDePago.ToString() :"" ) +")";
+                    Query = "INSERT INTO reservas  (FReserva, IDPropiedad, IDInquilino, Fdesde, Fhasta, Monto_Reserva," +
+                            " Monto_Total, Pagado, IDusuario, FdePago, Estado) VALUES(" +
+                            "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + oReserva.IdPropiedad.ToString() + "," + oReserva.IdInquilino.ToString() + " ," +
+                            "'" + oReserva.FDesde.ToString("yyyy-MM-dd") + "','" + oReserva.FHasta.ToString("yyyy-MM-dd") + "'," + oReserva.Monto_Reserva.ToString() + "," +
+                            "" + oReserva.Monto_Total + ",'" + oReserva.Pagado.ToString() + "'," + oReserva.IdUsuario.ToString() + ",'" + (oReserva.FDePago != null ? oReserva.FDePago.ToString("yyyy-MM-dd") : "") + "',"+
+                            "'"+ oReserva.Estado +"')";
                 }
 
                 conn.Open();

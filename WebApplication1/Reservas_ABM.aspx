@@ -61,7 +61,7 @@
             <div class="col-2" style="color:tan;" >Fecha desde:</div>
             <div class="col-2">
                 <asp:TextBox ID="TbFechaAlquiler" runat="server" CssClass="rcorners0"></asp:TextBox>
-                <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler" CssClass=" btn-dark" >
+                <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler" CssClass=" btn-dark" TodaysDateFormat="dd MMMM, yyyy">
                 </cc1:CalendarExtender>
             </div>
             <div class="col-4">
@@ -125,14 +125,14 @@
                         <div class="col-4">
                             <asp:TextBox ID="TbFechaDesde" runat="server" CssClass="rcorners0"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RfvFechaDesde"  runat="server" ControlToValidate="TbFechaDesde" EnableClientScript="true" ErrorMessage="*"></asp:RequiredFieldValidator>
-                            <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 btn-dark">
+                            <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 btn-dark" TodaysDateFormat="dd MMMM, yyyy">
                             </cc1:CalendarExtender>
                         </div>
                         <div class="col-2" style="color: tan;">Fecha Hasta:</div>
                         <div class="col-4">
                             <asp:TextBox ID="TbFechaHasta" runat="server" CssClass="rcorners0"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RfvFechaHasta" runat="server" ControlToValidate="TbFechaHasta" EnableClientScript="true" ErrorMessage="*"></asp:RequiredFieldValidator>
-                            <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 btn-dark">
+                            <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 btn-dark" TodaysDateFormat="dd MMMM, yyyy">
                             </cc1:CalendarExtender>
                         </div>
                     </div>

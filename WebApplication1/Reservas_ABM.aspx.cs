@@ -95,9 +95,7 @@ namespace WebApplication1
         protected void CargarCalendario()
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
-
-            oNegocio.GetUsuraioXNombre(Session["usuario"].ToString());
-
+                       
             DayPilotCalendario.DataSource = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             // oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
             DayPilotCalendario.StartDate = Convert.ToDateTime(TbFechaAlquiler.Text);
@@ -148,7 +146,7 @@ namespace WebApplication1
                     Reservas oRes = new Reservas();
 
                     oRes.Estado = DdlEstados.SelectedValue;
-                    if (!string.IsNullOrEmpty(TbFechapago.Text)|| TbFechapago.Text!= "Impago")
+                    if (!string.IsNullOrEmpty(TbFechapago.Text) && TbFechapago.Text!= "Impago")
                         oRes.FDePago = Convert.ToDateTime(TbFechapago.Text);
                     oRes.FDesde = Convert.ToDateTime(TbFechaDesde.Text);
                     oRes.FHasta = Convert.ToDateTime(TbFechaHasta.Text);
@@ -307,12 +305,18 @@ namespace WebApplication1
             if (DdlPropiedad.SelectedValue == "-1")
             {
                 LbError.Text += "<br /> Debe seleccionar una propiedad disponible";
-                Errores++;
+                Errores++;        
                
             }
 
+            if (!TbInquilino.Text.Contains("#"))
+            {
+                LbError.Text = "<br /> Debe seleccionar un Inquilino Cargado o cargue uno nuevo";
+                Errores++;
+            }
             //Verificar que la reserva este disponible
-             
+
+
             return !(Errores > 0);
         }
     
