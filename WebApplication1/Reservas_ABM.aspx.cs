@@ -300,6 +300,7 @@ namespace WebApplication1
                 Errores++;
             }
 
+            
 
             //Debe selecionar una propiedad
             if (DdlPropiedad.SelectedValue == "-1")
@@ -315,7 +316,17 @@ namespace WebApplication1
                 Errores++;
             }
             //Verificar que la reserva este disponible
-
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            Reservas oRes = new Reservas();
+            oRes.FDesde = Convert.ToDateTime(TbFechaDesde.Text);
+            oRes.FHasta = Convert.ToDateTime(TbFechaHasta.Text);
+            oRes.IdPropiedad = Convert.ToInt32(DdlPropiedad.SelectedValue.ToString());
+            oRes.IdReserva = Convert.ToInt32(HndId.Value);
+            if (oNegocio.Exist_Reserva(oRes))
+            {
+                Errores++;
+                LbError.Text += "<br /> Existe una reserva previa para la fecha y propiedad seleccionada";
+            }
 
             return !(Errores > 0);
         }

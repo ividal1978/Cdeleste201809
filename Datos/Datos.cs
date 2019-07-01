@@ -1162,6 +1162,35 @@ namespace Datos
 
         }
 
+
+        public DataTable Exist_Reserva(Reservas oReserva)
+        {
+            string connectionString = StringConnection;
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            string Query = " SELECT * FROM reservas "+
+                           " WHERE idpropiedad = "+ oReserva.IdPropiedad +""+
+                           " and Fdesde between ' "+ oReserva.FDesde.ToString("dd/MM/yyyy") +"'and '"+ oReserva.FHasta.ToString("dd/MM/yyyy")+"'"+
+                           " and FHasta between '"+oReserva.FDesde.ToString("dd/MM/yyyy")+"' and '"+oReserva.FHasta.ToString("dd/MM/yyyy")+"'"+
+                           " and Estado = 'Reserva'  and IdReserva <> "+oReserva.IdReserva+" union "+
+                           " SELECT * FROM reservas "+
+                           " WHERE idpropiedad = "+ oReserva.IdPropiedad +"" +
+                           " and '"+ oReserva.FDesde.ToString("dd/MM/yyyy") +"' <= fdesde and '"+oReserva.FHasta.ToString("dd/MM/yyyy")+"' >= fhasta"+
+                           " and Estado = 'Reserva' and  IdReserva <> " + oReserva.IdReserva + "";
+            conn.Open();
+
+            MySqlCommand myCommand = new MySqlCommand(Query, conn);
+
+            MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+            DataSet myDS = new DataSet();
+            myDA.Fill(myDS, "Reservas");
+            DataTable dt = new DataTable();
+            myDA.Fill(dt);
+             return dt;
+
+        }
+
+
         //Verificar que la reserva no se Solapa con una previa existente
 
         #endregion

@@ -162,6 +162,12 @@ namespace Negocio
 
         public void Save_Reserva(Reservas oReserva) => oData.Save_Reserva(oReserva);
 
+        public Boolean Exist_Reserva(Reservas oReserva)
+        {
+            var ReservasActivas = oData.Exist_Reserva(oReserva);
+            return (ReservasActivas != null);
+              
+        }
 
         #endregion
 
