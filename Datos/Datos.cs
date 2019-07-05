@@ -1099,7 +1099,6 @@ namespace Datos
                 myDA.Fill(dt);
                 //*  importe como referenias el conector 5.27
 
-                // DA.Fill(dt);
                 return dt;
        
             }
