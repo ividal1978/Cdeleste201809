@@ -52,41 +52,41 @@
         <asp:Panel ID="panelMenu" runat="server">
          <div class="container-fluid">
            <div class="row" style="padding:5px;">
-                <div class="col-4">
+                <div class="col-lg-4">
                     <asp:Label ID="lbTituloUsuario" runat="server" ForeColor="Tan" Font-Size="Large" Text="Usuario :"></asp:Label>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4">
                      <asp:Label ID="lbTitulo" runat="server" ForeColor="Tan" Font-Size="Large" Text="Bienvenido al modulo de Administrador"></asp:Label>
                 </div>
-                  <div class="col-4">
+                  <div class="col-lg-4">
                  <asp:Label ID="lbFecha" runat="server" ForeColor="Tan" Font-Size="Large" Text="Fecha :"></asp:Label>
                 </div>
             </div>
             <div class="row" style="padding:5px;">
-                <div class="col-4">
-                    <asp:Button ID="btnPropiedades" runat="server" CssClass="btn btn-outline-warning" Text="Propiedades" OnClick="btnPropiedades_Click" />
+                <div class="col-lg-4">
+                    <asp:Button ID="btnPropiedades" runat="server" CssClass="btn btn-outline-warning btn-dark" Text="Propiedades" OnClick="btnPropiedades_Click" />
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4">
                     <asp:Button ID="btnConsultas" runat="server" CssClass="btn btn-outline-warning" Text="Consultas" OnClick="btnConsultas_Click" />
                 </div>
-                  <div class="col-4">
+                  <div class="col-lg-4">
                     <asp:Button ID="btnNoticias" runat="server" CssClass="btn btn-outline-warning" Text="Noticias" OnClick="btnNoticias_Click" />
                 </div>
             </div>
              <div class="row" style="padding:5px;">
-                <div class="col-4">
+                <div class="col-lg-4">
                     <asp:Button ID="btnInquilinos" runat="server" CssClass="btn btn-outline-warning" Text="Inquilinos" OnClick="btnInquilinos_Click" />
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4">
                     <asp:Button ID="btnGaleria" runat="server" CssClass="btn btn-outline-warning" Text="Galeria de Fotos" />
                 </div>
-                  <div class="col-4">
+                  <div class="col-lg-4">
                     <asp:Button ID="btnReservas" runat="server" CssClass="btn btn-outline-warning" Text="Reservas" OnClick="btnReservas_Click" />
                 </div>
             </div>
          </div>
             <div class="row" style="padding:5px;">
-                <div class="col-12">
+                <div class="col-lg-12">
                     <asp:Button ID="btnCerrarSession" runat="server" CssClass="btn btn-outline-danger" Text="Cerrar Session" OnClick="btnCerrarSession_Click" Width="100%" />
                </div>
             </div>

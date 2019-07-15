@@ -47,8 +47,8 @@ namespace WebApplication1
             
             if (Session["usuario"]!=null)
             {
-                panelMenu.Visible = true;
                 panelLogin.Visible = false;
+                panelMenu.Visible = true;
                 lbTituloUsuario.Text = "Usuario: " + (Session["usuario"] != null? Session["usuario"].ToString():"");
                 lbFecha.Text += " " + DateTime.Now;
 
@@ -57,6 +57,7 @@ namespace WebApplication1
             {
                 panelMenu.Visible = false;
                 panelLogin.Visible = true;
+                
             }
         }
 

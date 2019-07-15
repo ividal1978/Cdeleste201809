@@ -74,7 +74,7 @@
             <div class="col-2">&nbsp;</div>
             <div class="col-10"> <br />
                 <div class="text-left">
-                <div class="col-4 text-center"><asp:TextBox ID="TbMes" runat="server" CssClass="rcorners0"  BackColor="#FFFFD5" Enabled="false" style="text-align:center;"  Width="250px"></asp:TextBox></div>
+                <div class="col-lg-4 text-center"><asp:TextBox ID="TbMes" runat="server" CssClass="rcorners0"  BackColor="#FFFFD5" Enabled="false" style="text-align:center;"  Width="250px"></asp:TextBox></div>
 
                 <DayPilot:DayPilotScheduler ID="DayPilotCalendario" runat="server"  CssClass="rcorners0 text-center" Height="179px"  
                     DataStartField="FDesde" 
@@ -117,19 +117,27 @@
       <hr style="background-color:darkolivegreen; height: 4px; border-bottom-color:darkgoldenrod;border-bottom-width:2px;" />
         <br />
         <asp:Panel ID="PnlDatos" runat="server">
+               <div class="row">
+              <div class="col-lg-12 text-center">  
+                  <asp:Label ID="LbError" CssClass=" btn-outline-danger rcorners0" runat="server"></asp:Label>
+                  <asp:HiddenField ID="HndId" runat="server" />
+              </div>
+          </div>  
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <div class="form-row">
-                        <div class="col-2" style="color: tan;">Fecha Desde:</div>
-                        <div class="col-4">
+                        <div class="col-lg-2" style="color: tan;">Fecha Desde:</div>
+                        <div class="col-lg-4">
                             <asp:TextBox ID="TbFechaDesde" runat="server" CssClass="rcorners0"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RfvFechaDesde"  runat="server" ControlToValidate="TbFechaDesde" EnableClientScript="true" ErrorMessage="*"></asp:RequiredFieldValidator>
+                            
+
                             <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 btn-dark" TodaysDateFormat="dd MMMM, yyyy">
                             </cc1:CalendarExtender>
                         </div>
-                        <div class="col-2" style="color: tan;">Fecha Hasta:</div>
-                        <div class="col-4">
+                        <div class="col-lg-2" style="color: tan;">Fecha Hasta:</div>
+                        <div class="col-lg-4">
                             <asp:TextBox ID="TbFechaHasta" runat="server" CssClass="rcorners0"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RfvFechaHasta" runat="server" ControlToValidate="TbFechaHasta" EnableClientScript="true" ErrorMessage="*"></asp:RequiredFieldValidator>
                             <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 btn-dark" TodaysDateFormat="dd MMMM, yyyy">
@@ -138,12 +146,12 @@
                     </div>
                     <br />
                     <div class="form-row">
-                        <div class="col-2" style="color: tan;">Propiedad:</div>
-                        <div class="col-4">
+                        <div class="col-lg-2" style="color: tan;">Propiedad:</div>
+                        <div class="col-lg-4">
                             <asp:DropDownList ID="DdlPropiedad" runat="server" CssClass="rcorners0"></asp:DropDownList>
                         </div>
-                        <div class="col-2" style="color: tan;">Inquilino:</div>
-                        <div class="input-group col-4">
+                        <div class="col-lg-2" style="color: tan;">Inquilino:</div>
+                        <div class="input-group col-lg-4">
                             <asp:TextBox ID="TbInquilino" runat="server" class="form-control rcorners0" placeholder="Inquilino" aria-label="Inquilino" aria-describedby="BtnNuevo"></asp:TextBox>
                             <cc1:AutoCompleteExtender ID="TbNombreCmb_AutoCompleteExtender"
                         runat="server" DelimiterCharacters="" Enabled="True"
@@ -165,26 +173,26 @@
                     </div>
                     <br />
                     <div class="form-row">
-                        <div class="col-2" style="color: tan;">Monto Total:</div>
-                        <div class="col-4">
+                        <div class="col-lg-2" style="color: tan;">Monto Total:</div>
+                        <div class="col-lg-4">
                             <asp:TextBox ID="TbMontoTotal" runat="server" CssClass="rcorners0"></asp:TextBox>
                         </div>
-                        <div class="col-2" style="color: tan;">Monto Reserva:</div>
-                        <div class="col-4">
+                        <div class="col-lg-2" style="color: tan;">Monto Reserva:</div>
+                        <div class="col-lg-4">
                             <asp:TextBox ID="TbMontoReserva" runat="server" CssClass="rcorners0"></asp:TextBox>
                         </div>
                     </div>
                     <br />
                     <div class="form-row">
-                        <div class="col-2" style="color: tan;">Pago:</div>
-                        <div class="col-4">
+                        <div class="col-lg-2" style="color: tan;">Pago:</div>
+                        <div class="col-lg-4">
                             <asp:RadioButtonList ID="RblPago" runat="server" CssClass="form-check-input" RepeatDirection="Horizontal" ForeColor="Tan">
                                 <asp:ListItem Text=" Si " Value="S">&nbsp;&nbsp;</asp:ListItem>
                                 <asp:ListItem Text=" No " Value="N">&nbsp;&nbsp;</asp:ListItem>
                             </asp:RadioButtonList>
                         </div>
-                        <div class="col-2" style="color: tan;">Fecha Pago:</div>
-                        <div class="col-4">
+                        <div class="col-lg-2" style="color: tan;">Fecha Pago:</div>
+                        <div class="col-lg-4">
                             <asp:TextBox ID="TbFechapago" runat="server" CssClass="rcorners0" ReadOnly="true"></asp:TextBox>
                             <cc1:CalendarExtender ID="TbFechapago_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechapago" CssClass=" btn-dark ">
                             </cc1:CalendarExtender>
@@ -192,16 +200,16 @@
                     </div>
                     <br />
                     <div class="form-row">
-                        <div class="col-2" style="color: tan;">Estado: </div>
-                        <div class="col-4">
+                        <div class="col-lg-2" style="color: tan;">Estado: </div>
+                        <div class="col-lg-4">
                             <asp:DropDownList ID="DdlEstados" runat="server" CssClass="rcorners0">
+                                <asp:ListItem Text="A Confirmar" Value="Confirmar"></asp:ListItem>
                                 <asp:ListItem Text="Reservada" Value="Reserva"></asp:ListItem>
                                 <asp:ListItem Text="Anulada" Value="Anulada"></asp:ListItem>
-                                <asp:ListItem Text="A Confirmar" Value="Confirmar"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
-                        <div class="col-2" style="color: tan;"></div>
-                        <div class="col-4">
+                        <div class="col-lg-2" style="color: tan;"></div>
+                        <div class="col-lg-4">
                             <asp:Button ID="BtnSave" runat="server" CssClass="btn btn-dark" Text="Guardar" OnClick="BtnSave_Click" />
                         </div>
                     </div>
@@ -210,12 +218,7 @@
             <div class="col-lg-2">
           
             </div>
-          <div class="row">
-              <div class="col-lg-12 text-center">  
-                  <asp:Label ID="LbError" CssClass="alert-danger rcorners0" runat="server"></asp:Label>
-                  <asp:HiddenField ID="HndId" runat="server" />
-              </div>
-          </div>  
+       
         </asp:Panel>
         <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
 

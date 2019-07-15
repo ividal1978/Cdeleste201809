@@ -27,6 +27,7 @@ namespace WebApplication1
                 CargarCalendario();
                 TbFechaDesde.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 TbFechaHasta.Text = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+              
                   
             }
         }
@@ -278,30 +279,9 @@ namespace WebApplication1
         protected bool ValidacionesLogicas()
         {
             int Errores = 0;
-
+            LbError.Text = "";
+            Errores += ValidaFechasDesdeHasta();
             
-
-            if (!(Convert.ToInt32(HndId.Value) > 0))
-            {
-                //verificar si es nuevo o actualizacion
-                if (Convert.ToDateTime(TbFechaDesde.Text) < DateTime.Now && Convert.ToDateTime(TbFechaHasta.Text) > DateTime.Now)
-                {
-                    LbError.Text += "<br /> Las fecha de nuevas reserva deben ser a futuro";
-                   Errores++;
-                }
-            }
-
-                
-            //Validaciondes de Fechas
-            //1 La fecha hasta debe ser menor a la fecha hasta
-            if (Convert.ToDateTime(TbFechaDesde.Text) >= Convert.ToDateTime(TbFechaHasta.Text))
-            {
-                LbError.Text += "<br /> La fecha desde debe ser menor a la fecha Hasta";
-                Errores++;
-            }
-
-            
-
             //Debe selecionar una propiedad
             if (DdlPropiedad.SelectedValue == "-1")
             {
@@ -309,26 +289,69 @@ namespace WebApplication1
                 Errores++;        
                
             }
-
+            //verifica que tenga inquilino
             if (!TbInquilino.Text.Contains("#"))
             {
                 LbError.Text = "<br /> Debe seleccionar un Inquilino Cargado o cargue uno nuevo";
                 Errores++;
             }
-            //Verificar que la reserva este disponible
-            Negocio.Negocio oNegocio = new Negocio.Negocio();
-            Reservas oRes = new Reservas();
-            oRes.FDesde = Convert.ToDateTime(TbFechaDesde.Text);
-            oRes.FHasta = Convert.ToDateTime(TbFechaHasta.Text);
-            oRes.IdPropiedad = Convert.ToInt32(DdlPropiedad.SelectedValue.ToString());
-            oRes.IdReserva = Convert.ToInt32(HndId.Value);
-            if (oNegocio.Exist_Reserva(oRes))
+
+            //verifica que tenga pago
+            if (string.IsNullOrEmpty(RblPago.SelectedValue))
             {
+                LbError.Text += "<br /> Determine el estado de Pago";
                 Errores++;
-                LbError.Text += "<br /> Existe una reserva previa para la fecha y propiedad seleccionada";
             }
 
-            return !(Errores > 0);
+            if (Errores <1)
+            { //Verificar que la reserva este disponible
+                Negocio.Negocio oNegocio = new Negocio.Negocio();
+                Reservas oRes = new Reservas();
+                oRes.FDesde = Convert.ToDateTime(TbFechaDesde.Text);
+                oRes.FHasta = Convert.ToDateTime(TbFechaHasta.Text);
+                oRes.IdPropiedad = Convert.ToInt32(DdlPropiedad.SelectedValue.ToString());
+                oRes.IdReserva = Convert.ToInt32(HndId.Value);
+                if (oNegocio.Exist_Reserva(oRes))
+                {
+                    Errores++;
+                    LbError.Text += "<br /> Existe una reserva previa para la fecha y propiedad seleccionada";
+                }
+            }
+
+                return !(Errores > 0);
+        }
+
+        protected int ValidaFechasDesdeHasta()
+        {
+            int Errores = 0;
+             try
+            {
+                Convert.ToDateTime(TbFechaDesde.Text);
+                Convert.ToDateTime(TbFechaHasta.Text);
+
+                if (!(Convert.ToInt32(HndId.Value) > 0))
+                {
+                    //verificar si es nuevo o actualizacion
+                    if (Convert.ToDateTime(TbFechaDesde.Text) < DateTime.Now && Convert.ToDateTime(TbFechaHasta.Text) > DateTime.Now)
+                    {
+                        LbError.Text += "<br /> Las fecha de nuevas reserva deben ser a futuro";
+                        Errores++;
+                    }
+                }
+                //Validaciondes de Fechas
+                //1 La fecha hasta debe ser menor a la fecha hasta
+                if (Convert.ToDateTime(TbFechaDesde.Text) >= Convert.ToDateTime(TbFechaHasta.Text))
+                {
+                    LbError.Text += "<br /> La fecha desde debe ser menor a la fecha Hasta";
+                    Errores++;
+                }
+            }
+            catch
+            {
+                LbError.Text += "<br />Error en Fecha desde o Fecha Hasta formato dd/MM/yyyy";
+                Errores = 1;
+            }
+            return Errores;
         }
     
         [WebMethod]
