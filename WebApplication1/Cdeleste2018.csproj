@@ -102,6 +102,7 @@
     <Content Include="Noticias_ABM.aspx" />
     <Content Include="Propiedades_ABM.aspx" />
     <Content Include="Reservas_ABM.aspx" />
+    <Content Include="Reserva_Cliente.aspx" />
     <Content Include="RespuestasConsulta.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -235,6 +236,13 @@
     </Compile>
     <Compile Include="Reservas_ABM.aspx.designer.cs">
       <DependentUpon>Reservas_ABM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva_Cliente.aspx.cs">
+      <DependentUpon>Reserva_Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reserva_Cliente.aspx.designer.cs">
+      <DependentUpon>Reserva_Cliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="RespuestasConsulta.aspx.cs">
       <DependentUpon>RespuestasConsulta.aspx</DependentUpon>
