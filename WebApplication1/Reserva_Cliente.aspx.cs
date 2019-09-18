@@ -12,8 +12,8 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             //Obtengo el id de propiedad
-            HdnPropiedad.Value = (Request.QueryString["IdProp"] != null ?  Request.QueryString["IdProp"].ToString() : "-1");
-            
+            HdnPropiedad.Value = (Request.QueryString["IdProp"] != null ? Request.QueryString["IdProp"].ToString() : "-1");
+
             if (!Page.IsPostBack)
             {
                 CargaCombos();
