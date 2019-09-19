@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Contrato;
+using DayPilot.Web.Ui;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,7 +21,11 @@ namespace WebApplication1
                 CargaCombos();
                 TbFechaAlquiler.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 CargarRecusosCalendario();
-                CargarCalendario();
+                CargarCalendario(); 
+            }
+            if (int.Parse(HdnPropiedad.Value.ToString()) > 0)
+            {
+                DdlPropiedadAlquiler.SelectedValue = HdnPropiedad.Value;
             }
         }
 
@@ -40,8 +46,8 @@ namespace WebApplication1
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             var Recursos = oNegocio.Get_Propiedades_All();
 
-            if (HdnPropiedad.Value != "-1")
-                Recursos = Recursos.Where(x => x.IdPropiedades.Equals(Convert.ToInt32(HdnPropiedad.Value))).ToList();
+            if (DdlPropiedadAlquiler.SelectedValue != "-1")
+                Recursos = Recursos.Where(x => x.IdPropiedades.Equals(Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue))).ToList();
 
             foreach (var r in Recursos)
             {
@@ -57,8 +63,10 @@ namespace WebApplication1
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             var datos = oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
-            if (HdnPropiedad.Value != "-1")
+            if (DdlPropiedadAlquiler.SelectedValue!= "-1")
+            {
                 datos = datos.Where(x => x.IdPropiedad == int.Parse(HdnPropiedad.Value)).ToList();
+            }
 
             DayPilotCalendario.DataSource = datos;
             // oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
@@ -133,6 +141,22 @@ namespace WebApplication1
                     DayPilotCalendario.Days = 31;
                     break;
             }
+
+           
         }
+        protected void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            CargarRecusosCalendario();
+            // CargaGrilla();
+            CargarCalendario();
+        }
+
+
+        protected void DayPilotCalendar1_EventClick(object sender, EventClickEventArgs e)
+        {
+            //Cargar los datos de la reserva
+            //  Get_Reserva(Convert.ToInt32(e.Value));
+        }
+     
     }
 }

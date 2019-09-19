@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <asp:Button ID="btmDisponibilidad" runat="server" CssClass="btn btn-outline-warning" Text="Disponibilidad" />
+                    <asp:Button ID="btmDisponibilidad" runat="server" CssClass="btn btn-outline-warning" Text="Disponibilidad" OnClick="btmDisponibilidad_Click" />
                     <br />
                     <br />
                     <asp:Button ID="BtnFaqs" runat="server" CssClass="btn btn-outline-warning" Text="Preguntas Frecuentes" />
@@ -118,6 +118,7 @@
         </div>
 
     </div>
+            <asp:HiddenField id="hdnId" runat="server" />
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 <script>

@@ -19,6 +19,7 @@ namespace WebApplication1
                 CargaPropiedad(Id);
                 CargaCaracterisitecas(Id);
                 CargaImagenes(Id);
+                hdnId.Value = (Id>0&&Id<9?Id.ToString():"-1");
             }
             else
             {
@@ -65,6 +66,11 @@ namespace WebApplication1
             Link8.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/8.JPG";
             Img9.ImageUrl="~/Imagenes/Propiedades/" + IdPropiedad.ToString() + "/9.JPG";
             Link9.HRef = "../Imagenes/Propiedades/" + IdPropiedad.ToString() + "/9.JPG";
+        }
+
+        protected void btmDisponibilidad_Click(object sender, EventArgs e)
+        {
+            Server.Transfer($"Reserva_Cliente.aspx?IdProp={hdnId.Value}");
         }
     }
 }
