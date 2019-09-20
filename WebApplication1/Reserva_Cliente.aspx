@@ -57,12 +57,12 @@
             </div>
             <div class="row">
                 <%--  Panel de busqueda--%>
-                <div class="col-md-2" style="color: tan;">Propiedad: </div>
-                <div class="col-md-2">
+                <div class="col-md-2" style="color: tan; text-align:right;">Propiedad: </div>
+                <div class="col-md-2" style="text-align:left;">
                     <asp:DropDownList ID="DdlPropiedadAlquiler" runat="server" CssClass="rcorners0"></asp:DropDownList>
                 </div>
-                <div class="col-md-2" style="color: tan;">Fecha desde:</div>
-                <div class="col-md-2">
+                <div class="col-md-2" style="color: tan; text-align:right;">Fecha desde:</div>
+                <div class="col-md-2" style="text-align:left;">
                     <asp:TextBox ID="TbFechaAlquiler" runat="server" CssClass="rcorners0"></asp:TextBox>
                     <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler" CssClass=" btn-dark" TodaysDateFormat="dd MMMM, yyyy">
                     </cc1:CalendarExtender>
