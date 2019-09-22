@@ -165,7 +165,7 @@ namespace Negocio
         public Boolean Exist_Reserva(Reservas oReserva)
         {
             var ReservasActivas = oData.Exist_Reserva(oReserva);
-            return (ReservasActivas != null);
+            return (ReservasActivas.Rows.Count >0);
               
         }
 

@@ -1173,7 +1173,7 @@ namespace Datos
                            " and Estado = 'Reserva'  and IdReserva <> "+oReserva.IdReserva+" union "+
                            " SELECT * FROM reservas "+
                            " WHERE idpropiedad = "+ oReserva.IdPropiedad +"" +
-                           " and '"+ oReserva.FDesde.ToString("dd/MM/yyyy") +"' <= fdesde and '"+oReserva.FHasta.ToString("dd/MM/yyyy")+"' >= fhasta"+
+                           " and  fdesde >='"+ oReserva.FDesde.ToString("dd/MM/yyyy") +"' and  fhasta <='"+oReserva.FHasta.ToString("dd/MM/yyyy")+"'"+
                            " and Estado = 'Reserva' and  IdReserva <> " + oReserva.IdReserva + "";
             conn.Open();
 
