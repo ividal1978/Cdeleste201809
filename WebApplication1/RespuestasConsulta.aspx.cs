@@ -17,10 +17,16 @@ namespace WebApplication1
                 if (Request.QueryString["Rta"] != null)
                 {
                     string CodigoRespuesta = Request.QueryString["Rta"].ToString();
-                    CodigoRespuesta = CodigoRespuesta.Substring(2, CodigoRespuesta.IndexOf("-")-2);
+                    CodigoRespuesta = CodigoRespuesta.Substring(2, (CodigoRespuesta.Length-2)-3);
                     Negocio.Negocio oNegocio = new Negocio.Negocio();
                     //Busco la consulta
-                    var QConsulta = oNegocio.Get_Cometario(Convert.ToInt32(CodigoRespuesta));
+                    //Obterngo el tipo 
+                    var TConsulta = CodigoRespuesta.Substring(0, 2);
+                    var NroConsulta = CodigoRespuesta.Substring(2, CodigoRespuesta.Length);
+                    //TODO: Verdificar por Tipos / Id 
+                    // Para Tipos FP - CP hacer una busqueda generica de tipo list ordenados por fechas
+                    // Para el resto hacer un busqueda puntual de la consulta en si misma
+                    var QConsulta = oNegocio.Get_Cometario(Convert.ToInt32(NroConsulta));
                     LbNombre.Text ="Nombre: "+ QConsulta.Nombre_Persona;
                     var QMotivo = oNegocio.Get_Consulta_Tipo();
                     var Motivo = QMotivo.Where(c => c.Codigo == QConsulta.Tipo).SingleOrDefault(); ;

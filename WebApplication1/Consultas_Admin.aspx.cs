@@ -141,11 +141,27 @@ namespace WebApplication1
 
             Comentarios oComentario = new Comentarios();
             oComentario.IdComentario = Convert.ToInt32(HdnIdComentario.Value.ToString());
-            oComentario.Tipo = DdlTipoConsulta.SelectedValue.ToString();
+            switch (RblCambiaPRegunta.SelectedValue)
+            {
+                case "XX":
+                    oComentario.Tipo = DdlTipoConsulta.SelectedValue.ToString();
+                    break;
+                case "PP"://Pregunta Privada
+                    oComentario.Tipo = "PP";
+                    break;
+                case "PF"://Pregunta Frecuente
+                    oComentario.Tipo = "PF";
+                    break;
+                default:
+                    oComentario.Tipo = DdlTipoConsulta.SelectedValue.ToString();
+                    break;
+            }
+           
             oComentario.Estado = "Respondida";
 
             oNegocio.Save_Comentario(oComentario);
-            string CodigoConsulta = GeneradorRandom(Convert.ToInt32(HdnIdComentario.Value.ToString()));
+            //Random XXTTID-NN
+            string CodigoConsulta = GeneradorRandom(oComentario.Tipo+ HdnIdComentario.Value.ToString());
             if (ChkEnviarmail.Checked == true)
             {
                 //Debo enviar el mail
@@ -175,7 +191,7 @@ namespace WebApplication1
             LbMensaje.Text = "Se Ha guardado correctamente, para su consulta ver: <br /> http:\\www.cdeleste.com.ar\\RespuestasConsulta.aspx? Rta =" + CodigoConsulta +" "+ (ChkEnviarmail.Checked == true ? " y se ha enviado en el mail." : ".");
         }
 
-        protected string GeneradorRandom(int ID)
+        protected string GeneradorRandom(string ID)
         {
             StringBuilder builder = new StringBuilder();
             builder.Append(RandomString(2, true));

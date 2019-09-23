@@ -38,7 +38,8 @@ namespace WebApplication1
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             DdlPropiedades.DataTextField = "Descripcion";
             DdlPropiedades.DataValueField = "Id";
-            DdlPropiedades.DataSource = oNegocio.Get_Propiedades_CMB();
+            var  Combo = oNegocio.Get_Propiedades_CMB();
+            DdlPropiedades.DataSource = Combo.Where(x => x.Id.ToString().Contains("C"));
             DdlPropiedades.DataBind();
         }
 
