@@ -18,7 +18,36 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-6">
-                    <div class="col-xl-6">
+                    <div class="col-xl-6 align-content-center">
+                        <div style="align-content:center; align-items:center;" class=" rcorners0" >
+                            <div id="dvAccordian" class="panel-group  rcorners0" style="width: 90%; opacity:0.8;">
+                                <asp:Repeater ID="rptAccordian" runat="server" >
+                                    <ItemTemplate>
+                                        <div class="panel panel-default ">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#dvAccordian"
+                                                        href="#collapse<%# Container.ItemIndex %>">
+                                                        <%# Eval("Pregunta") %></h4>
+                                                </a> </h4>
+                                            </div>
+                                            <div id="collapse<%# Container.ItemIndex %>" class="panel-collapse collapse" aria-expanded="false">
+                                                <div class="panel-body">
+                                                    <p>
+                                                        <%# Eval("Respuesta") %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </div>
+                            <div>
+                                <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                                <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                                <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

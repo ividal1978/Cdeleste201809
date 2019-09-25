@@ -60,7 +60,7 @@ namespace Datos
                 MySqlConnection oConeccion = new MySqlConnection(StringConnection);
 
 
-      
+
 
                 string query = "SELECT Apellido,Nombre, Usuario,Rol ,PASSWORD,IdUsuario FROM Usuarios "
                 + " WHERE Usuario = '" + Usuario + "' Limit 1 ";
@@ -568,20 +568,20 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
-                if (oCometrario.IdComentario >0)
+                if (oCometrario.IdComentario > 0)
                 {//update
 
                     Query = "UPDATE Comentarios SET " +
                     " Estado = '" + oCometrario.Estado.Trim() + "'," +
-                    " Tipo = '" + oCometrario.Tipo.Trim() + "'"+
+                    " Tipo = '" + oCometrario.Tipo.Trim() + "'" +
                     " WHERE IdComentario =" + oCometrario.IdComentario;
-                    
+
                 }
                 else
                 {//Insert
                     Query = "INSERT INTO Comentarios (FechaComentario,Nombre_Persona, Tel_Persona, Estado, Comentario, Tipo, IdPropiedad, Mail_Persona) Values " +
-                        "(now(),'" + oCometrario.Nombre_Persona + "','"+oCometrario.Tel_Persona+"','"+
-                        oCometrario.Estado+"','"+oCometrario.Comentario+"','"+oCometrario.Tipo+"',"+Convert.ToInt32(oCometrario.IdPropiedad)+",'"+oCometrario.Mail_Persona+"')";
+                        "(now(),'" + oCometrario.Nombre_Persona + "','" + oCometrario.Tel_Persona + "','" +
+                        oCometrario.Estado + "','" + oCometrario.Comentario + "','" + oCometrario.Tipo + "'," + Convert.ToInt32(oCometrario.IdPropiedad) + ",'" + oCometrario.Mail_Persona + "')";
                 }
 
                 conn.Open();
@@ -594,7 +594,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Comentario - Save Comentario " );
+                _logger1.Error(ex, " Datos - Comentario - Save Comentario ");
             }
         }
 
@@ -630,7 +630,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                 _logger1.Error(ex, " Datos - Comentario - Save Comentario :: " + ex.StackTrace.ToString() );
+                _logger1.Error(ex, " Datos - Comentario - Save Comentario :: " + ex.StackTrace.ToString());
                 return null;
             }
         }
@@ -643,7 +643,7 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
-                Query = "SELECT * FROM comentarios where Tipo='" + TipoComentario +"' and Estado='"+Estado+ "' order by FechaComentario desc";
+                Query = "SELECT * FROM comentarios where Tipo='" + TipoComentario + "' and Estado='" + Estado + "' order by FechaComentario desc";
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);
@@ -656,7 +656,7 @@ namespace Datos
                 foreach (DataRow oFila in myDS.Tables["Comentarios"].Rows)
                 {
                     Comentarios oItem = new Comentarios();
-                    oItem.IdComentario= Convert.ToInt32(oFila[0].ToString());
+                    oItem.IdComentario = Convert.ToInt32(oFila[0].ToString());
                     oItem.FechaComentario = Convert.ToDateTime(oFila[1].ToString());
                     oItem.Nombre_Persona = oFila[2].ToString();
                     oItem.Tel_Persona = oFila[3].ToString();
@@ -675,20 +675,20 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Tipo y Estado :: " + ex.StackTrace.ToString()  );
+                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Tipo y Estado :: " + ex.StackTrace.ToString());
                 return null;
             }
 
         }
 
-       public Comentarios Get_Cometario (int IdComentario)
+        public Comentarios Get_Cometario(int IdComentario)
         {
             try
             {
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
-                Query = "SELECT * FROM comentarios where IdComentario="+ IdComentario.ToString()+" order by FechaComentario desc";
+                Query = "SELECT * FROM comentarios where IdComentario=" + IdComentario.ToString() + " order by FechaComentario desc";
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);
@@ -717,7 +717,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Id :: " + ex.StackTrace.ToString()  );
+                _logger1.Error(ex, " Datos - Comentario - Get Comentario x Id :: " + ex.StackTrace.ToString());
                 return null;
             }
         }
@@ -730,7 +730,7 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
-                Query = "SELECT * FROM respuestas where IdRespuesta = " + IdRespuesta.ToString() ;
+                Query = "SELECT * FROM respuestas where IdRespuesta = " + IdRespuesta.ToString();
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);
@@ -744,8 +744,8 @@ namespace Datos
                 foreach (DataRow oFila in myDS.Tables["Respuestas"].Rows)
                 {
                     oItem.IdRespuesta = Convert.ToInt32(oFila[0].ToString());
-                    oItem.Tipo =oFila[1].ToString();
-                    oItem.Fecha = Convert.ToDateTime (oFila[2].ToString());
+                    oItem.Tipo = oFila[1].ToString();
+                    oItem.Fecha = Convert.ToDateTime(oFila[2].ToString());
                     oItem.Respuesta = oFila[3].ToString();
                     oItem.Estado = oFila[4].ToString();
                 }
@@ -755,14 +755,14 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Respuesta - Get Respuesta x Id :: " + ex.StackTrace.ToString()  );
+                _logger1.Error(ex, " Datos - Respuesta - Get Respuesta x Id :: " + ex.StackTrace.ToString());
                 return null;
             }
         }
 
         public void Save_Respuesta(Respuestas oRespuesta)
         {
-           Respuestas Existe = Get_Respuesta(oRespuesta.IdRespuesta);
+            Respuestas Existe = Get_Respuesta(oRespuesta.IdRespuesta);
 
             try
             {
@@ -774,10 +774,10 @@ namespace Datos
                     //Realizar un update
                     Query = "UPDATE respuestas SET " +
                     " Estado = '" + oRespuesta.Estado + "'," +
-                    " Tipo = '" + oRespuesta.Tipo  + "'," +
-                    " Fecha = now(), "  + 
-                    " Respuesta = '"+ oRespuesta.Respuesta +"'"+
-                    " WHERE IdRespuesta =" +oRespuesta.IdRespuesta;
+                    " Tipo = '" + oRespuesta.Tipo + "'," +
+                    " Fecha = now(), " +
+                    " Respuesta = '" + oRespuesta.Respuesta + "'" +
+                    " WHERE IdRespuesta =" + oRespuesta.IdRespuesta;
                 }
                 else
                 {
@@ -796,9 +796,59 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - Comentarios - Save Respuesta :: " + ex.StackTrace.ToString()  );
+                _logger1.Error(ex, " Datos - Comentarios - Save Respuesta :: " + ex.StackTrace.ToString());
             }
 
+        }
+
+        public List<PreguntaFrecuente>Get_PreguntasFrecuentes(string TipoPregunta, int IdPropiedad)
+        {
+            try
+            {
+                List<PreguntaFrecuente> oLista = new List<PreguntaFrecuente>();
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = " SELECT c.IdComentario, c.comentario,c.estado,c.fechaComentario, c.Tipo, c.idpropiedad,r.Respuesta " +
+                        " FROM comentarios c " +
+                        " INNER JOIN respuestas r on c.IdComentaro = r.IdComentario " +
+                        " where Tipo='" + TipoPregunta + "' and Estado='Respondida' ";
+                if (IdPropiedad > 0)
+                    Query += " and c.idpropiedad =" + IdPropiedad;
+                Query += " order by FechaComentario desc";
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Comentarios");
+
+                foreach (DataRow oFila in myDS.Tables["Comentarios"].Rows)
+                {
+                    PreguntaFrecuente oItem = new PreguntaFrecuente();
+                    oItem.IdComentario = Convert.ToInt32(oFila[0].ToString());
+                    oItem.Comentario = oFila[1].ToString();
+                    oItem.Estado = oFila[2].ToString();
+                    oItem.FechaComentario = Convert.ToDateTime(oFila[3].ToString());
+                    oItem.Tipo = oFila[4].ToString();
+                    oItem.IdPropiedad = oFila[5].ToString();
+                    oItem.Respuesta = oFila[6].ToString();
+
+
+                    oLista.Add(oItem);
+                }
+                myCommand.Dispose();
+                conn.Close();
+                return oLista;
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Comentario -  Get_PreguntasFrecuentes x Tipo y Propiedad :: " + ex.StackTrace.ToString());
+                return null;
+            }
         }
 
         #endregion

@@ -146,5 +146,15 @@ namespace Contrato
         public string Reside { get; set; }
     }
 
+    public class PreguntaFrecuente
+    {
+        public int IdComentario { get; set; }
+        public DateTime FechaComentario { get; set; }
+        public string Estado { get; set; }
+        public string Comentario { get; set; }
+        public string Respuesta { get; set; }
+        public string Tipo { get; set; }
+        public string IdPropiedad { get; set; }
+    }
  
 }
