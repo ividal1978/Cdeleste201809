@@ -21,7 +21,7 @@
                     <div class="col-xl-6 align-content-center">
                         <div style="align-content:center; align-items:center;" class=" rcorners0" >
                             <div id="dvAccordian" class="panel-group  rcorners0" style="width: 90%; opacity:0.8;">
-                                <asp:Repeater ID="rptAccordian" runat="server" >
+                                <asp:Repeater ID="rptAccordion" runat="server" >
                                     <ItemTemplate>
                                         <div class="panel panel-default ">
                                             <div class="panel-heading">
@@ -50,6 +50,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-1"></div>
+                <div class="col-xl-6">
+                    <asp:Label ID="LbError"  runat="server" CssClass="alert-danger rcorners0"></asp:Label>
+                        </div>
+                <div class="col-xl-1"></div>
             </div>
         </div>
     </form>

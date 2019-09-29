@@ -92,6 +92,7 @@ namespace Negocio
         public void Save_Respuesta(Respuestas oRespuesta)
         { oData.Save_Respuesta(oRespuesta); }
 
+        public List<PreguntaFrecuente> Get_PreguntasFrecuentes(string TipoPregunta, int IdPropiedad) => oData.Get_PreguntasFrecuentes(TipoPregunta, IdPropiedad);
         #endregion
 
         #region Inquilinos
