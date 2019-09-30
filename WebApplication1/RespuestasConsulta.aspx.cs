@@ -12,9 +12,12 @@ namespace WebApplication1
         private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");
         protected void Page_Load(object sender, EventArgs e)
         {
+            var Rta = Request.QueryString["Rta"].ToString();
+
+
             try
             {
-                if (Request.QueryString["Rta"] != null)
+                  if (!String.IsNullOrEmpty(Rta))
                 {
                     string CodigoRespuesta = Request.QueryString["Rta"].ToString();
                     CodigoRespuesta = CodigoRespuesta.Substring(2, (CodigoRespuesta.Length-2)-3);
@@ -22,7 +25,7 @@ namespace WebApplication1
                     //Busco la consulta
                     //Obterngo el tipo 
                     var TConsulta = CodigoRespuesta.Substring(0, 2);
-                    var NroConsulta = CodigoRespuesta.Substring(2, CodigoRespuesta.Length);
+                    var NroConsulta = CodigoRespuesta.Substring(2, CodigoRespuesta.Length-2);
                     //TODO: Verdificar por Tipos / Id 
                     // Para Tipos FP - CP hacer una busqueda generica de tipo list ordenados por fechas
                     // Para el resto hacer un busqueda puntual de la consulta en si misma
@@ -36,7 +39,7 @@ namespace WebApplication1
                     TbRespuesta.Enabled = false;
                     TbConsulta.Text = QConsulta.Comentario;
                     //Busco la respuesta
-                    var QRespuesta = oNegocio.Get_Respuesta(Convert.ToInt32(CodigoRespuesta));
+                    var QRespuesta = oNegocio.Get_Respuesta(Convert.ToInt32(NroConsulta));
                     if (QRespuesta.Respuesta != null)
                     {
                         if (QRespuesta.Estado == "Respondida")

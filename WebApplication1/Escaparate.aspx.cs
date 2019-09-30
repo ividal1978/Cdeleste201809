@@ -72,5 +72,10 @@ namespace WebApplication1
         {
             Server.Transfer($"Reserva_Cliente.aspx?IdProp={hdnId.Value}");
         }
+
+        protected void BtnFaqs_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("PreguntasFrecuentes.aspx?tipoPreg=PF&IdProp="+ hdnId.Value.ToString() );
+        }
     }
 }

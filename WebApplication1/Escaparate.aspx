@@ -49,7 +49,7 @@
                     <asp:Button ID="btmDisponibilidad" runat="server" CssClass="btn btn-outline-warning" Text="Disponibilidad" OnClick="btmDisponibilidad_Click" />
                     <br />
                     <br />
-                    <asp:Button ID="BtnFaqs" runat="server" CssClass="btn btn-outline-warning" Text="Preguntas Frecuentes" />
+                    <asp:Button ID="BtnFaqs" runat="server" CssClass="btn btn-outline-warning" Text="Preguntas Frecuentes" OnClick="BtnFaqs_Click" />
                     <br />
                     <br />
                     <input type="button" value="Galeria de Fotos" onClick="document.getElementById('Galeria').scrollIntoView();"  class="btn btn-outline-warning" title="Galeria" >

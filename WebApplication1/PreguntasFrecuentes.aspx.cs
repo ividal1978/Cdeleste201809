@@ -11,11 +11,18 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string idProp = "-1";
+            string tipoPregunta = "PF";
             //Obtengo los datos de IdPropiedad y Tipo
-            int idPropiedad = Convert.ToInt32(Request.QueryString["IdProp"].ToString() ?? "-1");
-            string tipoPregunta = Request.QueryString["tipoProp"].ToString() ?? "FP";
+            if (Request.QueryString["IdProp"] != null)
+            { idProp = Request.QueryString["IdProp"].ToString(); }
+                                     
+             if(Request.QueryString["tipoPreg"]!=null)
+            {
+                tipoPregunta = Request.QueryString["tipoPreg"].ToString();
+            }
 
-
+           
             // CD Consulta Disponibilidad - ID Propiedad Asociada
             // CP Consulta por Propiedad - ID
             // CR Como Reservar - Sin ID
@@ -23,7 +30,7 @@ namespace WebApplication1
             // PF Preguntas Frecuentes - Puede incluir o no Id Propiedad
             // PP Pregunta Privada - Pueda incluir o no Id Pero no debe mostrarse en esta  pagina ya que es privada
 
-            CargarRepeater(idPropiedad, tipoPregunta);
+            CargarRepeater(Convert.ToInt32(idProp), tipoPregunta);
          
         }
 

@@ -28,7 +28,7 @@
                                                 <h4 class="panel-title">
                                                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#dvAccordian"
                                                         href="#collapse<%# Container.ItemIndex %>">
-                                                        <%# Eval("Pregunta") %></h4>
+                                                        <%# Eval("Comentario") %></h4>
                                                 </a> </h4>
                                             </div>
                                             <div id="collapse<%# Container.ItemIndex %>" class="panel-collapse collapse" aria-expanded="false">

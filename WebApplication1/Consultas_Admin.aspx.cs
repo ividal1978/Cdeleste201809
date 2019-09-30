@@ -188,7 +188,7 @@ namespace WebApplication1
 
             }
             Limpiar();
-            LbMensaje.Text = "Se Ha guardado correctamente, para su consulta ver: <br /> http:\\www.cdeleste.com.ar\\RespuestasConsulta.aspx? Rta =" + CodigoConsulta +" "+ (ChkEnviarmail.Checked == true ? " y se ha enviado en el mail." : ".");
+            LbMensaje.Text = "Se Ha guardado correctamente, para su consulta ver: <br /> http:\\www.cdeleste.com.ar\\RespuestasConsulta.aspx?Rta=" + CodigoConsulta +" "+ (ChkEnviarmail.Checked == true ? " y se ha enviado en el mail." :"");
         }
 
         protected string GeneradorRandom(string ID)

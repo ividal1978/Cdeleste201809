@@ -809,13 +809,17 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 string Query = "";
-                Query = " SELECT c.IdComentario, c.comentario,c.estado,c.fechaComentario, c.Tipo, c.idpropiedad,r.Respuesta " +
+                Query = "Select c.IdComentario,c.comentario as Pregunta, c.estado, c.fechaComentario, c.Tipo,c.idpropiedad, r.Respuesta " +
                         " FROM comentarios c " +
-                        " INNER JOIN respuestas r on c.IdComentaro = r.IdComentario " +
-                        " where Tipo='" + TipoPregunta + "' and Estado='Respondida' ";
+                        " INNER JOIN respuestas r on c.IdComentario = r.IdRespuesta " +
+                        " where c.Tipo='" + TipoPregunta + "' and c.Estado='Respondida' ";
                 if (IdPropiedad > 0)
                     Query += " and c.idpropiedad =" + IdPropiedad;
-                Query += " order by FechaComentario desc";
+                Query += " order by c.FechaComentario desc";
+
+
+
+
 
                 conn.Open();
 
