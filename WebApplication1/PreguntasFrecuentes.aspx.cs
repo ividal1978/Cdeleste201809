@@ -31,6 +31,7 @@ namespace WebApplication1
             // PP Pregunta Privada - Pueda incluir o no Id Pero no debe mostrarse en esta  pagina ya que es privada
 
             CargarRepeater(Convert.ToInt32(idProp), tipoPregunta);
+            CheckError();
          
         }
 
@@ -48,5 +49,13 @@ namespace WebApplication1
                 LbError.Text = "Este tipo de Consulta no puede ser mostrada en esta pantalla <br /> Si esta agurdando una respuesta esta llagará por e-mail y su respectivo link " +
                     "Gracias <br /> Atentamente <br /> www.Cdeleste.com.ar";
         }
+
+        protected void CheckError()
+        {
+
+                LbError.Visible = ! string.IsNullOrEmpty(LbError.Text);
+            
+        }
+
     }
 }

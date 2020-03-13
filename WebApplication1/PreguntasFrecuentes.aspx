@@ -12,27 +12,27 @@
     <link rel="stylesheet" href="Scripts/gallery-grid.css">
     <link href="Content/bootstrap.css" rel="stylesheet" />
 
-    <hr style="background-color: darkolivegreen; height: 15px;" />
-    <hr style="background-color: darkgoldenrod; height: 4px;" />
+    <hr style="background-color: darkolivegreen !important; height: 15px;" />
+    <hr style="background-color: darkgoldenrod !important; height: 4px;" />
     <form id="FormRespuestas" runat="server">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-6">
-                    <div class="col-xl-6 align-content-center">
-                        <div style="align-content:center; align-items:center;" class=" rcorners0" >
-                            <div id="dvAccordian" class="panel-group  rcorners0" style="width: 90%; opacity:0.8;">
-                                <asp:Repeater ID="rptAccordion" runat="server" >
-                                    <ItemTemplate>
-                                        <div class="panel panel-default ">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title">
+                <div class="col-xl-12">
+                    <div class="col-xl-12 align-content-center" style="border-color:burlywood;">
+                        <div style="align-content:center; align-items:center; " class=" rcorners0"  >
+                            <div id="dvAccordian" class="panel-group  " style="width: 99%; opacity:0.8;">
+                                <asp:Repeater ID="rptAccordion" runat="server"  >
+                                    <ItemTemplate >
+                                        <div class="panel panel-default" style="width:100%;border-color:burlywood;">
+                                            <div class="panel-heading" style="background-color: darkolivegreen; color:tan;">
+                                                <h4 class="panel-title" >
                                                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#dvAccordian"
-                                                        href="#collapse<%# Container.ItemIndex %>">
+                                                        href="#collapse<%# Container.ItemIndex %>" >
                                                         <%# Eval("Comentario") %></h4>
                                                 </a> </h4>
                                             </div>
                                             <div id="collapse<%# Container.ItemIndex %>" class="panel-collapse collapse" aria-expanded="false">
-                                                <div class="panel-body">
+                                                <div class="panel-body" style="background-color: burlywood;">
                                                     <p>
                                                         <%# Eval("Respuesta") %>
                                                     </p>
