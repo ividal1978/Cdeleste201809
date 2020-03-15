@@ -1224,7 +1224,8 @@ namespace Datos
                            " WHERE idpropiedad = "+ oReserva.IdPropiedad +""+
                            " and Fdesde between ' "+ oReserva.FDesde.ToString("dd/MM/yyyy") +"'and '"+ oReserva.FHasta.ToString("dd/MM/yyyy")+"'"+
                            " and FHasta between '"+oReserva.FDesde.ToString("dd/MM/yyyy")+"' and '"+oReserva.FHasta.ToString("dd/MM/yyyy")+"'"+
-                           " and Estado = 'Reserva'  and IdReserva <> "+oReserva.IdReserva+" union "+
+                           " and Estado = 'Reserva'  and IdReserva <> "+oReserva.IdReserva+
+                           " union "+
                            " SELECT * FROM reservas "+
                            " WHERE idpropiedad = "+ oReserva.IdPropiedad +"" +
                            " and  fdesde >='"+ oReserva.FDesde.ToString("dd/MM/yyyy") +"' and  fhasta <='"+oReserva.FHasta.ToString("dd/MM/yyyy")+"'"+

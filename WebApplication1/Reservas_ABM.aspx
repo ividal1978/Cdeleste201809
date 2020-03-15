@@ -61,7 +61,7 @@
             <div class="col-md-2" style="color:tan; text-align:right;" >Fecha desde:</div>
             <div class="col-md-2" style="text-align:left;">
                 <asp:TextBox ID="TbFechaAlquiler" runat="server" CssClass="rcorners0"></asp:TextBox>
-                <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler" CssClass=" btn-dark" TodaysDateFormat="dd MMMM, yyyy">
+                <cc1:CalendarExtender ID="TbFechaAlquiler_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaAlquiler" CssClass=" btn-dark" TodaysDateFormat="dd MMMM, yyyy" Format="dd/MM/yyyy">
                 </cc1:CalendarExtender>
             </div>
             <div class="col-md-4" style="text-align:center;">
@@ -133,14 +133,14 @@
                             <asp:RequiredFieldValidator ID="RfvFechaDesde"  runat="server" ControlToValidate="TbFechaDesde" EnableClientScript="true" ErrorMessage="*"></asp:RequiredFieldValidator>
                             
 
-                            <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 btn-dark" TodaysDateFormat="dd MMMM, yyyy">
+                            <cc1:CalendarExtender ID="TbFechaDesde_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechaDesde" CssClass="rcorners0 btn-dark" TodaysDateFormat="dd MMMM, yyyy" Format="dd/MM/yyyy">
                             </cc1:CalendarExtender>
                         </div>
                         <div class="col-lg-2" style="color: tan;">Fecha Hasta:</div>
                         <div class="col-lg-4">
                             <asp:TextBox ID="TbFechaHasta" runat="server" CssClass="rcorners0"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RfvFechaHasta" runat="server" ControlToValidate="TbFechaHasta" EnableClientScript="true" ErrorMessage="*"></asp:RequiredFieldValidator>
-                            <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 btn-dark" TodaysDateFormat="dd MMMM, yyyy">
+                            <cc1:CalendarExtender ID="TbFechaHasta_CalendarExtener" runat="server" Enabled="True" TargetControlID="TbFechaHasta" CssClass="rcorners0 btn-dark" TodaysDateFormat="dd MMMM, yyyy" Format="dd/MM/yyyy" >
                             </cc1:CalendarExtender>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                         <div class="col-lg-2" style="color: tan;">Fecha Pago:</div>
                         <div class="col-lg-4">
                             <asp:TextBox ID="TbFechapago" runat="server" CssClass="rcorners0" ReadOnly="true"></asp:TextBox>
-                            <cc1:CalendarExtender ID="TbFechapago_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechapago" CssClass=" btn-dark ">
+                            <cc1:CalendarExtender ID="TbFechapago_CalendarExtender" runat="server" Enabled="True" TargetControlID="TbFechapago" CssClass=" btn-dark " Format="dd/MM/yyyy">
                             </cc1:CalendarExtender>
                         </div>
                     </div>

@@ -180,8 +180,12 @@ namespace WebApplication1
 
 
                     oNegocio.Save_Reserva(oRes);
-
+                    LimpiaEntrada();
+                    // Rutina de limpieza;
                     LbError.Text = "Se ha Guardado Correctamente";
+
+                    //reload de la misma pagina
+                    Server.Transfer("Reservas_ABM.Aspx");
                 }
             }
         }
@@ -376,6 +380,20 @@ namespace WebApplication1
 
 
             return PNombres.ToArray();
+        }
+
+        /// <summary>
+        /// Limpieza de parametros de entrada.
+        /// </summary>
+        private void LimpiaEntrada()
+        {
+            TbFechaDesde.Text = "";
+            TbFechaHasta.Text = "";
+            TbInquilino.Text = "";
+            TbMontoTotal.Text = "";
+            TbMontoReserva.Text = "";
+            TbFechapago.Text = "";
+            DdlEstados.SelectedValue = "Confirmar";
         }
     }
 }
