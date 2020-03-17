@@ -99,12 +99,11 @@
             </ul>
         </div>
         <div style="align-content:flex-end">&nbsp;&nbsp;
-            <a href="#"><span class="fa fa-phone-square  fa-2x" style="color:saddlebrown;" >  </span></a>
-            <a href="#"><i class="far fa-envelope fa-2x"  style="color:saddlebrown;"></i></a>
+            <a href="Contactos.aspx"><span class="fa fa-phone-square  fa-2x" style="color:saddlebrown;" >  </span></a>
+            <a href="mailto:violetasgyg@gmail.com?Subject=Interesado/a%20en%20Alquiler%20de%20Propiedades"><i class="far fa-envelope fa-2x"  style="color:saddlebrown;"></i></a>
             <a href="https://www.facebook.com/Eleg%C3%AD-Costa-del-Este-146505772050939/"><i class="fab fa-facebook fa-2x" style="color:saddlebrown;"></i></a>
-            <a href="#"><i class="fas fa-map-signs fa-2x" style="color:saddlebrown;"></i></a>
+            <a href="Contactos.aspx"><i class="fas fa-map-signs fa-2x" style="color:saddlebrown;"></i></a>
         </div>
-              
 </nav>
               
 <div id="modalPassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
