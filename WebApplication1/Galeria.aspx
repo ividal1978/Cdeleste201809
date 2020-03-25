@@ -35,6 +35,7 @@
 
     </script>
     <!-- Page Content -->
+     <h2 style="color:tan; font-family:'Trebuchet MS';   text-shadow: 2px 2px 5px black;">&nbsp;&nbsp;&nbsp;Galeria</h2> 
     <div class="container " style="top: 100px;">
 
         <div class="row" style="top: 100px;">
@@ -45,7 +46,7 @@
                                     <a href="Imagenes/Galeria/<%#DataBinder.Eval(Container.DataItem,"ruta") %>" class="fancybox" rel="ligthbox">
                                         <img src="Imagenes/Galeria/<%#DataBinder.Eval(Container.DataItem,"ruta") %>" class="zoom img-fluid " alt="">
                                     </a>
-                   <%# DataBinder.Eval(Container.DataItem, "reseña") %> 
+                  <a style="color:antiquewhite;  text-shadow: 2px 2px 5px black;"> <%# DataBinder.Eval(Container.DataItem, "reseña") %> </a>
                                 </div>
                </ItemTemplate>
               </asp:repeater>

@@ -1258,41 +1258,42 @@ namespace Datos
         {
             List<ImagesGaleria> oLista = new List<ImagesGaleria>();
 
-            ImagesGaleria oImagen = new ImagesGaleria();
-            oImagen.ruta = "DSC00455.JPG";
-            oImagen.reseña = "Algo solo un test";
-            oImagen.nombre = "Primera";
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = "Select id, ruta, nombre, comentario from ImagenesGaleria";
+                conn.Open();
 
-            ImagesGaleria oImagen2 = new ImagesGaleria();
-            oImagen2.ruta = "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
-            oImagen2.reseña = "Nro2";
-            oImagen2.nombre = "Segunda";
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
 
-            ImagesGaleria oImagen3 = new ImagesGaleria();
-            oImagen3.ruta = "https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-            oImagen3.reseña = "Nro3";
-            oImagen3.nombre = "Tercera";
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
 
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Imagenes");
+                DataTable dt = new DataTable();
+                myDA.Fill(dt);
+                //*  importe como referenias el conector 5.27
+                foreach (DataRow oFila in myDS.Tables["Imagenes"].Rows)
+                {
+                    ImagesGaleria oImg = new ImagesGaleria();
+                    oImg.id = Convert.ToInt32(oFila[0].ToString());
+                    oImg.ruta = oFila[1].ToString();
+                    oImg.nombre = oFila[2].ToString();
+                    oImg.reseña = oFila[3].ToString();
+                    oLista.Add(oImg);
+                }
 
-            ImagesGaleria oImagen4 = new ImagesGaleria();
-            oImagen4.ruta = "https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-            oImagen4.reseña = "Nro2";
-            oImagen4.nombre = "Segunda";
+                return oLista;
 
-            ImagesGaleria oImagen5 = new ImagesGaleria();
-            oImagen5.ruta = "https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
-            oImagen5.reseña = "Nro2";
-            oImagen5.nombre = "Segunda";
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Imagenes Galeria - Get Imagenes ALL :: " + ex.StackTrace.ToString());
+                return null;
+            }
 
-
-            oLista.Add(oImagen);
-            oLista.Add(oImagen2);
-            oLista.Add(oImagen3);
-            oLista.Add(oImagen4);
-            oLista.Add(oImagen5);
-//C:\Fuentes\Cdeleste2018\Cdeleste2018\WebApplication1\Imagenes\Galeria\DSC00455.JPG
-//            DSC00455.jpg
-            return oLista;
         }
         #endregion
     }

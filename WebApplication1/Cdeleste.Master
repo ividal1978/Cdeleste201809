@@ -4,6 +4,7 @@
 
 <html>
 <head runat="server">
+    <link href="Imagenes/pino-animado-png-1.ico"  rel="icon"/>
     <title>www.Cdeleste.com.ar</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
          <meta name="viewport" content="width=device-width,initial-scale=1">  

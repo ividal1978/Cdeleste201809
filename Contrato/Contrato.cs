@@ -159,6 +159,7 @@ namespace Contrato
  
     public class ImagesGaleria
     {
+        public int id { get; set; }
         public string ruta { get; set; }
         public string nombre { get; set; }
         public string reseña { get; set; }
