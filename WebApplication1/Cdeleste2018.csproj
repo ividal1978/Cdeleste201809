@@ -84,8 +84,10 @@
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Escaparate.aspx" />
+    <Content Include="Galeria.aspx" />
     <Content Include="Imagenes\Bosque.ico" />
     <Content Include="Imagenes\Contactos\IMG_20190721_102308833_HDR.jpg" />
+    <Content Include="Imagenes\Galeria\DSC00455.JPG" />
     <Content Include="Imagenes\pino-animado-png-1.ico" />
     <Content Include="Imagenes\Slider_Main\1.JPG" />
     <Content Include="Imagenes\Slider_Main\2.JPG" />
@@ -210,6 +212,13 @@
     </Compile>
     <Compile Include="Escaparate.aspx.designer.cs">
       <DependentUpon>Escaparate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Galeria.aspx.cs">
+      <DependentUpon>Galeria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Galeria.aspx.designer.cs">
+      <DependentUpon>Galeria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inquilinos_ABM.aspx.cs">
       <DependentUpon>Inquilinos_ABM.aspx</DependentUpon>

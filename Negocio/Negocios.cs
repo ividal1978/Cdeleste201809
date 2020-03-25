@@ -172,5 +172,13 @@ namespace Negocio
 
         #endregion
 
-    }
+        #region Galeria
+        public List<ImagesGaleria> Get_ImagenesGaleria_All()
+        {
+            return oData.Get_ImagenesGaleria_All();
+        }
+            #endregion
+
+
+        }
 }

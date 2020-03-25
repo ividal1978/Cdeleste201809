@@ -1248,6 +1248,53 @@ namespace Datos
         //Verificar que la reserva no se Solapa con una previa existente
 
         #endregion
+
+        #region Galeria
+        /// <summary>
+        /// Devuelve una lista de imágenes para la galeria de fotos.
+        /// </summary>
+        /// <returns></returns>
+        public List<ImagesGaleria> Get_ImagenesGaleria_All()
+        {
+            List<ImagesGaleria> oLista = new List<ImagesGaleria>();
+
+            ImagesGaleria oImagen = new ImagesGaleria();
+            oImagen.ruta = "DSC00455.JPG";
+            oImagen.reseña = "Algo solo un test";
+            oImagen.nombre = "Primera";
+
+            ImagesGaleria oImagen2 = new ImagesGaleria();
+            oImagen2.ruta = "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
+            oImagen2.reseña = "Nro2";
+            oImagen2.nombre = "Segunda";
+
+            ImagesGaleria oImagen3 = new ImagesGaleria();
+            oImagen3.ruta = "https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+            oImagen3.reseña = "Nro3";
+            oImagen3.nombre = "Tercera";
+
+
+            ImagesGaleria oImagen4 = new ImagesGaleria();
+            oImagen4.ruta = "https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+            oImagen4.reseña = "Nro2";
+            oImagen4.nombre = "Segunda";
+
+            ImagesGaleria oImagen5 = new ImagesGaleria();
+            oImagen5.ruta = "https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
+            oImagen5.reseña = "Nro2";
+            oImagen5.nombre = "Segunda";
+
+
+            oLista.Add(oImagen);
+            oLista.Add(oImagen2);
+            oLista.Add(oImagen3);
+            oLista.Add(oImagen4);
+            oLista.Add(oImagen5);
+//C:\Fuentes\Cdeleste2018\Cdeleste2018\WebApplication1\Imagenes\Galeria\DSC00455.JPG
+//            DSC00455.jpg
+            return oLista;
+        }
+        #endregion
     }
 }
 
