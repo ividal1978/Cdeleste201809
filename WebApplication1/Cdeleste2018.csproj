@@ -85,6 +85,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Escaparate.aspx" />
     <Content Include="Galeria.aspx" />
+    <Content Include="Galeria_ABM.aspx" />
     <Content Include="Imagenes\Bosque.ico" />
     <Content Include="Imagenes\Contactos\IMG_20190721_102308833_HDR.jpg" />
     <Content Include="Imagenes\Galeria\DSC00455.JPG" />
@@ -219,6 +220,13 @@
     </Compile>
     <Compile Include="Galeria.aspx.designer.cs">
       <DependentUpon>Galeria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Galeria_ABM.aspx.cs">
+      <DependentUpon>Galeria_ABM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Galeria_ABM.aspx.designer.cs">
+      <DependentUpon>Galeria_ABM.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inquilinos_ABM.aspx.cs">
       <DependentUpon>Inquilinos_ABM.aspx</DependentUpon>
