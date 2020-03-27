@@ -15,7 +15,7 @@ namespace WebApplication1
             {
                 Autenticar();
                 CargaImagenes();
-
+                lbId.Text = "Nuevo";
 
             }
         }
@@ -33,7 +33,7 @@ namespace WebApplication1
             }
         }
 
-   
+
 
         protected void Image_Click(object sender, CommandEventArgs e)
         {
@@ -71,8 +71,78 @@ namespace WebApplication1
             lbId.Text = "Nuevo";
             tbNombre.Text = "";
             tbComentario.Text = "";
-           
+
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+            // si tengo id debo hacer upload.
+            if (lbId.Text == "Nuevo")
+            {
+                if (VerificarImagen() == 0)
+                {
+                    // Guardo Archivo
+                    // Guardo Base de datos
+                }
+            }
+            else
+            {
+                //   Debo hacer un upload del  archivo
+                if (VerificarImagen() == 0)
+                {
+                    // Modifico Archivo
+                    // Modifico Base de datos
+                }
+            }
+        }
+
+        protected int VerificarImagen()
+        {
+            int counter = 0;
+            string[] Formatos = new string[] { ".jpg", ".gif", ".png", ".jpeg" };
+            if (fUpload.HasFile)
+            {
+                var ext = fUpload.FileName.Substring(fUpload.FileName.LastIndexOf("."));
+                //Verificar el formato de la imagen.
+                if (Formatos.Contains(ext.ToLower()))
+                {      //Verificar el peso de la imagen. 500k Max.
+                    if (fUpload.PostedFile.ContentLength <= 512000)
+                    {
+                        //verifico la dimension de la imagen
+                        System.Drawing.Image viImagen = System.Drawing.Image.FromStream(fUpload.PostedFile.InputStream);
+                        if (viImagen.PhysicalDimension.Width <= 1280 && viImagen.PhysicalDimension.Height <= 960)
+                        {
+                            counter = 0;
+                        }
+                        else
+                        {
+                            LbError.Text = $"La imagen tiene {viImagen.PhysicalDimension.Width }  x {viImagen.PhysicalDimension.Height} se recomienda no mas" +
+                                $" de 1280 x 960";
+                            counter++;
+                        }
+                    }
+                    else
+                    {
+                        LbError.Text = "La imagen pesa mas de 500kb, reduzca su peso en www.tinyjpg.com";
+                        counter++;
+                    }
+
+                }
+                else
+                {
+                    LbError.Text = "Verifique el que el formato del archivo sea .jpg, .jpeg, .gif, .png";
+                    counter++;
+                }
+            }
+            else
+            {
+                LbError.Text = "Seleccione un archivo de imagen .jpg , .gif ,.png";
+                counter++;
+            }
+            return counter;
+        }
     }
+
 }

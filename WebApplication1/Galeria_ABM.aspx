@@ -38,19 +38,19 @@
 
                             <asp:Repeater ID="rptImages" runat="server">
                                 <ItemTemplate>
-                                    <div class="col-lg-3 col-md-4 col-xs-6 thumb" > 
-                                      <asp:ImageButton runat="server" Width="90%" Height="90%"  ID="btnImg"  ImageUrl='<%#"~/Imagenes/Galeria/" + DataBinder.Eval(Container.DataItem, "ruta")%>'
-                                         OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# DataBinder.Eval(Container.DataItem,"id") %>' />
-                                      <a style="color: antiquewhite; text-shadow: 2px 2px 5px black;"><%# DataBinder.Eval(Container.DataItem, "reseña") %> </a> 
-                                    
+                                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                        <asp:ImageButton runat="server" Width="90%" Height="90%" ID="btnImg" ImageUrl='<%#"~/Imagenes/Galeria/" + DataBinder.Eval(Container.DataItem, "ruta")%>'
+                                            OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# DataBinder.Eval(Container.DataItem,"id") %>' />
+                                        <a style="color: antiquewhite; text-shadow: 2px 2px 5px black;"><%# DataBinder.Eval(Container.DataItem, "reseña") %> </a>
+
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
 
                         </div>
-                  
+
                     </td>
-                    <td style="width: 30%; vertical-align:top;">
+                    <td style="width: 30%; vertical-align: top;">
                         <table style="width: 100%;">
                             <tr>
                                 <td style="color: tan;" colspan="3">Id:
@@ -79,15 +79,20 @@
                                     <asp:TextBox ID="tbComentario" runat="server" CssClass="rcorners0" Width="100%"></asp:TextBox></td>
                             </tr>
                             <tr>
+                                <td colspan="3">
+                                    <asp:Label ID="LbError" runat="server" CssClass=" alert-danger"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td colspan="3"></td>
                             </tr>
                             <tr>
                                 <td>
                                     <asp:Button ID="btnLimpiar" runat="server" CssClass="btn btn-outline-primary" Text="Limpiar" OnClick="btnLimpiar_Click" />
                                 </td>
-                                <td style="text-align:center;">    
-                                    <asp:Button ID="btnSave" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" /></td>
-                                <td >
+                                <td style="text-align: center;">
+                                    <asp:Button ID="btnSave" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="btnSave_Click" /></td>
+                                <td>
                                     <asp:Button ID="btnDelete" runat="server" Text="Borrar" CssClass="btn btn-outline-danger" /></td>
                             </tr>
                         </table>
@@ -95,7 +100,7 @@
                     </td>
                 </tr>
             </table>
-                <asp:HiddenField ID="hdnSelectedRuta" runat="server" Value="" />
+            <asp:HiddenField ID="hdnSelectedRuta" runat="server" Value="" />
         </form>
     </div>
 </asp:Content>
