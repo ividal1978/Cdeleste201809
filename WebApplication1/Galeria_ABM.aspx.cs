@@ -14,7 +14,9 @@ namespace WebApplication1
             if (!Page.IsPostBack)
             {
                 Autenticar();
-             
+                CargaImagenes();
+
+
             }
         }
         protected void Autenticar()
@@ -29,6 +31,48 @@ namespace WebApplication1
             {
                 Response.Redirect("Menu.aspx");
             }
+        }
+
+   
+
+        protected void Image_Click(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "ImageClick")
+            {
+                Negocio.Negocio oNegocio = new Negocio.Negocio();
+
+
+                //e.CommandArgument -->  photoid value
+                var id = e.CommandArgument;
+                var Imagen = oNegocio.Get_ImagenesGaleria_xId(Convert.ToInt32(id));
+                lbId.Text = Imagen.id.ToString();
+                tbNombre.Text = Imagen.nombre;
+                tbComentario.Text = Imagen.reseña;
+                hdnSelectedRuta.Value = Imagen.reseña;
+                img.ImageUrl = "~/Imagenes/Galeria/" + Imagen.ruta;
+
+
+                //Do something
+            }
+        }
+        public void CargaImagenes()
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+
+            if (string.IsNullOrEmpty(img.ImageUrl))
+                img.ImageUrl = "~/Imagenes/Noticias/noimagen.png";
+            rptImages.DataSource = oNegocio.Get_ImagenesGaleria_All();
+            rptImages.DataBind();
+
+        }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            lbId.Text = "Nuevo";
+            tbNombre.Text = "";
+            tbComentario.Text = "";
+           
+
         }
     }
 }

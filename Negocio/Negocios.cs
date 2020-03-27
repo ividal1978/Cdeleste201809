@@ -177,8 +177,17 @@ namespace Negocio
         {
             return oData.Get_ImagenesGaleria_All();
         }
-            #endregion
 
+        /// <summary>
+        /// Busqueda de una imagen por id.
+        /// </summary>
+        /// <param name="id">parametro numerico entero.</param>
+        /// <returns>devuevle un unico objeto con forma de galeria.</returns>
+        public ImagesGaleria Get_ImagenesGaleria_xId(int id)
+        {
+            return oData.Get_ImagenesGaleria_xId(id);
+        }
+            #endregion
 
         }
 }

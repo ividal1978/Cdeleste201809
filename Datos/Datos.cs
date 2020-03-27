@@ -1295,6 +1295,52 @@ namespace Datos
             }
 
         }
+
+
+        /// <summary>
+        /// Devuelve los datos de una imagen buscada por id.
+        /// </summary>
+        /// <param name="id">parametro numerico entero.</param>
+        /// <returns>Un objeto de galeria.</returns>
+        public ImagesGaleria Get_ImagenesGaleria_xId( int id)
+        {
+           try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                Query = $"Select id, ruta, nombre, comentario from ImagenesGaleria where id ={id.ToString()}";
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+
+                MySqlDataAdapter myDA = new MySqlDataAdapter(myCommand);
+
+                DataSet myDS = new DataSet();
+                myDA.Fill(myDS, "Imagenes");
+                DataTable dt = new DataTable();
+                myDA.Fill(dt);
+                ImagesGaleria oImg = new ImagesGaleria();
+                //*  importe como referenias el conector 5.27
+                foreach (DataRow oFila in myDS.Tables["Imagenes"].Rows)
+                {
+                    
+                    oImg.id = Convert.ToInt32(oFila[0].ToString());
+                    oImg.ruta = oFila[1].ToString();
+                    oImg.nombre = oFila[2].ToString();
+                    oImg.reseña = oFila[3].ToString();
+                }
+
+                return oImg ;
+
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Imagenes Galeria - Get Imagenes x Id :: " + ex.StackTrace.ToString());
+                return null;
+            }
+
+        }
         #endregion
     }
 }
