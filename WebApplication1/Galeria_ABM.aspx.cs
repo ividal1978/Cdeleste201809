@@ -87,11 +87,9 @@ namespace WebApplication1
                 if (VerificarImagen() == 0)
                 {
                     // Guardo Archivo
-                    SaveFile(fUpload.PostedFile);
-                    //Guardar en la base de datos
-              
-
-                    // Guardo Base de datos
+                    img.DescriptionUrl = SaveFile(fUpload.PostedFile);
+                    LbError.CssClass = "alert-info";
+                    LbError.Text = "La imagen se Guardo correctamente.";
                 }
             }
             else
@@ -104,6 +102,7 @@ namespace WebApplication1
                     // Modifico Base de datos
                 }
             }
+
         }
 
         protected int VerificarImagen()
@@ -153,7 +152,7 @@ namespace WebApplication1
             return counter;
         }
 
-        protected void SaveFile(HttpPostedFile file)
+        protected string SaveFile(HttpPostedFile file)
         {
             // Specify the path to save the uploaded file to.
             string savePath = "~/Imagenes/Galeria/";//"c:\\temp\\uploads\\";
@@ -173,7 +172,7 @@ namespace WebApplication1
             LbError.CssClass = " alert-info";
             LbError.Text = "Se ha Guardado correctamente.";
             ImagesGaleria oImagen = new ImagesGaleria();
-            oImagen.id = (lbId.Text =="Nuevo"?-1: Convert.ToInt32(LbError.Text));
+            oImagen.id = (lbId.Text == "Nuevo" ? -1 : Convert.ToInt32(LbError.Text));
             oImagen.ruta = aux + ext;
             oImagen.reseña = tbComentario.Text;
             oImagen.nombre = tbNombre.Text;
@@ -181,36 +180,43 @@ namespace WebApplication1
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             oNegocio.Save_Imagen(oImagen);
 
-
+            return savePath;
         }
 
         protected void btnSobreEscribir_Click(object sender, EventArgs e)
         {
-            SaveFile(fUpload.PostedFile);
+            img.DescriptionUrl = SaveFile(fUpload.PostedFile);
+            LbError.CssClass = "alert-info";
+            LbError.Text = "La imagen se actualizo correctamente.";
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-                string strPhysicalFolder = Server.MapPath(".~/Imagenes/Galeria/");
+            string strPhysicalFolder = Server.MapPath(".~/Imagenes/Galeria/");
 
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             var imagen = oNegocio.Get_ImagenesGaleria_xId(Convert.ToInt32(lbId.Text));
-                string strFileFullPath = strPhysicalFolder + imagen.ruta;
-
-            oNegocio.Del_Galeria(imagen.id);
-
+            string strFileFullPath = strPhysicalFolder + imagen.ruta;
             try
             {
+                oNegocio.Del_Galeria(imagen.id);
+
+
                 if (File.Exists(strFileFullPath))
                 {
                     File.Delete(strFileFullPath);
                 }
+                LbError.CssClass = "alert-info";
+                LbError.Text = "La imagen se Elimino correctamente.";
             }
             catch (Exception ex)
             {
                 _logger1.Error(ex, " Datos - Galeria - Delete :: " + ex.StackTrace.ToString());
+                LbError.CssClass = "alert-danger";
+                LbError.Text = "Ha ocurrido un error.";
             }
-            
+
+
         }
     }
 
