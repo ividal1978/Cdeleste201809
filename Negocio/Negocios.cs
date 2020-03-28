@@ -166,8 +166,8 @@ namespace Negocio
         public Boolean Exist_Reserva(Reservas oReserva)
         {
             var ReservasActivas = oData.Exist_Reserva(oReserva);
-            return (ReservasActivas.Rows.Count >0);
-              
+            return (ReservasActivas.Rows.Count > 0);
+
         }
 
         #endregion
@@ -187,7 +187,25 @@ namespace Negocio
         {
             return oData.Get_ImagenesGaleria_xId(id);
         }
-            #endregion
 
+        /// <summary>
+        /// Graba una imagen en la base de datos
+        /// </summary>
+        /// <param name="oImagen"></param>
+        public void Save_Imagen(ImagesGaleria oImagen)
+        {
+            oData.Save_Imagen(oImagen);
         }
+
+        /// <summary>
+        /// Elimina una imagen de la base  de datos
+        /// </summary>
+        /// <param name="Id"></param>
+        public void Del_Galeria(int Id)
+        {
+            oData.DeleteNoticia(Id);
+        }
+        #endregion
+
+    }
 }

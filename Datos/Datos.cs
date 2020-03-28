@@ -1341,6 +1341,80 @@ namespace Datos
             }
 
         }
+
+        /// <summary>
+        /// Guarda una imagen en la base de datos
+        /// </summary>
+        /// <param name="oImagen"> un  objeto de imagen</param>
+        public void Save_Imagen(ImagesGaleria oImagen)
+        {
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string Query = "";
+                if (oImagen.id > 0)
+                {
+                    //UPDATE
+   
+                    Query = " UPDATE ImagenesGaleria" +
+                            " SET ruta = " +oImagen.ruta+ " ," +
+                            " nombre = '" + oImagen.nombre + "'," +
+                            " comentario  = '" +oImagen.reseña+ "'";
+                    Query += " WHERE id =" + oImagen.id  .ToString();
+
+                }
+                else
+                {//INSERT
+
+                    //  Insert into ImagenesGaleria(ruta, nombre, comentario) values('DSC00455.JPG', 'Primera', 'Solo test');
+                    Query = "INSERT INTO ImagenesGaleria  (ruta, nombre, comentario,) VALUES(" +
+                            "'" + oImagen.ruta + "','" + oImagen.nombre + "','" + oImagen.reseña + "')";
+                          
+                }
+
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Galeria - Save :: " + ex.StackTrace.ToString());
+            }
+        }
+
+
+        /// <summary>
+        /// Elimina un registro de la Galeria.
+        /// </summary>
+        /// <param name="Id"> id de imagen de galeria.</param>
+        public void Del_Galeria(int Id)
+        {
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                //*  importe como referenias el conector 5.27
+                string Query = "";
+                    //DELETE
+                    Query = " Delete ImagenesGaleria" +
+                         " WHERE id =" + Id.ToString();
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Galeria - Delete :: " + ex.StackTrace.ToString());
+            }
+        }
         #endregion
     }
 }

@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Contrato;
+using NLog;
+using System.IO;
 
 namespace WebApplication1
 {
     public partial class Galeria_ABM : System.Web.UI.Page
     {
+        private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -32,7 +36,6 @@ namespace WebApplication1
                 Response.Redirect("Menu.aspx");
             }
         }
-
 
 
         protected void Image_Click(object sender, CommandEventArgs e)
@@ -84,6 +87,10 @@ namespace WebApplication1
                 if (VerificarImagen() == 0)
                 {
                     // Guardo Archivo
+                    SaveFile(fUpload.PostedFile);
+                    //Guardar en la base de datos
+              
+
                     // Guardo Base de datos
                 }
             }
@@ -92,6 +99,7 @@ namespace WebApplication1
                 //   Debo hacer un upload del  archivo
                 if (VerificarImagen() == 0)
                 {
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "ShowPopup();", true);
                     // Modifico Archivo
                     // Modifico Base de datos
                 }
@@ -104,6 +112,7 @@ namespace WebApplication1
             string[] Formatos = new string[] { ".jpg", ".gif", ".png", ".jpeg" };
             if (fUpload.HasFile)
             {
+                LbError.CssClass = "alert-danger";
                 var ext = fUpload.FileName.Substring(fUpload.FileName.LastIndexOf("."));
                 //Verificar el formato de la imagen.
                 if (Formatos.Contains(ext.ToLower()))
@@ -144,53 +153,64 @@ namespace WebApplication1
             return counter;
         }
 
-        void SaveFile(HttpPostedFile file)
+        protected void SaveFile(HttpPostedFile file)
         {
             // Specify the path to save the uploaded file to.
             string savePath = "~/Imagenes/Galeria/";//"c:\\temp\\uploads\\";
 
             // Get the name of the file to upload.
             string fileName = fUpload.FileName;
-
+            string auxFilename = fUpload.FileName.Substring(0, fUpload.FileName.LastIndexOf(".") - 1);
+            string ext = fUpload.FileName.Substring(fUpload.FileName.LastIndexOf("."));
             // Create the path and file name to check for duplicates.
             string pathToCheck = savePath + fileName;
-
-            // Create a temporary file name to use for checking duplicates.
-            string tempfileName = "";
-
-            // Check to see if a file already exists with the
-            // same name as the file to upload.        
-            if (System.IO.File.Exists(pathToCheck))
-            {
-                int counter = 2;
-                while (System.IO.File.Exists(pathToCheck))
-                {
-                    // if a file with this name already exists,
-                    // prefix the filename with a number.
-                    tempfileName = counter.ToString() + fileName;
-                    pathToCheck = savePath + tempfileName;
-                    counter++;
-                }
-
-                fileName = tempfileName;
-
-                // Notify the user that the file name was changed.
-               //-- UploadStatusLabel.Text = "A file with the same name already exists." +
-               //--     "<br />Your file was saved as " + fileName;
-            }
-            else
-            {
-                // Notify the user that the file was saved successfully.
-                LbError.Text = "Your file was uploaded successfully.";
-            }
+            string aux = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "").Replace("-", "");
 
             // Append the name of the file to upload to the path.
-            savePath += fileName;
+            savePath += aux + ext;
 
-            // Call the SaveAs method to save the uploaded
-            // file to the specified directory.
             fUpload.SaveAs(savePath);
+            LbError.CssClass = " alert-info";
+            LbError.Text = "Se ha Guardado correctamente.";
+            ImagesGaleria oImagen = new ImagesGaleria();
+            oImagen.id = (lbId.Text =="Nuevo"?-1: Convert.ToInt32(LbError.Text));
+            oImagen.ruta = aux + ext;
+            oImagen.reseña = tbComentario.Text;
+            oImagen.nombre = tbNombre.Text;
 
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            oNegocio.Save_Imagen(oImagen);
+
+
+        }
+
+        protected void btnSobreEscribir_Click(object sender, EventArgs e)
+        {
+            SaveFile(fUpload.PostedFile);
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+                string strPhysicalFolder = Server.MapPath(".~/Imagenes/Galeria/");
+
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            var imagen = oNegocio.Get_ImagenesGaleria_xId(Convert.ToInt32(lbId.Text));
+                string strFileFullPath = strPhysicalFolder + imagen.ruta;
+
+            oNegocio.Del_Galeria(imagen.id);
+
+            try
+            {
+                if (File.Exists(strFileFullPath))
+                {
+                    File.Delete(strFileFullPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Galeria - Delete :: " + ex.StackTrace.ToString());
+            }
+            
         }
     }
 

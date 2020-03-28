@@ -13,6 +13,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <br />
+    <script type="text/javascript">
+        function ShowPopup() {
+            $("#btnShowPopup").click();
+        }
+    </script>
     <hr style="background-color: darkolivegreen; height: 15px;" />
     <hr style="background-color: darkgoldenrod; height: 4px;" />
     <div class="container-fluid" style="margin-top: 10px;">
@@ -93,14 +98,37 @@
                                 <td style="text-align: center;">
                                     <asp:Button ID="btnSave" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="btnSave_Click" /></td>
                                 <td>
-                                    <asp:Button ID="btnDelete" runat="server" Text="Borrar" CssClass="btn btn-outline-danger" /></td>
+                                    <asp:Button ID="btnDelete" runat="server" Text="Borrar" CssClass="btn btn-outline-danger" OnClick="btnDelete_Click" /></td>
                             </tr>
                         </table>
-
-                    </td>
+                      
+                   <button type="button" style="display: none;" id="btnShowPopup" class="btn btn-primary btn-lg"
+                    data-toggle="modal" data-target="#modalSobreescribir">
+                    Launch demo modal</button>
                 </tr>
             </table>
             <asp:HiddenField ID="hdnSelectedRuta" runat="server" Value="" />
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalSobreescribir" tabindex="-1" role="dialog" aria-labelledby="modalSobreescribir" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            El Archivo ya existe, ¿ desea sobre escribirlo ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
+                            <asp:Button ID="btnSobreEscribir" runat="server" CssClass="btn btn-outline-warning" Text="Sobre Escibir" OnClick ="btnSobreEscribir_Click" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </asp:Content>
