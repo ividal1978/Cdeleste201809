@@ -55,3 +55,4 @@
    at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
    at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
    at Datos.Datos.Del_Galeria(Int32 Id) in C:\Fuentes\Cdeleste2018\Cdeleste2018\Datos\Datos.cs:line 1409 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id =6' at line 1|Logger1|
+2020/03/28 22:49:27.525|ERROR| Datos - DeleteNoticia Access denied for user ''@'localhost' (using password: NO)|Logger1|

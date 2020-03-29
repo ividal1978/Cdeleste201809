@@ -69,7 +69,7 @@ namespace WebApplication1
             {
                 lbId.Text ="Id: "+ Query.IdNoticia.ToString();
                 lbFecha.Text ="Fecha :"+ Query.Fecha.ToString();
-                tbNoticia.Text = Query.Noticia;
+                tbNoticia.Content = Query.Noticia;
                 if (Query.Tipo == "NOTI")
                 {
                     img.Visible = true;
@@ -89,7 +89,7 @@ namespace WebApplication1
         {
             lbId.Text = "NUEVO";
             lbFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            tbNoticia.Text = "";
+            tbNoticia.Content = "";
             
         }
 
@@ -99,46 +99,54 @@ namespace WebApplication1
             lbId.Text = (string.IsNullOrEmpty(lbId.Text) == true ? "-1" : lbId.Text);
             oNoticias.IdNoticia = (lbId.Text == "NUEVO" ? -1 : Convert.ToInt32(lbId.Text.Substring(lbId.Text.IndexOf(":") + 1)));
             oNoticias.Fecha = (oNoticias.IdNoticia > 0 ? DateTime.Now : Convert.ToDateTime(lbFecha.Text.Substring(lbFecha.Text.IndexOf(":") + 1)));
-            oNoticias.Noticia = tbNoticia.Text;
+            oNoticias.Noticia = tbNoticia.Content;
             oNoticias.Tipo = ddlTipoNoticia.SelectedValue.ToString();
-            if (fupdate.HasFile)
+            if (tbNoticia.Content.Length < 800)
             {
-                string Archivo = fupdate.FileName.ToString();
-                //verifico el formato jpg o png 
-                if (Archivo.ToUpper().Contains(".JPG") || Archivo.ToUpper().Contains(".PNG"))
+                if (fupdate.HasFile)
                 {
-                    string extencion = (Archivo.ToUpper().Contains(".JPG") ? ".JPG" : ".PNG");
-                   //verifico la dimension de la imagen
-                   System.Drawing.Image viImagen = System.Drawing.Image.FromStream(fupdate.PostedFile.InputStream);
-                    if (viImagen.PhysicalDimension.Width <= 200 && viImagen.PhysicalDimension.Height <= 200)
-                    { // guardo la imagen en imagenes/noticias
-                        try
-                        {     // subo el nombre del archivo al objeto
-                            string nombrArchivo = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                            fupdate.SaveAs(Server.MapPath("~\\Imagenes\\Noticias\\" + nombrArchivo + extencion));
-                            oNoticias.RutaImagen = nombrArchivo + extencion;
+                    string Archivo = fupdate.FileName.ToString();
+                    //verifico el formato jpg o png 
+                    if (Archivo.ToUpper().Contains(".JPG") || Archivo.ToUpper().Contains(".PNG"))
+                    {
+                        string extencion = (Archivo.ToUpper().Contains(".JPG") ? ".JPG" : ".PNG");
+                        //verifico la dimension de la imagen
+                        System.Drawing.Image viImagen = System.Drawing.Image.FromStream(fupdate.PostedFile.InputStream);
+                        if (viImagen.PhysicalDimension.Width <= 200 && viImagen.PhysicalDimension.Height <= 200)
+                        { // guardo la imagen en imagenes/noticias
+                            try
+                            {     // subo el nombre del archivo al objeto
+                                string nombrArchivo = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+                                fupdate.SaveAs(Server.MapPath("~\\Imagenes\\Noticias\\" + nombrArchivo + extencion));
+                                oNoticias.RutaImagen = nombrArchivo + extencion;
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger1.Error(ex, " Carga Imangen Noticia");
+                            }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            _logger1.Error(ex, " Carga Imangen Noticia");
+                            lbError.Text = "La imagen debe ser menor a 200px x 200px ";
                         }
                     }
                     else
                     {
-                        lbError.Text = "La imagen debe ser menor a 200px x 200px ";
+                        lbError.Text = "Solo imagenes de extensio .jpg o .png";
                     }
                 }
-                else
-                {
-                    lbError.Text = "Solo imagenes de extensio .jpg o .png";
-                }     
+                Negocio.Negocio oNegocio = new Negocio.Negocio();
+                oNegocio.SaveNoticia(oNoticias);
+                //limpio los contorles del formulario
+                tbNoticia.Content = "";
+                //Cargo la grilla nuevamente
+                CargarNoticias();
             }
-            Negocio.Negocio oNegocio = new Negocio.Negocio();
-            oNegocio.SaveNoticia(oNoticias);
-            //limpio los contorles del formulario
-            tbNoticia.Text = "";
-            //Cargo la grilla nuevamente
-            CargarNoticias();
+            else
+            {
+                lbError.CssClass = "text-danger text-center";
+                lbError.Text = " El contenido HTML tiene mas de 800 caracteres.";
+            }
         }
         
         
@@ -153,6 +161,14 @@ namespace WebApplication1
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
             int Id = Convert.ToInt32(dgNoticias.Items[e.Item.ItemIndex].Cells[0].Text);
+            oNegocio.DeleteNoticia(Id);
+            CargarNoticias();
+        }
+
+        protected void btnBorrar_Click(object sender, EventArgs e)
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            int Id = Convert.ToInt32(lbId.Text.Substring(lbId.Text.IndexOf(":")+1));
             oNegocio.DeleteNoticia(Id);
             CargarNoticias();
         }

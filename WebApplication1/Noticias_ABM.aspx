@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cdeleste.Master" AutoEventWireup="true" CodeBehind="Noticias_ABM.aspx.cs" Inherits="WebApplication1.Noticias_ABM" ValidateRequest="false" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc2" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit.HTMLEditor" tagprefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
@@ -30,6 +34,8 @@
                     <asp:DropDownList ID="ddlTipoNoticia" runat="server" CssClass="btn btn-warning dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="ddlTipoNoticia_SelectedIndexChanged">
                         <asp:ListItem Text="Noticia" Value="NOTI" Selected="True"></asp:ListItem>
                         <asp:ListItem Text="Portada" Value="PORT"></asp:ListItem>
+                        <asp:ListItem Text="Lugares" Value="LUGA"></asp:ListItem>
+                        <asp:ListItem Text="Emergencia" Value ="EMER"></asp:ListItem>
                     </asp:DropDownList>
                     <br />
                     <br />
@@ -41,13 +47,6 @@
                                 <asp:BoundColumn DataField="Noticia" HeaderText="Noticia"></asp:BoundColumn>
                                 <asp:BoundColumn DataField="RutaImagen" HeaderText="Imagen"></asp:BoundColumn>
                                 <asp:EditCommandColumn CancelText="Cancelar" EditText="Editar" UpdateText="Guardar"></asp:EditCommandColumn>
-
-                                <asp:ButtonColumn CommandName="Delete" Text="Borrar"></asp:ButtonColumn>
-
-                                <asp:EditCommandColumn CancelText="Cancelar" EditText="Editar" UpdateText="Guardar"></asp:EditCommandColumn>
-
-                                <asp:ButtonColumn CommandName="Delete" Text="Borrar"></asp:ButtonColumn>
-
 
                             </Columns>
 
@@ -62,15 +61,17 @@
                         <tr>
                             <td>
                                 <asp:Label ID="lbId" runat="server" ForeColor="Tan" Font-Size="Large"></asp:Label></td>
-                            <td>
+                            <td colspan="2">
                                 <asp:Label ID="lbFecha" runat="server" ForeColor="Tan" Font-Size="Large"></asp:Label></td>
                         </tr>
                         <tr>
                             <td>
                                 <asp:Label ID="lbNoticia" runat="server" ForeColor="Tan" Font-Size="Large" Text="Noticia:"></asp:Label>
                             </td>
-                            <td>
-                                <asp:TextBox ID="tbNoticia" runat="server" Height="200px" Width="400px" CssClass="rcorners0" TextMode="MultiLine" ToolTip=" Las noticias no debe tener mas de 200 caracteres"></asp:TextBox>
+                            <td colspan="2">
+                                <%--<asp:TextBox ID="tbNoticia" runat="server"  TextMode="MultiLine" ToolTip=" Las noticias no debe tener mas de 200 caracteres"></asp:TextBox>--%>
+
+                                <cc1:Editor ID="tbNoticia" runat="server" Height="500px" Width="100%" CssClass="rcorners0"  />
 
                             </td>
                         </tr>
@@ -78,21 +79,30 @@
                             <td>
                                 <asp:Image ID="img" runat="server" CssClass="rcorners0" Width="100px" Height="100px" />
                             </td>
-                            <td>
-                                <p style="font-family: 'Trebuchet MS'; color: tan; font-size: medium;">Recomendiones: La imagen debe ser pequeña de 100 pixeles por 100 pixeles. y de extension .JPG  </p>
+                            <td  colspan="2">
+                                <p style="font-family: 'Trebuchet MS'; color:antiquewhite; font-size: medium;">Recomendaciones:<br /> * La imagen para noticias debe ser pequeña de 100 pixeles por 100 pixeles. y de extension .JPG  </p>
+                                <p style="font-family: 'Trebuchet MS'; color: antiquewhite; font-size: medium;"> * Comprima las imagenes en sitios como www.tinyjpg.com  </p>
+                                 <p style="font-family: 'Trebuchet MS'; color: antiquewhite; font-size: medium;">* Las noticias no deben tener mas de 200 caracteres. </p>
+                                <p style="font-family: 'Trebuchet MS'; color: antiquewhite; font-size: medium;"> * El editor es html, y soporta hasta 800 caractéres. (recuerde que los estilos, subrayados y otro&nbsp; decorado adicional, bajan estala cantidad de caractéres disponibles)"</p>
+                                <p style="font-family: 'Trebuchet MS'; color: antiquewhite; font-size: medium;"> * Para ver la el código generado presione el boton [<>] al final del editor."</p>
                             </td>
                         </tr>
-                        <tr>
+                        <tr> 
+                            <td></td>
                             <td colspan="2">
                                 <asp:FileUpload ID="fupdate" runat="server" CssClass="rounded" BackColor="Tan" />
                             </td>
+                          
                         </tr>
                         <tr>
                             <td>
                                 <asp:Button ID="btnNuevo" runat="server" CssClass="btn btn-outline-warning" Text="Nuevo" OnClick="btnNuevo_Click" />
                             </td>
-                            <td>
+                            <td  >
                                 <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="btnGuardar_Click" />
+                            </td>
+                            <td>
+                                <asp:Button ID="btnBorrar" runat="server" CssClass="btn btn-outline-danger" Text ="Borrar" OnClick="btnBorrar_Click"/>
                             </td>
                         </tr>
 
@@ -103,6 +113,7 @@
                     </table>
                 </div>
             </div>
+            <cc2:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc2:ToolkitScriptManager>
         </form>
     </div>
 </asp:Content>
