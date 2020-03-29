@@ -114,6 +114,8 @@
                 </div>
             </div>
             <cc2:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc2:ToolkitScriptManager>
+            <asp:HiddenField ID="hdnImageSelected" runat="server" />
+
         </form>
     </div>
 </asp:Content>

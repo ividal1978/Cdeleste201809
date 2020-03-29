@@ -128,7 +128,7 @@ namespace WebApplication1
 
         }
 
-        protected int VerificarImagen()
+        protected int VerificarImagen( )
         {
             int counter = 0;
             string[] Formatos = new string[] { ".jpg", ".gif", ".png", ".jpeg" };

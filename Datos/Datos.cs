@@ -280,7 +280,7 @@ namespace Datos
             {
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection();
-                string query = "DELETE FROM Noticias WHERE IdNoticia = " + IdNoticia.ToString();
+                string query = "DELETE FROM cdeleste_DB.noticias WHERE IdNoticia = " + IdNoticia.ToString();
                 conn.Open();
                 MySqlCommand myCommand = new MySqlCommand(query, conn);
                 myCommand.ExecuteNonQuery();
@@ -289,7 +289,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                _logger1.Error(ex, " Datos - DeleteNoticia");
+                _logger1.Error(ex, " Datos - Delete - Noticia");
             }
         }
         #endregion
