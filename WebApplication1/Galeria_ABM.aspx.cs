@@ -51,7 +51,7 @@ namespace WebApplication1
                 lbId.Text = Imagen.id.ToString();
                 tbNombre.Text = Imagen.nombre;
                 tbComentario.Text = Imagen.reseña;
-                hdnSelectedRuta.Value = Imagen.reseña;
+                hdnSelectedRuta.Value = Imagen.ruta;
                 img.ImageUrl = "~/Imagenes/Galeria/" + Imagen.ruta;
 
 
@@ -71,11 +71,14 @@ namespace WebApplication1
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
+
+            Limpiar();
+        }
+        protected void Limpiar()
+        {
             lbId.Text = "Nuevo";
             tbNombre.Text = "";
             tbComentario.Text = "";
-
-
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -90,6 +93,8 @@ namespace WebApplication1
                     img.DescriptionUrl = SaveFile(fUpload.PostedFile);
                     LbError.CssClass = "alert-info";
                     LbError.Text = "La imagen se Guardo correctamente.";
+                    Limpiar();
+                    Server.TransferRequest(Request.Url.AbsolutePath, false);
                 }
             }
             else
@@ -97,9 +102,27 @@ namespace WebApplication1
                 //   Debo hacer un upload del  archivo
                 if (VerificarImagen() == 0)
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "ShowPopup();", true);
+                    img.DescriptionUrl = SaveFile(fUpload.PostedFile, hdnSelectedRuta.Value);
+                    LbError.CssClass = "alert-info";
+                    LbError.Text = "La imagen se actualizo correctamente.";
+                    //   ClientScript.RegisterStartupScript(this.GetType(), "alert", "ShowPopup();", true);
                     // Modifico Archivo
                     // Modifico Base de datos
+                    Server.TransferRequest(Request.Url.AbsolutePath, false);
+                }
+                else
+                {
+                    LbError.CssClass = " alert-info";
+                    LbError.Text = "Se ha actualizaron los datos correctamente.";
+                    ImagesGaleria oImagen = new ImagesGaleria();
+                    oImagen.id = (lbId.Text == "Nuevo" ? -1 : Convert.ToInt32(lbId.Text));
+                    oImagen.ruta =hdnSelectedRuta.Value;
+                    oImagen.reseña = tbComentario.Text;
+                    oImagen.nombre = tbNombre.Text;
+
+                    Negocio.Negocio oNegocio = new Negocio.Negocio();
+                    oNegocio.Save_Imagen(oImagen);
+                    Server.TransferRequest(Request.Url.AbsolutePath, false);
                 }
             }
 
@@ -152,27 +175,28 @@ namespace WebApplication1
             return counter;
         }
 
-        protected string SaveFile(HttpPostedFile file)
+        protected string SaveFile(HttpPostedFile file, string ruta = "")
         {
             // Specify the path to save the uploaded file to.
-            string savePath = "~/Imagenes/Galeria/";//"c:\\temp\\uploads\\";
-
+            string savePath = "~\\Imagenes\\Galeria\\";//"c:\\temp\\uploads\\";
+           // Server.MapPath("~\\Imagenes\\Propiedades\\" + lbId.Text + "\\" + IdImagen.ToString() + extencion)
             // Get the name of the file to upload.
             string fileName = fUpload.FileName;
-            string auxFilename = fUpload.FileName.Substring(0, fUpload.FileName.LastIndexOf(".") - 1);
+            string auxFilename = fUpload.FileName.Substring(0, fUpload.FileName.LastIndexOf("."));
             string ext = fUpload.FileName.Substring(fUpload.FileName.LastIndexOf("."));
             // Create the path and file name to check for duplicates.
             string pathToCheck = savePath + fileName;
-            string aux = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "").Replace("-", "");
+
+            string aux =  (string.IsNullOrEmpty(ruta)?DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "").Replace("-", ""):ruta.Substring(0, ruta.LastIndexOf(".")));
 
             // Append the name of the file to upload to the path.
             savePath += aux + ext;
 
-            fUpload.SaveAs(savePath);
+            fUpload.SaveAs(Server.MapPath(savePath));
             LbError.CssClass = " alert-info";
             LbError.Text = "Se ha Guardado correctamente.";
             ImagesGaleria oImagen = new ImagesGaleria();
-            oImagen.id = (lbId.Text == "Nuevo" ? -1 : Convert.ToInt32(LbError.Text));
+            oImagen.id = (lbId.Text == "Nuevo" ? -1 : Convert.ToInt32(lbId.Text));
             oImagen.ruta = aux + ext;
             oImagen.reseña = tbComentario.Text;
             oImagen.nombre = tbNombre.Text;
@@ -192,30 +216,38 @@ namespace WebApplication1
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            string strPhysicalFolder = Server.MapPath(".~/Imagenes/Galeria/");
-
-            Negocio.Negocio oNegocio = new Negocio.Negocio();
-            var imagen = oNegocio.Get_ImagenesGaleria_xId(Convert.ToInt32(lbId.Text));
-            string strFileFullPath = strPhysicalFolder + imagen.ruta;
-            try
+            if (lbId.Text != "Nuevo" && !string.IsNullOrEmpty(lbId.Text))
             {
-                oNegocio.Del_Galeria(imagen.id);
+                string strPhysicalFolder = Server.MapPath("~/Imagenes/Galeria/");
 
-
-                if (File.Exists(strFileFullPath))
+                Negocio.Negocio oNegocio = new Negocio.Negocio();
+             
+                string strFileFullPath = strPhysicalFolder +hdnSelectedRuta.Value;
+                try
                 {
-                    File.Delete(strFileFullPath);
-                }
-                LbError.CssClass = "alert-info";
-                LbError.Text = "La imagen se Elimino correctamente.";
-            }
-            catch (Exception ex)
-            {
-                _logger1.Error(ex, " Datos - Galeria - Delete :: " + ex.StackTrace.ToString());
-                LbError.CssClass = "alert-danger";
-                LbError.Text = "Ha ocurrido un error.";
-            }
+                    oNegocio.Del_Galeria(Convert.ToInt32(lbId.Text));
 
+
+                    if (File.Exists(strFileFullPath))
+                    {
+                        File.Delete(strFileFullPath);
+                    }
+                    LbError.CssClass = "alert-info";
+                    LbError.Text = "La imagen se Elimino correctamente.";
+                    Server.TransferRequest(Request.Url.AbsolutePath, false);
+                }
+                catch (Exception ex)
+                {
+                    _logger1.Error(ex, " Datos - Galeria - Delete :: " + ex.StackTrace.ToString());
+                    LbError.CssClass = "alert-danger";
+                    LbError.Text = "Ha ocurrido un error.";
+                }
+            }
+            else
+            {
+                LbError.CssClass = "alert-danger";
+                LbError.Text = "Seleccione una imagen.";
+            }
 
         }
     }

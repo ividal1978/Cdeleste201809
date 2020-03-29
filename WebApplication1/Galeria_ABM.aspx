@@ -45,7 +45,7 @@
                                 <ItemTemplate>
                                     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                                         <asp:ImageButton runat="server" Width="90%" Height="90%" ID="btnImg" ImageUrl='<%#"~/Imagenes/Galeria/" + DataBinder.Eval(Container.DataItem, "ruta")%>'
-                                            OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# DataBinder.Eval(Container.DataItem,"id") %>' />
+                                            OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# DataBinder.Eval(Container.DataItem,"id") %>' /><br />
                                         <a style="color: antiquewhite; text-shadow: 2px 2px 5px black;"><%# DataBinder.Eval(Container.DataItem, "reseña") %> </a>
 
                                     </div>
@@ -76,12 +76,12 @@
                             <tr>
                                 <td style="color: tan;">Nombre:</td>
                                 <td colspan="2">
-                                    <asp:TextBox ID="tbNombre" runat="server" CssClass="rcorners0" Width="100%"></asp:TextBox></td>
+                                    <asp:TextBox ID="tbNombre" runat="server" CssClass="rcorners0" Width="100%" ToolTip="Solo como referencia."></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td style="color: tan;">Comentario:</td>
                                 <td colspan="2">
-                                    <asp:TextBox ID="tbComentario" runat="server" CssClass="rcorners0" Width="100%"></asp:TextBox></td>
+                                    <asp:TextBox ID="tbComentario" runat="server" CssClass="rcorners0" Width="100%" ToolTip="Texto bajo la Imagen."></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td colspan="3">

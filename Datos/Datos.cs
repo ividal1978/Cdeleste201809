@@ -1359,18 +1359,18 @@ namespace Datos
                     //UPDATE
    
                     Query = " UPDATE ImagenesGaleria" +
-                            " SET ruta = " +oImagen.ruta+ " ," +
+                            " SET ruta ='" +oImagen.ruta+ "' ," +
                             " nombre = '" + oImagen.nombre + "'," +
                             " comentario  = '" +oImagen.reseña+ "'";
-                    Query += " WHERE id =" + oImagen.id  .ToString();
+                    Query += " WHERE id =" + oImagen.id .ToString();
 
                 }
                 else
                 {//INSERT
 
                     //  Insert into ImagenesGaleria(ruta, nombre, comentario) values('DSC00455.JPG', 'Primera', 'Solo test');
-                    Query = "INSERT INTO ImagenesGaleria  (ruta, nombre, comentario,) VALUES(" +
-                            "'" + oImagen.ruta + "','" + oImagen.nombre + "','" + oImagen.reseña + "')";
+                    Query = "INSERT INTO ImagenesGaleria (ruta, nombre, comentario) VALUES(" +
+                            "'" + oImagen.ruta + "','" + oImagen.nombre + "','" + oImagen.reseña + "');";
                           
                 }
 
@@ -1401,8 +1401,8 @@ namespace Datos
                 //*  importe como referenias el conector 5.27
                 string Query = "";
                     //DELETE
-                    Query = " Delete ImagenesGaleria" +
-                         " WHERE id =" + Id.ToString();
+                    Query = " Delete from ImagenesGaleria" +
+                         " WHERE id = " + Id.ToString();
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);

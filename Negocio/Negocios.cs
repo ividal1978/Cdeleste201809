@@ -203,7 +203,7 @@ namespace Negocio
         /// <param name="Id"></param>
         public void Del_Galeria(int Id)
         {
-            oData.DeleteNoticia(Id);
+            oData.Del_Galeria(Id);
         }
         #endregion
 
