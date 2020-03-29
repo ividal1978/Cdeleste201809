@@ -70,7 +70,7 @@
                     <asp:Button ID="btnConsultas" runat="server" CssClass="btn btn-outline-warning" Text="Consultas" OnClick="btnConsultas_Click" />
                 </div>
                   <div class="col-lg-4">
-                    <asp:Button ID="btnNoticias" runat="server" CssClass="btn btn-outline-warning" Text="Noticias" OnClick="btnNoticias_Click" />
+                    <asp:Button ID="btnNoticias" runat="server" CssClass="btn btn-outline-warning" Text="Noticias y Notas" OnClick="btnNoticias_Click" />
                 </div>
             </div>
              <div class="row" style="padding:5px;">
