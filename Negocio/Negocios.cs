@@ -206,54 +206,6 @@ namespace Negocio
             oData.Del_Galeria(Id);
         }
 
-
-
-        protected int VerificarImagen((HttpPostedFile file)
-        {
-            int counter = 0;
-            string[] Formatos = new string[] { ".jpg", ".gif", ".png", ".jpeg" };
-            if (fUpload.HasFile)
-            {
-                LbError.CssClass = "alert-danger";
-                var ext = fUpload.FileName.Substring(fUpload.FileName.LastIndexOf("."));
-                //Verificar el formato de la imagen.
-                if (Formatos.Contains(ext.ToLower()))
-                {      //Verificar el peso de la imagen. 500k Max.
-                    if (fUpload.PostedFile.ContentLength <= 512000)
-                    {
-                        //verifico la dimension de la imagen
-                        System.Drawing.Image viImagen = System.Drawing.Image.FromStream(fUpload.PostedFile.InputStream);
-                        if (viImagen.PhysicalDimension.Width <= 1280 && viImagen.PhysicalDimension.Height <= 960)
-                        {
-                            counter = 0;
-                        }
-                        else
-                        {
-                            LbError.Text = $"La imagen tiene {viImagen.PhysicalDimension.Width }  x {viImagen.PhysicalDimension.Height} se recomienda no mas" +
-                                $" de 1280 x 960";
-                            counter++;
-                        }
-                    }
-                    else
-                    {
-                        LbError.Text = "La imagen pesa mas de 500kb, reduzca su peso en www.tinyjpg.com";
-                        counter++;
-                    }
-
-                }
-                else
-                {
-                    LbError.Text = "Verifique el que el formato del archivo sea .jpg, .jpeg, .gif, .png";
-                    counter++;
-                }
-            }
-            else
-            {
-                LbError.Text = "Seleccione un archivo de imagen .jpg , .gif ,.png";
-                counter++;
-            }
-            return counter;
-        }
         #endregion
 
     }

@@ -164,4 +164,14 @@ namespace Contrato
         public string nombre { get; set; }
         public string reseña { get; set; }
     }
+
+    public class Lugar
+    {
+        public int IdNoticia { get; set; }
+        public DateTime Fecha { get; set; }
+        public string Titulo { get; set; }
+        public string Noticia { get; set; }
+        public string Tipo { get; set; }
+        public string RutaImagen { get; set; }
+    }
 }

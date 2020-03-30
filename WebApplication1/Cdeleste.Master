@@ -51,7 +51,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Lugares</a>
+                        <a class="nav-link" href="../Lugares.aspx">Lugares</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../Galeria.aspx">Galeria</a>

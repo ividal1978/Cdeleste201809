@@ -99,7 +99,11 @@ namespace WebApplication1
         {
             Noticias oNoticias = new Noticias();
             lbId.Text = (string.IsNullOrEmpty(lbId.Text) == true ? "-1" : lbId.Text);
-            oNoticias.IdNoticia = (lbId.Text == "NUEVO" ? -1 : Convert.ToInt32(lbId.Text.Substring(lbId.Text.IndexOf(":") + 1)));
+            oNoticias.IdNoticia = -1;
+            if (lbId.Text != "NUEVO" || !string.IsNullOrEmpty(lbId.Text))
+            {
+                oNoticias.IdNoticia =Convert.ToInt32(lbId.Text.Substring(lbId.Text.IndexOf(":") + 1));
+            }
             oNoticias.Fecha = (oNoticias.IdNoticia > 0 ? DateTime.Now : Convert.ToDateTime(lbFecha.Text.Substring(lbFecha.Text.IndexOf(":") + 1)));
             oNoticias.Noticia = tbNoticia.Content;
             oNoticias.Tipo = ddlTipoNoticia.SelectedValue.ToString();
