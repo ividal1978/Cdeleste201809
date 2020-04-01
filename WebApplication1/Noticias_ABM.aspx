@@ -74,21 +74,10 @@
                                 <cc1:Editor ID="tbNoticia" runat="server" Height="500px" Width="100%" CssClass="rcorners0"  />
 
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr> 
                             <td>
                                 <asp:Image ID="img" runat="server" CssClass="rcorners0" Width="100px" Height="100px" />
                             </td>
-                            <td  colspan="2">
-                                <p style="font-family: 'Trebuchet MS'; color:antiquewhite; font-size: medium;">Recomendaciones:<br /> * La imagen para noticias debe ser pequeña de 100 pixeles por 100 pixeles. y de extension .JPG  </p>
-                                <p style="font-family: 'Trebuchet MS'; color: antiquewhite; font-size: medium;"> * Comprima las imagenes en sitios como www.tinyjpg.com  </p>
-                                 <p style="font-family: 'Trebuchet MS'; color: antiquewhite; font-size: medium;">* Las noticias no deben tener mas de 200 caracteres. </p>
-                                <p style="font-family: 'Trebuchet MS'; color: antiquewhite; font-size: medium;"> * El editor es html, y soporta hasta 800 caractéres. (recuerde que los estilos, subrayados y otro&nbsp; decorado adicional, bajan estala cantidad de caractéres disponibles)"</p>
-                                <p style="font-family: 'Trebuchet MS'; color: antiquewhite; font-size: medium;"> * Para ver la el código generado presione el boton [<>] al final del editor."</p>
-                            </td>
-                        </tr>
-                        <tr> 
-                            <td></td>
                             <td colspan="2">
                                 <asp:FileUpload ID="fupdate" runat="server" CssClass="rounded" BackColor="Tan" />
                             </td>
@@ -105,6 +94,54 @@
                                 <asp:Button ID="btnBorrar" runat="server" CssClass="btn btn-outline-danger" Text ="Borrar" OnClick="btnBorrar_Click"/>
                             </td>
                         </tr>
+                        <tr>
+                            
+                            <td  colspan="2">
+                                    <p style="font-family: 'Trebuchet MS'; color: antiquewhite; font-size: medium;"> * Comprima las imagenes en sitios como www.tinyjpg.com  <br /> 
+                                    * Las noticias no deben tener mas de 200 caracteres. <br /> 
+                                    * El editor es html, y soporta hasta 800 caractéres. (recuerde que los estilos, subrayados y otro&nbsp; decorado adicional, bajan estala cantidad de caractéres disponibles) <br />
+                                    * Para ver la el código generado presione el boton [<>] al final del editor.
+                                </p>
+  
+                                <p style=" font-famiy:'Trebuchet MS'; color: antiquewhite; font-size:medium;"> 
+                                    Referencias:<br />
+                                    <table>
+                                        <tr>
+                                            <td>tipo Nota:</td>
+                                            <td> Ancho</td>
+                                            <td>Alto</td>
+                                            <td>Peso</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Noticia</td>
+                                            <td>150px</td>
+                                            <td>150px</td>
+                                            <td>100Kb</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portada</td>
+                                            <td>500px</td>
+                                            <td>500px</td>
+                                            <td> 400Kb</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lugares</td>
+                                            <td>800px</td>
+                                            <td>600px</td>
+                                            <td>500Kb</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Emergencias</td>
+                                            <td>150px</td>
+                                            <td>150px</td>
+                                            <td>100Kb</td>
+                                        </tr>
+                                    </table>
+
+                                </p>
+                            </td>
+                        </tr>
+                        
 
                         <tr>
                             <td colspan="2">

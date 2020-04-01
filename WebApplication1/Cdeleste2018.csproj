@@ -94,6 +94,7 @@
     <Content Include="Imagenes\Slider_Main\2.JPG" />
     <Content Include="Imagenes\Slider_Main\3.JPG" />
     <Content Include="Inquilinos_ABM.aspx" />
+    <Content Include="Emergencias.aspx" />
     <Content Include="Lugares.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="NLog.config" />
@@ -235,6 +236,13 @@
     </Compile>
     <Compile Include="Inquilinos_ABM.aspx.designer.cs">
       <DependentUpon>Inquilinos_ABM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Emergencias.aspx.cs">
+      <DependentUpon>Emergencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Emergencias.aspx.designer.cs">
+      <DependentUpon>Emergencias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Lugares.aspx.cs">
       <DependentUpon>Lugares.aspx</DependentUpon>

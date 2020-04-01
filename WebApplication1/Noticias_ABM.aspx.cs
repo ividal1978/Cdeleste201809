@@ -98,13 +98,18 @@ namespace WebApplication1
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Noticias oNoticias = new Noticias();
-            lbId.Text = (string.IsNullOrEmpty(lbId.Text) == true ? "-1" : lbId.Text);
+            lbId.Text = (string.IsNullOrEmpty(lbId.Text) == true ? "NUEVO" : lbId.Text);
             oNoticias.IdNoticia = -1;
-            if (lbId.Text != "NUEVO" || !string.IsNullOrEmpty(lbId.Text))
+            if (lbId.Text != "NUEVO")
             {
-                oNoticias.IdNoticia =Convert.ToInt32(lbId.Text.Substring(lbId.Text.IndexOf(":") + 1));
+                oNoticias.IdNoticia = Convert.ToInt32(lbId.Text.Substring(lbId.Text.IndexOf(":") + 1));
+                oNoticias.Fecha = Convert.ToDateTime(lbFecha.Text.Substring(lbFecha.Text.IndexOf(":") + 1));
             }
-            oNoticias.Fecha = (oNoticias.IdNoticia > 0 ? DateTime.Now : Convert.ToDateTime(lbFecha.Text.Substring(lbFecha.Text.IndexOf(":") + 1)));
+            else
+            {
+                oNoticias.Fecha = DateTime.Now;
+            }
+           
             oNoticias.Noticia = tbNoticia.Content;
             oNoticias.Tipo = ddlTipoNoticia.SelectedValue.ToString();
             if (tbNoticia.Content.Length < 800)
@@ -200,7 +205,7 @@ namespace WebApplication1
                 {
                     case "NOTI":
                         ancho = 150;
-                        ancho = 150;
+                        alto = 150;
                         peso = 102400;
                         break;
                     case "PORT":
@@ -215,12 +220,12 @@ namespace WebApplication1
                         break;
                     case "EMER":
                         ancho = 150;
-                        ancho = 150;
+                        alto = 150;
                         peso = 102400;
                         break;
                     default:
                         ancho = 1280;
-                        ancho = 960;
+                        alto = 960;
                         peso = 512000;
                         break;
                 }
