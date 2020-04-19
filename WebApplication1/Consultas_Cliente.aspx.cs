@@ -16,7 +16,8 @@ namespace WebApplication1
         {
             if (!Page.IsPostBack)
             {
-                DdlPropiedades.Visible = false;    
+                DdlPropiedades.Visible = false;
+                LbError.Visible = false;
             }
             
         }
@@ -79,6 +80,7 @@ namespace WebApplication1
                 // comunico que la consulta se envio
 
                 //Envio Asivo al cliente por mail?
+                LbError.Visible = true;
                 LbError.CssClass = "alert-success";
                 LbError.Text = "El comentario se ha generado de forma exitosa <br /> Próximamente nos comunicaremos con Ud. <br/> Gracias.";
 
@@ -127,9 +129,15 @@ namespace WebApplication1
                 }
             }
             if (Rta > 0)
+            {
+                LbError.Visible = true;
                 LbError.Text = Msg;
+            }
             else
+            {
+                LbError.Visible = false;
                 LbError.Text = "";
+            }
             return Rta;
 
         }

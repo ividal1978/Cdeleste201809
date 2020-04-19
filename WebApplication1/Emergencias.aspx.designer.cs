@@ -13,13 +13,13 @@ namespace WebApplication1 {
     public partial class Emergencias {
         
         /// <summary>
-        /// LugaresForm control.
+        /// EmergenciasForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm LugaresForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm EmergenciasForm;
         
         /// <summary>
         /// RptEmergencias control.

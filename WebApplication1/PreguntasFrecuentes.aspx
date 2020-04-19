@@ -9,22 +9,24 @@
     <script src="Scripts/phone-mask.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
-    <link rel="stylesheet" href="Scripts/gallery-grid.css">
+<%--    <link rel="stylesheet" href="Scripts/gallery-grid.css">--%>
     <link href="Content/bootstrap.css" rel="stylesheet" />
 
-    <hr style="background-color: darkolivegreen !important; height: 15px;" />
-    <hr style="background-color: darkgoldenrod !important; height: 4px;" />
+
+    <hr style="background-color: darkolivegreen !important; border-top: 0px !important; height: 15px;" />
+    <hr style="background-color: darkgoldenrod !important; border-top: 0px !important; height: 4px;" />
     <form id="FormRespuestas" runat="server">
+     <h2 style="color:tan; font-family:'Trebuchet MS';   text-shadow: 2px 2px 5px black;">&nbsp;&nbsp;&nbsp;Preguntas Frecuentes</h2> 
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="col-xl-12 align-content-center" style="border-color:burlywood;">
-                        <div style="align-content:center; align-items:center; " class=" rcorners0"  >
+                        <div style="align-content:center; align-items:center; "  >
                             <div id="dvAccordian" class="panel-group  " style="width: 99%; opacity:0.8;">
                                 <asp:Repeater ID="rptAccordion" runat="server"  >
                                     <ItemTemplate >
-                                        <div class="panel panel-default" style="width:100%;border-color:burlywood;">
-                                            <div class="panel-heading" style="background-color: darkolivegreen; color:tan;">
+                                        <div class="panel panel-default" style="width:100%;background-color:burlywood;">
+                                            <div class="panel-heading" style=" color:saddlebrown;">
                                                 <h4 class="panel-title" >
                                                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#dvAccordian"
                                                         href="#collapse<%# Container.ItemIndex %>" >

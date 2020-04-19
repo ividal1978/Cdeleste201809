@@ -10,6 +10,8 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
+    <br />
     <hr style="background-color: darkolivegreen; height: 15px;" />
     <hr style="background-color: darkgoldenrod; height: 4px;" />
     <h2 style="color: tan; font-family: 'Trebuchet MS'; text-shadow: 2px 2px 5px black;">&nbsp;&nbsp;&nbsp;Lugares</h2>

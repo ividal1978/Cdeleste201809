@@ -15,6 +15,7 @@
 
     <hr style="background-color: darkolivegreen; height: 15px;" />
     <hr style="background-color: darkgoldenrod; height: 4px;" />
+    <h2 style="color:tan; font-family:'Trebuchet MS';   text-shadow: 2px 2px 5px black;">&nbsp;&nbsp;&nbsp;Contactos</h2> 
     <form id="FormContactos" runat="server">
         <div class="card mb-3" style="max-width: 90%; padding: 2%; margin: 5%; opacity: 0.85; background-color: burlywood; color: saddlebrown; font-family: 'Trebuchet MS'">
             <div class="row no-gutters" style="background-color: transparent;">
@@ -23,7 +24,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="card-body">
-                        <h5 class="card-title Titulo" style="color: blanchedalmond; font-size: x-large;">Contactos</h5>
+                      <%--  <h5 class="card-title Titulo" style="color: blanchedalmond; font-size: x-large;">Contactos</h5>--%>
                         <p class="card-text">Por mas de 35 años en Costa del Este, brindando un exelente servicio. Ante cualquier consulta, duda, reserva comuniquese por siguientes canales: </p>
 
                         <div class="card " style="width: 97%; background-color: blanchedalmond; border-bottom: solid 2px;">

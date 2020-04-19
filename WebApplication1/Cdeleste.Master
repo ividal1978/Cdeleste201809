@@ -64,7 +64,7 @@
                         <a class=" dropdown-item" href="../Emergencias.aspx"><i class="fas fa-plus-square"></i> Emergencias</a>
                         <a class="dropdown-item" href="../PreguntasFrecuentes.aspx"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</a>
                         <a class="dropdown-item" href="#"><i class="fas fa-map-marked-alt"></i> Como Llegar</a> 
-
+                        <a class="dropdown-item" href="Contactos.aspx"><i class="fas fa-address-card"></i> Contactos</a>
                         </div>
                     </li>
                   
@@ -93,7 +93,7 @@
                               <%--  <div class="form-group text-center">
                                     <small><a href="#" data-toggle="modal" data-target="#modalPassword">Forgot password?</a></small>
                                 </div>--%>
-                            </form>--%>
+                            </form>
                         </li>
                     </ul>
                 </li>

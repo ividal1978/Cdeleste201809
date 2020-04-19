@@ -43,6 +43,7 @@
     <link href="Css/CssCdeleste.css" rel="stylesheet" />
     <hr style="background-color: darkolivegreen; height: 15px;" />
     <hr style="background-color: darkgoldenrod; height: 4px;" />
+    <h2 style="color:tan; font-family:'Trebuchet MS';   text-shadow: 2px 2px 5px black;">&nbsp;&nbsp;&nbsp;Disponibilidad</h2> 
     <form id="Reservas_ClientesFrm" runat="server">
           <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
         <div class="container-fluid">
