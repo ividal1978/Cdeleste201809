@@ -21,7 +21,7 @@
             <div class="row" style="top: 100px;">
                 <asp:repeater id="RptLugares" runat="server">
                     <itemtemplate>
-                    <div class="media rcorners2" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:medium; background-color:burlywood; opacity:0.7; width:100%;">
+                    <div class="media rcorners2" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:medium; background-color:burlywood; opacity:0.85; width:100%;">
                         <img class="mr-3 col-md-2 rcorner0"   src="/Imagenes/Noticias/<%#Eval("RutaImagen")%>"  alt="...">
                          <div   style="color:saddlebrown;" class="media-body">
                            <h5 class="mt-0" >   <%#Eval("Titulo")%></h5>

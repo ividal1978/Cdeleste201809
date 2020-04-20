@@ -27,7 +27,7 @@
                       <%--  <h5 class="card-title Titulo" style="color: blanchedalmond; font-size: x-large;">Contactos</h5>--%>
                         <p class="card-text">Por mas de 35 años en Costa del Este, brindando un exelente servicio. Ante cualquier consulta, duda, reserva comuniquese por siguientes canales: </p>
 
-                        <div class="card " style="width: 97%; background-color: blanchedalmond; border-bottom: solid 2px;">
+                        <div class="card " style="width: 97%; background-color: blanchedalmond; border-bottom: solid 2px;opacity:0.70">
                             <ul class="list-group list-group-flush" style="background-color: blanchedalmond !important;">
                                 <li class="list-group-item"><i class="fa fa-phone-square  fa-2x" style="color: saddlebrown;"></i>&nbsp;&nbsp;&nbsp;Teléfono: +054 011-4256-1541</li>
                                 <li class="list-group-item"><i class="far fa-envelope fa-2x" style="color: saddlebrown;"></i>&nbsp;&nbsp;&nbsp;Correo electrónico: <a href="mailto:violetasgyg@gmail.com?Subject=Consulta%20sobre%20Costa%20del%20Este">violetasgyg@gmail.com</a></li>

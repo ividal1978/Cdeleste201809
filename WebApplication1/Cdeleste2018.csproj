@@ -72,6 +72,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ComoLlegar.aspx" />
     <Content Include="Consultas_Admin.aspx" />
     <Content Include="Consultas_Cliente.aspx" />
     <Content Include="Contactos.aspx" />
@@ -173,6 +174,13 @@
     </Compile>
     <Compile Include="Cdeleste.Master.designer.cs">
       <DependentUpon>Cdeleste.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ComoLlegar.aspx.cs">
+      <DependentUpon>ComoLlegar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComoLlegar.aspx.designer.cs">
+      <DependentUpon>ComoLlegar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas_Admin.aspx.cs">
       <DependentUpon>Consultas_Admin.aspx</DependentUpon>
