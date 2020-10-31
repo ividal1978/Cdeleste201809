@@ -110,6 +110,7 @@
     <Content Include="Noticias_ABM.aspx" />
     <Content Include="PreguntasFrecuentes.aspx" />
     <Content Include="Propiedades_ABM.aspx" />
+    <Content Include="Reportes.aspx" />
     <Content Include="Reservas_ABM.aspx" />
     <Content Include="Reserva_Cliente.aspx" />
     <Content Include="RespuestasConsulta.aspx" />
@@ -287,6 +288,13 @@
     </Compile>
     <Compile Include="Propiedades_ABM.aspx.designer.cs">
       <DependentUpon>Propiedades_ABM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes.aspx.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes.aspx.designer.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservas_ABM.aspx.cs">
       <DependentUpon>Reservas_ABM.aspx</DependentUpon>
