@@ -85,6 +85,7 @@ namespace WebApplication1
 
         protected void btnGaleria_Click(object sender, EventArgs e) => Response.Redirect("Galeria_ABM.aspx");
 
+        protected void btnReportes_Click(object sender, EventArgs e) => Response.Redirect("Reportes.aspx");
 
     }
 }

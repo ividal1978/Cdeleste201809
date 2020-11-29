@@ -33,9 +33,9 @@
            Tipos de Reportes
         </div>
         <div >
-          <asp:Button ID="btnAlquileres" runat="server" Text="Alquileres / Reservas" />
-           <asp:Button ID="btnInquilinos" runat="server" Text="Inquilinos" />
-            <asp:Button ID="btnConsultas" runat="server" Text="Consultas" />
+          <asp:Button ID="btnAlquileres" runat="server" Text="Alquileres / Reservas" OnClick="btnAlquileres_Click" />
+           <asp:Button ID="btnInquilinos" runat="server" Text="Inquilinos" OnClick="btnInquilinos_Click" />
+            <asp:Button ID="btnConsultas" runat="server" Text="Consultas" OnClick="btnConsultas_Click" />
         </div>
         </form>
 </asp:Content>

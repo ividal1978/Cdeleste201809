@@ -32,5 +32,21 @@ namespace WebApplication1
                 Response.Redirect("Menu.aspx");
             }
         }
+
+        protected void btnAlquileres_Click(object sender, EventArgs e)
+        {
+            // Varaibles Para Alquileres
+            // Fecha desde Fecha / Fecha Hasta / Popiedad / Inquilino
+        }
+
+        protected void btnInquilinos_Click(object sender, EventArgs e)
+        {
+            // Fecha desde / Fecha Hasta /Propiedad / Nombre / Validacion / Cantidad de Reservas
+        }
+
+        protected void btnConsultas_Click(object sender, EventArgs e)
+        {
+            // Fecha desde  / Fecha Hasta / Tipo de consulta / 
+        }
     }
 }

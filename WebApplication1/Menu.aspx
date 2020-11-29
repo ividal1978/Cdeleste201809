@@ -83,6 +83,9 @@
                   <div class="col-lg-4">
                     <asp:Button ID="btnReservas" runat="server" CssClass="btn btn-outline-warning" Text="Reservas" OnClick="btnReservas_Click" />
                 </div>
+                 <div class="col-lg-4">
+                     <asp:Button ID="btnReportes" runat="server" CssClass="btn btn-outline-warning" Text="Reportes" OnClick="btnReportes_Click" />
+                 </div>
             </div>
          </div>
             <div class="row" style="padding:5px;">
