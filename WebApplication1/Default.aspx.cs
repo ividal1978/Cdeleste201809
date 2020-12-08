@@ -19,7 +19,27 @@ namespace WebApplication1
         protected void CargarNoticias()
         {
             Negocio.Negocio oNegocio = new Negocio.Negocio();
-            dlNoticias.DataSource = oNegocio.GetNoticias("NOTI", 4);
+            List<Noticias> lNoticias = new List<Noticias>();
+            foreach (var aux in oNegocio.GetNoticias("NOTI", 4))
+            {
+                Noticias nNoticia = new Noticias();
+                nNoticia.IdNoticia = aux.IdNoticia;
+                nNoticia.Fecha = aux.Fecha;
+                nNoticia.Noticia = aux.Noticia;
+                nNoticia.Tipo = aux.Tipo;
+                if (aux.RutaImagen == null || aux.RutaImagen.Length < 2)
+                {
+                    nNoticia.RutaImagen = "noticiaVacia.png"; 
+                 }
+                else
+                {
+                    nNoticia.RutaImagen = aux.RutaImagen;
+                }
+                lNoticias.Add(nNoticia);
+            }
+
+
+            dlNoticias.DataSource = lNoticias;
             dlNoticias.DataBind();
         }
         protected void CargarPortada()
