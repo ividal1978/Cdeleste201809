@@ -29,7 +29,7 @@
         </div>
         <form id="Noticias" runat="server">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <asp:Label ID="lbTituloDescripcion" runat="server" ForeColor="Tan" Text="Tipo de Noticias:" Font-Size="Large"></asp:Label>
                     <asp:DropDownList ID="ddlTipoNoticia" runat="server" CssClass="btn btn-warning dropdown-toggle" AutoPostBack="true" OnSelectedIndexChanged="ddlTipoNoticia_SelectedIndexChanged">
                         <asp:ListItem Text="Noticia" Value="NOTI" Selected="True"></asp:ListItem>
@@ -53,7 +53,7 @@
                         </asp:DataGrid>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <br />
                     <br />
                     <br />
@@ -71,7 +71,7 @@
                             <td colspan="2">
                                 <%--<asp:TextBox ID="tbNoticia" runat="server"  TextMode="MultiLine" ToolTip=" Las noticias no debe tener mas de 200 caracteres"></asp:TextBox>--%>
 
-                                <cc1:Editor ID="tbNoticia" runat="server" Height="500px" Width="100%" CssClass="rcorners0"  />
+                                <cc1:Editor ID="tbNoticia" runat="server" Height="500px" Width="100%" CssClass="rcorners0"  BackColor="Wheat" />
 
                             </td>
                         </tr><tr> 

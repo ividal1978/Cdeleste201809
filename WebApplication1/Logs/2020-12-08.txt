@@ -1,0 +1,1 @@
+2020/12/08 13:23:03.429|ERROR| Datos - Noticias - InsertNoticia Object reference not set to an instance of an object.|Logger1|

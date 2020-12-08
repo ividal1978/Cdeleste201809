@@ -113,26 +113,30 @@ namespace WebApplication1
             oNoticias.Noticia = tbNoticia.Content;
             oNoticias.Tipo = ddlTipoNoticia.SelectedValue.ToString();
             if (tbNoticia.Content.Length < 800)
-            {
-                if (VerificarImagen() == 0)
+            { Negocio.Negocio oNegocio = new Negocio.Negocio();
+                try
                 {
-                    string Archivo = fupdate.FileName.ToString();
-                    //verifico el formato jpg o png 
-                    string extencion = Archivo.Substring(Archivo.LastIndexOf("."));
-                    //verifico la dimension de la imagen
-                    try
-                    {     // subo el nombre del archivo al objeto 
-                        Negocio.Negocio oNegocio = new Negocio.Negocio();
-                        string nombrArchivo = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                        fupdate.SaveAs(Server.MapPath("~\\Imagenes\\Noticias\\" + nombrArchivo + extencion));
-                        oNoticias.RutaImagen = nombrArchivo + extencion;
-                        oNegocio.SaveNoticia(oNoticias);
-                    }
-                    catch (Exception ex)
+                    if (VerificarImagen() == 0)
                     {
-                        _logger1.Error(ex, " Carga Imangen Noticia ");
+                        string Archivo = fupdate.FileName.ToString();
+                        //verifico el formato jpg o png 
+                        string extencion = Archivo.Substring(Archivo.LastIndexOf("."));
+                        //verifico la dimension de la imagen
+                        // subo el nombre del archivo al objeto 
+                      
+                            string nombrArchivo = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+                            fupdate.SaveAs(Server.MapPath("~\\Imagenes\\Noticias\\" + nombrArchivo + extencion));
+                            oNoticias.RutaImagen = nombrArchivo + extencion;
                     }
+                    oNegocio.SaveNoticia(oNoticias);
+
                 }
+                catch(Exception ex)
+                {
+
+                    _logger1.Error(ex, " Carga Imangen Noticia ");
+                }
+              
                 //limpio los contorles del formulario
                 Limpiar();
                 //Cargo la grilla nuevamente
@@ -141,7 +145,7 @@ namespace WebApplication1
             else
             {
                 lbError.CssClass = "text-danger text-center";
-                lbError.Text = " El contenido HTML tiene mas de 800 caracteres.";
+                lbError.Text = " El contenido HTML tiene mas de 800 caracteres. Debe ser menor";
             }
         }
 

@@ -256,10 +256,14 @@ namespace Datos
                 string connectionString = StringConnection;
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 //*  importe como referenias el conector 5.27
+
                 string query = "UPDATE Noticias SET " +
-                "Noticia ='" + oNoticia.Noticia.Trim() + "'," +
-                "RutaImagen ='" + oNoticia.RutaImagen + "'" +
-                "WHERE IDNoticia= " + oNoticia.IdNoticia.ToString();
+                "Noticia ='" + oNoticia.Noticia.Trim() +"'";
+
+                if (oNoticia.RutaImagen!= null &&  oNoticia.RutaImagen.Length >= 0)
+                    query +=  ", RutaImagen ='" + oNoticia.RutaImagen + "'";
+
+                query += " WHERE IDNoticia= " + oNoticia.IdNoticia.ToString();
 
                 conn.Open();
 

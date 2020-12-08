@@ -46,7 +46,7 @@ namespace WebApplication1
 
         protected void btnConsultas_Click(object sender, EventArgs e)
         {
-            // Fecha desde  / Fecha Hasta / Tipo de consulta / 
+            // Fecha desde  / Fecha Hasta / Tipo de consulta / Propiedad
         }
     }
 }

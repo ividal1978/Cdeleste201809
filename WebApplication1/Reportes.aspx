@@ -37,5 +37,15 @@
            <asp:Button ID="btnInquilinos" runat="server" Text="Inquilinos" OnClick="btnInquilinos_Click" />
             <asp:Button ID="btnConsultas" runat="server" Text="Consultas" OnClick="btnConsultas_Click" />
         </div>
+        <div>
+            <table>
+                <tr>
+                    <td style="width:70%">
+                        <asp:Table></asp:Table>
+                    </td>
+                    <td style="width:20%"></td>
+                </tr>
+            </table>
+        </div>
         </form>
 </asp:Content>
