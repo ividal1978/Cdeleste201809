@@ -94,16 +94,21 @@
               <asp:DataList ID="dlNoticias" runat="server" RepeatDirection="Horizontal"   RepeatLayout="Table" >
                   <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" VerticalAlign="Top" />
                 <ItemTemplate>
-                      <div class="row productList" style="background-image:url(Imagenes/Fondos/27.jpg); height:350px; " >  
-                        <div class="col-lg-4" style="padding-top:30px;"> 
-                            <img class="rcorners0"  width="150px" height="125px" alt="" src="/Imagenes/Noticias/<%#Eval("RutaImagen")%>"/>  
-                        </div>  
-                        <div class="col-lg-8" style="padding-left:20px;">  
-                            <h5 style="color:antiquewhite;  text-shadow: 2px 2px 5px black;"><%#Eval("Fecha","{0:dd/MM/yyyy}")%></h5>  
-                            <h6  class="rcorners2" style="padding:5px; color:saddlebrown; background-color:burlywood; text-align:center; text-size-adjust:auto; height:auto;"><%#Eval("Noticia")%></h6>  
-                      <%--   padding:20px 10px 10px 10px; --%>
-                        </div>  
-                    </div>  
+          
+                   <div class="card mb-3" style="max-width: 540px; background-image:url(Imagenes/Fondos/27.jpg); height:350px; ">
+                      <div class="row g-0">
+                        <div class="col-md-4" style="padding-top:20px;" >
+                          <img  class="rcorners0"width="150px" height="125px" src="/Imagenes/Noticias/<%#Eval("RutaImagen")%>" alt="..."> 
+                           <p class="card-text"><meddium  style="color:antiquewhite;  text-shadow: 2px 2px 5px black;"   ><%#Eval("Fecha","{0:dd/MM/yyyy}")%></meddium></p>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <p class="card-text rcorners1" style=" opacity:0.75; padding:5px; color:saddlebrown; background-color:beige; text-align:center; text-size-adjust:auto; height:auto;"><%#Eval("Noticia")%></p>
+                           
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                  </ItemTemplate>
 
 <SeparatorStyle Width="50px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" VerticalAlign="Top"></SeparatorStyle>

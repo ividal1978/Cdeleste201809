@@ -83,16 +83,17 @@
                   <div class="col-lg-4">
                     <asp:Button ID="btnReservas" runat="server" CssClass="btn btn-outline-warning" Text="Reservas" OnClick="btnReservas_Click" />
                 </div>
-                 <div class="col-lg-4">
+
+                 <div class="col-lg-4" style="padding:10px 0px 0px 15px;">
                      <asp:Button ID="btnReportes" runat="server" CssClass="btn btn-outline-warning" Text="Reportes" OnClick="btnReportes_Click" />
                  </div>
             </div>
-         </div>
             <div class="row" style="padding:5px;">
                 <div class="col-lg-12">
                     <asp:Button ID="btnCerrarSession" runat="server" CssClass="btn btn-outline-danger" Text="Cerrar Session" OnClick="btnCerrarSession_Click" Width="100%" />
                </div>
             </div>
+         </div>
         </asp:Panel>
    
         </form>
