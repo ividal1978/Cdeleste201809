@@ -30,20 +30,24 @@
             </div>
         </div>
         <div>
-           Tipos de Reportes
+         <div class="rcorners1" style="color:saddlebrown; font-family:'Trebuchet MS'; font-size:large; background-color:burlywood;  text-align:center; align-items:center;" >
+                        &nbsp;&nbsp;Tipos de Reportes</asp:Label>
         </div>
-        <div >
-          <asp:Button ID="btnAlquileres" runat="server" Text="Alquileres / Reservas" OnClick="btnAlquileres_Click" />
-           <asp:Button ID="btnInquilinos" runat="server" Text="Inquilinos" OnClick="btnInquilinos_Click" />
-            <asp:Button ID="btnConsultas" runat="server" Text="Consultas" OnClick="btnConsultas_Click" />
+        <div  style="padding:10px;">
+          <asp:Button ID="btnAlquileres" runat="server" CssClass="btn btn-outline-warning"  Text="Alquileres / Reservas"  OnClick="btnAlquileres_Click" /> &nbsp;&nbsp;
+           <asp:Button ID="btnInquilinos" runat="server" CssClass="btn btn-outline-warning" Text="Inquilinos" OnClick="btnInquilinos_Click" />&nbsp;&nbsp;
+            <asp:Button ID="btnConsultas" runat="server" CssClass="btn btn-outline-warning" Text="Consultas" OnClick="btnConsultas_Click" />&nbsp;&nbsp;
         </div>
         <div>
             <table>
                 <tr>
                     <td style="width:70%">
-                        <asp:Table></asp:Table>
+                    
                     </td>
-                    <td style="width:20%"></td>
+                    <td style="width:20%">
+                        <div><asp:Label ID="lgVariables" runat="server" Text="Variables" CssClass="rcorners1"></asp:Label>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
