@@ -1,0 +1,11 @@
+2021/04/24 14:52:39.883|ERROR|Datos - GetNoticias Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 14:52:40.076|ERROR|Datos - GetNoticias Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 14:54:20.128|ERROR|Datos - Get_Propiedad Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 14:54:20.179|ERROR|Datos - Get_Propiedades_Confort Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 15:02:03.219|ERROR|Datos - GetNoticias Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 15:02:03.337|ERROR|Datos - GetNoticias Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 15:02:11.705|ERROR|Datos - Get_Propiedad Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 15:02:11.756|ERROR|Datos - Get_Propiedades_Confort Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 15:04:33.069|ERROR|Datos - GetNoticias Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 15:05:11.091|ERROR|Datos - GetNoticias Unable to connect to any of the specified MySQL hosts.|Logger1|
+2021/04/24 15:05:41.639|ERROR|Datos - GetNoticias Unable to connect to any of the specified MySQL hosts.|Logger1|

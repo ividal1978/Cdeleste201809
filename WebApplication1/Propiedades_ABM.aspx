@@ -102,7 +102,7 @@
                     </table>
                 </div>
             </div>
-                <p class="alert-warning"> Nota: Para que las imágenes sean lo mas livianas y de calidad, antes de subirlas optimice las mismas en : www.https://tinyjpg.com/ o https://imagecompressor.com/</p>
+                <p class="alert-warning"> Nota: Para que las imágenes sean lo mas livianas y de calidad, antes de subirlas optimice las mismas en : https://tinyjpg.com/ o https://imagecompressor.com/</p>
               </br>
             <div id="DivImagenes" class="row" runat="server">
                 <div class="col-lg-6" id="Imagenes">

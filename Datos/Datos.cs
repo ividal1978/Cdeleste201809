@@ -13,9 +13,9 @@ namespace Datos
     public partial class Datos
     {
         private static readonly Logger _logger1 = LogManager.GetLogger("Logger1");
-
-        // public string StringConnection = System.Configuration.ConfigurationManager.ConnectionStrings["CdelesteDBConnectionString"].ConnectionString;
-        public string StringConnection = "Server=localhost;Database=cdeleste_DB;User ID = cdeleste_rpt; Password=costa10;";
+        public static string dataServer = ConfigurationManager.AppSettings["DataServer"];
+        public string StringConnection = ConfigurationManager.ConnectionStrings["CdelesteDBConnectionString"].ConnectionString;
+       // public string StringConnection = $"Server=:{dataServer};Database=cdeleste_DB;User ID = cdeleste_rpt; Password=costa10;";
         #region Usuarios
         public Usuarios GetUsuario(string Usuario, string Password)
         {
