@@ -70,7 +70,8 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
-Web.Config
+Web.config
+*.config
 
 # Chutzpah Test files
 _Chutzpah*
