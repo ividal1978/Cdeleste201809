@@ -71,7 +71,8 @@ namespace Negocio
 
         public void Del_Propiedades_Confort(Prop_Confort oConfort) => oData.Del_Propiedades_Confort(oConfort);
 
-
+        public Propiedades Save_Propiedad(Propiedades oPropiedad) => oData.Save_Propiedad(oPropiedad);
+        
         public List<Combo> Get_Propiedades_CMB()
         {
             return oData.Get_Propiedades_CMB();

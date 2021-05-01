@@ -467,6 +467,49 @@ namespace Datos
             return oConfort;
         }
 
+        public Propiedades Save_Propiedad(Propiedades oPropiedad)
+        {
+            Propiedades oProp = new Propiedades();
+            try
+            {
+                string connectionString = StringConnection;
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                string Query = "";
+                if (oPropiedad.IdPropiedades > 0)
+                {
+                    //Update IDPropiedad,Nombre, Plazas, Direccion,Intro 
+                    Query = $"UPDATE propiedades SET " +
+                  " Nombre = '" + oPropiedad.Nombre.Trim() + "'," +
+                  " Plazas = " + oPropiedad.Plazas.ToString() + "," +
+                  " Direccion ='" + oPropiedad.Direccion.Trim() + "'," +
+                  " Intro ='" + oPropiedad.Intro.Trim() + "' " +
+                  " WHERE IDPropiedad =" + oPropiedad.IdPropiedades;
+
+                }
+                else
+                {
+                    // Insert
+                    Query = "Insert into propiedades (Nombre, Plazas,Direccion,Intro) Values " +
+                        "('" + oPropiedad.Nombre.Trim() + "'," + oPropiedad.Plazas + ",'" +
+                        oPropiedad.Direccion.Trim() + "','"+oPropiedad.Intro.Trim()+"')";
+                }
+                conn.Open();
+
+                MySqlCommand myCommand = new MySqlCommand(Query, conn);
+                myCommand.ExecuteNonQuery();
+                myCommand.Dispose();
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                _logger1.Error(ex, " Datos - Propiedades - Save Confort");
+            }
+            return oProp;
+        }
+
+     
+
         public void Save_Propiedades_Confort(Prop_Confort oConfort)
         {
             try

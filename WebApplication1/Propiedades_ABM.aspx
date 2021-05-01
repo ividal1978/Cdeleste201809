@@ -62,13 +62,13 @@
                         </tr>
                          <tr>
                             <td><asp:Label ID="lbIntro" runat="server" Text="Introduccion: "></asp:Label></td>
-                            <td colspan="3"><asp:TextBox ID="TbIntro" runat="server"  Width="98%" TextMode="MultiLine" MaxLength="299"  CssClass="rcorners0" Height="200px"></asp:TextBox></td>
+                            <td colspan="3"><asp:TextBox ID="TbIntro" runat="server"  Width="98%" TextMode="MultiLine" MaxLength="299"  CssClass="rcorners0" Height="200px" ></asp:TextBox></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td><asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" /></td>
-                            <td><input type="button" value="Confort" onClick="document.getElementById('Confort').scrollIntoView();"  class="btn btn-outline-warning" title="Confort" ></td>
-                            <td><input type="button" value="Imagenes" onClick="document.getElementById('Imagenes').scrollIntoView();"  class="btn btn-outline-warning" title="Imagnes" ></td>
+                            <td><asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="btnGuardar_Click"   ToolTip="Guarda los datos generales de la propiedad" /></td>
+                            <td><input type="button" value="Confort" onClick="document.getElementById('Confort').scrollIntoView();"  class="btn btn-outline-warning" title="Confort"></td>
+                            <td><input type="button" value="Imagenes" onClick="document.getElementById('Imagenes').scrollIntoView();"  class="btn btn-outline-warning" title="Imagnes"  ></td>
                         </tr>
                     </table>
 
@@ -96,7 +96,7 @@
                             <td ><asp:TextBox ID="TbDescripcionConfort" runat="server" CssClass="rcorners0" Width="98%" ></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td><asp:Button ID="BntGuardarConfort" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="BntGuardarConfort_Click" /></td>
+                            <td><asp:Button ID="BntGuardarConfort" runat="server" CssClass="btn btn-outline-warning" Text="Guardar" OnClick="BntGuardarConfort_Click" ToolTip="Guarda el item de confort." /></td>
                             <td style="text-align:right;"><asp:Button ID="BtnNuevoConfort" runat="server" CssClass="btn btn-outline-warning" Text="Nuevo" OnClick="BtnNuevoConfort_Click"  ToolTip="Para Grabar el nuevo item de Confort Presione GUARDAR"/></td>
                         </tr>
                     </table>

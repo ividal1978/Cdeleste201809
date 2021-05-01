@@ -64,6 +64,7 @@ namespace WebApplication1
             CargaImagenes(oProp.IdPropiedades);
         }
 
+    
 
         protected void CargaConfort(int IdPropiedad)
         {
@@ -216,6 +217,36 @@ namespace WebApplication1
                 LbError.Text = " No se ha seleccionado una imágen.";
                 LbError.Focus();
             }
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Negocio.Negocio oNegocio = new Negocio.Negocio();
+            Propiedades oPropiedad = new Propiedades();
+            try
+            {
+                oPropiedad.IdPropiedades = Convert.ToInt32(lbId.Text);
+                oPropiedad.Plazas = Convert.ToInt32(TbPax.Text);
+                oPropiedad.Intro = TbIntro.Text;
+                oPropiedad.Nombre = TbPropiedad.Text;
+                oPropiedad.Direccion = TbDireccion.Text;
+                if (oPropiedad.IdPropiedades > 0)
+                {
+                    oNegocio.Save_Propiedad(oPropiedad);
+                    LbError.Text = "Se acualizo el contenido de forma exitosa";
+                }
+                else
+                {
+                    LbError.Text = "No es posible agregar una nueva Propiedad.";
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                LbError.Text = "Se produjo un error al guardar. ";
+                LbError.Focus();
+            }
+           
         }
     }
 }

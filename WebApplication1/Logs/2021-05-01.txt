@@ -1,0 +1,1 @@
+2021/05/01 12:05:55.530|ERROR| Datos - Propiedades - Save Confort You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Solo testeo'  WHERE IDPropiedad =2' at line 1|Logger1|
