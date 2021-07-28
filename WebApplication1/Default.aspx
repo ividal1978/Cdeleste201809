@@ -97,13 +97,13 @@
           
                    <div class="card mb-3" style="max-width: 540px; background-image:url(Imagenes/Fondos/27.jpg); height:350px; ">
                       <div class="row g-0">
-                        <div class="col-md-4" style="padding-top:20px;" >
-                          <img  class="rcorners0"width="150px" height="125px" src="/Imagenes/Noticias/<%#Eval("RutaImagen")%>" alt="..."> 
+                        <div class="col-md-4" style="padding-top:20px; padding-right:5px<" >
+                          <img  class="rcorners0"width="150px" height="125px" src="/Imagenes/Noticias/<%#Eval("RutaImagen")%>" alt="..." /> 
                            <p class="card-text"><meddium  style="color:antiquewhite;  text-shadow: 2px 2px 5px black;"   ><%#Eval("Fecha","{0:dd/MM/yyyy}")%></meddium></p>
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
-                            <p class="card-text rcorners1" style=" opacity:0.75; padding:5px; color:saddlebrown; background-color:beige; text-align:center; text-size-adjust:auto; height:auto;"><%#Eval("Noticia")%></p>
+                            <p class="card-text rcorners1" style=" opacity:0.75; padding:2px; color:saddlebrown; background-color:beige; text-align:center; text-size-adjust:auto; height:auto; font-size:small; margin-left:10px;"><%#Eval("Noticia")%></p>
                            
                           </div>
                         </div>
@@ -111,7 +111,7 @@
                     </div>
                  </ItemTemplate>
 
-<SeparatorStyle Width="50px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" VerticalAlign="Top"></SeparatorStyle>
+<%--<SeparatorStyle Width="50px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" VerticalAlign="Top"></SeparatorStyle>--%>
             </asp:DataList>
                    
                 </div>
