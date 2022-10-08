@@ -67,6 +67,8 @@ namespace WebApplication1
             {
                 datos = datos.Where(x => x.IdPropiedad == int.Parse(HdnPropiedad.Value)).ToList();
             }
+            // is in client so hide "anuladas"
+            datos = datos.Where(x => x.Estado != "Anulada").ToList();
 
             DayPilotCalendario.DataSource = datos;
             // oNegocio.Get_ReservaxFecha(Convert.ToDateTime(TbFechaAlquiler.Text), Convert.ToInt32(DdlPropiedadAlquiler.SelectedValue));
