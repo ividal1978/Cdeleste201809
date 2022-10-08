@@ -1118,7 +1118,7 @@ namespace Datos
                         " Inner join propiedades P on R.IDPropiedad = P.IdPropiedad " +
                         " Inner join usuarios U on R.IDusuario = U.idusuario" +
                         " Where FDesde >= '" + ConvertirFecha(Fecha)+ "'"+
-                        "Order by Fdesde desc";
+                        "Order by Fdesde desc"; 
                 conn.Open();
 
                 MySqlCommand myCommand = new MySqlCommand(Query, conn);
