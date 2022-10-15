@@ -29,7 +29,7 @@
 
                         <div class="card " style="width: 97%; background-color: blanchedalmond; border-bottom: solid 2px;opacity:0.70">
                             <ul class="list-group list-group-flush" style="background-color: blanchedalmond !important;">
-                                <li class="list-group-item"><i class="fa fa-phone-square  fa-2x" style="color: saddlebrown;"></i>&nbsp;&nbsp;&nbsp;Teléfono: +054 011-4256-1541</li>
+                               <% %> <li class="list-group-item"><i class="fa fa-phone-square  fa-2x" style="color: saddlebrown;"></i>&nbsp;&nbsp;&nbsp;<asp:Label ID="lbContactoTel" runat="server"></asp:Label></li>
                                 <li class="list-group-item"><i class="far fa-envelope fa-2x" style="color: saddlebrown;"></i>&nbsp;&nbsp;&nbsp;Correo electrónico: <a href="mailto:violetasgyg@gmail.com?Subject=Consulta%20sobre%20Costa%20del%20Este">violetasgyg@gmail.com</a></li>
                                 <li class="list-group-item"><i class="fab fa-facebook fa-2x" style="color: saddlebrown;"></i>&nbsp;&nbsp;&nbsp;Facebook: <a href="https://www.facebook.com/Eleg%C3%AD-Costa-del-Este-146505772050939/">Elegí Costa del Este</a></li>
                                 <li class="list-group-item"><i class="fas fa-map-signs fa-2x" style="color: saddlebrown;"></i>&nbsp;&nbsp;&nbsp;Direcciones: Geranios y Violestas, Costa del Este, Buenos Aires, Argentina.</li>
